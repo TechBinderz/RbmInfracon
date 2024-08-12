@@ -1,132 +1,188 @@
 // src/components/Header.tsx
-import React, { useState, MouseEvent } from 'react';
+import React, { useState, MouseEvent, useEffect } from 'react';
 import {
   AppBar,
   Toolbar,
-  Typography,
   Button,
   Container,
   Menu,
   MenuItem,
   IconButton,
+  Box,
+  Typography,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import RBMLOGO from '../../assets/RBMLOGO.png';
+import RBMLOGO from '../../assets/header/Rmb_logo_big.png'; // Default logo
+import SCROLLEDLOGO from '../../assets/header/Rmb_logo_small.png'; // Logo when scrolled
 
 const Header: React.FC = () => {
-  const [anchorElAbout, setAnchorElAbout] = useState<null | HTMLElement>(null);
-  const [anchorElBusinesses, setAnchorElBusinesses] = useState<null | HTMLElement>(null);
-  const [anchorElInvestors, setAnchorElInvestors] = useState<null | HTMLElement>(null);
-  const [anchorElCareers, setAnchorElCareers] = useState<null | HTMLElement>(null);
-  const [anchorElNews, setAnchorElNews] = useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [bgColor, setBgColor] = useState('transparent');
+  const [buttonColor, setButtonColor] = useState('inherit'); // Default button color
+  const [logoSrc, setLogoSrc] = useState(RBMLOGO); // Default logo
 
-  const handleAboutClick = (event: MouseEvent<HTMLElement>) => {
-    setAnchorElAbout(event.currentTarget);
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setBgColor('white');
+      setButtonColor('black'); // Change button color to black
+      setLogoSrc(SCROLLEDLOGO); // Change logo when scrolled
+    } else {
+      setBgColor('transparent');
+      setButtonColor('inherit'); // Reset button color
+      setLogoSrc(RBMLOGO); // Reset logo to default
+    }
   };
 
-  const handleBusinessesClick = (event: MouseEvent<HTMLElement>) => {
-    setAnchorElBusinesses(event.currentTarget);
-  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
-  const handleInvestorsClick = (event: MouseEvent<HTMLElement>) => {
-    setAnchorElInvestors(event.currentTarget);
-  };
-
-  const handleCareersClick = (event: MouseEvent<HTMLElement>) => {
-    setAnchorElCareers(event.currentTarget);
-  };
-
-  const handleNewsClick = (event: MouseEvent<HTMLElement>) => {
-    setAnchorElNews(event.currentTarget);
+  const handleMenuClick = (event: MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
-    setAnchorElAbout(null);
-    setAnchorElBusinesses(null);
-    setAnchorElInvestors(null);
-    setAnchorElCareers(null);
-    setAnchorElNews(null);
+    setAnchorEl(null);
   };
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
-      <Container maxWidth="lg">
-        <Toolbar>
-          {/* Logo Link to Home */}
-          <IconButton edge="start" color="inherit" aria-label="logo" sx={{ mr: 4 }}>
-            <Link to="/">
-              <img src={RBMLOGO} alt="Logo" style={{ height: '80px' }} />
-            </Link>
-          </IconButton>
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor: bgColor,
+        transition: "background-color 0.8s ease", // Smooth transition for background color
+        boxShadow: "none",
+      }}
+    >
+      <Container maxWidth="lg" style={{ display: "flex" }}>
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="logo"
+          sx={{ width: "80px", mr: 2, flexGrow: 1 }} // Larger IconButton
+        >
+          <Link to="/">
+            <img
+              src={logoSrc}
+              alt="Logo"
+              style={{ height: "100%", width: "100%" }}
+            />
+          </Link>
+        </IconButton>
+        <div style={{ flexGrow: 3 }}>
+          {/* Top Section (Logo and My Status) */}
+          <Toolbar sx={{ display: "flex", alignItems: "center" }}>
+            <Box sx={{ flexGrow: 1, textAlign: "center" }}>
+              <Typography
+                variant="h6"
+                component="div"
+                style={{ color: buttonColor }}
+              >
+                My Status
+              </Typography>
+              <Box sx={{ borderBottom: "1px solid lightgray", my: 1 }} />
+            </Box>
+          </Toolbar>
 
-          {/* Dropdown Menu for About Us */}
-          <Button color="inherit" onClick={handleAboutClick}>
-            About Us
-          </Button>
-          <Menu
-            anchorEl={anchorElAbout}
-            open={Boolean(anchorElAbout)}
-            onClose={handleClose}
-          >
-            <MenuItem component={Link} to="/about" onClick={handleClose}>Company Info</MenuItem>
-            <MenuItem component={Link} to="/team" onClick={handleClose}>Our Team</MenuItem>
-            <MenuItem component={Link} to="/history" onClick={handleClose}>History</MenuItem>
-          </Menu>
+          {/* Bottom Section (Menu Buttons) */}
+          <Toolbar sx={{ justifyContent: "right" }}>
+            <Button style={{ color: buttonColor }} onClick={handleMenuClick}>
+              About Us
+            </Button>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem component={Link} to="/about" onClick={handleClose}>
+                Company Info
+              </MenuItem>
+              <MenuItem component={Link} to="/team" onClick={handleClose}>
+                Our Team
+              </MenuItem>
+              <MenuItem component={Link} to="/history" onClick={handleClose}>
+                History
+              </MenuItem>
+            </Menu>
 
-          {/* Dropdown Menu for Businesses */}
-          <Button color="inherit" onClick={handleBusinessesClick}>
-            Businesses
-          </Button>
-          <Menu
-            anchorEl={anchorElBusinesses}
-            open={Boolean(anchorElBusinesses)}
-            onClose={handleClose}
-          >
-            <MenuItem component={Link} to="/business1" onClick={handleClose}>Business 1</MenuItem>
-            <MenuItem component={Link} to="/business2" onClick={handleClose}>Business 2</MenuItem>
-            <MenuItem component={Link} to="/business3" onClick={handleClose}>Business 3</MenuItem>
-          </Menu>
+            <Button style={{ color: buttonColor }} onClick={handleMenuClick}>
+              Businesses
+            </Button>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem component={Link} to="/business1" onClick={handleClose}>
+                Business 1
+              </MenuItem>
+              <MenuItem component={Link} to="/business2" onClick={handleClose}>
+                Business 2
+              </MenuItem>
+              <MenuItem component={Link} to="/business3" onClick={handleClose}>
+                Business 3
+              </MenuItem>
+            </Menu>
 
-          {/* Dropdown Menu for Investors */}
-          <Button color="inherit" onClick={handleInvestorsClick}>
-            Investors
-          </Button>
-          <Menu
-            anchorEl={anchorElInvestors}
-            open={Boolean(anchorElInvestors)}
-            onClose={handleClose}
-          >
-            <MenuItem component={Link} to="/investors" onClick={handleClose}>Investor Relations</MenuItem>
-            <MenuItem component={Link} to="/reports" onClick={handleClose}>Reports</MenuItem>
-            <MenuItem component={Link} to="/financials" onClick={handleClose}>Financials</MenuItem>
-          </Menu>
+            <Button style={{ color: buttonColor }} onClick={handleMenuClick}>
+              Investors
+            </Button>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem component={Link} to="/investors" onClick={handleClose}>
+                Investor Relations
+              </MenuItem>
+              <MenuItem component={Link} to="/reports" onClick={handleClose}>
+                Reports
+              </MenuItem>
+              <MenuItem component={Link} to="/financials" onClick={handleClose}>
+                Financials
+              </MenuItem>
+            </Menu>
 
-          {/* Dropdown Menu for Careers */}
-          <Button color="inherit" onClick={handleCareersClick}>
-            Careers
-          </Button>
-          <Menu
-            anchorEl={anchorElCareers}
-            open={Boolean(anchorElCareers)}
-            onClose={handleClose}
-          >
-            <MenuItem component={Link} to="/careers" onClick={handleClose}>Job Openings</MenuItem>
-            <MenuItem component={Link} to="/internships" onClick={handleClose}>Internships</MenuItem>
-          </Menu>
+            <Button style={{ color: buttonColor }} onClick={handleMenuClick}>
+              Careers
+            </Button>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem component={Link} to="/careers" onClick={handleClose}>
+                Job Openings
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                to="/internships"
+                onClick={handleClose}
+              >
+                Internships
+              </MenuItem>
+            </Menu>
 
-          {/* Dropdown Menu for News */}
-          <Button color="inherit" onClick={handleNewsClick}>
-            News
-          </Button>
-          <Menu
-            anchorEl={anchorElNews}
-            open={Boolean(anchorElNews)}
-            onClose={handleClose}
-          >
-            <MenuItem component={Link} to="/news" onClick={handleClose}>Press Releases</MenuItem>
-            <MenuItem component={Link} to="/media-kit" onClick={handleClose}>Media Kit</MenuItem>
-          </Menu>
-        </Toolbar>
+            <Button style={{ color: buttonColor }} onClick={handleMenuClick}>
+              News
+            </Button>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem component={Link} to="/news" onClick={handleClose}>
+                Press Releases
+              </MenuItem>
+              <MenuItem component={Link} to="/media-kit" onClick={handleClose}>
+                Media Kit
+              </MenuItem>
+            </Menu>
+          </Toolbar>
+        </div>
       </Container>
     </AppBar>
   );
