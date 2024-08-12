@@ -20,16 +20,19 @@ const Header: React.FC = () => {
   const [bgColor, setBgColor] = useState('transparent');
   const [buttonColor, setButtonColor] = useState('inherit'); // Default button color
   const [logoSrc, setLogoSrc] = useState(RBMLOGOFULL); // Default logo
+  const [appBarHeight, setAppBarHeight] = useState('110px'); // Default height
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
       setBgColor('white');
       setButtonColor('black'); // Change button color to black
       setLogoSrc(RBMLOGOSMALL); // Change logo when scrolled
+      setAppBarHeight('70px'); // Change height when scrolled
     } else {
       setBgColor('transparent');
       setButtonColor('inherit'); // Reset button color
       setLogoSrc(RBMLOGOFULL); // Reset logo to default
+      setAppBarHeight('110px'); // Reset height to default
     }
   };
 
@@ -53,11 +56,12 @@ const Header: React.FC = () => {
       position="fixed"
       sx={{
         backgroundColor: bgColor,
-        transition: "background-color 0.8s ease", // Smooth transition for background color
+        transition: "background-color 0.6s ease, height 0.6s ease", // Smooth transition for background color and height
+        height: appBarHeight,
         boxShadow: "none",
       }}
     >
-      <Container maxWidth="lg" style={{ display: "flex", height: window.scrollY > 50 ? '70px' : '110px' }}>
+      <Container maxWidth="lg" style={{ display: "flex", height: appBarHeight }}>
         <IconButton
           edge="start"
           color="inherit"
@@ -74,7 +78,7 @@ const Header: React.FC = () => {
         </IconButton>
         <div style={{ flexGrow: 3 }}>
           {/* Top Section (Logo and My Status) */}
-          <Toolbar sx={{ display: window.scrollY > 50 ? 'none' : "flex", alignItems: "center" }}>
+          <Toolbar sx={{ display: appBarHeight === '70px' ? 'none' : "flex", alignItems: "center" }}>
             <Box sx={{ flexGrow: 1, textAlign: "center" }}>
               <Typography
                 variant="h6"
