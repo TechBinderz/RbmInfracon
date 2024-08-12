@@ -12,24 +12,24 @@ import {
   Typography,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import RBMLOGO from '../../assets/header/Rmb_logo_big.png'; // Default logo
-import SCROLLEDLOGO from '../../assets/header/Rmb_logo_small.png'; // Logo when scrolled
+import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
+import RBMLOGOSMALL from '../../assets/header/Rmb_logo_small.png'; // Logo when scrolled
 
 const Header: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [bgColor, setBgColor] = useState('transparent');
   const [buttonColor, setButtonColor] = useState('inherit'); // Default button color
-  const [logoSrc, setLogoSrc] = useState(RBMLOGO); // Default logo
+  const [logoSrc, setLogoSrc] = useState(RBMLOGOFULL); // Default logo
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
       setBgColor('white');
       setButtonColor('black'); // Change button color to black
-      setLogoSrc(SCROLLEDLOGO); // Change logo when scrolled
+      setLogoSrc(RBMLOGOSMALL); // Change logo when scrolled
     } else {
       setBgColor('transparent');
       setButtonColor('inherit'); // Reset button color
-      setLogoSrc(RBMLOGO); // Reset logo to default
+      setLogoSrc(RBMLOGOFULL); // Reset logo to default
     }
   };
 
@@ -57,7 +57,7 @@ const Header: React.FC = () => {
         boxShadow: "none",
       }}
     >
-      <Container maxWidth="lg" style={{ display: "flex" }}>
+      <Container maxWidth="lg" style={{ display: "flex", height: window.scrollY > 50 ? '70px' : '110px' }}>
         <IconButton
           edge="start"
           color="inherit"
@@ -74,7 +74,7 @@ const Header: React.FC = () => {
         </IconButton>
         <div style={{ flexGrow: 3 }}>
           {/* Top Section (Logo and My Status) */}
-          <Toolbar sx={{ display: "flex", alignItems: "center" }}>
+          <Toolbar sx={{ display: window.scrollY > 50 ? 'none' : "flex", alignItems: "center" }}>
             <Box sx={{ flexGrow: 1, textAlign: "center" }}>
               <Typography
                 variant="h6"

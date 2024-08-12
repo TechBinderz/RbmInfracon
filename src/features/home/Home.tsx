@@ -7,7 +7,7 @@ const Home: React.FC = () => {
     <>
       <div
         style={{
-          backgroundImage: `url(${backgroundImage})`, // Use url() to set the image
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent), url(${backgroundImage})`, // Gradient overlay from top
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "100vh", // Full height
@@ -19,14 +19,14 @@ const Home: React.FC = () => {
           position: "relative",
         }}
       >
-        <div style={{ paddingTop: "80px" }}>
+        <div style={{ paddingTop: "80px", textAlign: "center" }}>
           <h1>Welcome to My Website</h1>
           <p>Your engaging subtitle or description goes here.</p>
         </div>
       </div>
       <div
         style={{
-          backgroundImage: `url(${backgroundImage})`, // Use url() to set the image
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent), url(${backgroundImage})`, // Gradient overlay from top
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "80vh", // Full height
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
           position: "relative",
         }}
       >
-        <div style={{ paddingTop: "80px" }}>
+        <div style={{ paddingTop: "80px", textAlign: "center" }}>
           <h1>Welcome to My Website</h1>
           <p>Your engaging subtitle or description goes here.</p>
         </div>
