@@ -45,7 +45,6 @@ const Header: React.FC = () => {
           edge="start"
           color="inherit"
           aria-label="logo"
-          sx={{ width: '80px', mr: 2, flexGrow: 1 }}
           component={Link}
           to="/"
         >
@@ -53,7 +52,7 @@ const Header: React.FC = () => {
             src={isScrolled ? RBMLOGOSMALL : RBMLOGOFULL}
             alt="Logo"
             style={{
-              height: isScrolled ? '60px' : '100%', // Set a fixed height for the small logo
+              height: isScrolled ? '60px' : '100px', // Set a fixed height for the small logo
               width: 'auto', // Maintain aspect ratio
               maxWidth: isScrolled ? 'auto' : '100%', // Allow the large logo to scale
             }}
