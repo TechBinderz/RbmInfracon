@@ -17,7 +17,8 @@ import RBMLOGOSMALL from '../../assets/header/Rmb_logo_small.png'; // Logo when 
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [stockData, setStockData] = useState({currentPrice : 0, priceChange : 0});
+  const [stockData, setStockData] = useState({ currentPrice: 0, priceChange: 0 });
+  const [isMounted, setIsMounted] = useState(false); // New state for initial load
 
   const getStockPrice = async () => {
     try {
@@ -34,36 +35,36 @@ const Header: React.FC = () => {
       setStockData(data);
     } catch (error) {
       console.log(error);
-      setStockData({currentPrice: 0, priceChange : 0});
+      setStockData({ currentPrice: 0, priceChange: 0 });
     }
   };
 
   const StockPriceDisplay = ({ stockData }) => {
     const { currentPrice, priceChange } = stockData;
-  
+
     if (currentPrice === 0) return null;
-  
+
     return (
       <div style={{ textAlign: 'left' }}>
-      {priceChange >= 0 && (
-        <span>
-          <ArrowUpwardIcon fontSize="small" style={{ color: 'green' }} />
-          ₹{currentPrice.toFixed(2)}{' '}
-          <span style={{ fontSize: '0.8em', fontFamily: 'Arial, sans-serif' }}>
-            ({priceChange}%)
+        {priceChange >= 0 && (
+          <span>
+            <ArrowUpwardIcon fontSize="small" style={{ color: 'green' }} />
+            ₹{currentPrice.toFixed(2)}{' '}
+            <span style={{ fontSize: '0.8em', fontFamily: 'Arial, sans-serif' }}>
+              ({priceChange}%)
+            </span>
           </span>
-        </span>
-      )}
-      {priceChange < 0 && (
-        <span>
-          <ArrowDownwardIcon fontSize="small" style={{ color: 'red' }} />
-          ₹{currentPrice.toFixed(2)}{' '}
-          <span style={{ fontSize: '0.8em', fontFamily: 'Arial, sans-serif' }}>
-            ({Math.abs(priceChange)}%)
+        )}
+        {priceChange < 0 && (
+          <span>
+            <ArrowDownwardIcon fontSize="small" style={{ color: 'red' }} />
+            ₹{currentPrice.toFixed(2)}{' '}
+            <span style={{ fontSize: '0.8em', fontFamily: 'Arial, sans-serif' }}>
+              ({Math.abs(priceChange)}%)
+            </span>
           </span>
-        </span>
-      )}
-    </div>
+        )}
+      </div>
     );
   };
 
@@ -74,6 +75,10 @@ const Header: React.FC = () => {
   useEffect(() => {
     getStockPrice();
     window.addEventListener('scroll', handleScroll);
+    
+    // Trigger the transition on mount
+    setIsMounted(true);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -84,10 +89,12 @@ const Header: React.FC = () => {
       position="fixed"
       sx={{
         backgroundColor: isScrolled ? 'white' : 'transparent',
-        transition: 'background-color 0.6s ease, height 0.6s ease',
+        transition: 'background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease',
         height: isScrolled ? '70px' : '110px',
         boxShadow: 'none',
-        paddingTop: isScrolled ? '0px' : '15px'
+        paddingTop: isScrolled ? '0px' : '15px',
+        opacity: isMounted ? 1 : 0, // Use state to control opacity
+        transform: isMounted ? 'translateY(0)' : 'translateY(-20px)', // Use state to control transform
       }}
     >
       <Container
@@ -120,7 +127,7 @@ const Header: React.FC = () => {
                   component="div"
                   sx={{ color: 'inherit' }}
                 >
-                  <StockPriceDisplay stockData={stockData}/>
+                  <StockPriceDisplay stockData={stockData} />
                 </Typography>
                 <Box sx={{ borderBottom: '1px solid lightgray', my: 1 }} />
               </Box>
