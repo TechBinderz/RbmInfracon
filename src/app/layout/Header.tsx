@@ -45,21 +45,31 @@ const Header: React.FC = () => {
     if (currentPrice === 0) return null;
 
     return (
-      <div style={{ textAlign: 'left' }}>
+      <div style={{ textAlign: "left" }}>
         {priceChange >= 0 && (
-          <span>
-            <ArrowUpwardIcon fontSize="small" style={{ color: 'green' }} />
-            ₹{currentPrice.toFixed(2)}{' '}
-            <span style={{ fontSize: '0.8em', fontFamily: 'Arial, sans-serif' }}>
+          <span style={{ fontSize: "0.8em" }}>
+            <ArrowUpwardIcon
+              fontSize="small"
+              style={{ color: "green", verticalAlign: "middle" }}
+            />
+            ₹{currentPrice.toFixed(2)}{" "}
+            <span
+              style={{ fontSize: "0.8em", fontFamily: "Arial, sans-serif" }}
+            >
               ({priceChange}%)
             </span>
           </span>
         )}
         {priceChange < 0 && (
-          <span>
-            <ArrowDownwardIcon fontSize="small" style={{ color: 'red' }} />
-            ₹{currentPrice.toFixed(2)}{' '}
-            <span style={{ fontSize: '0.8em', fontFamily: 'Arial, sans-serif' }}>
+          <span style={{ fontSize: "0.8em" }}>
+            <ArrowDownwardIcon
+              fontSize="small"
+              style={{ color: "red", verticalAlign: "middle" }}
+            />
+            ₹{currentPrice.toFixed(2)}{" "}
+            <span
+              style={{ fontSize: "0.8em", fontFamily: "Arial, sans-serif" }}
+            >
               ({Math.abs(priceChange)}%)
             </span>
           </span>
