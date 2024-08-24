@@ -48,6 +48,7 @@ const Header: React.FC = () => {
       <div style={{ textAlign: "left" }}>
         {priceChange >= 0 && (
           <span style={{ fontSize: "0.8em" }}>
+            NSE&nbsp;
             <ArrowUpwardIcon
               fontSize="small"
               style={{ color: "green", verticalAlign: "middle" }}
@@ -56,12 +57,13 @@ const Header: React.FC = () => {
             <span
               style={{ fontSize: "0.8em", fontFamily: "Arial, sans-serif" }}
             >
-              ({priceChange}%)
+              ({priceChange.toFixed(2)}%)
             </span>
           </span>
         )}
         {priceChange < 0 && (
           <span style={{ fontSize: "0.8em" }}>
+            NSE&nbsp;
             <ArrowDownwardIcon
               fontSize="small"
               style={{ color: "red", verticalAlign: "middle" }}
@@ -70,7 +72,7 @@ const Header: React.FC = () => {
             <span
               style={{ fontSize: "0.8em", fontFamily: "Arial, sans-serif" }}
             >
-              ({Math.abs(priceChange)}%)
+              ({Math.abs(priceChange.toFixed(2))}%)
             </span>
           </span>
         )}
