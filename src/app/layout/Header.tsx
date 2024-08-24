@@ -10,17 +10,69 @@ import {
   Typography,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
 import RBMLOGOSMALL from '../../assets/header/Rmb_logo_small.png'; // Logo when scrolled
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [stockData, setStockData] = useState({currentPrice : 0, priceChange : 0});
+
+  const getStockPrice = async () => {
+    try {
+      const url = "https://nseapi1.techbinderz.workers.dev/api/rbmstock";
+      const options = {
+        method: "GET",
+      };
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(data);
+      setStockData(data);
+    } catch (error) {
+      console.log(error);
+      setStockData({currentPrice: 0, priceChange : 0});
+    }
+  };
+
+  const StockPriceDisplay = ({ stockData }) => {
+    const { currentPrice, priceChange } = stockData;
+  
+    if (currentPrice === 0) return null;
+  
+    return (
+      <div style={{ textAlign: 'left' }}>
+      {priceChange >= 0 && (
+        <span>
+          <ArrowUpwardIcon fontSize="small" style={{ color: 'green' }} />
+          ₹{currentPrice.toFixed(2)}{' '}
+          <span style={{ fontSize: '0.8em', fontFamily: 'Arial, sans-serif' }}>
+            ({priceChange}%)
+          </span>
+        </span>
+      )}
+      {priceChange < 0 && (
+        <span>
+          <ArrowDownwardIcon fontSize="small" style={{ color: 'red' }} />
+          ₹{currentPrice.toFixed(2)}{' '}
+          <span style={{ fontSize: '0.8em', fontFamily: 'Arial, sans-serif' }}>
+            ({Math.abs(priceChange)}%)
+          </span>
+        </span>
+      )}
+    </div>
+    );
+  };
 
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 50);
   };
 
   useEffect(() => {
+    getStockPrice();
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -35,6 +87,7 @@ const Header: React.FC = () => {
         transition: 'background-color 0.6s ease, height 0.6s ease',
         height: isScrolled ? '70px' : '110px',
         boxShadow: 'none',
+        paddingTop: isScrolled ? '0px' : '15px'
       }}
     >
       <Container
@@ -67,7 +120,7 @@ const Header: React.FC = () => {
                   component="div"
                   sx={{ color: 'inherit' }}
                 >
-                  My Status
+                  <StockPriceDisplay stockData={stockData}/>
                 </Typography>
                 <Box sx={{ borderBottom: '1px solid lightgray', my: 1 }} />
               </Box>
