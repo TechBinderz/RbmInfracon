@@ -74,51 +74,47 @@ const TextImageCarousel: React.FC = () => {
           {items[activeStep].text}
         </Typography>
 
-        {activeStep > 0 && (
-          <IconButton
-            onClick={() => {
-              handleBack();
-              stopAutoSlide();
-            }}
-            sx={{
-              position: 'absolute',
-              left: 0,
-              top: '50%',
-              transform: 'translateY(-50%)',
-              color: 'white',
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-              '&:hover': {
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              },
-            }}
-            aria-label="Previous Slide"
-          >
-            <KeyboardArrowLeft />
-          </IconButton>
-        )}
+        <IconButton
+          onClick={() => {
+            handleBack();
+            stopAutoSlide();
+          }}
+          sx={{
+            position: 'absolute',
+            left: 0,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            color: 'white',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            '&:hover': {
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            },
+          }}
+          aria-label="Previous Slide"
+        >
+          <KeyboardArrowLeft />
+        </IconButton>
 
-        {activeStep < maxSteps - 1 && (
-          <IconButton
-            onClick={() => {
-              handleNext();
-              stopAutoSlide();
-            }}
-            sx={{
-              position: 'absolute',
-              right: 0,
-              top: '50%',
-              transform: 'translateY(-50%)',
-              color: 'white',
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-              '&:hover': {
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              },
-            }}
-            aria-label="Next Slide"
-          >
-            <KeyboardArrowRight />
-          </IconButton>
-        )}
+        <IconButton
+          onClick={() => {
+            handleNext();
+            stopAutoSlide();
+          }}
+          sx={{
+            position: 'absolute',
+            right: 0,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            color: 'white',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            '&:hover': {
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            },
+          }}
+          aria-label="Next Slide"
+        >
+          <KeyboardArrowRight />
+        </IconButton>
 
         <Box sx={{ position: 'absolute', bottom: 16, display: 'flex', justifyContent: 'center', width: '100%' }}>
           {items.map((_, index) => (
