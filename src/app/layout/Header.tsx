@@ -12,25 +12,36 @@ import {
 import { Link } from 'react-router-dom';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
 import RBMLOGOSMALL from '../../assets/header/Rmb_logo_small.png'; // Logo when scrolled
 
+// Define types for stock data
+interface StockData {
+  currentPrice: number;
+  priceChange: number;
+}
+
+// Define props for DropdownMenu
+interface DropdownMenuProps {
+  buttonText: React.ReactNode;
+  buttonColor: string;
+  links: { to: string; text: string }[];
+}
+
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [stockData, setStockData] = useState({ currentPrice: 0, priceChange: 0 });
-  const [isMounted, setIsMounted] = useState(false); // New state for initial load
+  const [stockData, setStockData] = useState<StockData>({ currentPrice: 0, priceChange: 0 });
+  const [isMounted, setIsMounted] = useState(false);
 
   const getStockPrice = async () => {
     try {
       const url = "https://nseapi1.techbinderz.workers.dev/api/rbmstock";
-      const options = {
-        method: "GET",
-      };
-      const response = await fetch(url, options);
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      const data = await response.json();
+      const data: StockData = await response.json();
       console.log(data);
       setStockData(data);
     } catch (error) {
@@ -39,7 +50,7 @@ const Header: React.FC = () => {
     }
   };
 
-  const StockPriceDisplay = ({ stockData }) => {
+  const StockPriceDisplay: React.FC<{ stockData: StockData }> = ({ stockData }) => {
     const { currentPrice, priceChange } = stockData;
 
     if (currentPrice === 0) return null;
@@ -72,7 +83,7 @@ const Header: React.FC = () => {
             <span
               style={{ fontSize: "0.8em", fontFamily: "Arial, sans-serif" }}
             >
-              ({Math.abs(priceChange.toFixed(2))}%)
+              ({Math.abs(priceChange).toFixed(2)}%)
             </span>
           </span>
         )}
@@ -100,19 +111,17 @@ const Header: React.FC = () => {
     <AppBar
       position="fixed"
       sx={{
-        backgroundColor: isScrolled ? 'white' : 'transparent',
-        transition: 'background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease',
-        height: isScrolled ? '70px' : '110px',
-        boxShadow: 'none',
-        paddingTop: isScrolled ? '0px' : '15px',
-        opacity: isMounted ? 1 : 0, // Use state to control opacity
-        transform: isMounted ? 'translateY(0)' : 'translateY(-20px)', // Use state to control transform
+        backgroundColor: isScrolled ? "white" : "transparent",
+        transition:
+          "background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease",
+        height: isScrolled ? "70px" : "110px",
+        boxShadow: "none",
+        paddingTop: isScrolled ? "0px" : "15px",
+        opacity: isMounted ? 1 : 0,
+        transform: isMounted ? "translateY(0)" : "translateY(-20px)",
       }}
     >
-      <Container
-        maxWidth="lg"
-        sx={{ display: 'flex', height: '100%' }}
-      >
+      <Container maxWidth="lg" sx={{ display: "flex", height: "100%" }}>
         <IconButton
           edge="start"
           color="inherit"
@@ -124,52 +133,97 @@ const Header: React.FC = () => {
             src={isScrolled ? RBMLOGOSMALL : RBMLOGOFULL}
             alt="Logo"
             style={{
-              height: isScrolled ? '60px' : '100px', // Set a fixed height for the small logo
-              width: 'auto', // Maintain aspect ratio
-              maxWidth: isScrolled ? 'auto' : '100%', // Allow the large logo to scale
+              height: isScrolled ? "60px" : "100px", 
+              width: "auto", 
+              maxWidth: isScrolled ? "auto" : "100%", 
             }}
           />
         </IconButton>
         <Box sx={{ flexGrow: 3 }}>
           {!isScrolled && (
-            <Toolbar sx={{ alignItems: 'center' }}>
-              <Box sx={{ flexGrow: 1, textAlign: 'center' }}>
+            <Toolbar sx={{ alignItems: "center" }}>
+              <Box sx={{ flexGrow: 1, textAlign: "center" }}>
                 <Typography
                   variant="h6"
                   component="div"
-                  sx={{ color: 'inherit' }}
+                  sx={{ color: "inherit" }}
                 >
                   <StockPriceDisplay stockData={stockData} />
                 </Typography>
-                <Box sx={{ borderBottom: '1px solid lightgray', my: 1 }} />
+                <Box sx={{ borderBottom: "1px solid lightgray", my: 1 }} />
               </Box>
             </Toolbar>
           )}
-          <Toolbar sx={{ justifyContent: 'right' }}>
-            <DropdownMenu buttonText="About Us" buttonColor={isScrolled ? 'black' : 'inherit'} links={[
-              { to: '/about', text: 'Company Info' },
-              { to: '/team', text: 'Our Team' },
-              { to: '/history', text: 'History' },
-            ]} />
-            <DropdownMenu buttonText="Businesses" buttonColor={isScrolled ? 'black' : 'inherit'} links={[
-              { to: '/business1', text: 'Company Info' },
-              { to: '/business2', text: 'Our Team' },
-              { to: '/business3', text: 'History' },
-            ]} />
-            <DropdownMenu buttonText="Investors" buttonColor={isScrolled ? 'black' : 'inherit'} links={[
-              { to: '/investors', text: 'Investor Relations' },
-              { to: '/reports', text: 'Reports' },
-              { to: '/financials', text: 'Financials' },
-            ]} />
-            <DropdownMenu buttonText="Careers" buttonColor={isScrolled ? 'black' : 'inherit'} links={[
-              { to: '/careers', text: 'Job Openings' },
-              { to: '/internships', text: 'Internships' },
-              { to: '/financials', text: 'Financials' },
-            ]} />
-            <DropdownMenu buttonText="News" buttonColor={isScrolled ? 'black' : 'inherit'} links={[
-              { to: '/news', text: 'Press Releases' },
-              { to: '/media-kit', text: 'Media Kit' },
-            ]} />
+          <Toolbar sx={{ justifyContent: "right" }}>
+            <DropdownMenu
+              buttonText={
+                <>
+                  <span>About Us</span>
+                  <ArrowDropDownIcon />
+                </>
+              }
+              buttonColor={isScrolled ? "black" : "inherit"}
+              links={[
+                { to: "/about", text: "Company Info" },
+                { to: "/team", text: "Our Team" },
+                { to: "/history", text: "History" },
+              ]}
+            />
+            <DropdownMenu
+              buttonText={
+                <>
+                  <span>Businesses</span>
+                  <ArrowDropDownIcon />
+                </>
+              }
+              buttonColor={isScrolled ? "black" : "inherit"}
+              links={[
+                { to: "/business1", text: "Company Info" },
+                { to: "/business2", text: "Our Team" },
+                { to: "/business3", text: "History" },
+              ]}
+            />
+            <DropdownMenu
+              buttonText={
+                <>
+                  <span>Investors</span>
+                  <ArrowDropDownIcon />
+                </>
+              }
+              buttonColor={isScrolled ? "black" : "inherit"}
+              links={[
+                { to: "/investors", text: "Investor Relations" },
+                { to: "/reports", text: "Reports" },
+                { to: "/financials", text: "Financials" },
+              ]}
+            />
+            <DropdownMenu
+              buttonText={
+                <>
+                  <span>Careers</span>
+                  <ArrowDropDownIcon />
+                </>
+              }
+              buttonColor={isScrolled ? "black" : "inherit"}
+              links={[
+                { to: "/careers", text: "Job Openings" },
+                { to: "/internships", text: "Internships" },
+                { to: "/financials", text: "Financials" },
+              ]}
+            />
+            <DropdownMenu
+              buttonText={
+                <>
+                  <span>News</span>
+                  <ArrowDropDownIcon />
+                </>
+              }
+              buttonColor={isScrolled ? "black" : "inherit"}
+              links={[
+                { to: "/news", text: "Press Releases" },
+                { to: "/media-kit", text: "Media Kit" },
+              ]}
+            />
           </Toolbar>
         </Box>
       </Container>
@@ -177,11 +231,7 @@ const Header: React.FC = () => {
   );
 };
 
-const DropdownMenu: React.FC<{
-  buttonText: string;
-  buttonColor: string;
-  links: { to: string; text: string }[];
-}> = ({ buttonText, buttonColor, links }) => (
+const DropdownMenu: React.FC<DropdownMenuProps> = ({ buttonText, buttonColor, links }) => (
   <Box className="dropdown">
     <Button
       className="dropbtn"
