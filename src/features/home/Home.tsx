@@ -1,6 +1,7 @@
 // src/components/Home.tsx
 import React from 'react';
 import backgroundImage from '../../assets/rbmImage1.png'; // Adjust the path as necessary
+import TextImageCarousel from './TextImageCarousal';
 
 const Home: React.FC = () => {
   return (
@@ -23,6 +24,9 @@ const Home: React.FC = () => {
           <h1>Welcome to My Website</h1>
           <p>Your engaging subtitle or description goes here.</p>
         </div>
+      </div>
+      <div>
+        <TextImageCarousel />
       </div>
       <div
         style={{
