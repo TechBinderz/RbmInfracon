@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 
@@ -25,7 +25,11 @@ const items: Item[] = [
 const TextImageCarousel: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [autoSlide, setAutoSlide] = useState<boolean>(true);
+  const [touchStartX, setTouchStartX] = useState<number>(0);
+  const [touchEndX, setTouchEndX] = useState<number>(0);
+
   const maxSteps = items.length;
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const handleNext = useCallback(() => {
     setActiveStep((prevActiveStep) => (prevActiveStep + 1) % maxSteps);
@@ -43,6 +47,24 @@ const TextImageCarousel: React.FC = () => {
     setAutoSlide(false);
   }, []);
 
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    setTouchStartX(event.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEndX(event.changedTouches[0].clientX);
+    const touchDiff = touchStartX - touchEndX;
+
+    if (Math.abs(touchDiff) > 50) { // Minimum swipe distance
+      if (touchDiff > 0) {
+        handleNext();
+      } else {
+        handleBack();
+      }
+      stopAutoSlide();
+    }
+  };
+
   useEffect(() => {
     if (autoSlide) {
       const interval = setInterval(() => {
@@ -54,7 +76,12 @@ const TextImageCarousel: React.FC = () => {
   }, [autoSlide, handleNext]);
 
   return (
-    <Box sx={{ width: '100%', flexGrow: 1, position: 'relative' }}>
+    <Box
+      ref={containerRef}
+      sx={{ width: '100%', flexGrow: 1, position: 'relative' }}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <Box
         sx={{
           width: '100%',
