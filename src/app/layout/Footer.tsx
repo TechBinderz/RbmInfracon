@@ -1,5 +1,8 @@
 import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
 import { Grid, Typography, Link, Container, Box } from "@mui/material";
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
+import LocationOnIcon from '@mui/icons-material/LocationOn'; // Import LocationOn icon
 
 const Footer = () => {
   return (
@@ -34,7 +37,7 @@ const Footer = () => {
             </Typography>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
-                <Link href="/about" color="inherit" variant="body2">
+                <Link href="/aboutus" color="inherit" variant="body2">
                   About Us
                 </Link>
               </li>
@@ -56,11 +59,22 @@ const Footer = () => {
             <Typography variant="h6" gutterBottom>
               Office Location
             </Typography>
-            <Typography variant="body2">
-              123 Tech Street <br />
-              Silicon Valley, CA <br />
-              USA
-            </Typography>
+            <Box display="flex" alignItems="center" marginBottom={1}>
+              <LocationOnIcon style={{ marginRight: 8 }} />
+              <Typography variant="body2">
+                Office No.-03, Snehdeep Residency, <br />
+                Near Digjam Circle, Airforce Road, <br />
+                Jamnagar – 361 006 (Gujarat) INDIA.
+              </Typography>
+            </Box>
+            <Box display="flex" alignItems="center" marginTop={1}>
+              <EmailIcon style={{ marginRight: 8 }} />
+              <a href="mailto:info@rbminfracon.com">info@rbminfracon.com</a>
+            </Box>
+            <Box display="flex" alignItems="center" marginTop={1}>
+              <PhoneIcon style={{ marginRight: 8 }} />
+              +91 0288 2710463
+            </Box>
           </Grid>
         </Grid>
       </Container>
