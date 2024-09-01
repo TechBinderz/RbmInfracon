@@ -2,7 +2,7 @@ import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
 import { Grid, Typography, Link, Container, Box } from "@mui/material";
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
-import LocationOnIcon from '@mui/icons-material/LocationOn'; // Import LocationOn icon
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const Footer = () => {
   return (
@@ -13,9 +13,9 @@ const Footer = () => {
           <Grid item xs={12} sm={4}>
             <Box display="flex" alignItems="center">
               <img
-                src={RBMLOGOFULL} // Replace with the path to your logo
+                src={RBMLOGOFULL}
                 alt="TechBinderz Logo"
-                style={{ height: 90 }}  // Adjust height as needed
+                style={{ height: 90 }}
               />
             </Box>
             <Typography
@@ -77,6 +77,31 @@ const Footer = () => {
             </Box>
           </Grid>
         </Grid>
+
+        {/* Divider and Copyright Section */}
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          marginTop={4}
+          style={{ width: '100%' }}
+        >
+          <Box
+            style={{
+              margin: '8px 0',
+              width: '100%', // Extends the line across the full width
+              height: '1px', // Thinner line for a subtle effect
+              backgroundColor: '#4a4a4a',
+            }}
+          />
+          <Typography
+            variant="body2"
+            style={{ fontSize: '16px', fontWeight: 'bold', textAlign: 'center' }}
+          >
+            © Copyright 2022 All Rights Reserved | Privacy Policy | SEO & Website
+            Design by SEO Web Logistics
+          </Typography>
+        </Box>
       </Container>
     </footer>
   );
