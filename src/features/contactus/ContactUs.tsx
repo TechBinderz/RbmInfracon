@@ -19,7 +19,7 @@ import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
 // Define the functional component with TypeScript
 const ContactUs: React.FC = () => {
   return (
-    <Container maxWidth="lg" sx={{ padding: "40px 0" }}>
+    <Container maxWidth="lg" sx={{ padding: "40px 0px" }}>
       <Grid container spacing={4}>
         {/* Contact Form Section */}
         <Grid item xs={12} md={6}>
@@ -148,12 +148,12 @@ const ContactUs: React.FC = () => {
 
       {/* Business Cards Section */}
       <Grid container spacing={4} sx={{ marginTop: "40px" }}>
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{padding: '0px 40px'}}>
           <Typography variant="h4" gutterBottom >
             Our Management Team
           </Typography>
         </Grid>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} style={{paddingLeft: '40px'}}>
           {/* Existing Cards */}
           <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
