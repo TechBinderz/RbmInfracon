@@ -82,7 +82,7 @@ const Footer = () => {
               <Button
                 variant="contained"
                 style={{
-                  backgroundColor: "#88c057",
+                  backgroundColor: "#39ac4b",
                   color: "#fff",
                   marginTop: "10px",
                 }}
@@ -97,7 +97,7 @@ const Footer = () => {
             <Button
               variant="contained"
               style={{
-                backgroundColor: "#88c057",
+                backgroundColor: "#39ac4b",
                 color: "#fff",
                 marginBottom: "10px",
                 width: "100%",
@@ -108,7 +108,7 @@ const Footer = () => {
             <Button
               variant="contained"
               style={{
-                backgroundColor: "#88c057",
+                backgroundColor: "#39ac4b",
                 color: "#fff",
                 marginBottom: "10px",
                 width: "100%",
