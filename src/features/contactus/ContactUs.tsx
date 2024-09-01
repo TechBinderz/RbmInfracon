@@ -15,11 +15,10 @@ import {
 import { Email as EmailIcon, Phone as PhoneIcon } from "@mui/icons-material";
 import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
 
-
 // Define the functional component with TypeScript
 const ContactUs: React.FC = () => {
   return (
-    <Container maxWidth="lg" sx={{ padding: "40px 0px" }}>
+    <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px 0px" } }}>
       <Grid container spacing={4}>
         {/* Contact Form Section */}
         <Grid item xs={12} md={6}>
@@ -121,10 +120,10 @@ const ContactUs: React.FC = () => {
             src={RBMLOGOFULL} // Replace with the actual photo URL
             alt="RBM Infracon"
             sx={{
-              width: '30%',
-              height: 'auto',
-              marginBottom: '16px',
-              borderRadius: '8px',
+              width: { xs: "50%", sm: "40%", md: "30%" },
+              height: "auto",
+              marginBottom: "16px",
+              borderRadius: "8px",
               boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
             }}
           />
@@ -138,8 +137,8 @@ const ContactUs: React.FC = () => {
           {/* Google Map Embed */}
           <Box
             component="iframe"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.1393032999997!2d70.0577323150573!3d22.4707019852411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3957e7b5b5b5b5b5%3A0x5b5b5b5b5b5b5b5!2sRBM%20INFRACON%20PVT.%20LTD.!5e0!3m2!1sen!2sin!4v1602290189336!5m2!1sen!2sin"
-            sx={{ border: 0, width: "100%", height: "300px" }}
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3686.83449329288!2d70.015849!3d22.472853!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395715df42713d45%3A0xaf92b8afb778e883!2sRBM%20INFRACON%20PVT.%20LTD!5e0!3m2!1sen!2sin!4v1725184351371!5m2!1sen!2sin"
+            sx={{ border: 0, width: "100%", height: { xs: "200px", sm: "300px" } }}
             allowFullScreen
             loading="lazy"
           />
@@ -148,175 +147,98 @@ const ContactUs: React.FC = () => {
 
       {/* Business Cards Section */}
       <Grid container spacing={4} sx={{ marginTop: "40px" }}>
-        <Grid item xs={12} style={{padding: '0px 40px'}}>
-          <Typography variant="h4" gutterBottom >
+        <Grid item xs={12} sx={{ padding: { xs: '0px 20px', sm: '0px 40px' }, marginLeft:'0px;' }}>
+          <Typography variant="h4" gutterBottom> 
             Our Management Team
           </Typography>
         </Grid>
-        <Grid container spacing={4} style={{paddingLeft: '40px'}}>
-          {/* Existing Cards */}
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-              <CardContent sx={{ flex: 1 }}>
-                <Typography variant="h6">Managing Director</Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  Mr. J.B. Mani
-                </Typography>
-                <Typography variant="body2">
-                  <EmailIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  md@rbminfracon.com
-                </Typography>
-                <Typography variant="body2">
-                  <EmailIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  jbmani6212@gmail.com
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-              <CardContent sx={{ flex: 1 }}>
-                <Typography variant="h6">Project Head</Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  Mr. Ranjay Kumar Roy
-                </Typography>
-                <Typography variant="body2">
-                  <EmailIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  ranjankumar@rbminfracon.com
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-              <CardContent sx={{ flex: 1 }}>
-                <Typography variant="h6">HR & Admin-Central</Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  Mr. Santosh Gauda
-                </Typography>
-                <Typography variant="body2">
-                  <EmailIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  hr@rbminfracon.com
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-              <CardContent sx={{ flex: 1 }}>
-                <Typography variant="h6">Account & Finance-Central</Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  Mr. Pankaj Kumar Sinha
-                </Typography>
-                <Typography variant="body2">
-                  <EmailIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  cfo@rbminfracon.com
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-              <CardContent sx={{ flex: 1 }}>
-                <Typography variant="h6">
-                  Project Coordinator/Manager - Planning
-                </Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  Mr. Aditya Mani
-                </Typography>
-                <Typography variant="body2">
-                  <EmailIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  planning@rbminfracon.com
-                </Typography>
-                <Typography variant="body2">
-                  <PhoneIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  +91-96625494820
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-              <CardContent sx={{ flex: 1 }}>
-                <Typography variant="h6">Site Manager - RIL_IDC_Nagpur</Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  Mr. Raju Mani Tripathi
-                </Typography>
-                <Typography variant="body2">
-                  <EmailIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  rajeevrbminfracon@gmail.com
-                </Typography>
-                <Typography variant="body2">
-                  <PhoneIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  +91-8511139662
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-              <CardContent sx={{ flex: 1 }}>
-                <Typography variant="h6">Site Manager - L&T_IOCL_Paradeep</Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  Mr. Shriniwash Tripathi
-                </Typography>
-                <Typography variant="body2">
-                  <PhoneIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  Mob: 9712397606 / 7990109213
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-              <CardContent sx={{ flex: 1 }}>
-                <Typography variant="h6">Site Manager - Yara Fertilizer_Babralla</Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  P. Subhash Kartha
-                </Typography>
-                <Typography variant="body2">
-                  <EmailIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  rbmbabrala@gmail.com
-                </Typography>
-                <Typography variant="body2">
-                  <PhoneIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  +91-7017599964, 09904018311
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-              <CardContent sx={{ flex: 1 }}>
-                <Typography variant="h6">Site Manager - RIL_Jamnagar</Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  Mr. Shriniwash Mishra
-                </Typography>
-                <Typography variant="body2">
-                  <EmailIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  shriniwashrbm@gmail.com
-                </Typography>
-                <Typography variant="body2">
-                  <PhoneIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  +91-9825032634
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-              <CardContent sx={{ flex: 1 }}>
-                <Typography variant="h6">Site Manager - Nayara_Jamnagar</Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  Mr. Ramniwas Mishra
-                </Typography>
-                <Typography variant="body2">
-                  <EmailIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
-                  mishraramniwashrbm@gmail.com
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+        <Grid container spacing={4} >
+          {/* Management Team Cards */}
+          {[
+            {
+              title: "Managing Director",
+              name: "Mr. J.B. Mani",
+              emails: ["md@rbminfracon.com", "jbmani6212@gmail.com"],
+            },
+            {
+              title: "Project Head",
+              name: "Mr. Ranjay Kumar Roy",
+              emails: ["ranjankumar@rbminfracon.com"],
+            },
+            {
+              title: "HR & Admin-Central",
+              name: "Mr. Santosh Gauda",
+              emails: ["hr@rbminfracon.com"],
+            },
+            {
+              title: "Account & Finance-Central",
+              name: "Mr. Pankaj Kumar Sinha",
+              emails: ["cfo@rbminfracon.com"],
+            },
+            {
+              title: "Project Coordinator/Manager - Planning",
+              name: "Mr. Aditya Mani",
+              emails: ["planning@rbminfracon.com"],
+              phone: "+91-96625494820",
+            },
+            {
+              title: "Project Coordinator/Manager - Execution",
+              name: "Mr. Kunal Soni",
+              emails: ["execution@rbminfracon.com"],
+              phone: "+91-96625494820",
+            },
+            {
+              title: "Site Manager - RIL_IDC_Nagpur",
+              name: "Mr. Raju Mani Tripathi",
+              emails: ["rajeevrbminfracon@gmail.com"],
+              phone: "+91-8511139662",
+            },
+            {
+              title: "Site Manager - L&T_IOCL_Paradeep",
+              name: "Mr. Shriniwash Tripathi",
+              phone: "9712397606 / 7990109213",
+            },
+            {
+              title: "Site Manager - Yara Fertilizer_Babralla",
+              name: "P. Subhash Kartha",
+              emails: ["rbmbabrala@gmail.com"],
+              phone: "+91-7017599964, 09904018311",
+            },
+            {
+              title: "Site Manager - RIL_Jamnagar",
+              name: "Mr. Shriniwash Mishra",
+              emails: ["shriniwashrbm@gmail.com"],
+              phone: "+91-9825032634",
+            },
+            {
+              title: "Site Manager - Nayara_Jamnagar",
+              name: "Mr. Ramniwas Mishra",
+              emails: ["mishraramniwashrbm@gmail.com"],
+            },
+          ].map((member, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index} sx={{ paddingleft: { xs: '20px', sm: '40px' } }}>
+              <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+                <CardContent sx={{ flex: 1 }}>
+                  <Typography variant="h6">{member.title}</Typography>
+                  <Typography variant="body1" fontWeight="bold">
+                    {member.name}
+                  </Typography>
+                  {member.emails && member.emails.map((email, i) => (
+                    <Typography variant="body2" key={i}>
+                      <EmailIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
+                      {email}
+                    </Typography>
+                  ))}
+                  {member.phone && (
+                    <Typography variant="body2">
+                      <PhoneIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
+                      {member.phone}
+                    </Typography>
+                  )}
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
       </Grid>
     </Container>
