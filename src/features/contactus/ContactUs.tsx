@@ -112,9 +112,9 @@ const ContactUs: React.FC = () => {
             Get in Touch
           </Typography>
           <Typography variant="body2" sx={{ marginBottom: "16px" }}>
-            Thank you for your interest in CR3. For general, client, media, or
-            recruiting inquiries, kindly leave your details and inquiry in the
-            form and we will get back to you as soon as possible.
+            Thank you for your interest in RBM Infracon. For general, client,
+            media, or recruiting inquiries, kindly leave your details and
+            inquiry in the form and we will get back to you as soon as possible.
           </Typography>
 
           {/* Google Map Embed */}
@@ -136,8 +136,11 @@ const ContactUs: React.FC = () => {
           </Typography>
         </Grid>
         <Grid container spacing={4}>
+          {/* Existing Cards */}
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+            <Card
+              sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+            >
               <CardContent sx={{ flex: 1 }}>
                 <Typography variant="h6">Managing Director</Typography>
                 <Typography variant="body1" fontWeight="bold">
@@ -149,7 +152,9 @@ const ContactUs: React.FC = () => {
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+            <Card
+              sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+            >
               <CardContent sx={{ flex: 1 }}>
                 <Typography variant="h6">Project Head</Typography>
                 <Typography variant="body1" fontWeight="bold">
@@ -162,7 +167,9 @@ const ContactUs: React.FC = () => {
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+            <Card
+              sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+            >
               <CardContent sx={{ flex: 1 }}>
                 <Typography variant="h6">HR & Admin-Central</Typography>
                 <Typography variant="body1" fontWeight="bold">
@@ -173,7 +180,9 @@ const ContactUs: React.FC = () => {
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+            <Card
+              sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+            >
               <CardContent sx={{ flex: 1 }}>
                 <Typography variant="h6">Account & Finance-Central</Typography>
                 <Typography variant="body1" fontWeight="bold">
@@ -184,7 +193,9 @@ const ContactUs: React.FC = () => {
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+            <Card
+              sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+            >
               <CardContent sx={{ flex: 1 }}>
                 <Typography variant="h6">
                   Project Coordinator/Manager -Planning
@@ -200,7 +211,9 @@ const ContactUs: React.FC = () => {
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+            <Card
+              sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+            >
               <CardContent sx={{ flex: 1 }}>
                 <Typography variant="h6">
                   Site Manager - RIL_IDC_Nagpur
@@ -212,6 +225,76 @@ const ContactUs: React.FC = () => {
                   rajeevrbminfracon@gmail.com
                 </Typography>
                 <Typography variant="body2">+91-8511139662</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          {/* New Cards */}
+          <Grid item xs={12} sm={6} md={4}>
+            <Card
+              sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+            >
+              <CardContent sx={{ flex: 1 }}>
+                <Typography variant="h6">
+                  Site Manager - L&T_IOCL_Paradeep
+                </Typography>
+                <Typography variant="body1" fontWeight="bold">
+                  Mr. Shriniwash Tripathi
+                </Typography>
+                <Typography variant="body2">
+                  Mob: 9712397606 / 7990109213
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card
+              sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+            >
+              <CardContent sx={{ flex: 1 }}>
+                <Typography variant="h6">
+                  Site Manager - Yara Fertilizer_Babralla
+                </Typography>
+                <Typography variant="body1" fontWeight="bold">
+                  P. Subhash Kartha
+                </Typography>
+                <Typography variant="body2">rbmbabrala@gmail.com</Typography>
+                <Typography variant="body2">
+                  +91-7017599964, 09904018311
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card
+              sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+            >
+              <CardContent sx={{ flex: 1 }}>
+                <Typography variant="h6">
+                  Site Manager - RIL_Jamnagar
+                </Typography>
+                <Typography variant="body1" fontWeight="bold">
+                  Mr. Shriniwash Mishra
+                </Typography>
+                <Typography variant="body2">shriniwashrbm@gmail.com</Typography>
+                <Typography variant="body2">+91-9825032634</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card
+              sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+            >
+              <CardContent sx={{ flex: 1 }}>
+                <Typography variant="h6">
+                  Site Manager - Nayara_Jamnagar
+                </Typography>
+                <Typography variant="body1" fontWeight="bold">
+                  Mr. Ramniwas Mishra
+                </Typography>
+                <Typography variant="body2">
+                  mishraramniwashrbm@gmail.com
+                </Typography>
               </CardContent>
             </Card>
           </Grid>
