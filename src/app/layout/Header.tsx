@@ -213,20 +213,14 @@ const Header: React.FC = () => {
                 { to: "/business3", text: "History" },
               ]}
             />
-            <DropdownMenu
-              buttonText={
-                <>
-                  <span>Investors</span>
-                  <ArrowDropDownIcon />
-                </>
-              }
-              buttonColor={isScrolled ? "black" : "inherit"}
-              links={[
-                { to: "/investors", text: "Investor Relations" },
-                { to: "/reports", text: "Reports" },
-                { to: "/financials", text: "Financials" },
-              ]}
-            />
+            {/* Removed the Investors Dropdown */}
+            <Button
+              sx={{ color: isScrolled ? "black" : "inherit" }}
+              component={Link}
+              to="/investors"
+            >
+              Investors
+            </Button>
             <DropdownMenu
               buttonText={
                 <>
