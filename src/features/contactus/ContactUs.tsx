@@ -9,6 +9,8 @@ import {
   FormControlLabel,
   Link,
   Box,
+  Card,
+  CardContent,
 } from "@mui/material";
 
 // Define the functional component with TypeScript
@@ -123,6 +125,96 @@ const ContactUs: React.FC = () => {
             allowFullScreen
             loading="lazy"
           />
+        </Grid>
+      </Grid>
+
+      {/* Business Cards Section */}
+      <Grid container spacing={4} sx={{ marginTop: "40px" }}>
+        <Grid item xs={12}>
+          <Typography variant="h4" gutterBottom>
+            Our Team
+          </Typography>
+        </Grid>
+        <Grid container spacing={4}>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+              <CardContent sx={{ flex: 1 }}>
+                <Typography variant="h6">Managing Director</Typography>
+                <Typography variant="body1" fontWeight="bold">
+                  Mr. J.B. Mani
+                </Typography>
+                <Typography variant="body2">md@rbminfracon.com</Typography>
+                <Typography variant="body2">jbmani6212@gmail.com</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+              <CardContent sx={{ flex: 1 }}>
+                <Typography variant="h6">Project Head</Typography>
+                <Typography variant="body1" fontWeight="bold">
+                  Mr. Ranjay Kumar Roy
+                </Typography>
+                <Typography variant="body2">
+                  ranjankumar@rbminfracon.com
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+              <CardContent sx={{ flex: 1 }}>
+                <Typography variant="h6">HR & Admin-Central</Typography>
+                <Typography variant="body1" fontWeight="bold">
+                  Mr. Santosh Gauda
+                </Typography>
+                <Typography variant="body2">hr@rbminfracon.com</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+              <CardContent sx={{ flex: 1 }}>
+                <Typography variant="h6">Account & Finance-Central</Typography>
+                <Typography variant="body1" fontWeight="bold">
+                  Mr. Pankaj Kumar Sinha
+                </Typography>
+                <Typography variant="body2">cfo@rbminfracon.com</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+              <CardContent sx={{ flex: 1 }}>
+                <Typography variant="h6">
+                  Project Coordinator/Manager -Planning
+                </Typography>
+                <Typography variant="body1" fontWeight="bold">
+                  Mr. Aditya Mani
+                </Typography>
+                <Typography variant="body2">
+                  planning@rbminfracon.com
+                </Typography>
+                <Typography variant="body2">+91-96625494820</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+              <CardContent sx={{ flex: 1 }}>
+                <Typography variant="h6">
+                  Site Manager - RIL_IDC_Nagpur
+                </Typography>
+                <Typography variant="body1" fontWeight="bold">
+                  Mr. Raju Mani Tripathi
+                </Typography>
+                <Typography variant="body2">
+                  rajeevrbminfracon@gmail.com
+                </Typography>
+                <Typography variant="body2">+91-8511139662</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
       </Grid>
     </Container>
