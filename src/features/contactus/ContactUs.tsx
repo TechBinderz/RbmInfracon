@@ -13,6 +13,8 @@ import {
   CardContent,
 } from "@mui/material";
 import { Email as EmailIcon, Phone as PhoneIcon } from "@mui/icons-material";
+import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
+
 
 // Define the functional component with TypeScript
 const ContactUs: React.FC = () => {
@@ -116,10 +118,10 @@ const ContactUs: React.FC = () => {
           {/* Photo at the top */}
           <Box
             component="img"
-            src="path/to/your/photo.jpg" // Replace with the actual photo URL
+            src={RBMLOGOFULL} // Replace with the actual photo URL
             alt="RBM Infracon"
             sx={{
-              width: '100%',
+              width: '30%',
               height: 'auto',
               marginBottom: '16px',
               borderRadius: '8px',
