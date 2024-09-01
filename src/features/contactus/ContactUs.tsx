@@ -15,10 +15,9 @@ import {
 import { Email as EmailIcon, Phone as PhoneIcon } from "@mui/icons-material";
 import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
 
-// Define the functional component with TypeScript
 const ContactUs: React.FC = () => {
   return (
-    <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px 0px" } }}>
+    <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
       <Grid container spacing={4}>
         {/* Contact Form Section */}
         <Grid item xs={12} md={6}>
@@ -117,10 +116,10 @@ const ContactUs: React.FC = () => {
           {/* Photo at the top */}
           <Box
             component="img"
-            src={RBMLOGOFULL} // Replace with the actual photo URL
+            src={RBMLOGOFULL}
             alt="RBM Infracon"
             sx={{
-              width: { xs: "50%", sm: "40%", md: "30%" },
+              width: { xs: "70%", sm: "60%", md: "50%" },
               height: "auto",
               marginBottom: "16px",
               borderRadius: "8px",
@@ -147,12 +146,12 @@ const ContactUs: React.FC = () => {
 
       {/* Business Cards Section */}
       <Grid container spacing={4} sx={{ marginTop: "40px" }}>
-        <Grid item xs={12} sx={{ padding: { xs: '0px 20px', sm: '0px 40px' }, marginLeft:'0px;' }}>
-          <Typography variant="h4" gutterBottom> 
+        <Grid item xs={12} sx={{ padding: { xs: '0px 20px', sm: '0px 40px' } }}>
+          <Typography variant="h4" gutterBottom>
             Our Management Team
           </Typography>
         </Grid>
-        <Grid container spacing={4} >
+        <Grid container spacing={4} sx={{marginLeft:'0px;'}}>
           {/* Management Team Cards */}
           {[
             {
@@ -216,7 +215,7 @@ const ContactUs: React.FC = () => {
               emails: ["mishraramniwashrbm@gmail.com"],
             },
           ].map((member, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index} sx={{ paddingleft: { xs: '20px', sm: '40px' } }}>
+            <Grid item xs={12} sm={6} md={4} key={index} sx={{ paddingLeft: { xs: '20px', sm: '40px' } }}>
               <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
                 <CardContent sx={{ flex: 1 }}>
                   <Typography variant="h6">{member.title}</Typography>
