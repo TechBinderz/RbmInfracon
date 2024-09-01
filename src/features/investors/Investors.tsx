@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Grid, Card, CardContent, Typography } from '@mui/material';
+import '../common/common.css'
 
 const investorItems = [
   'Board Of Directors',
@@ -29,7 +30,7 @@ const Investor: React.FC = () => {
       <Grid container spacing={3}>
         {investorItems.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', margin: '20px' }}>
+            <Card className='card-shadow' style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', margin: '20px' }}>
               <CardContent>
                 <Typography variant="h6">{item}</Typography>
               </CardContent>
