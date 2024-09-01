@@ -1,27 +1,27 @@
 import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
-import { Grid, Typography, Link, Container, Box } from "@mui/material";
+import { Grid, Typography, Link, Container, Box, Button } from "@mui/material";
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import FacebookIcon from '@mui/icons-material/Facebook'; // Example social icons
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer style={{ backgroundColor: "#f9f9f9", padding: "40px 0" }}>
       <Container maxWidth="lg">
         <Grid container spacing={4} justifyContent="space-between">
           {/* Company Info Section */}
-          <Grid item xs={12} sm={4}>
-            <Box display="flex" alignItems="center">
+          <Grid item xs={12} sm={3}>
+            <Box display="flex" alignItems="center" marginBottom={2}>
               <img
                 src={RBMLOGOFULL}
                 alt="TechBinderz Logo"
                 style={{ height: 90 }}
               />
             </Box>
-            <Typography
-              variant="body1"
-              style={{ marginTop: "8px", fontWeight: 200 }}
-            >
+            <Typography variant="body2" style={{ fontWeight: 200 }}>
               RBM Infracon LTD is an idealistic attempt towards professionalized
               treatment to problems generally out broken during various Process
               of engineering, execution, testing, commissioning operation and
@@ -30,10 +30,10 @@ const Footer = () => {
             </Typography>
           </Grid>
 
-          {/* Navigation Section */}
-          <Grid item xs={12} sm={4}>
+          {/* Quick Links Section */}
+          <Grid item xs={12} sm={3}>
             <Typography variant="h6" gutterBottom>
-              Navigation
+              Quick Links
             </Typography>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
@@ -54,26 +54,68 @@ const Footer = () => {
             </ul>
           </Grid>
 
-          {/* Office Location Section */}
-          <Grid item xs={12} sm={4}>
+          {/* Office Locations Section */}
+          <Grid item xs={12} sm={3}>
             <Typography variant="h6" gutterBottom>
-              Office Location
+              Office Locations
             </Typography>
-            <Box display="flex" alignItems="center" marginBottom={1}>
-              <LocationOnIcon style={{ marginRight: 8 }} />
-              <Typography variant="body2">
-                Office No.-03, Snehdeep Residency, <br />
-                Near Digjam Circle, Airforce Road, <br />
-                Jamnagar – 361 006 (Gujarat) INDIA.
-              </Typography>
-            </Box>
-            <Box display="flex" alignItems="center" marginTop={1}>
-              <EmailIcon style={{ marginRight: 8 }} />
-              <a href="mailto:info@rbminfracon.com">info@rbminfracon.com</a>
-            </Box>
-            <Box display="flex" alignItems="center" marginTop={1}>
-              <PhoneIcon style={{ marginRight: 8 }} />
-              +91 0288 2710463
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li>
+                <Typography variant="body2">Singapore</Typography>
+              </li>
+              <li>
+                <Typography variant="body2">Thailand</Typography>
+              </li>
+              <li>
+                <Typography variant="body2">India</Typography>
+              </li>
+              <li>
+                <Typography variant="body2">Malaysia</Typography>
+              </li>
+              <li>
+                <Typography variant="body2">Abu Dhabi</Typography>
+              </li>
+            </ul>
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "#88c057",
+                color: "#fff",
+                marginTop: "10px",
+              }}
+            >
+              Contact Us
+            </Button>
+          </Grid>
+
+          {/* Additional Actions Section */}
+          <Grid item xs={12} sm={3}>
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "#88c057",
+                color: "#fff",
+                marginBottom: "10px",
+                width: "100%",
+              }}
+            >
+              Corporate Brochure
+            </Button>
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "#88c057",
+                color: "#fff",
+                marginBottom: "10px",
+                width: "100%",
+              }}
+            >
+              ESSG Report 2024
+            </Button>
+            <Box display="flex" gap={1}>
+              <FacebookIcon style={{ color: "#3b5998" }} />
+              <LinkedInIcon style={{ color: "#0e76a8" }} />
+              <YouTubeIcon style={{ color: "#ff0000" }} />
             </Box>
           </Grid>
         </Grid>
@@ -89,14 +131,14 @@ const Footer = () => {
           <Box
             style={{
               margin: '8px 0',
-              width: '100%', // Extends the line across the full width
-              height: '1px', // Thinner line for a subtle effect
-              backgroundColor: '#4a4a4a',
+              width: '100%',
+              height: '1px',
+              backgroundColor: '#dcdcdc',
             }}
           />
           <Typography
             variant="body2"
-            style={{ fontSize: '16px', fontWeight: 'bold', textAlign: 'center' }}
+            style={{ fontSize: '14px', fontWeight: 'bold', textAlign: 'center' }}
           >
             © Copyright 2022 All Rights Reserved | Privacy Policy | SEO & Website
             Design by SEO Web Logistics
