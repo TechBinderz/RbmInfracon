@@ -1,11 +1,13 @@
+import React from 'react';
 import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
-import { Grid, Typography, Link, Container, Box, Button } from "@mui/material";
+import { Grid, Typography, Container, Box, Button } from "@mui/material";
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FacebookIcon from '@mui/icons-material/Facebook'; // Example social icons
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -17,7 +19,7 @@ const Footer = () => {
             <Box display="flex" alignItems="center" marginBottom={2}>
               <img
                 src={RBMLOGOFULL}
-                alt="TechBinderz Logo"
+                alt="RBM Infracon Logo"
                 style={{ height: 90 }}
               />
             </Box>
@@ -37,19 +39,19 @@ const Footer = () => {
             </Typography>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
-                <Link href="/aboutus" color="inherit" variant="body2">
-                  About Us
-                </Link>
+                <RouterLink to="/aboutus" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Typography variant="body2">About Us</Typography>
+                </RouterLink>
               </li>
               <li>
-                <Link href="/services" color="inherit" variant="body2">
-                  Services
-                </Link>
+                <RouterLink to="/services" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Typography variant="body2">Services</Typography>
+                </RouterLink>
               </li>
               <li>
-                <Link href="/contact" color="inherit" variant="body2">
-                  Contact
-                </Link>
+                <RouterLink to="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Typography variant="body2">Contact</Typography>
+                </RouterLink>
               </li>
             </ul>
           </Grid>
@@ -76,16 +78,18 @@ const Footer = () => {
                 <Typography variant="body2">Abu Dhabi</Typography>
               </li>
             </ul>
-            <Button
-              variant="contained"
-              style={{
-                backgroundColor: "#88c057",
-                color: "#fff",
-                marginTop: "10px",
-              }}
-            >
-              Contact Us
-            </Button>
+            <RouterLink to="/contact" style={{ textDecoration: 'none' }}>
+              <Button
+                variant="contained"
+                style={{
+                  backgroundColor: "#88c057",
+                  color: "#fff",
+                  marginTop: "10px",
+                }}
+              >
+                Contact Us
+              </Button>
+            </RouterLink>
           </Grid>
 
           {/* Additional Actions Section */}
