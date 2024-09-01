@@ -144,8 +144,8 @@ const Footer = () => {
             variant="body2"
             style={{ fontSize: '14px', fontWeight: 'bold', textAlign: 'center' }}
           >
-            © Copyright 2022 All Rights Reserved | Privacy Policy | SEO & Website
-            Design by SEO Web Logistics
+            © Copyright 2024 All Rights Reserved | Privacy Policy | SEO & Website
+            Design by TechBinderz
           </Typography>
         </Box>
       </Container>

@@ -149,8 +149,8 @@ const ContactUs: React.FC = () => {
       {/* Business Cards Section */}
       <Grid container spacing={4} sx={{ marginTop: "40px" }}>
         <Grid item xs={12}>
-          <Typography variant="h4" gutterBottom>
-            Our Team
+          <Typography variant="h4" gutterBottom >
+            Our Management Team
           </Typography>
         </Grid>
         <Grid container spacing={4}>
