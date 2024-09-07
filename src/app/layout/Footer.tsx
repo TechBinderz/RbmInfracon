@@ -8,6 +8,7 @@ import FacebookIcon from '@mui/icons-material/Facebook'; // Example social icons
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { Link as RouterLink } from 'react-router-dom';
+import themeColor from '../../features/common/common'
 
 const Footer = () => {
   return (
@@ -82,7 +83,7 @@ const Footer = () => {
               <Button
                 variant="contained"
                 style={{
-                  backgroundColor: "#39ac4b",
+                  backgroundColor: themeColor,
                   color: "#fff",
                   marginTop: "10px",
                 }}
@@ -97,7 +98,7 @@ const Footer = () => {
             <Button
               variant="contained"
               style={{
-                backgroundColor: "#39ac4b",
+                backgroundColor: themeColor,
                 color: "#fff",
                 marginBottom: "10px",
                 width: "100%",
@@ -108,7 +109,7 @@ const Footer = () => {
             <Button
               variant="contained"
               style={{
-                backgroundColor: "#39ac4b",
+                backgroundColor: themeColor,
                 color: "#fff",
                 marginBottom: "10px",
                 width: "100%",
