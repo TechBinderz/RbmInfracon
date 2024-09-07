@@ -248,6 +248,13 @@ const Header: React.FC = () => {
                 { to: "/media-kit", text: "Media Kit" },
               ]}
             />
+            <Button
+              sx={{ color: isScrolled ? "black" : "inherit" }}
+              component={Link}
+              to="/contact"
+            >
+              Contact Us
+            </Button>
           </Toolbar>
         </Box>
       </Container>
