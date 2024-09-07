@@ -1,8 +1,10 @@
 // ScrollToTop.tsx
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom'
 
-const ScrollToTop: React.FC = () => {
+// Controls router page div
+const Feature: React.FC = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -12,7 +14,7 @@ const ScrollToTop: React.FC = () => {
     });
   }, [pathname]);
 
-  return null;
+  return <Outlet/>;
 };
 
-export default ScrollToTop;
+export default Feature;

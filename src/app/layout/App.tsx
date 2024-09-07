@@ -1,14 +1,12 @@
 import Footer from './Footer';
 import Header from './Header'
-import { Outlet } from 'react-router-dom'
-import ScrollToTop from './router/ScrollToTop';
+import Feature from './router/Feature';
 
 function App() {
   return (
     <>
       <Header />
-      <ScrollToTop />
-      <Outlet />
+      <Feature />
       <Footer />
     </>
   );
