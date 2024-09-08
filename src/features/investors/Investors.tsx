@@ -50,6 +50,8 @@ const Investor: React.FC = () => {
     setSelectedItem(null);
   };
 
+  const isPdf = selectedItem?.type === 'pdf';
+
   return (
     <>
       <PageTitle imageUrl='https://picsum.photos/1920/1080' tileContent='Investors' />
@@ -87,7 +89,13 @@ const Investor: React.FC = () => {
       </Container>
       
       {selectedItem && (
-        <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          maxWidth={isPdf ? 'xl' : 'md'} // Set maxWidth to 'xl' for PDFs
+          fullWidth={isPdf} // Make dialog full width for PDFs
+          PaperProps={{ style: { height: isPdf ? '100vh' : 'auto' } }} // Set height to full viewport height for PDFs
+        >
           <DialogTitle>
             {selectedItem.title}
             <IconButton
@@ -104,7 +112,7 @@ const Investor: React.FC = () => {
             {selectedItem.type === 'pdf' ? (
               <iframe
                 src={selectedItem.src}
-                style={{ width: '100%', height: '500px' }}
+                style={{ width: '100%', height: '100%' }}
                 frameBorder="0"
               />
             ) : selectedItem.type === 'image' ? (
