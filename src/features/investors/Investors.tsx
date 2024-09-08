@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Grid, Card, CardContent, Typography } from '@mui/material';
 import '../common/common.css'
+import PageTitle from '../common/PageTitleDiv'
 
 const investorItems = [
   'Board Of Directors',
@@ -23,7 +24,9 @@ const investorItems = [
 
 const Investor: React.FC = () => {
   return (
-    <Container>
+    <>
+      <PageTitle imageUrl='https://picsum.photos/1920/1080' tileContent='Investors' />
+      <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
       <Typography variant="h4" gutterBottom>
         Investors
       </Typography>
@@ -39,6 +42,7 @@ const Investor: React.FC = () => {
         ))}
       </Grid>
     </Container>
+    </>
   );
 };
 

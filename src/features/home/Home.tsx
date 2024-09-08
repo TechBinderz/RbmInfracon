@@ -2,6 +2,7 @@
 import React from 'react';
 import backgroundImage from '../../assets/rbmImage1.png'; // Adjust the path as necessary
 import TextImageCarousel from './TextImageCarousal';
+import CustomerPage from '../commonfeature/customers/CustomerPage';
 
 const Home: React.FC = () => {
   return (
@@ -47,6 +48,7 @@ const Home: React.FC = () => {
           <p>Your engaging subtitle or description goes here.</p>
         </div>
       </div>
+      <CustomerPage/>
     </>
   );
 };

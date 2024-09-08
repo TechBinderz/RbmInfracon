@@ -194,7 +194,7 @@ const Header: React.FC = () => {
               }
               buttonColor={isScrolled ? "black" : "inherit"}
               links={[
-                { to: "/about", text: "Company Info" },
+                { to: "/aboutus", text: "Company Info" },
                 { to: "/team", text: "Our Team" },
                 { to: "/history", text: "History" },
               ]}
