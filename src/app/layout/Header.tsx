@@ -14,19 +14,15 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
 import RBMLOGOSMALL from '../../assets/header/Rmb_logo_small.png'; // Logo when scrolled
+import { checkAndUpdateStockData, StockData } from '../api/StockData'; // Import functions
 
-interface StockData {
-  currentPrice: number;
-  priceChange: number;
-  timeUpdated: string;
-}
+
 interface DropdownMenuProps {
   buttonText: React.ReactNode;
   buttonColor: string;
   links: { to: string; text: string }[];
 }
 
-const STORAGE_KEY = 'stockData';
 const defaultStockData: StockData = {
   currentPrice: 0,
   priceChange: 0,
@@ -38,45 +34,25 @@ const Header: React.FC = () => {
   const [stockData, setStockData] = useState<StockData>(defaultStockData);
   const [isMounted, setIsMounted] = useState(false);
 
-  const getStockPrice = async () => {
-    try {
-      const url = "https://nseapi1.techbinderz.workers.dev/api/rbmstock";
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data: StockData = await response.json();
-      console.log(data);
-  
-      // Store the data in local storage
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  
-      // Update state
+  useEffect(() => {
+    const updateStockData = async () => {
+      const data = await checkAndUpdateStockData();
       setStockData(data);
-    } catch (error) {
-      console.log(error);
-      setStockData(defaultStockData);
-    }
-  };
-  
-  const checkAndUpdateStockData = () => {
-    const storedData = localStorage.getItem(STORAGE_KEY);
-  
-    if (storedData) {
-      const parsedData: StockData = JSON.parse(storedData);
-      const lastUpdated = new Date(parsedData.timeUpdated);
-      const currentTime = new Date();
-  
-      // Check if the data is more than 30 minutes old
-      const timeDiff = (currentTime.getTime() - lastUpdated.getTime()) / (1000 * 60);
-      if (timeDiff > 30) {
-        getStockPrice(); // Fetch new data if it's old
-      } else {
-        setStockData(parsedData); // Use the stored data if it's recent
-      }
-    } else {
-      getStockPrice(); // If there's no stored data, fetch new data
-    }
+    };
+
+    updateStockData();
+    window.addEventListener('scroll', handleScroll);
+    
+    // Trigger the transition on mount
+    setIsMounted(true);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 50);
   };
 
   const StockPriceDisplay: React.FC<{ stockData: StockData }> = ({ stockData }) => {
@@ -119,22 +95,6 @@ const Header: React.FC = () => {
       </div>
     );
   };
-
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 50);
-  };
-
-  useEffect(() => {
-    checkAndUpdateStockData();
-    window.addEventListener('scroll', handleScroll);
-    
-    // Trigger the transition on mount
-    setIsMounted(true);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <AppBar
