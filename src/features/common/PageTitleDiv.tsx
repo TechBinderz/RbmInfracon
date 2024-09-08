@@ -10,13 +10,13 @@ interface PageTitleProps {
     right?: string;
     bottom?: string;
     left?: string;
-  }; // Optional positioning for the tile
+  };
 }
 
 const PageTitle: React.FC<PageTitleProps> = ({
   imageUrl,
   tileContent,
-  tilePosition = { bottom: "20px", left: "20%" }, // Default position of the tile
+  tilePosition = { bottom: "20px", left: {md: "20%", sm:"5%", xs: "5%"}, top: "auto", right: "auto" }, // Default position of the tile
 }) => {
   return (
     <Box
@@ -61,10 +61,7 @@ const PageTitle: React.FC<PageTitleProps> = ({
       <Box
         sx={{
           position: "absolute",
-        //   backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background
           color: "white",
-        //   padding: "10px",
-        //   borderRadius: "8px",
           top: tilePosition.top,
           right: tilePosition.right,
           bottom: tilePosition.bottom,
@@ -72,8 +69,8 @@ const PageTitle: React.FC<PageTitleProps> = ({
           zIndex: 2, // Ensure tile is above the tint overlay
         }}
       >
-        <h1 >
-        {tileContent}
+        <h1 style={{ fontSize: "3.5rem", margin: 0 }}>
+          {tileContent}
         </h1>
       </Box>
     </Box>
