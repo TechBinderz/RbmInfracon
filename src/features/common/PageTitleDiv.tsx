@@ -16,7 +16,7 @@ interface PageTitleProps {
 const PageTitle: React.FC<PageTitleProps> = ({
   imageUrl,
   tileContent,
-  tilePosition = { bottom: "20px", left: {md: "20%", sm:"5%", xs: "5%"}, top: "auto", right: "auto" }, // Default position of the tile
+  tilePosition = { bottom: "20px", left: {lg: "20%", md: "4%", sm:"5%", xs: "3%"}, top: "auto", right: "auto" }, // Default position of the tile
 }) => {
   return (
     <Box
