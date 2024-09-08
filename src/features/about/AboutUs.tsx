@@ -20,6 +20,7 @@ import InsightsIcon from "@mui/icons-material/Insights";
 import SupportIcon from "@mui/icons-material/Support"; // Updated to use correct import
 import CustomerPage from "../common/CustomerPage";
 import PageTitle from "../common/PageTitleDiv";
+import "../common/common.css";
 
 interface InfoCardProps {
   icon: React.ReactNode;
@@ -29,7 +30,7 @@ interface InfoCardProps {
 
 const InfoCard: React.FC<InfoCardProps> = ({ icon, title, description }) => {
   return (
-    <Card sx={{ mb: 2 }}>
+    <Card sx={{ mb: 2 }} className="card-shadow">
       <CardContent>
         <Box display="flex" alignItems="center" mb={1}>
           {icon}
@@ -85,7 +86,10 @@ const AboutUs: React.FC = () => {
 
   return (
     <>
-      <PageTitle imageUrl="https://picsum.photos/1920/1080" tileContent="About Us" />
+      <PageTitle
+        imageUrl="https://picsum.photos/1920/1080"
+        tileContent="About Us"
+      />
       <Container sx={{ py: 4 }}>
         <Grid container spacing={4} alignItems="flex-start">
           {/* Left Section - Content */}
@@ -99,9 +103,9 @@ const AboutUs: React.FC = () => {
               }}
             >
               We are proud to be an ISO 9001:2015 accredited Company, and since
-              our establishment in 1992, we have been a Specialist Contractor for
-              Construction, Maintenance, and Turnaround services to Oil & Gas
-              Refineries, Petrochemicals, Fertilizers, Gas Cracker Plants,
+              our establishment in 1992, we have been a Specialist Contractor
+              for Construction, Maintenance, and Turnaround services to Oil &
+              Gas Refineries, Petrochemicals, Fertilizers, Gas Cracker Plants,
               Coal/Gas/WHR-based Power Plants, Chemicals, Cement, Fertilizers,
               Sugar Plants, Paper Plants, Irrigation, and other allied sectors.
             </Typography>
@@ -138,26 +142,49 @@ const AboutUs: React.FC = () => {
               ))}
             </List>
 
-            <Typography
-              variant="body1"
-              paragraph
-              sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}
-            >
-              We have been providing these services for the last 25 years to
-              renowned companies like Reliance Industries Limited, Nayara Energy
-              Limited (Formerly Known as Essar Oil Limited), Afcons Infrastructure
-              Ltd., Chemie-Tech-DORC-Nigeria, Chemie-Tech-Malta, GPPL- Malta, YARA
-              Fertilizers, TATA Projects, L&T, and many more. Safety is given prime
-              importance while executing the projects at site. The whole erection
-              works are performed in accordance with the project-specific safety
-              plan to avoid any safety hazard. RBM Infracon Limited is well
-              equipped with an experienced team of construction personnel and
-              equipment to execute the contracts with in-house resources &
-              facilities.
-            </Typography>
+            <Box sx={{ lineHeight: 1.6, marginTop: "10px" }}>
+              <Typography
+                variant="body1"
+                paragraph
+                sx={{
+                  fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                }}
+              >
+                We have been providing these services for the last 25 years to
+                renowned companies like Reliance Industries Limited, Nayara
+                Energy Limited (Formerly Known as Essar Oil Limited), Afcons
+                Infrastructure Ltd., Chemie-Tech-DORC-Nigeria,
+                Chemie-Tech-Malta, GPPL-Malta, YARA Fertilizers, TATA Projects,
+                L&T, and many more.
+              </Typography>
+
+              <Typography
+                variant="body1"
+                paragraph
+                sx={{
+                  fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                }}
+              >
+                Safety is given prime importance while executing the projects at
+                site. The whole erection works are performed in accordance with
+                the project-specific safety plan to avoid any safety hazard.
+              </Typography>
+
+              <Typography
+                variant="body1"
+                paragraph
+                sx={{
+                  fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                }}
+              >
+                <Box component="span" fontWeight="bold">
+                  RBM Infracon Limited
+                </Box>{" "}
+                is well equipped with an experienced team of construction
+                personnel and equipment to execute the contracts with in-house
+                resources & facilities.
+              </Typography>
+            </Box>
           </Grid>
 
           <Grid item xs={12} md={4}>
