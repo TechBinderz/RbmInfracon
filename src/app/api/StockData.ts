@@ -39,11 +39,11 @@ export const checkAndUpdateStockData = async (): Promise<StockData> => {
     const timeDiff =
       (currentTime.getTime() - lastUpdated.getTime()) / (1000 * 60);
     if (timeDiff > 30) {
-      return getStockPrice(); // Fetch new data if it's old
+      return await getStockPrice(); // Fetch new data if it's old
     } else {
       return parsedData; // Use the stored data if it's recent
     }
   } else {
-    return getStockPrice(); // If there's no stored data, fetch new data
+    return await getStockPrice(); // If there's no stored data, fetch new data
   }
 };

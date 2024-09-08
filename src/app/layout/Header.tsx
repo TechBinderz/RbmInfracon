@@ -34,12 +34,12 @@ const Header: React.FC = () => {
   const [stockData, setStockData] = useState<StockData>(defaultStockData);
   const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    const updateStockData = async () => {
-      const data = await checkAndUpdateStockData();
-      setStockData(data);
-    };
+  const updateStockData = async () => {
+    const data = await checkAndUpdateStockData();
+    setStockData(data);
+  };
 
+  useEffect(() => {
     updateStockData();
     window.addEventListener('scroll', handleScroll);
     
