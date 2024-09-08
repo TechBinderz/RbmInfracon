@@ -11,10 +11,9 @@ interface CustomerCardProps {
 const StyledCard = styled(Card)(({ theme }) => ({
   width: 200,
   borderRadius: 10,
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  boxShadow: '8px 8px 15px 6px rgba(0, 0, 0, 0.1)',
   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
   textAlign: 'center',
-  cursor: 'pointer',
   '&:hover': {
     transform: 'translateY(-10px)',
     boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
