@@ -5,7 +5,6 @@ import {
   Toolbar,
   Button,
   Container,
-  IconButton,
   Box,
   Typography,
 } from '@mui/material';
@@ -152,23 +151,17 @@ const Header: React.FC = () => {
       }}
     >
       <Container maxWidth="lg" sx={{ display: "flex", height: "100%" }}>
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="logo"
-          component={Link}
-          to="/"
-        >
+        <Link to='/'>
           <img
             src={isScrolled ? RBMLOGOSMALL : RBMLOGOFULL}
             alt="Logo"
             style={{
-              height: isScrolled ? "60px" : "100px", 
+              height: isScrolled ? "70px" : "100px", 
               width: "auto", 
               maxWidth: isScrolled ? "auto" : "100%", 
             }}
           />
-        </IconButton>
+        </Link>
         <Box sx={{ flexGrow: 3 }}>
           {!isScrolled && (
             <Toolbar sx={{ alignItems: "center" }}>
