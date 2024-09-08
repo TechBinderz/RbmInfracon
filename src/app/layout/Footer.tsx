@@ -40,6 +40,11 @@ const Footer = () => {
             </Typography>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
+                <RouterLink to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Typography variant="body2">Home</Typography>
+                </RouterLink>
+              </li>
+              <li>
                 <RouterLink to="/aboutus" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <Typography variant="body2">About Us</Typography>
                 </RouterLink>
@@ -52,6 +57,11 @@ const Footer = () => {
               <li>
                 <RouterLink to="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>
                   <Typography variant="body2">Contact</Typography>
+                </RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/investors" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Typography variant="body2">Investors</Typography>
                 </RouterLink>
               </li>
             </ul>
