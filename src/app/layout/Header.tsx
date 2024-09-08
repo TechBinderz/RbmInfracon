@@ -117,8 +117,7 @@ const Header: React.FC = () => {
             alt="Logo"
             style={{
               height: isScrolled ? "70px" : "100px", 
-              width: "auto", 
-              maxWidth: isScrolled ? "auto" : "100%", 
+              width: "auto",
             }}
           />
         </Link>
