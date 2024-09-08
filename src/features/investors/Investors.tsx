@@ -1,29 +1,38 @@
 import React, { useState } from 'react';
 import { Container, Grid, Card, CardContent, Typography, Dialog, DialogTitle, DialogContent, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import '../common/common.css'
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf'; // Import PDF icon
+import '../common/common.css';
 import PageTitle from '../common/PageTitleDiv';
-import { DirectorTable, CommitteeOfBoard } from './dataTable';
-import section11Img from '../../assets/features/investors/section11.jpg'
-import anualReport22_23 from '../../assets/features/investors/AnualReport22-23.pdf'
+import { DirectorTable, CommitteeOfBoard, InvestorGrievance, RegistrarAndTransferAgents } from './InvestorsData';
+import section11Img from '../../assets/features/investors/section11.jpg';
+import anualReport22_23 from '../../assets/features/investors/AnualReport22-23.pdf';
+import outstanding_dues from '../../assets/features/investors/Outstanding-dues.pdf';
+import prospectus from '../../assets/features/investors/Prospectus.pdf';
+import financialResult23 from '../../assets/features/investors/FinancialResult23.pdf';
+import anualResult22_23 from '../../assets/features/investors/AnualResult22_23.pdf';
+import valuationOfConvertibaleEquity from '../../assets/features/investors/ValuationOfConvertibaleEquity.pdf';
+import pcsWarrants from '../../assets/features/investors/PcsWarrants.pdf';
+import pcsEquity from '../../assets/features/investors/PcsEquity.pdf';
+import scripts from '../../assets/features/investors/Scripts.pdf';
+import sOutcomeFR from '../../assets/features/investors/SOutcomeFR.pdf';
 
 const investorItems = [
   { title: 'Board Of Directors', content: <DirectorTable />, type: 'table' },
   { title: 'Committee Of Board', content: <CommitteeOfBoard />, type: 'table' },
+  { title: 'Investor Grievance', content: <InvestorGrievance /> },
+  { title: 'Registrar And Transfer Agents', content: <RegistrarAndTransferAgents /> },
   { title: 'SECTION XI - Group Companies', content: '', type: 'image', src: section11Img },
   { title: 'Annual Report (2022-23)', content: '', type: 'pdf', src: anualReport22_23 },
-  { title: 'Outstanding Dues', content: 'Content for Outstanding Dues' },
-  { title: 'Prospectus', content: 'Content for Prospectus' },
-  { title: 'Investor Grievance', content: 'Content for Investor Grievance' },
-  { title: 'Registrar And Transfer Agents', content: 'Content for Registrar And Transfer Agents' },
-  { title: 'Financial Result', content: 'Content for Financial Result' },
-  { title: 'Annual Return (2022-23)', content: 'Content for Annual Return', type: 'pdf', url: 'https://example.com/annual-return.pdf' },
-  { title: 'Valuation Of Convertible Equity', content: 'Content for Valuation Of Convertible Equity' },
-  { title: 'Warrants And Shares', content: 'Content for Warrants And Shares' },
-  { title: 'PCS Warrants', content: 'Content for PCS Warrants' },
-  { title: 'PCS EQUITY', content: 'Content for PCS EQUITY' },
-  { title: 'S Outcome FR', content: 'Content for S Outcome FR' },
-  { title: 'Investor Relation Annual Return MGT 7', content: 'Content for Investor Relation Annual Return MGT 7' },
+  { title: 'Outstanding Dues', content: '', type: 'pdf', src: outstanding_dues },
+  { title: 'Prospectus', content: '', type: 'pdf', src: prospectus },
+  { title: 'Financial Result', content: '', type: 'pdf', src: financialResult23 },
+  { title: 'Annual Return (2022-23)', content: '', type: 'pdf', src: anualResult22_23 },
+  { title: 'Valuation of Convertible Equity Warrants and Shares', content: '', type: 'pdf', src: valuationOfConvertibaleEquity },
+  { title: 'PCS Warrants', content: '', type: 'pdf', src: pcsWarrants },
+  { title: 'PCS Equity', content: '', type: 'pdf', src: pcsEquity },
+  { title: 'Scripts', content: '', type: 'pdf', src: scripts },
+  { title: 'S Outcome FR', content: '', type: 'pdf', src: sOutcomeFR },
 ];
 
 const Investor: React.FC = () => {
@@ -63,8 +72,13 @@ const Investor: React.FC = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => handleClickOpen(item)}
               >
-                <CardContent>
-                  <Typography variant="h6">{item.title}</Typography>
+                <CardContent style={{ display: 'flex', alignItems: 'center' }}>
+                  <Typography variant="h6" style={{ flexGrow: 1 }}>
+                    {item.title}
+                  </Typography>
+                  {item.type === 'pdf' && (
+                    <PictureAsPdfIcon color="action" style={{ marginLeft: '8px' }} />
+                  )}
                 </CardContent>
               </Card>
             </Grid>
@@ -81,7 +95,7 @@ const Investor: React.FC = () => {
               color="inherit"
               onClick={handleClose}
               aria-label="close"
-              style={{ position: 'absolute', right: 8, top: 8 }}
+              style={{ position: 'absolute', right: 15, top: 8 }}
             >
               <CloseIcon />
             </IconButton>
