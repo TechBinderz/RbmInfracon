@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Container, Typography, Divider, Box, Card, CardContent, Grid } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Container, Typography, Divider, Card, CardContent, Grid } from '@mui/material';
 import themeColor from '../common/common';
 
 interface Column {
