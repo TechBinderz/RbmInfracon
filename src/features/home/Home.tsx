@@ -2,7 +2,7 @@
 import React from 'react';
 import backgroundImage from '../../assets/rbmImage1.png'; // Adjust the path as necessary
 import TextImageCarousel from './TextImageCarousal';
-import CustomerPage from '../commonfeature/customers/CustomerPage';
+import CustomerPage from '../common/CustomerPage';
 
 const Home: React.FC = () => {
   return (

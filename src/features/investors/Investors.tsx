@@ -57,7 +57,7 @@ const Investor: React.FC = () => {
       <PageTitle imageUrl='https://picsum.photos/1920/1080' tileContent='Investors' />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Typography variant="h4" gutterBottom>
-          Investors
+          Company Details
         </Typography>
         <Grid container spacing={3}>
           {investorItems.map((item, index) => (

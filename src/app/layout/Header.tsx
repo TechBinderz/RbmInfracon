@@ -145,7 +145,7 @@ const Header: React.FC = () => {
         transition:
           "background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease",
         height: isScrolled ? "70px" : "110px",
-        boxShadow: "none",
+        boxShadow: isScrolled ? "0px 8px 5px 0px rgba(0, 0, 0, 0.2)" : "none",
         paddingTop: isScrolled ? "0px" : "15px",
         opacity: isMounted ? 1 : 0,
         transform: isMounted ? "translateY(0)" : "translateY(-20px)",
