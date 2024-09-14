@@ -85,10 +85,10 @@ const Services: React.FC = () => {
         tileContent="Services"
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ justifyContent: "center" }}>
           {filteredCardData.map((card, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card sx={{ padding: "5px" }}>
+              <Card className="card-shadow" sx={{ padding: "5px" }}>
                 <Link
                   to={`/services/${card.pathName}`}
                   style={{ textDecoration: "none", color: "inherit" }}

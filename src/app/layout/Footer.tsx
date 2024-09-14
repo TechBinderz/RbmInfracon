@@ -1,18 +1,31 @@
 // import React from 'react';
-import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
+import { useState } from "react";
+import RBMLOGOFULL from "../../assets/header/Rmb_logo_big.png"; // Default logo
 import { Grid, Typography, Container, Box, Button } from "@mui/material";
-// import EmailIcon from '@mui/icons-material/Email';
-// import PhoneIcon from '@mui/icons-material/Phone';
-// import LocationOnIcon from '@mui/icons-material/LocationOn';
-import FacebookIcon from '@mui/icons-material/Facebook'; // Example social icons
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import { Link as RouterLink } from 'react-router-dom';
-import themeColor from '../../features/common/common'
+import FacebookIcon from "@mui/icons-material/Facebook"; // Example social icons
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import { Link as RouterLink } from "react-router-dom";
+import themeColor from "../../features/common/common";
+import CustomDialog from "../../features/common/Dailog";
+import corporateBrochurePdf from "../../assets/footer/brochure.pdf";
 
 const Footer = () => {
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleOpenDialog = () => {
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+
   return (
-    <footer id="footer" style={{ backgroundColor: "#f9f9f9", padding: "40px 0" }}>
+    <footer
+      id="footer"
+      style={{ backgroundColor: "#f9f9f9", padding: "40px 0" }}
+    >
       <Container maxWidth="lg">
         <Grid container spacing={4} justifyContent="space-between">
           {/* Company Info Section */}
@@ -40,27 +53,42 @@ const Footer = () => {
             </Typography>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
-                <RouterLink to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <RouterLink
+                  to="/"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Typography variant="body2">Home</Typography>
                 </RouterLink>
               </li>
               <li>
-                <RouterLink to="/aboutus" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <RouterLink
+                  to="/aboutus"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Typography variant="body2">About Us</Typography>
                 </RouterLink>
               </li>
               <li>
-                <RouterLink to="/services" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <RouterLink
+                  to="/services"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Typography variant="body2">Services</Typography>
                 </RouterLink>
               </li>
               <li>
-                <RouterLink to="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <RouterLink
+                  to="/contact"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Typography variant="body2">Contact</Typography>
                 </RouterLink>
               </li>
               <li>
-                <RouterLink to="/investors" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <RouterLink
+                  to="/investors"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Typography variant="body2">Investors</Typography>
                 </RouterLink>
               </li>
@@ -89,7 +117,7 @@ const Footer = () => {
                 <Typography variant="body2">Abu Dhabi</Typography>
               </li>
             </ul>
-            <RouterLink to="/contact" style={{ textDecoration: 'none' }}>
+            <RouterLink to="/contact" style={{ textDecoration: "none" }}>
               <Button
                 variant="contained"
                 style={{
@@ -113,6 +141,7 @@ const Footer = () => {
                 marginBottom: "10px",
                 width: "100%",
               }}
+              onClick={handleOpenDialog}
             >
               Corporate Brochure
             </Button>
@@ -141,25 +170,36 @@ const Footer = () => {
           flexDirection="column"
           alignItems="center"
           marginTop={4}
-          style={{ width: '100%' }}
+          style={{ width: "100%" }}
         >
           <Box
             style={{
-              margin: '8px 0',
-              width: '100%',
-              height: '1px',
-              backgroundColor: '#dcdcdc',
+              margin: "8px 0",
+              width: "100%",
+              height: "1px",
+              backgroundColor: "#dcdcdc",
             }}
           />
           <Typography
             variant="body2"
-            style={{ fontSize: '14px', fontWeight: 'bold', textAlign: 'center' }}
+            style={{
+              fontSize: "14px",
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
           >
-            © Copyright 2024 All Rights Reserved | Privacy Policy | SEO & Website
-            Design by TechBinderz
+            © Copyright 2024 All Rights Reserved | Privacy Policy | SEO &
+            Website Design by TechBinderz
           </Typography>
         </Box>
       </Container>
+      <CustomDialog
+        open={openDialog}
+        onClose={handleCloseDialog}
+        title="Corporate Brochure"
+        content={corporateBrochurePdf}
+        type="pdf"
+      />
     </footer>
   );
 };

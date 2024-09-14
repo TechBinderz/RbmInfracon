@@ -1,7 +1,7 @@
+// src/components/Investor.tsx
 import React, { useState } from 'react';
-import { Container, Grid, Card, CardContent, Typography, Dialog, DialogTitle, DialogContent, IconButton } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf'; // Import PDF icon
+import { Container, Grid, Card, CardContent, Typography } from '@mui/material';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import '../common/common.css';
 import PageTitle from '../common/PageTitleDiv';
 import { DirectorTable, CommitteeOfBoard, InvestorGrievance, RegistrarAndTransferAgents } from './InvestorsData';
@@ -16,23 +16,24 @@ import pcsWarrants from '../../assets/features/investors/PcsWarrants.pdf';
 import pcsEquity from '../../assets/features/investors/PcsEquity.pdf';
 import scripts from '../../assets/features/investors/Scripts.pdf';
 import sOutcomeFR from '../../assets/features/investors/SOutcomeFR.pdf';
+import CustomDialog from '../common/Dailog';
 
 const investorItems = [
   { title: 'Board Of Directors', content: <DirectorTable />, type: 'table' },
   { title: 'Committee Of Board', content: <CommitteeOfBoard />, type: 'table' },
-  { title: 'Investor Grievance', content: <InvestorGrievance /> },
-  { title: 'Registrar And Transfer Agents', content: <RegistrarAndTransferAgents /> },
-  { title: 'SECTION XI - Group Companies', content: '', type: 'image', src: section11Img },
-  { title: 'Annual Report (2022-23)', content: '', type: 'pdf', src: anualReport22_23 },
-  { title: 'Outstanding Dues', content: '', type: 'pdf', src: outstanding_dues },
-  { title: 'Prospectus', content: '', type: 'pdf', src: prospectus },
-  { title: 'Financial Result', content: '', type: 'pdf', src: financialResult23 },
-  { title: 'Annual Return (2022-23)', content: '', type: 'pdf', src: anualResult22_23 },
-  { title: 'Valuation of Convertible Equity Warrants and Shares', content: '', type: 'pdf', src: valuationOfConvertibaleEquity },
-  { title: 'PCS Warrants', content: '', type: 'pdf', src: pcsWarrants },
-  { title: 'PCS Equity', content: '', type: 'pdf', src: pcsEquity },
-  { title: 'Scripts', content: '', type: 'pdf', src: scripts },
-  { title: 'S Outcome FR', content: '', type: 'pdf', src: sOutcomeFR },
+  { title: 'Investor Grievance', content: <InvestorGrievance />, type: 'text' },
+  { title: 'Registrar And Transfer Agents', content: <RegistrarAndTransferAgents />, type: 'text' },
+  { title: 'SECTION XI - Group Companies', content: section11Img, type: 'image' },
+  { title: 'Annual Report (2022-23)', content: anualReport22_23, type: 'pdf' },
+  { title: 'Outstanding Dues', content: outstanding_dues, type: 'pdf' },
+  { title: 'Prospectus', content: prospectus, type: 'pdf' },
+  { title: 'Financial Result', content: financialResult23, type: 'pdf' },
+  { title: 'Annual Return (2022-23)', content: anualResult22_23, type: 'pdf' },
+  { title: 'Valuation of Convertible Equity Warrants and Shares', content: valuationOfConvertibaleEquity, type: 'pdf' },
+  { title: 'PCS Warrants', content: pcsWarrants, type: 'pdf' },
+  { title: 'PCS Equity', content: pcsEquity, type: 'pdf' },
+  { title: 'Scripts', content: scripts, type: 'pdf' },
+  { title: 'S Outcome FR', content: sOutcomeFR, type: 'pdf' },
 ];
 
 const Investor: React.FC = () => {
@@ -49,8 +50,6 @@ const Investor: React.FC = () => {
     setOpen(false);
     setSelectedItem(null);
   };
-
-  const isPdf = selectedItem?.type === 'pdf';
 
   return (
     <>
@@ -89,45 +88,13 @@ const Investor: React.FC = () => {
       </Container>
       
       {selectedItem && (
-        <Dialog
+        <CustomDialog
           open={open}
           onClose={handleClose}
-          maxWidth={isPdf ? 'xl' : 'md'} // Set maxWidth to 'xl' for PDFs
-          fullWidth={isPdf} // Make dialog full width for PDFs
-          PaperProps={{ style: { height: isPdf ? '100vh' : 'auto' } }} // Set height to full viewport height for PDFs
-        >
-          <DialogTitle>
-            {selectedItem.title}
-            <IconButton
-              edge="end"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-              style={{ position: 'absolute', right: 15, top: 8 }}
-            >
-              <CloseIcon />
-            </IconButton>
-          </DialogTitle>
-          <DialogContent dividers>
-            {selectedItem.type === 'pdf' ? (
-              <iframe
-                src={selectedItem.src}
-                style={{ width: '100%', height: '100%' }}
-                frameBorder="0"
-              />
-            ) : selectedItem.type === 'image' ? (
-              <img
-                src={selectedItem.src}
-                alt={selectedItem.title}
-                style={{ width: '100%', height: 'auto' }}
-              />
-            ) : selectedItem.type === 'table' ? (
-              selectedItem.content
-            ) : (
-              <Typography variant="body1">{selectedItem.content}</Typography>
-            )}
-          </DialogContent>
-        </Dialog>
+          title={selectedItem.title}
+          content={selectedItem.content}
+          type={selectedItem.type}
+        />
       )}
     </>
   );
