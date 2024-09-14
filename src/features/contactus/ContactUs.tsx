@@ -70,7 +70,7 @@ const ContactUs: React.FC = () => (
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox color={themeColor} name="agree" sx={{ color: themeColor }} />}
+                control={<Checkbox color="default" name="agree" sx={{ color: themeColor }} />}
                 label={
                   <Typography variant="body2">
                     I agree to the terms and conditions of RBM Infracon Limited{" "}
