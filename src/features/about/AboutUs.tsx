@@ -21,6 +21,7 @@ import SupportIcon from "@mui/icons-material/Support"; // Updated to use correct
 import CustomerPage from "../common/CustomerPage";
 import PageTitle from "../common/PageTitleDiv";
 import "../common/common.css";
+import themeColor from "../common/common";
 
 interface InfoCardProps {
   icon: React.ReactNode;
@@ -47,37 +48,37 @@ const InfoCard: React.FC<InfoCardProps> = ({ icon, title, description }) => {
 const AboutUs: React.FC = () => {
   const cardData = [
     {
-      icon: <AccessTimeIcon fontSize="large" sx={{ color: "primary.main" }} />,
+      icon: <AccessTimeIcon fontSize="large" sx={{ color: themeColor }} />,
       title: "Since 1992",
       description:
         "Over 30 years of expertise in construction, maintenance, and turnaround services.",
     },
     {
-      icon: <EngineeringIcon fontSize="large" sx={{ color: "primary.main" }} />,
-      title: "Our Expertise",
+      icon: <EngineeringIcon fontSize="large" sx={{ color: themeColor }} />,
+      title: "Our Expertise", 
       description:
         "A team of experienced professionals dedicated to executing contracts with precision and efficiency.",
     },
     {
-      icon: <GroupIcon fontSize="large" sx={{ color: "primary.main" }} />,
+      icon: <GroupIcon fontSize="large" sx={{ color: themeColor }} />,
       title: "Our Clients",
       description:
         "Trusted by industry leaders across multiple sectors, including Reliance, L&T, and more.",
     },
     {
-      icon: <SafetyCheckIcon fontSize="large" sx={{ color: "primary.main" }} />,
+      icon: <SafetyCheckIcon fontSize="large" sx={{ color: themeColor }} />,
       title: "Safety First",
       description:
         "Committed to maintaining the highest safety standards in all our projects.",
     },
     {
-      icon: <InsightsIcon fontSize="large" sx={{ color: "primary.main" }} />,
+      icon: <InsightsIcon fontSize="large" sx={{ color: themeColor }} />,
       title: "Our Perspective",
       description:
         "Our perspective is shaped by our experiences, beliefs, and values. It influences how we perceive and interpret the world around us.",
     },
     {
-      icon: <SupportIcon fontSize="large" sx={{ color: "primary.main" }} />,
+      icon: <SupportIcon fontSize="large" sx={{ color: themeColor }} />,
       title: "Social Responsibility",
       description:
         "For the well-being of our community and the environment, we practice ethical and sustainable behaviors and actively work towards positive social change.",
@@ -93,7 +94,7 @@ const AboutUs: React.FC = () => {
       <Container sx={{ py: 4 }}>
         <Grid container spacing={4} alignItems="flex-start">
           {/* Left Section - Content */}
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={8} >
             <Typography
               variant="body1"
               paragraph
@@ -132,7 +133,7 @@ const AboutUs: React.FC = () => {
               ].map((text, index) => (
                 <ListItem key={index} disablePadding>
                   <ListItemIcon>
-                    <CheckCircleOutlineIcon color="primary" />
+                    <CheckCircleOutlineIcon sx={{ color: themeColor }} />
                   </ListItemIcon>
                   <ListItemText
                     primary={text}
