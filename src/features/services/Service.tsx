@@ -1,50 +1,76 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation, Outlet } from "react-router-dom";
 import PageTitle from "../common/PageTitleDiv";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
 import { Typography, CardMedia, CardContent, Card } from "@mui/material";
-import 'swiper/css'
-import 'swiper/css/navigation';
-
+import "swiper/css";
+import "swiper/css/navigation";
 
 // Define the card data
 const cardData = [
   {
-    image: "https://picsum.photos/500/300?random=1",
-    title: "Piping Installation",
+    pathName: "pipingServices",
+    image: "https://picsum.photos/500/300?random=6",
+    title: "Piping Services",
     description:
-      "Our team performs precise installation for various piping systems, ensuring optimal functionality and safety.",
+      "Comprehensive solutions for various piping systems, including installation, maintenance, and optimization to ensure functionality and safety.",
   },
   {
-    image: "https://picsum.photos/500/300?random=2",
-    title: "Electrical Maintenance",
+    pathName: "plateWork",
+    image: "https://picsum.photos/500/300?random=7",
+    title: "Plate Work",
     description:
-      "Expert maintenance services for electrical systems to ensure safe and efficient operations.",
+      "Expert services for fabricating and erecting platework structures such as ducts, hoppers, and chutes, focusing on precision and quality.",
   },
   {
-    image: "https://picsum.photos/500/300?random=3",
-    title: "Tankage Work",
+    pathName: "heaterOperation",
+    image: "https://picsum.photos/500/300?random=8",
+    title: "Heater Operation",
     description:
-      "Specialized services for tankage work including installation and maintenance.",
+      "Top-notch Operation and Maintenance (O&M) services for heating systems, ensuring optimal performance and comfort in various settings.",
   },
   {
-    image: "https://picsum.photos/500/300?random=4",
-    title: "Blasting & Painting",
+    pathName: "drillingAndOMServices",
+    image: "https://picsum.photos/500/300?random=9",
+    title: "Drilling and O&M Services of Crewed Wells",
     description:
-      "Professional blasting and painting services for various industries.",
+      "Specialized drilling and Operations and Maintenance (O&M) services for crewed wells, emphasizing reliability, safety, and efficiency.",
   },
   {
-    image: "https://picsum.photos/500/300?random=5",
-    title: "Blasting & Painting",
+    pathName: "structuralSteelWork",
+    image: "https://picsum.photos/500/300?random=10",
+    title: "Structural Steel Work",
     description:
-      "Professional blasting and painting services for various industries.",
+      "Expertise in civil construction, maintenance, and erection of structural steel for various applications, including coke plant maintenance and industrial projects.",
+  },
+  {
+    pathName: "plateWorkFabricationErection",
+    image: "https://picsum.photos/500/300?random=11",
+    title: "Plate Work Fabrication and Erection",
+    description:
+      "Comprehensive services for the fabrication, supply, and erection of platework structures, with a focus on superior quality and performance.",
+  },
+  {
+    pathName: "railWagonLoadingServices",
+    image: "https://picsum.photos/500/300?random=12",
+    title: "Rail Wagon Loading Services",
+    description:
+      "Efficient and reliable rail wagon loading services to streamline logistics and transportation, maximizing loading capacity and ensuring safety compliance.",
   },
 ];
 
 const Services: React.FC = () => {
   const { pathname } = useLocation();
-  
+
+  // Extract the current service path from the pathname
+  const currentServicePath = pathname.split("/").pop();
+
+  // Filter out the card matching the current service path
+  const filteredCardData = cardData.filter(
+    (card) => card.pathName !== currentServicePath
+  );
+
   const ServicesPage: React.FC = () => (
     <PageTitle
       imageUrl="https://picsum.photos/1920/1080"
@@ -55,16 +81,26 @@ const Services: React.FC = () => {
   const MoreServices: React.FC = () => (
     <>
       <Outlet />
-      <Typography variant="h3" gutterBottom mt={4} mb={4} sx={{textAlign:"center"}}>
+      <Typography
+        variant="h3"
+        gutterBottom
+        mt={4}
+        mb={4}
+        sx={{ textAlign: "center" }}
+      >
         More Services
       </Typography>
       <Swiper
-        modules={[Navigation,Pagination,A11y]}
+        modules={[Navigation, Pagination, A11y]}
         spaceBetween={10}
         slidesPerView={4}
-        navigation ={true}
+        navigation={true}
         pagination={{ clickable: true }}
+        loop={true}
         breakpoints={{
+          1300:{
+            slidesPerView: 4,
+          },
           1024: {
             slidesPerView: 3,
           },
@@ -75,9 +111,9 @@ const Services: React.FC = () => {
             slidesPerView: 1,
           },
         }}
-        style={{ padding: '10px 10px' }}
+        style={{ padding: "10px 10px" }}
       >
-        {cardData.map((card, index) => (
+        {filteredCardData.map((card, index) => (
           <SwiperSlide key={index}>
             <Card sx={{ padding: "5px" }}>
               <CardMedia
@@ -86,7 +122,7 @@ const Services: React.FC = () => {
                 image={card.image}
                 alt={card.title}
               />
-              <CardContent sx={{height: "70px"}}>
+              <CardContent sx={{ height: "70px" }}>
                 <Typography variant="h6" component="div">
                   {card.title}
                 </Typography>
