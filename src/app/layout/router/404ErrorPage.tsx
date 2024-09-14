@@ -48,7 +48,8 @@ const ErrorPage: React.FC = () => {
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
-          marginTop: "110px",
+          marginTop: "150px",
+          marginBottom: "50px"
         }}
       >
         <Typography variant="h1" color={themeColor} sx={{ fontSize: "96px" }}>
