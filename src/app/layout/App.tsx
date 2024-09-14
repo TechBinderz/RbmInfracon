@@ -1,6 +1,7 @@
-import Footer from './Footer';
-import Header from './Header'
-import Feature from './router/Feature';
+import Footer from "./Footer";
+import Header from "./Header";
+import Feature from "./router/Feature";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   return (
@@ -8,8 +9,9 @@ function App() {
       <Header />
       <Feature />
       <Footer />
+      <ScrollToTop />
     </>
   );
 }
 
-export default App
+export default App;
