@@ -1,9 +1,16 @@
 import React from "react";
-import { useLocation, Outlet } from "react-router-dom";
+import { useLocation, Outlet, Link } from "react-router-dom";
 import PageTitle from "../common/PageTitleDiv";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
-import { Typography, CardMedia, CardContent, Card } from "@mui/material";
+import {
+  Typography,
+  CardMedia,
+  CardContent,
+  Card,
+  Grid,
+  Container,
+} from "@mui/material";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -72,10 +79,41 @@ const Services: React.FC = () => {
   );
 
   const ServicesPage: React.FC = () => (
-    <PageTitle
-      imageUrl="https://picsum.photos/1920/1080"
-      tileContent="Services"
-    />
+    <>
+      <PageTitle
+        imageUrl="https://picsum.photos/1920/1080"
+        tileContent="Services"
+      />
+      <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
+        <Grid container spacing={2}>
+          {filteredCardData.map((card, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card sx={{ padding: "5px" }}>
+                <Link
+                  to={`/services/${card.pathName}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <CardMedia
+                    component="img"
+                    height="240"
+                    image={card.image}
+                    alt={card.title}
+                  />
+                  <CardContent sx={{ height: "120px" }}>
+                    <Typography variant="h6" component="div">
+                      {card.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {card.description}
+                    </Typography>
+                  </CardContent>
+                </Link>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </>
   );
 
   const MoreServices: React.FC = () => (
@@ -98,7 +136,7 @@ const Services: React.FC = () => {
         pagination={{ clickable: true }}
         loop={true}
         breakpoints={{
-          1300:{
+          1300: {
             slidesPerView: 4,
           },
           1024: {
@@ -115,22 +153,27 @@ const Services: React.FC = () => {
       >
         {filteredCardData.map((card, index) => (
           <SwiperSlide key={index}>
-            <Card sx={{ padding: "5px" }}>
-              <CardMedia
-                component="img"
-                height="240"
-                image={card.image}
-                alt={card.title}
-              />
-              <CardContent sx={{ height: "70px" }}>
-                <Typography variant="h6" component="div">
-                  {card.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {card.description}
-                </Typography>
-              </CardContent>
-            </Card>
+            <Link
+              to={`/services/${card.pathName}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <Card sx={{ padding: "5px" }}>
+                <CardMedia
+                  component="img"
+                  height="240"
+                  image={card.image}
+                  alt={card.title}
+                />
+                <CardContent sx={{ height: "70px" }}>
+                  <Typography variant="h6" component="div">
+                    {card.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {card.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
