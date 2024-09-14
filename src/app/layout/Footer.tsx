@@ -12,7 +12,7 @@ import themeColor from '../../features/common/common'
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: "#f9f9f9", padding: "40px 0" }}>
+    <footer id="footer" style={{ backgroundColor: "#f9f9f9", padding: "40px 0" }}>
       <Container maxWidth="lg">
         <Grid container spacing={4} justifyContent="space-between">
           {/* Company Info Section */}
