@@ -145,7 +145,7 @@ const ContactUs: React.FC = () => (
             }}
           />
         </Grid>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} sx={{ marginLeft : "auto"}}>
           {managementTeamList.map((member, index) => (
             <Grid
               item
@@ -153,7 +153,7 @@ const ContactUs: React.FC = () => (
               sm={6}
               md={4}
               key={index}
-              sx={{ paddingLeft: { xs: "20px", sm: "40px" } }}
+              sx={{ paddingLeft: { xs: "20px", sm: "40px" }  }}
             >
               <Card
                 className="card-shadow"
