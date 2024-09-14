@@ -9,6 +9,7 @@
     position: absolute;
     background: linear-gradient(180deg, #ffffff, #f9f9f9); /* Subtle gradient for depth */
     min-width: 180px;
+    white-space: nowrap;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15); /* Slightly softer shadow for a modern look */
     border-radius: 8px;
     z-index: 1;

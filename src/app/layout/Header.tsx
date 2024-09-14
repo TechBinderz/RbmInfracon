@@ -154,15 +154,20 @@ const Header: React.FC = () => {
             <DropdownMenu
               buttonText={
                 <>
-                  <span>Businesses</span>
+                  <span>Services</span>
                   <ArrowDropDownIcon />
                 </>
               }
               buttonColor={isScrolled ? "black" : "inherit"}
               links={[
-                { to: "/business1", text: "Company Info" },
-                { to: "/business2", text: "Our Team" },
-                { to: "/business3", text: "History" },
+                { text: "All Services", to: "/services" },
+                { text: "Piping Services", to: "/services/pipingServices" },
+                { text: "Plate Work", to: "/services/plateWork" },
+                { text: "Heater Operation", to: "/services/heaterOperation" },
+                { text: "Drilling and O&M Services of Crewed Wells", to: "/services/drillingAndOMServices" },
+                { text: "Structural Steel Work", to: "/services/structuralSteelWork" },
+                { text: "Plate Work Fabrication and Erection", to: "/services/plateWorkFabricationErection" },
+                { text: "Rail Wagon Loading Services", to: "/services/railWagonLoadingServices" },
               ]}
             />
             {/* Removed the Investors Dropdown */}

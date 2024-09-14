@@ -13,9 +13,11 @@ import {
   CardContent,
 } from "@mui/material";
 import { Email as EmailIcon, Phone as PhoneIcon } from "@mui/icons-material";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
 import '../common/common.css';
 import PageTitle from '../common/PageTitleDiv';
+import themeColor from "../common/common";
 
 // Management team data
 const managementTeamList = [
@@ -29,7 +31,7 @@ const managementTeamList = [
   { title: "Site Manager - L&T_IOCL_Paradeep", name: "Mr. Shriniwash Tripathi", phone: "9712397606 / 7990109213" },
   { title: "Site Manager - Yara Fertilizer_Babralla", name: "P. Subhash Kartha", emails: ["rbmbabrala@gmail.com"], phone: "+91-7017599964, 09904018311" },
   { title: "Site Manager - RIL_Jamnagar", name: "Mr. Shriniwash Mishra", emails: ["shriniwashrbm@gmail.com"], phone: "+91-9825032634" },
-  { title: "Site Manager - Nayara_Jamnagar", name: "Mr. Ramniwas Mishra", emails: ["mishraramniwashrbm@gmail.com"] },
+  { title: "Site Manager - Nayara_Jamnagar", name: "Mr. Ramniwas Mishra", emails: ["mishraramniwashrbminfracon@gmail.com"] },
 ];
 
 const ContactUs: React.FC = () => (
@@ -39,7 +41,7 @@ const ContactUs: React.FC = () => (
       <Grid container spacing={4}>
         {/* Contact Form Section */}
         <Grid item xs={12} md={6}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h3" gutterBottom>
             Enter Details
           </Typography>
           <Grid container spacing={2}>
@@ -68,43 +70,58 @@ const ContactUs: React.FC = () => (
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox name="agree" color="primary" />}
+                control={<Checkbox color={themeColor} name="agree" sx={{ color: themeColor }} />}
                 label={
                   <Typography variant="body2">
                     I agree to the terms and conditions of RBM Infracon Limited{" "}
-                    <Link href="#" underline="always">privacy policy</Link>.
+                    <Link href="#" underline="always" sx={{ color: themeColor }}>privacy policy</Link>.
                   </Typography>
                 }
               />
             </Grid>
             <Grid item xs={12}>
-              <Button variant="contained" color="primary">Submit</Button>
+              <Button variant="contained" sx={{ backgroundColor: themeColor }}>
+                Submit
+              </Button>
             </Grid>
           </Grid>
         </Grid>
 
         {/* Contact Info & Map Section */}
         <Grid item xs={12} md={6}>
-          <Typography variant="h4" gutterBottom>Get in Touch</Typography>
+          <Typography variant="h3" gutterBottom> Get in Touch </Typography>
+          <Typography variant="h4" gutterBottom sx={{color: themeColor}}> Corporate Office </Typography>
 
-          {/* Logo */}
-          <Box
-            component="img"
-            src={RBMLOGOFULL}
-            alt="RBM Infracon"
-            sx={{
-              width: { xs: "70%", sm: "60%", md: "50%" },
-              height: "auto",
-              marginBottom: "16px",
-              borderRadius: "8px",
-            }}
-          />
+          {/* Address with Icon */}
+          <Box display="flex" alignItems="center" sx={{ marginBottom: "16px" }}>
+            <LocationOnIcon sx={{ marginRight: "8px", color: themeColor }} />
+            <Typography fontSize="18px" variant="body2">
+              03, Snehdeep Residency, Office No. 3, Digjam Circle, Jamnagar, Gujarat, PIN Code: 361006
+            </Typography>
+          </Box>
 
-          <Typography variant="body2" sx={{ marginBottom: "16px" }}>
-            Thank you for your interest in RBM Infracon. For general, client,
-            media, or recruiting inquiries, kindly leave your details and
-            inquiry in the form and we will get back to you as soon as possible.
-          </Typography>
+          {/* Email and Phone Number */}
+          <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ marginBottom: "16px" }}>
+            {/* Email with Icon (left) */}
+            <Box display="flex" alignItems="center">
+              <EmailIcon sx={{ marginRight: "8px", color: themeColor }} />
+              <Typography fontSize="18px" variant="body2">
+                <a href="mailto:info@rbminfracon.com" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  info@rbminfracon.com
+                </a>
+              </Typography>
+            </Box>
+
+            {/* Phone Number with Icon (right) */}
+            <Box display="flex" alignItems="center">
+              <PhoneIcon sx={{ marginRight: "8px", color: themeColor }} />
+              <Typography fontSize="18px" variant="body2">
+                <a href="tel:+9102882710463" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  +91 0288 2710463
+                </a>
+              </Typography>
+            </Box>
+          </Box>
 
           {/* Google Map Embed */}
           <Box
