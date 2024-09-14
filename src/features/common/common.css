@@ -1,3 +1,20 @@
 .card-shadow {
   box-shadow: 8px 8px 15px 6px rgba(0, 0, 0, 0.1) !important;
 }
+
+/* styles.css */
+
+/* Style for Swiper navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+ 
+  color: #39ac4b; /* Color of the arrow icon */
+}
+
+
+/* Style for Swiper navigation button icons */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-family: 'SwiperIcons'; /* Ensure the Swiper icons font is used */
+  color: #39ac4b;
+}

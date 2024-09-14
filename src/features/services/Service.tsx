@@ -4,8 +4,8 @@ import PageTitle from "../common/PageTitleDiv";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
 import { Typography, CardMedia, CardContent, Card } from "@mui/material";
-import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
 import 'swiper/css'
+import 'swiper/css/navigation';
 
 
 // Define the card data
@@ -59,13 +59,10 @@ const Services: React.FC = () => {
         More Services
       </Typography>
       <Swiper
-        modules={[Navigation, Pagination, A11y]}
+        modules={[Navigation,Pagination,A11y]}
         spaceBetween={10}
         slidesPerView={4}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }}
+        navigation ={true}
         pagination={{ clickable: true }}
         breakpoints={{
           1024: {
