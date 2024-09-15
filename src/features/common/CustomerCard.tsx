@@ -1,6 +1,6 @@
 // CustomerCard.tsx
-import React from 'react';
-import { styled } from '@mui/system';
+import React from "react";
+import { styled } from "@mui/system";
 
 interface CustomerCardProps {
   image: string;
@@ -8,20 +8,20 @@ interface CustomerCardProps {
 }
 
 // Styled div for the customer card
-const StyledDiv = styled('div')(({ theme }) => ({
-  width: '100%',
+const StyledDiv = styled("div")(() => ({
+  width: "100%",
   borderRadius: 10,
   //boxShadow: '8px 8px 15px 6px rgba(0, 0, 0, 0.1)',
-  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-  textAlign: 'center',
-  overflow: 'hidden',
-  alignContent: 'center'
+  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+  textAlign: "center",
+  overflow: "hidden",
+  alignContent: "center",
 }));
 
 // Styled image inside the div
-const StyledImage = styled('img')({
-  width: '100%',
-  height: 'auto',
+const StyledImage = styled("img")({
+  width: "100%",
+  height: "auto",
 });
 
 const CustomerCard: React.FC<CustomerCardProps> = ({ image, title }) => {

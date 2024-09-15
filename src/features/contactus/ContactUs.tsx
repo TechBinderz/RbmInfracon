@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 import { Email as EmailIcon, Phone as PhoneIcon } from "@mui/icons-material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
 import '../common/common.css';
 import PageTitle from '../common/PageTitleDiv';
 import themeColor from "../common/common";
