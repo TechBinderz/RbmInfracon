@@ -16,7 +16,7 @@ import pcsWarrants from '../../assets/features/investors/PcsWarrants.pdf';
 import pcsEquity from '../../assets/features/investors/PcsEquity.pdf';
 import scripts from '../../assets/features/investors/Scripts.pdf';
 import sOutcomeFR from '../../assets/features/investors/SOutcomeFR.pdf';
-import CustomDialog from '../common/Dailog';
+import CustomDialog from '../common/CustomDailog';
 
 const investorItems = [
   { title: 'Board Of Directors', content: <DirectorTable />, type: 'table' },

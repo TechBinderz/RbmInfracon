@@ -7,7 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link as RouterLink } from "react-router-dom";
 import themeColor from "../../features/common/common";
-import CustomDialog from "../../features/common/Dailog";
+import CustomDialog from "../../features/common/CustomDailog";
 import corporateBrochurePdf from "../../assets/footer/brochure.pdf";
 
 const Footer = () => {
