@@ -1,8 +1,13 @@
 // src/components/Home.tsx
 import React from 'react';
+import { Container } from "@mui/material";
 import backgroundImage from '../../assets/rbmImage1.png'; // Adjust the path as necessary
 import TextImageCarousel from './TextImageCarousal';
 import CustomerPage from '../common/CustomerPage';
+import BannerButton from './BannerButton';
+import SolutionSection from './SolutionSection';
+import CompanySection from './CompanySection';
+import NewsSection from './NewsSection';
 
 const Home: React.FC = () => {
   return (
@@ -48,7 +53,13 @@ const Home: React.FC = () => {
           <p>Your engaging subtitle or description goes here.</p>
         </div>
       </div>
-      <CustomerPage/>
+      <BannerButton />
+      <Container>
+      <SolutionSection />
+      <CompanySection />
+      <NewsSection />
+      <CustomerPage/>  
+      </Container>
     </>
   );
 };
