@@ -146,9 +146,9 @@ const Header: React.FC = () => {
               }
               buttonColor={isScrolled ? "black" : "inherit"}
               links={[
-                { to: "/aboutus", text: "Company Info" },
-                { to: "/team", text: "Our Team" },
-                { to: "/history", text: "History" },
+                { to: "/aboutus", text: "About Us" },
+                { to: "/aboutus/boardofdirector", text: "Board Of Directors" },
+                { to: "/aboutus/hseperformance", text: "HSE" },
               ]}
             />
             <DropdownMenu

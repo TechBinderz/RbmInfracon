@@ -13,6 +13,8 @@ import PlateWorkFabricationErection from "../../../features/services/PlateWorkFa
 import RailWagonLoadingServices from "../../../features/services/RailWagonLoadingServices";
 import StructuralSteelWork from "../../../features/services/StructuralSteelWork";
 import PlateWork from "../../../features/services/PlateWork";
+import BoardOfDirectors from "../../../features/about/BoardOfDirectors";
+import HSEPerformance from "../../../features/about/HSEPerformance";
 
 const servicesRoutes = {
   path: "services",
@@ -75,6 +77,14 @@ export const router = createBrowserRouter([
       {
         path: "/aboutus",
         element: <OurCompany />,
+      },
+      {
+        path: "/aboutus/boardofdirector",
+        element: <BoardOfDirectors/>
+      },
+      {
+        path: "/aboutus/hseperformance",
+        element: <HSEPerformance/>
       },
       {
         path: "/investors",
