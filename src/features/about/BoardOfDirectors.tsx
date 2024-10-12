@@ -7,6 +7,7 @@ import {
   Typography,
   Button,
   Box,
+  Container,
 } from "@mui/material";
 import PageTitle from "../common/PageTitleDiv";
 
@@ -53,13 +54,7 @@ const BoardOfDirectors: React.FC = () => {
         imageUrl="https://picsum.photos/1920/1080"
         tileContent="Board of Directors"
       />
-      <Box
-        sx={{
-          padding: { xs: 2, sm: 4, md: 6 },
-          textAlign: "center",
-          marginX: { xs: 2, sm: 4, md: 6 },
-        }}
-      >
+      <Container sx={{ py: 4 }}>
         {/* Special layout for Mukesh Ambani */}
         <Box
           sx={{
@@ -125,7 +120,7 @@ const BoardOfDirectors: React.FC = () => {
               </Grid>
             ))}
         </Grid>
-      </Box>
+      </Container>
     </>
   );
 };

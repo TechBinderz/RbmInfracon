@@ -1,26 +1,13 @@
 // import React from 'react';
-import { useState } from "react";
 import RBMLOGOFULL from "../../assets/header/Rmb_logo_big.png"; // Default logo
 import { Grid, Typography, Container, Box, Button } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook"; // Example social icons
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link as RouterLink } from "react-router-dom";
 import themeColor from "../../features/common/common";
-import CustomDialog from "../../features/common/CustomDailog";
 import corporateBrochurePdf from "../../assets/footer/brochure.pdf";
 
 const Footer = () => {
-  const [openDialog, setOpenDialog] = useState(false);
-
-  const handleOpenDialog = () => {
-    setOpenDialog(true);
-  };
-
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-  };
-
   return (
     <footer
       id="footer"
@@ -206,13 +193,13 @@ const Footer = () => {
           </Typography>
         </Box>
       </Container>
-      <CustomDialog
+      {/* <CustomDialog
         open={openDialog}
         onClose={handleCloseDialog}
         title="Corporate Brochure"
         content={corporateBrochurePdf}
         type="pdf"
-      />
+      /> */}
     </footer>
   );
 };
