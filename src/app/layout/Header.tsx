@@ -12,14 +12,14 @@ import { Link } from 'react-router-dom';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png'; // Default logo
-import RBMLOGOSMALL from '../../assets/header/Rmb_logo_small.png'; // Logo when scrolled
-import { checkAndUpdateStockData, StockData } from '../api/StockData'; // Import functions
-
+import RBMLOGOFULL from '../../assets/header/Rmb_logo_big.png';
+import RBMLOGOSMALL from '../../assets/header/Rmb_logo_small.png';
+import { checkAndUpdateStockData, StockData } from '../api/StockData';
+import { headerFontSize } from '../../features/common/common';
 
 interface DropdownMenuProps {
   buttonText: React.ReactNode;
-  buttonColor: string;
+  isScrolled: boolean;
   links: { to: string; text: string }[];
 }
 
@@ -34,26 +34,20 @@ const Header: React.FC = () => {
   const [stockData, setStockData] = useState<StockData>(defaultStockData);
   const [isMounted, setIsMounted] = useState(false);
 
-  const updateStockData = async () => {
-    const data = await checkAndUpdateStockData();
-    setStockData(data);
-  };
-
   useEffect(() => {
+    const updateStockData = async () => {
+      const data = await checkAndUpdateStockData();
+      setStockData(data);
+    };
+
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+
     updateStockData();
     window.addEventListener('scroll', handleScroll);
-    
-    // Trigger the transition on mount
     setIsMounted(true);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 50);
-  };
 
   const StockPriceDisplay: React.FC<{ stockData: StockData }> = ({ stockData }) => {
     const { currentPrice, priceChange } = stockData;
@@ -61,38 +55,20 @@ const Header: React.FC = () => {
     if (currentPrice === 0) return null;
 
     return (
-      <div style={{ textAlign: "left" }}>
-        {priceChange >= 0 && (
-          <span style={{ fontSize: "0.8em" }}>
-            NSE&nbsp;
-            <ArrowUpwardIcon
-              fontSize="small"
-              style={{ color: "green", verticalAlign: "middle" }}
-            />
-            ₹{currentPrice.toFixed(2)}{" "}
-            <span
-              style={{ fontSize: "0.8em", fontFamily: "Arial, sans-serif" }}
-            >
-              ({priceChange.toFixed(2)}%)
-            </span>
+      <Box textAlign="left">
+        <Typography sx={{ fontSize: headerFontSize }}>
+          NSE&nbsp;
+          {priceChange >= 0 ? (
+            <ArrowUpwardIcon fontSize="small" sx={{ color: "green", verticalAlign: "middle" }} />
+          ) : (
+            <ArrowDownwardIcon fontSize="small" sx={{ color: "red", verticalAlign: "middle" }} />
+          )}
+          ₹{currentPrice.toFixed(2)}&nbsp;
+          <span style={{ fontSize: headerFontSize, fontFamily: "Arial, sans-serif" }}>
+            ({Math.abs(priceChange).toFixed(2)}%)
           </span>
-        )}
-        {priceChange < 0 && (
-          <span style={{ fontSize: "0.8em" }}>
-            NSE&nbsp;
-            <ArrowDownwardIcon
-              fontSize="small"
-              style={{ color: "red", verticalAlign: "middle" }}
-            />
-            ₹{currentPrice.toFixed(2)}{" "}
-            <span
-              style={{ fontSize: "0.8em", fontFamily: "Arial, sans-serif" }}
-            >
-              ({Math.abs(priceChange).toFixed(2)}%)
-            </span>
-          </span>
-        )}
-      </div>
+        </Typography>
+      </Box>
     );
   };
 
@@ -101,8 +77,7 @@ const Header: React.FC = () => {
       position="fixed"
       sx={{
         backgroundColor: isScrolled ? "white" : "transparent",
-        transition:
-          "background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease",
+        transition: "background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease",
         height: isScrolled ? "70px" : "110px",
         boxShadow: isScrolled ? "0px 8px 5px 0px rgba(0, 0, 0, 0.2)" : "none",
         paddingTop: isScrolled ? "0px" : "15px",
@@ -110,28 +85,19 @@ const Header: React.FC = () => {
         transform: isMounted ? "translateY(0)" : "translateY(-20px)",
       }}
     >
-      <Container maxWidth="lg" sx={{ display: "flex", height: "100%" }}>
-        <Link to='/'>
+      <Container maxWidth="xl" sx={{ display: "flex", height: "100%" }}>
+        <Link to="/">
           <img
             src={isScrolled ? RBMLOGOSMALL : RBMLOGOFULL}
             alt="Logo"
-            style={{
-              height: isScrolled ? "70px" : "100px", 
-              width: "auto",
-            }}
+            style={{ height: isScrolled ? "70px" : "100px", width: "auto" }}
           />
         </Link>
         <Box sx={{ flexGrow: 3 }}>
           {!isScrolled && (
             <Toolbar sx={{ alignItems: "center" }}>
               <Box sx={{ flexGrow: 1, textAlign: "center" }}>
-                <Typography
-                  variant="h6"
-                  component="div"
-                  sx={{ color: "inherit" }}
-                >
-                  <StockPriceDisplay stockData={stockData} />
-                </Typography>
+                <StockPriceDisplay stockData={stockData} />
                 <Box sx={{ borderBottom: "1px solid lightgray", my: 1 }} />
               </Box>
             </Toolbar>
@@ -144,7 +110,7 @@ const Header: React.FC = () => {
                   <ArrowDropDownIcon />
                 </>
               }
-              buttonColor={isScrolled ? "black" : "inherit"}
+              isScrolled={isScrolled}
               links={[
                 { to: "/aboutus", text: "About Us" },
                 { to: "/aboutus/boardofdirector", text: "Board Of Directors" },
@@ -158,7 +124,7 @@ const Header: React.FC = () => {
                   <ArrowDropDownIcon />
                 </>
               }
-              buttonColor={isScrolled ? "black" : "inherit"}
+              isScrolled={isScrolled}
               links={[
                 { text: "All Services", to: "/services" },
                 { text: "Piping Services", to: "/services/pipingServices" },
@@ -170,9 +136,8 @@ const Header: React.FC = () => {
                 { text: "Rail Wagon Loading Services", to: "/services/railWagonLoadingServices" },
               ]}
             />
-            {/* Removed the Investors Dropdown */}
             <Button
-              sx={{ color: isScrolled ? "black" : "inherit" }}
+              sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize, '&:hover': { color: 'white', backgroundColor: '#39ac4b' } }}
               component={Link}
               to="/investors"
             >
@@ -185,7 +150,7 @@ const Header: React.FC = () => {
                   <ArrowDropDownIcon />
                 </>
               }
-              buttonColor={isScrolled ? "black" : "inherit"}
+              isScrolled={isScrolled}
               links={[
                 { to: "/careers", text: "Job Openings" },
                 { to: "/internships", text: "Internships" },
@@ -199,14 +164,14 @@ const Header: React.FC = () => {
                   <ArrowDropDownIcon />
                 </>
               }
-              buttonColor={isScrolled ? "black" : "inherit"}
+              isScrolled={isScrolled}
               links={[
                 { to: "/news", text: "Press Releases" },
                 { to: "/media-kit", text: "Media Kit" },
               ]}
             />
             <Button
-              sx={{ color: isScrolled ? "black" : "inherit" }}
+              sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize, '&:hover': { color: 'white', backgroundColor: '#39ac4b' } }}
               component={Link}
               to="/contact"
             >
@@ -219,11 +184,11 @@ const Header: React.FC = () => {
   );
 };
 
-const DropdownMenu: React.FC<DropdownMenuProps> = ({ buttonText, buttonColor, links }) => (
+const DropdownMenu: React.FC<DropdownMenuProps> = ({ buttonText, isScrolled, links }) => (
   <Box className="dropdown">
     <Button
       className="dropbtn"
-      sx={{ color: buttonColor }}
+      sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize }}
     >
       {buttonText}
     </Button>
