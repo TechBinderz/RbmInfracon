@@ -41,7 +41,7 @@ const ContactUs: React.FC = () => (
         {/* Contact Form Section */}
         <Grid item xs={12} md={6}>
           <Typography variant="h3" gutterBottom>
-            Enter Details
+            Get in Touch
           </Typography>
           <Grid container spacing={2}>
             {['Your name', 'Your email address', 'Company', 'Phone', 'Country', 'Subject'].map((label, index) => (
@@ -88,7 +88,7 @@ const ContactUs: React.FC = () => (
 
         {/* Contact Info & Map Section */}
         <Grid item xs={12} md={6}>
-          <Typography variant="h3" gutterBottom> Get in Touch </Typography>
+          
           <Typography variant="h4" gutterBottom sx={{color: themeColor}}> Corporate Office </Typography>
 
           {/* Address with Icon */}
@@ -125,11 +125,13 @@ const ContactUs: React.FC = () => (
           {/* Google Map Embed */}
           <Box
             component="iframe"
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3686.83449329288!2d70.015849!3d22.472853!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395715df42713d45%3A0xaf92b8afb778e883!2sRBM%20INFRACON%20PVT.%20LTD!5e0!3m2!1sen!2sin!4v1725184351371!5m2!1sen!2sin"
+            src="https://www.google.com/maps/d/u/2/embed?mid=1JUsnk-PMXnixDXzdjDaSvdwfjvs_TRw&ehbc=2E312F&noprof=1"
             sx={{ border: 0, width: "100%", height: { xs: "200px", sm: "300px" } }}
             allowFullScreen
             loading="lazy"
           />
+        
+      
         </Grid>
       </Grid>
 
@@ -154,10 +156,14 @@ const ContactUs: React.FC = () => (
               key={index}
               sx={{ paddingLeft: { xs: "20px", sm: "40px" }  }}
             >
-              <Card
-                className="card-shadow"
-                sx={{ display: "flex", flexDirection: "column", height: "100%" }}
-              >
+            <Card
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                height: "170px",
+                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.3)", // Adjust this for a lighter shadow
+              }}
+            >
                 <CardContent sx={{ flex: 1 }}>
                   <Typography variant="h6">{member.title}</Typography>
                   <Typography variant="body1" fontWeight="bold">{member.name}</Typography>

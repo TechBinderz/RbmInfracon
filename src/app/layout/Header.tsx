@@ -137,7 +137,7 @@ const Header: React.FC = () => {
               ]}
             />
             <Button
-              sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize, '&:hover': { color: 'white', backgroundColor: '#39ac4b' } }}
+              sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize, margin: '0px 10px', textTransform: 'capitalize', '&:hover': { color: 'white', backgroundColor: '#39ac4b' } }}
               component={Link}
               to="/investors"
             >
@@ -171,7 +171,7 @@ const Header: React.FC = () => {
               ]}
             />
             <Button
-              sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize, '&:hover': { color: 'white', backgroundColor: '#39ac4b' } }}
+              sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize, margin: '0px 10px', textTransform: 'capitalize', '&:hover': { color: 'white', backgroundColor: '#39ac4b' } }}
               component={Link}
               to="/contact"
             >
@@ -188,7 +188,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ buttonText, isScrolled, lin
   <Box className="dropdown">
     <Button
       className="dropbtn"
-      sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize }}
+      sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize, textTransform: 'capitalize', margin: '0px 10px' }}
     >
       {buttonText}
     </Button>

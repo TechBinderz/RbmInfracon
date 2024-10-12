@@ -10,15 +10,15 @@ interface Item {
 const items: Item[] = [
   {
     text: 'First Slide Text',
-    image: 'https://via.placeholder.com/800x400/FF5733/FFFFFF?text=',
+    image: 'https://picsum.photos/1920/1080',
   },
   {
     text: 'Second Slide Text',
-    image: 'https://via.placeholder.com/800x400/33FF57/FFFFFF?text=',
+    image: 'https://picsum.photos/1920/1080',
   },
   {
     text: 'Third Slide Text',
-    image: 'https://via.placeholder.com/800x400/3357FF/FFFFFF?text=',
+    image: 'https://picsum.photos/1920/1080',
   },
 ];
 

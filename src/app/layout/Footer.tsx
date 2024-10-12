@@ -38,17 +38,13 @@ const Footer = () => {
               />
             </Box>
             <Typography variant="body2" style={{ fontWeight: 200 }}>
-              RBM Infracon LTD is an idealistic attempt towards professionalized
-              treatment to problems generally out broken during various Process
-              of engineering, execution, testing, commissioning operation and
-              maintenance, particularly in the field of mechanical and rotary
-              equipment.
+            RBM Infracon LTD is a premier integrated industrial service provider, delivering innovative solutions in infrastructure development and project management with a focus on quality and sustainability.
             </Typography>
           </Grid>
 
           {/* Quick Links Section */}
           <Grid item xs={12} sm={3}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h5" gutterBottom style={{fontWeight: '600'}}>
               Quick Links
             </Typography>
             <ul style={{ listStyleType: "none", padding: 0 }}>
@@ -57,7 +53,7 @@ const Footer = () => {
                   to="/"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <Typography variant="body2">Home</Typography>
+                  <Typography variant="body1">Home</Typography>
                 </RouterLink>
               </li>
               <li>
@@ -65,7 +61,7 @@ const Footer = () => {
                   to="/aboutus"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <Typography variant="body2">About Us</Typography>
+                  <Typography variant="body1">About Us</Typography>
                 </RouterLink>
               </li>
               <li>
@@ -73,7 +69,7 @@ const Footer = () => {
                   to="/services"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <Typography variant="body2">Services</Typography>
+                  <Typography variant="body1">Services</Typography>
                 </RouterLink>
               </li>
               <li>
@@ -81,7 +77,7 @@ const Footer = () => {
                   to="/contact"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <Typography variant="body2">Contact</Typography>
+                  <Typography variant="body1">Contact</Typography>
                 </RouterLink>
               </li>
               <li>
@@ -89,7 +85,7 @@ const Footer = () => {
                   to="/investors"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <Typography variant="body2">Investors</Typography>
+                  <Typography variant="body1">Investors</Typography>
                 </RouterLink>
               </li>
             </ul>
@@ -97,34 +93,31 @@ const Footer = () => {
 
           {/* Office Locations Section */}
           <Grid item xs={12} sm={3}>
-            <Typography variant="h6" gutterBottom>
+          <Typography variant="h5" gutterBottom style={{fontWeight: '600'}}>
               Office Locations
             </Typography>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
-                <Typography variant="body2">Singapore</Typography>
+                <Typography variant="body1">India</Typography>
               </li>
               <li>
-                <Typography variant="body2">Thailand</Typography>
-              </li>
-              <li>
-                <Typography variant="body2">India</Typography>
-              </li>
-              <li>
-                <Typography variant="body2">Malaysia</Typography>
-              </li>
-              <li>
-                <Typography variant="body2">Abu Dhabi</Typography>
+                <Typography variant="body1">Dubai</Typography>
               </li>
             </ul>
             <RouterLink to="/contact" style={{ textDecoration: "none" }}>
               <Button
                 variant="contained"
                 style={{
-                  backgroundColor: themeColor,
-                  color: "#fff",
-                  marginTop: "10px",
-                }}
+              display: "inline-block",
+              backgroundColor: themeColor,
+              color: "#fff",
+              marginBottom: "10px",
+              fontSize: "14px",
+              textAlign: "center",
+              textDecoration: "none",
+              padding: "10px 16px", // Adjust padding for button appearance
+              borderRadius: "4px", // Optional: to round the corners
+            }}
               >
                 Contact Us
               </Button>
@@ -133,33 +126,53 @@ const Footer = () => {
 
           {/* Additional Actions Section */}
           <Grid item xs={12} sm={3}>
-            <Button
-              variant="contained"
-              style={{
-                backgroundColor: themeColor,
-                color: "#fff",
-                marginBottom: "10px",
-                width: "100%",
-              }}
-              onClick={handleOpenDialog}
-            >
+          <Button
+            href={corporateBrochurePdf} // Replace with your actual link
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="contained"
+            style={{
+              display: "inline-block",
+              backgroundColor: themeColor,
+              color: "#fff",
+              marginBottom: "10px",
+              fontSize: "14px",
+              width: "100%",
+              textAlign: "center",
+              textDecoration: "none",
+              padding: "10px 16px", // Adjust padding for button appearance
+              borderRadius: "4px", // Optional: to round the corners
+            }}
+          >
               Corporate Brochure
             </Button>
             <Button
-              variant="contained"
-              style={{
-                backgroundColor: themeColor,
-                color: "#fff",
-                marginBottom: "10px",
-                width: "100%",
-              }}
-            >
+            href={corporateBrochurePdf} // Replace with your actual link
+            target="_blank"
+            variant="contained"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              backgroundColor: themeColor,
+              color: "#fff",
+              marginBottom: "10px",
+              width: "100%",
+              fontSize: "14px",
+              textAlign: "center",
+              textDecoration: "none",
+              padding: "10px 16px", // Adjust padding for button appearance
+              borderRadius: "4px", // Optional: to round the corners
+            }}
+          >
               ESSG Report 2024
             </Button>
             <Box display="flex" gap={1}>
-              <FacebookIcon style={{ color: "#3b5998" }} />
-              <LinkedInIcon style={{ color: "#0e76a8" }} />
-              <YouTubeIcon style={{ color: "#ff0000" }} />
+              <a href="https://www.facebook.com/profile.php?id=61555355951153" target="_blank" rel="noopener noreferrer">
+                <FacebookIcon style={{ color: "#3b5998" }} />
+              </a>
+              <a href="https://www.linkedin.com/company/rbm-infracon-limited/" target="_blank" rel="noopener noreferrer">
+                <LinkedInIcon style={{ color: "#0e76a8" }} />
+              </a>
             </Box>
           </Grid>
         </Grid>
