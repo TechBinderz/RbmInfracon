@@ -1,16 +1,20 @@
 import React from "react";
 import PageTitle from "../common/PageTitleDiv";
 import { Typography, Grid, Card, CardMedia, CardContent, Container } from "@mui/material";
+import rail_wagon_1 from "../../assets/features/services/rail_wagon (1).jpg";
+import rail_wagon_2 from "../../assets/features/services/rail_wagon (2).jpg";
+import rail_wagon_3 from "../../assets/features/services/rail_wagon (3).jpg";
+import rail_wagon_4 from "../../assets/features/services/rail_wagon (4).jpg";
 
 const RailWagonLoadingServices: React.FC = () => {
   return (
     <>
       <PageTitle
-        imageUrl="https://picsum.photos/1920/1080"
+        imageUrl={rail_wagon_1}
         tileContent="Rail Wagon Loading Services"
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
-        <Grid container spacing={3}>
+        <Grid container spacing={10}>
           <Grid item xs={12} md={8}>
             <Typography paragraph>
               RBM Infracon offers efficient and reliable rail wagon loading services designed to streamline
@@ -47,21 +51,21 @@ const RailWagonLoadingServices: React.FC = () => {
             <Card className="card-shadow">
               <CardMedia
                 component="img"
-                height="350"
-                image="https://picsum.photos/500/300?random=16"
+                height={400}
+                image={rail_wagon_2}
                 alt="Rail Wagon Loading"
               />
             </Card>
           </Grid>
         </Grid>
 
-        <Grid container spacing={3} sx={{ marginTop: 3 }}>
+        <Grid container spacing={5} sx={{ marginTop: 3 }}>
           <Grid item xs={12} md={6}>
             <Card className="card-shadow">
               <CardMedia
                 component="img"
                 height="140"
-                image="https://picsum.photos/500/300?random=17"
+                image={rail_wagon_3}
                 alt="Loading Capacity"
               />
               <CardContent>
@@ -79,7 +83,7 @@ const RailWagonLoadingServices: React.FC = () => {
               <CardMedia
                 component="img"
                 height="140"
-                image="https://picsum.photos/500/300?random=18"
+                image={rail_wagon_4}
                 alt="Safety Compliance"
               />
               <CardContent>

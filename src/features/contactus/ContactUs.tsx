@@ -157,11 +157,11 @@ const ContactUs: React.FC = () => (
               sx={{ paddingLeft: { xs: "20px", sm: "40px" }  }}
             >
             <Card
+              className="card-shadow-1"
               sx={{
                 display: "flex",
                 flexDirection: "column",
                 height: "170px",
-                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.3)", // Adjust this for a lighter shadow
               }}
             >
                 <CardContent sx={{ flex: 1 }}>

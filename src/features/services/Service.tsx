@@ -13,8 +13,13 @@ import {
 } from "@mui/material";
 import "swiper/css";
 import "swiper/css/navigation";
+import services_image from "../../assets/features/services/services.jpg"
 import piping_service_1 from "../../assets/features/services/piping_service (1).jpg";
 import plate_work_1 from "../../assets/features/services/plate_work (1).jpg";
+import drilling_service_1 from "../../assets/features/services/drilling_service (1).jpg";
+import heater_operation_1 from "../../assets/features/services/heater_operation (1).jpg";
+import steel_work_1 from "../../assets/features/services/steel_work (1).jpg";
+import rail_wagon_1 from "../../assets/features/services/rail_wagon (1).jpg";
 
 // Define the card data
 const cardData = [
@@ -34,28 +39,28 @@ const cardData = [
   },
   {
     pathName: "heaterOperation",
-    image: "https://picsum.photos/500/300?random=8",
+    image: heater_operation_1,
     title: "Heater Operation",
     description:
       "Top-notch Operation and Maintenance (O&M) services for heating systems, ensuring optimal performance and comfort in various settings.",
   },
   {
     pathName: "drillingAndOMServices",
-    image: "https://picsum.photos/500/300?random=9",
+    image: drilling_service_1,
     title: "Drilling and O&M Services of Crewed Wells",
     description:
       "Specialized drilling and Operations and Maintenance (O&M) services for crewed wells, emphasizing reliability, safety, and efficiency.",
   },
   {
     pathName: "structuralSteelWork",
-    image: "https://picsum.photos/500/300?random=10",
+    image: steel_work_1,
     title: "Structural Steel Work",
     description:
       "Expertise in civil construction, maintenance, and erection of structural steel for various applications, including coke plant maintenance and industrial projects.",
   },
   {
     pathName: "railWagonLoadingServices",
-    image: "https://picsum.photos/500/300?random=12",
+    image: rail_wagon_1,
     title: "Rail Wagon Loading Services",
     description:
       "Efficient and reliable rail wagon loading services to streamline logistics and transportation, maximizing loading capacity and ensuring safety compliance.",
@@ -76,7 +81,7 @@ const Services: React.FC = () => {
   const ServicesPage: React.FC = () => (
     <>
       <PageTitle
-        imageUrl="https://picsum.photos/1920/1080"
+        imageUrl={services_image}
         tileContent="Services"
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>

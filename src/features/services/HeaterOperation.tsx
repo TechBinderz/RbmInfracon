@@ -1,71 +1,66 @@
 import React from "react";
 import PageTitle from "../common/PageTitleDiv";
-import { Typography, Grid, Card, CardMedia, CardContent, Container } from "@mui/material";
+import {
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  Container,
+} from "@mui/material";
+import heater_operation_1 from "../../assets/features/services/heater_operation (1).jpg";
+import heater_operation_2 from "../../assets/features/services/heater_operation (2).jpg";
+import heater_operation_3 from "../../assets/features/services/heater_operation (3).jpg";
+import heater_operation_4 from "../../assets/features/services/heater_operation (4).jpg";
 
 const HeaterOperation: React.FC = () => {
   return (
     <>
-      <PageTitle
-        imageUrl="https://picsum.photos/1920/1080"
-        tileContent="Heater Operation"
-      />
+      <PageTitle imageUrl={heater_operation_1} tileContent="Heater Operation" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={8}>
+        <Grid container spacing={10}>
+          <Grid item xs={12} md={6}>
             <Typography paragraph>
-              In Heater Operation, RBM Infracon excels as a reliable partner for
-              top-notch Operation and Maintenance (O&M) services. Our dedicated
-              team specializes in maintaining heating systems to ensure they
-              function optimally, providing uninterrupted warmth and comfort in
-              residential, commercial, and industrial spaces.
+              RBM Infracon is a trusted provider of Heater Operation O&M
+              services, ensuring reliable and efficient heating for residential,
+              commercial, and industrial spaces.
             </Typography>
             <Typography paragraph>
-              We prioritize efficiency and safety in every project, utilizing
-              advanced technology and a highly skilled workforce to monitor,
-              manage, and troubleshoot heating systems. Whether it’s routine
-              maintenance or emergency repairs, our comprehensive services are
-              designed to minimize downtime and maximize performance.
+              Our skilled team uses advanced technology to manage, monitor, and
+              maintain heating systems, focusing on minimizing downtime and
+              maximizing efficiency.
             </Typography>
             <Typography variant="h6" gutterBottom>
               Key Features:
             </Typography>
             <ul>
+              <li>Comprehensive O&M services for heating systems.</li>
+              <li>Dedicated teams for optimal efficiency.</li>
               <li>
-                Expertise in Operation & Maintenance (O&M) services for all types of heating systems.
+                Support for residential, commercial, and industrial setups.
               </li>
-              <li>
-                Dedicated teams ensuring optimal performance and energy efficiency.
-              </li>
-              <li>
-                Specialized support for residential, commercial, and industrial heating systems.
-              </li>
-              <li>
-                Quick response times for both routine maintenance and emergency repairs.
-              </li>
-              <li>
-                Focus on safety and sustainability in all operational processes.
-              </li>
+              <li>Quick response for maintenance and repairs.</li>
+              <li>Safety-focused and sustainable operations.</li>
             </ul>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={6}>
             <Card className="card-shadow">
               <CardMedia
                 component="img"
-                height="350"
-                image="https://picsum.photos/500/300?random=4"
+                height={350}
+                image={heater_operation_2}
                 alt="Heater Operation"
               />
             </Card>
           </Grid>
         </Grid>
-
-        <Grid container spacing={3} sx={{ marginTop: 3 }}>
+        <Grid container spacing={5} sx={{ marginTop: 3 }}>
           <Grid item xs={12} md={6}>
             <Card className="card-shadow">
               <CardMedia
                 component="img"
                 height="140"
-                image="https://picsum.photos/500/300?random=5"
+                image={heater_operation_3}
                 alt="Heater Maintenance"
               />
               <CardContent>
@@ -73,7 +68,9 @@ const HeaterOperation: React.FC = () => {
                   Heater Maintenance
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Routine maintenance services to keep your heating systems in peak condition, reducing the likelihood of unexpected breakdowns.
+                  Routine maintenance services to keep your heating systems in
+                  peak condition, reducing the likelihood of unexpected
+                  breakdowns.
                 </Typography>
               </CardContent>
             </Card>
@@ -83,7 +80,7 @@ const HeaterOperation: React.FC = () => {
               <CardMedia
                 component="img"
                 height="140"
-                image="https://picsum.photos/500/300?random=6"
+                image={heater_operation_4}
                 alt="Emergency Heater Repair"
               />
               <CardContent>
@@ -91,7 +88,8 @@ const HeaterOperation: React.FC = () => {
                   Emergency Heater Repair
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Fast and reliable repair services to address any urgent issues, ensuring minimal downtime and quick resolution.
+                  Fast and reliable repair services to address any urgent
+                  issues, ensuring minimal downtime and quick resolution.
                 </Typography>
               </CardContent>
             </Card>

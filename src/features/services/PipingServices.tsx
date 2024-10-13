@@ -22,7 +22,7 @@ const PipingServices: React.FC = () => {
         {/* <Typography variant="h4" gutterBottom>
           Precision Piping Services
         </Typography> */}
-        <Grid container spacing={3} sx={{ marginBottom: 3 }}>
+        <Grid container spacing={10} sx={{ marginBottom: 3 }}>
           <Grid item xs={12} md={6}>
             <Typography paragraph>
               RBM Infracon offers precision piping services with fabrication and
@@ -58,7 +58,7 @@ const PipingServices: React.FC = () => {
             </Card>
           </Grid>
         </Grid>
-        <Grid container spacing={3}>
+        <Grid container spacing={5}>
           <Grid item xs={12} md={6}>
             <Card className="card-shadow">
               <CardMedia

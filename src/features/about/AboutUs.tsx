@@ -22,6 +22,7 @@ import CustomerPage from "../common/CustomerPage";
 import PageTitle from "../common/PageTitleDiv";
 import "../common/common.css";
 import themeColor from "../common/common";
+import about_us_image from "../../assets/features/about-us/about_us.png";
 
 interface InfoCardProps {
   icon: React.ReactNode;
@@ -88,7 +89,7 @@ const AboutUs: React.FC = () => {
   return (
     <>
       <PageTitle
-        imageUrl="https://picsum.photos/1920/1080"
+        imageUrl={about_us_image}
         tileContent="About Us"
       />
       <Container sx={{ py: 4 }}>

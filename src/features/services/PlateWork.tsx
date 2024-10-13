@@ -19,7 +19,7 @@ const PlateWork: React.FC = () => {
     <>
       <PageTitle imageUrl={plate_work_1} tileContent="Plate Work" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
-        <Grid container spacing={3} sx={{ marginBottom: 3 }}>
+        <Grid container spacing={10} sx={{ marginBottom: 3 }}>
           <Grid item xs={12} md={6}>
             <Typography paragraph>
               RBM Infracon's Plate Work services deliver precise fabrication and
@@ -63,7 +63,7 @@ const PlateWork: React.FC = () => {
             </Card>
           </Grid>
         </Grid>
-        <Grid container spacing={3}>
+        <Grid container spacing={5}>
           <Grid item xs={12} md={6}>
             <Card className="card-shadow">
               <CardMedia

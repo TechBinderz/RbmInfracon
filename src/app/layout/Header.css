@@ -18,6 +18,8 @@
     transform: translateY(10px); /* Initial position for animation */
     transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth opening effect */
     animation: dropdownSlideIn 0.3s ease forwards; /* Apply the animation */
+    margin-left: 20px;
+    margin-top: 0.5px;
   }
   
   .dropdown:hover .dropdown-content {
@@ -32,7 +34,7 @@
     text-decoration: none;
     display: block;
     transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 14px; /* Slightly smaller text for a cleaner look */
+    font-size: 17px; /* Slightly smaller text for a cleaner look */
   }
   
   .dropdown-content a:hover {

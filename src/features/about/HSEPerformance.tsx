@@ -21,6 +21,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import PageTitle from "../common/PageTitleDiv";
+import hse_image from "../../assets/features/about-us/hse.jpg";
 
 // Sample HSE data
 const hseData = [
@@ -88,7 +89,7 @@ const HSEPerformance: React.FC = () => {
   return (
     <>
       <PageTitle
-        imageUrl="https://picsum.photos/1920/1080"
+        imageUrl={hse_image}
         tileContent="Past 5 Years HSE Performance"
       />
       <Container sx={{ py: 4 }}>

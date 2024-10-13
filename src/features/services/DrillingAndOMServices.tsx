@@ -1,68 +1,67 @@
 import React from "react";
 import PageTitle from "../common/PageTitleDiv";
-import { Typography, Grid, Card, CardMedia, CardContent, Container } from "@mui/material";
+import {
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  Container,
+} from "@mui/material";
+import drilling_service_1 from "../../assets/features/services/drilling_service (1).jpg";
+import drilling_service_2 from "../../assets/features/services/drilling_service (2).jpg";
+import drilling_service_3 from "../../assets/features/services/drilling_service (3).jpg";
+import drilling_service_4 from "../../assets/features/services/drilling_service (4).jpg";
 
 const DrillingAndOMServices: React.FC = () => {
   return (
     <>
       <PageTitle
-        imageUrl="https://picsum.photos/1920/1080"
+        imageUrl={drilling_service_1}
         tileContent="Drilling And O&M Services"
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={8}>
+        <Grid container spacing={10}>
+          <Grid item xs={12} md={6}>
             <Typography paragraph>
-              RBM Infracon extends its expertise to drilling and Operations and Maintenance (O&M)
-              services for crewed wells. With a wealth of experience and a commitment to excellence,
-              we manage intricate processes to ensure the reliability, safety, and efficiency of well operations.
+              RBM Infracon offers specialized drilling and Operations &
+              Maintenance (O&M) services for crewed wells, ensuring reliable and
+              efficient operations.
             </Typography>
             <Typography paragraph>
-              Our team of skilled professionals brings together technical know-how and operational
-              precision to deliver top-notch services that meet the diverse needs of our clients. Whether
-              it’s initial drilling or ongoing maintenance, we adhere to strict industry standards to
-              ensure smooth and sustainable operations.
+              Our skilled team combines technical expertise with industry
+              standards, delivering precision in both drilling and ongoing
+              maintenance.
             </Typography>
             <Typography variant="h6" gutterBottom>
               Key Features:
             </Typography>
             <ul>
-              <li>
-                Comprehensive drilling services with a focus on precision and safety.
-              </li>
-              <li>
-                Expert Operations & Maintenance (O&M) services tailored to the unique needs of crewed wells.
-              </li>
-              <li>
-                Focus on maximizing operational efficiency while minimizing downtime.
-              </li>
-              <li>
-                Adherence to strict industry regulations and safety protocols.
-              </li>
-              <li>
-                Skilled workforce with extensive experience in managing both small and large-scale projects.
-              </li>
+              <li>Precision-driven drilling services with a safety focus.</li>
+              <li>Tailored O&M services for crewed wells.</li>
+              <li>Enhanced efficiency and reduced downtime.</li>
+              <li>Compliance with strict safety protocols.</li>
+              <li>Experienced team for projects of all scales.</li>
             </ul>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={6}>
             <Card className="card-shadow">
               <CardMedia
                 component="img"
-                height="350"
-                image="https://picsum.photos/500/300?random=7"
+                height={300}
+                image={drilling_service_2}
                 alt="Drilling Operations"
               />
             </Card>
           </Grid>
         </Grid>
-
-        <Grid container spacing={3} sx={{ marginTop: 3 }}>
+        <Grid container spacing={5} sx={{ marginTop: 3 }}>
           <Grid item xs={12} md={6}>
             <Card className="card-shadow">
               <CardMedia
                 component="img"
                 height="140"
-                image="https://picsum.photos/500/300?random=8"
+                image={drilling_service_3}
                 alt="Well Maintenance"
               />
               <CardContent>
@@ -70,7 +69,8 @@ const DrillingAndOMServices: React.FC = () => {
                   Well Maintenance
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Routine maintenance to ensure well systems continue to operate at peak efficiency, reducing risks and operational delays.
+                  Routine maintenance to ensure well systems continue to operate
+                  at peak efficiency, reducing risks and operational delays.
                 </Typography>
               </CardContent>
             </Card>
@@ -80,7 +80,7 @@ const DrillingAndOMServices: React.FC = () => {
               <CardMedia
                 component="img"
                 height="140"
-                image="https://picsum.photos/500/300?random=9"
+                image={drilling_service_4}
                 alt="Emergency Well Repairs"
               />
               <CardContent>
@@ -88,7 +88,9 @@ const DrillingAndOMServices: React.FC = () => {
                   Emergency Well Repairs
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Swift and reliable repair services to address critical well issues, ensuring minimal downtime and continued safe operation.
+                  Swift and reliable repair services to address critical well
+                  issues, ensuring minimal downtime and continued safe
+                  operation.
                 </Typography>
               </CardContent>
             </Card>
