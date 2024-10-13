@@ -3,6 +3,7 @@ import React from 'react';
 import { Grid, Typography, FormControl, InputLabel, Select, MenuItem, Box, Pagination, Container } from '@mui/material';
 import NewsCard from './NewsCard';
 import PageTitle from '../common/PageTitleDiv';
+import { SelectChangeEvent } from '@mui/material';
 
 const categories = [
     'All Categories',
@@ -31,11 +32,12 @@ const News: React.FC = () => {
     const [currentPage, setCurrentPage] = React.useState<number>(1);
     const itemsPerPage = 9;
 
-    const handleCategoryChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-        setCategory(event.target.value as string);
+
+    const handleCategoryChange = (event: SelectChangeEvent<string>) => {
+        setCategory(event.target.value);
     };
 
-    const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    const handlePageChange = (_: React.ChangeEvent<unknown> | null, value: number) => {
         setCurrentPage(value);
     };
 
