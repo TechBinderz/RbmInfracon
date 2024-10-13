@@ -8,6 +8,7 @@ import BannerButton from './BannerButton';
 import SolutionSection from './SolutionSection';
 import CompanySection from './CompanySection';
 import NewsSection from './NewsSection';
+import StatisticsPoliciesSection from '../common/StatisticsPoliciesSection';
 
 const Home: React.FC = () => {
   return (
@@ -58,6 +59,7 @@ const Home: React.FC = () => {
       <SolutionSection />
       <CompanySection />
       <NewsSection />
+      <StatisticsPoliciesSection/>
       <CustomerPage/>  
       </Container>
     </>

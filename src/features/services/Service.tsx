@@ -13,19 +13,21 @@ import {
 } from "@mui/material";
 import "swiper/css";
 import "swiper/css/navigation";
+import piping_service_1 from "../../assets/features/services/piping_service (1).jpg";
+import plate_work_1 from "../../assets/features/services/plate_work (1).jpg";
 
 // Define the card data
 const cardData = [
   {
     pathName: "pipingServices",
-    image: "https://picsum.photos/500/300?random=6",
+    image: piping_service_1,
     title: "Piping Services",
     description:
       "Comprehensive solutions for various piping systems, including installation, maintenance, and optimization to ensure functionality and safety.",
   },
   {
     pathName: "plateWork",
-    image: "https://picsum.photos/500/300?random=7",
+    image: plate_work_1,
     title: "Plate Work",
     description:
       "Expert services for fabricating and erecting platework structures such as ducts, hoppers, and chutes, focusing on precision and quality.",
@@ -50,13 +52,6 @@ const cardData = [
     title: "Structural Steel Work",
     description:
       "Expertise in civil construction, maintenance, and erection of structural steel for various applications, including coke plant maintenance and industrial projects.",
-  },
-  {
-    pathName: "plateWorkFabricationErection",
-    image: "https://picsum.photos/500/300?random=11",
-    title: "Plate Work Fabrication and Erection",
-    description:
-      "Comprehensive services for the fabrication, supply, and erection of platework structures, with a focus on superior quality and performance.",
   },
   {
     pathName: "railWagonLoadingServices",
@@ -88,7 +83,7 @@ const Services: React.FC = () => {
         <Grid container spacing={2} sx={{ justifyContent: "center" }}>
           {filteredCardData.map((card, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card className="card-shadow" sx={{ padding: "5px" }}>
+              <Card className="card-shadow-1" sx={{ padding: "5px" }}>
                 <Link
                   to={`/services/${card.pathName}`}
                   style={{ textDecoration: "none", color: "inherit" }}

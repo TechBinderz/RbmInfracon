@@ -8,55 +8,51 @@ import {
   CardContent,
   Container,
 } from "@mui/material";
-import "../common/common.css"
+import "../common/common.css";
+import piping_service_1 from "../../assets/features/services/piping_service (1).jpg";
+import piping_service_2 from "../../assets/features/services/piping_service (2).jpg";
+import piping_service_3 from "../../assets/features/services/piping_service (3).jpg";
+import piping_service_4 from "../../assets/features/services/piping_service (4).jpg";
 
 const PipingServices: React.FC = () => {
   return (
     <>
-      <PageTitle
-        imageUrl="https://picsum.photos/1920/1080"
-        tileContent="Piping Services"
-      />
+      <PageTitle imageUrl={piping_service_1} tileContent="Piping Services" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         {/* <Typography variant="h4" gutterBottom>
           Precision Piping Services
         </Typography> */}
-        <Grid container spacing={3} sx={{marginBottom:3}}>
-          <Grid item xs={12} md={8}>
+        <Grid container spacing={3} sx={{ marginBottom: 3 }}>
+          <Grid item xs={12} md={6}>
             <Typography paragraph>
-              RBM Infracon specializes in precision Piping Services, offering
-              fabrication and erection solutions for carbon steel (CS),
-              stainless steel (SS), and alloy steel systems.
+              RBM Infracon offers precision piping services with fabrication and
+              erection solutions for carbon steel (CS), stainless steel (SS),
+              and alloy steel systems.
             </Typography>
             <Typography paragraph>
-              Our skilled team ensures industry-standard installation and
-              alignment, utilizing advanced techniques for aboveground and
-              underground projects.
-            </Typography>
-            <Typography paragraph>
-              We ensure durability, safety, and efficiency in all our projects.
+              Our skilled team provides industry-standard installation and
+              alignment for both aboveground and underground projects, ensuring
+              durability, safety, and efficiency.
             </Typography>
             <Typography variant="h6" gutterBottom>
               Key Services:
             </Typography>
-            <ul>
-              <li>Fabrication and Erection of Structural Work</li>
-              <li>
-                Installation of Aboveground and Underground Piping Systems
-              </li>
-              <li>ARC Maintenance of Refineries and Petrochemicals</li>
+            <Typography component="ul" sx={{ pl: 2, listStyleType: "disc" }}>
+              <li>Structural Fabrication & Erection</li>
+              <li>Aboveground & Underground Piping Installation</li>
+              <li>ARC Maintenance for Refineries & Petrochemicals</li>
               <li>Turnaround (Shutdown) Services</li>
               <li>Blasting & Painting</li>
-              <li>Insulation and Refractory Work</li>
-              <li>Electrical and Instrumentation</li>
-            </ul>
+              <li>Insulation & Refractory Work</li>
+              <li>Electrical & Instrumentation</li>
+            </Typography>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={6}>
             <Card className="card-shadow">
               <CardMedia
                 component="img"
-                height="350"
-                image="https://picsum.photos/500/300?random=3"
+                height={400}
+                image={piping_service_2}
                 alt="Piping Services"
               />
             </Card>
@@ -68,7 +64,7 @@ const PipingServices: React.FC = () => {
               <CardMedia
                 component="img"
                 height="140"
-                image="https://picsum.photos/500/300?random=1"
+                image={piping_service_3}
                 alt="Piping Installation"
               />
               <CardContent>
@@ -87,7 +83,7 @@ const PipingServices: React.FC = () => {
               <CardMedia
                 component="img"
                 height="140"
-                image="https://picsum.photos/500/300?random=2"
+                image={piping_service_4}
                 alt="Piping Maintenance"
               />
               <CardContent>

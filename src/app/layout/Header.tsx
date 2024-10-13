@@ -102,7 +102,15 @@ const Header: React.FC = () => {
               </Box>
             </Toolbar>
           )}
-          <Toolbar sx={{ justifyContent: "right" }}>
+         
+          <Toolbar sx={{ justifyContent: "right", marginTop: isScrolled ? "5px" : "0px" }}>
+            <Button
+              sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize, margin: '0px 10px', textTransform: 'capitalize', '&:hover': { color: 'white', backgroundColor: '#39ac4b' } }}
+              component={Link}
+              to="/"
+            >
+              Home
+            </Button>
             <DropdownMenu
               buttonText={
                 <>
@@ -132,7 +140,6 @@ const Header: React.FC = () => {
                 { text: "Heater Operation", to: "/services/heaterOperation" },
                 { text: "Drilling and O&M Services of Crewed Wells", to: "/services/drillingAndOMServices" },
                 { text: "Structural Steel Work", to: "/services/structuralSteelWork" },
-                { text: "Plate Work Fabrication and Erection", to: "/services/plateWorkFabricationErection" },
                 { text: "Rail Wagon Loading Services", to: "/services/railWagonLoadingServices" },
               ]}
             />
@@ -157,19 +164,13 @@ const Header: React.FC = () => {
                 { to: "/financials", text: "Financials" },
               ]}
             />
-            <DropdownMenu
-              buttonText={
-                <>
-                  <span>News</span>
-                  <ArrowDropDownIcon />
-                </>
-              }
-              isScrolled={isScrolled}
-              links={[
-                { to: "/news", text: "Press Releases" },
-                { to: "/media-kit", text: "Media Kit" },
-              ]}
-            />
+              <Button
+              sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize, margin: '0px 10px', textTransform: 'capitalize', '&:hover': { color: 'white', backgroundColor: '#39ac4b' } }}
+              component={Link}
+              to="/news"
+            >
+             News
+            </Button>
             <Button
               sx={{ color: isScrolled ? "black" : "inherit", fontSize: headerFontSize, margin: '0px 10px', textTransform: 'capitalize', '&:hover': { color: 'white', backgroundColor: '#39ac4b' } }}
               component={Link}

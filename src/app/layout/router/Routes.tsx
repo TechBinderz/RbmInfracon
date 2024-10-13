@@ -9,12 +9,12 @@ import Services from "../../../features/services/Service";
 import DrillingAndOMServices from "../../../features/services/DrillingAndOMServices";
 import HeaterOperation from "../../../features/services/HeaterOperation";
 import PipingServices from "../../../features/services/PipingServices";
-import PlateWorkFabricationErection from "../../../features/services/PlateWorkFabricationErection";
 import RailWagonLoadingServices from "../../../features/services/RailWagonLoadingServices";
 import StructuralSteelWork from "../../../features/services/StructuralSteelWork";
 import PlateWork from "../../../features/services/PlateWork";
 import BoardOfDirectors from "../../../features/about/BoardOfDirectors";
 import HSEPerformance from "../../../features/about/HSEPerformance";
+import News from "../../../features/news/News";
 
 const servicesRoutes = {
   path: "services",
@@ -43,10 +43,6 @@ const servicesRoutes = {
     {
       path: "structuralSteelWork",
       element: <StructuralSteelWork />,
-    },
-    {
-      path: "plateWorkFabricationErection",
-      element: <PlateWorkFabricationErection />,
     },
     {
       path: "railWagonLoadingServices",
@@ -89,6 +85,11 @@ export const router = createBrowserRouter([
       {
         path: "/investors",
         element: <Investors />,
+      },
+      
+      {
+        path: "/news",
+        element: <News/>,
       },
       servicesRoutes, // Add services routes here
     ],

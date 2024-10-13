@@ -9,65 +9,55 @@ import {
   Container,
 } from "@mui/material";
 import "../common/common.css";
+import plate_work_1 from "../../assets/features/services/plate_work (1).jpg";
+import plate_work_2 from "../../assets/features/services/plate_work (2).jpg";
+import plate_work_3 from "../../assets/features/services/plate_work (3).jpg";
+import plate_work_4 from "../../assets/features/services/plate_work (4).jpg";
 
 const PlateWork: React.FC = () => {
   return (
     <>
-      <PageTitle
-        imageUrl="https://picsum.photos/1920/1080"
-        tileContent="Plate Work"
-      />
+      <PageTitle imageUrl={plate_work_1} tileContent="Plate Work" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={3} sx={{ marginBottom: 3 }}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={6}>
             <Typography paragraph>
-              RBM Infracon's Plate Work services provide comprehensive solutions
-              for fabricating and erecting platework structures such as ducts,
-              hoppers, and chutes with the highest levels of precision and
-              efficiency.
+              RBM Infracon's Plate Work services deliver precise fabrication and
+              erection of structures like ducts, hoppers, and chutes.
             </Typography>
             <Typography paragraph>
-              Our team of highly skilled craftsmen ensures that every structure
-              meets specific client requirements, with a commitment to superior
-              quality, performance, and long-term durability.
+              Our skilled team ensures each structure meets client requirements
+              with a focus on quality, performance, and durability.
             </Typography>
             <Typography paragraph>
-              By leveraging advanced techniques and premium-grade materials, we
-              excel in handling complex designs, maintaining tight tolerances,
-              and executing large-scale projects. We strictly adhere to safety
-              protocols and project timelines, positioning RBM Infracon as a
-              trusted partner for industrial infrastructure solutions.
+              Using advanced techniques and premium materials, we handle complex
+              designs, maintain tight tolerances, and meet timelines,
+              positioning us as a trusted industrial partner.
             </Typography>
             <Typography variant="h6" gutterBottom>
               Key Services:
             </Typography>
-            <ul>
+            <Typography component="ul" sx={{ pl: 2, listStyleType: "disc" }}>
               <li>
-                Complete fabrication and erection of platework structures, including ducts, hoppers, and chutes.
+                Fabrication and erection of platework structures (ducts,
+                hoppers, chutes)
               </li>
+              <li>Precision construction to client standards</li>
+              <li>Top-quality performance and durability</li>
+              <li>Advanced techniques for intricate designs</li>
+              <li>Safety-focused project execution</li>
               <li>
-                Precision construction tailored to client-specific designs and standards.
+                Established partnerships in oil, gas, petrochemical, and power
+                sectors
               </li>
-              <li>
-                Commitment to delivering top-tier quality, performance, and durability.
-              </li>
-              <li>
-                Use of advanced techniques and high-grade materials to handle intricate geometries and challenging specifications.
-              </li>
-              <li>
-                Proven expertise in managing large-scale industrial projects while maintaining stringent safety standards.
-              </li>
-              <li>
-                Long-standing partnerships across sectors such as oil and gas, petrochemical, and power industries.
-              </li>
-            </ul>
+            </Typography>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={6}>
             <Card className="card-shadow">
               <CardMedia
                 component="img"
-                height="450"
-                image="https://picsum.photos/500/300?random=3"
+                height={400}
+                image={plate_work_2}
                 alt="Plate Work Example"
               />
             </Card>
@@ -79,7 +69,7 @@ const PlateWork: React.FC = () => {
               <CardMedia
                 component="img"
                 height="140"
-                image="https://picsum.photos/500/300?random=1"
+                image={plate_work_3}
                 alt="Plate Fabrication"
               />
               <CardContent>
@@ -88,7 +78,8 @@ const PlateWork: React.FC = () => {
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Expert fabrication services designed to deliver precision and
-                  strength in constructing industrial-grade platework structures.
+                  strength in constructing industrial-grade platework
+                  structures.
                 </Typography>
               </CardContent>
             </Card>
@@ -98,7 +89,7 @@ const PlateWork: React.FC = () => {
               <CardMedia
                 component="img"
                 height="140"
-                image="https://picsum.photos/500/300?random=2"
+                image={plate_work_4}
                 alt="Plate Maintenance"
               />
               <CardContent>

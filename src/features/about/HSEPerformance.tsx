@@ -93,24 +93,16 @@ const HSEPerformance: React.FC = () => {
       />
       <Container sx={{ py: 4 }}>
         <Typography variant="body1" paragraph sx={{ marginBottom: 4 }}>
-          In the last half-decade, RBM Infracon Limited, a prominent
-          construction company, has showcased an outstanding performance in
-          Health, Safety, and Environment (HSE), achieving remarkable results
-          with a commendable record of zero fatal cases. The company's
-          unwavering commitment to upholding the highest safety standards is
-          evident in its consistent track record of accident-free operations.
-          RBM Infracon Limited has proactively implemented robust safety
-          protocols, comprehensive training programs, and advanced technology to
-          ensure the well-being of its employees, contractors, and all
-          stakeholders involved in its projects. Through these measures, the
-          company has successfully minimized the risks associated with its
-          operations. The firm's focus on proactive risk management and a
-          commitment to continuous improvement have led to a significant
-          reduction in the number of accidents and injuries on its worksites.
-          RBM Infracon Limited's achievements in HSE not only underscore its
-          dedication to preserving human life and fostering a culture of safety
-          but also emphasize its capability to deliver construction projects of
-          the highest quality and standards
+          In the past five years, RBM Infracon Limited has demonstrated
+          exceptional commitment to Health, Safety, and Environment (HSE),
+          achieving zero fatal incidents and a remarkable record of
+          accident-free operations. Through rigorous safety protocols,
+          continuous training, and advanced technology, the company has
+          minimized operational risks, ensuring the well-being of employees,
+          contractors, and stakeholders. RBM Infracon’s proactive risk
+          management and focus on continuous improvement underscore its
+          dedication to safety and quality in delivering high-standard
+          construction projects.
         </Typography>
 
         <Grid container spacing={4} sx={{ marginBottom: 4 }}>
