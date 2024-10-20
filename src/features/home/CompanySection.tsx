@@ -15,8 +15,8 @@ const companyItems = [
 
 const CompanySection = () => {
   return (
-    <Box sx={{ paddingY: 4 }}>
-      <Typography variant="h4" align="center" sx={{ marginBottom: 4 }}>
+    <Box >
+      <Typography variant="h2" align="center" sx={{ marginBottom: 4 }}>
         Our Company
       </Typography>
       <Grid container spacing={3} justifyContent="center">

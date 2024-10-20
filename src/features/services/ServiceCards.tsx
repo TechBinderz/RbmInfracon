@@ -1,0 +1,51 @@
+import { Card, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom"; // Import from react-router-dom for proper navigation
+import React from "react";
+
+// Define the structure of the card data using TypeScript
+interface CardData {
+  pathName: string;
+  image: string;
+  title: string;
+  description: string;
+}
+
+interface ServiceCardProps {
+  cardData: CardData[];
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
+  return (
+    <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
+      <Grid container spacing={2} sx={{ justifyContent: "center" }}>
+        {cardData.map((card, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Card className="card-shadow-1" sx={{ padding: "5px" }}>
+              <Link
+                to={`/services/${card.pathName}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <CardMedia
+                  component="img"
+                  height="240"
+                  image={card.image}
+                  alt={card.title}
+                />
+                <CardContent sx={{ height: "140px" }}>
+                  <Typography variant="h6" component="div">
+                    {card.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {card.description}
+                  </Typography>
+                </CardContent>
+              </Link>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
+  );
+};
+
+export default ServiceCard;

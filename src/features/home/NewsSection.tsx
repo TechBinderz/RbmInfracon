@@ -17,8 +17,8 @@ const newsItems = [
 const NewsSection = () => {
   return (
     <>
-      <Typography variant="h4" align="center">
-        CR3 News
+      <Typography sx={{paddingY: 4}} variant="h2" align="center">
+        Latest News
       </Typography>
       <Grid container spacing={2} justifyContent="center">
         {newsItems.map((news, index) => (
