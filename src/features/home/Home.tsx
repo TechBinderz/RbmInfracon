@@ -1,7 +1,7 @@
 // src/components/Home.tsx
 import React from 'react';
 import { Container } from "@mui/material";
-import backgroundImage from '../../assets/features/home/home3.jpg'; // Adjust the path as necessary
+import backgroundImage from '../../assets/features/home/home1.jpg'; // Adjust the path as necessary
 import TextImageCarousel from './TextImageCarousal';
 import CustomerPage from '../common/CustomerPage';
 import BannerButton from './BannerButton';
@@ -18,7 +18,7 @@ const Home: React.FC = () => {
           backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent), url(${backgroundImage})`, // Gradient overlay from top
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: "83vh", // Full height
+          height: "75vh", // Full height
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
