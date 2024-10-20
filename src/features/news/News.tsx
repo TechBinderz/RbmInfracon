@@ -14,16 +14,16 @@ const categories = [
 ];
 
 const newsItems = [
-    { date: 'October 2024', title: 'CR3 Awarded Contract for Dubai Solar Park', description: 'CR3’s recent investments in new equipment and engineering capabilities have strengthened our role in solar development...' },
-    { date: 'October 2024', title: 'CR3 Honoured with Good Governance Award', description: 'CR3 (Thailand) has been awarded the Good Governance Standards Certification Award 2024 at a recent ceremony in Bangkok...' },
-    { date: 'October 2024', title: 'CR3 Makes Impressive Debut at OGA2024', description: 'With over 30,000 attendees from 72 countries, OGA2024 provided the ideal platform to showcase our energy engineering solutions...' },
-    { date: 'September 2024', title: 'CR3 Expands Operations in Asia', description: 'CR3 is excited to announce the expansion of our operations in Asia, focusing on sustainable energy solutions...' },
-    { date: 'September 2024', title: 'New Partnership with EcoTech', description: 'CR3 has partnered with EcoTech to enhance our renewable energy initiatives across the region...' },
-    { date: 'August 2024', title: 'CR3 Wins Green Building Award', description: 'At the recent Green Building Conference, CR3 was awarded for our outstanding contributions to sustainable building practices...' },
-    { date: 'August 2024', title: 'CR3 Launches New Sustainability Initiative', description: 'Our new sustainability initiative aims to reduce carbon emissions in our operations by 25% over the next five years...' },
-    { date: 'July 2024', title: 'CR3 Hosts Annual Community Event', description: 'Join us for our annual community event to learn more about our projects and meet our team...' },
-    { date: 'July 2024', title: 'CR3 Celebrates 10 Years of Service', description: 'CR3 is proud to celebrate a decade of service in the renewable energy sector...' },
-    { date: 'June 2024', title: 'CR3’s Role in Renewable Energy', description: 'CR3 is playing a key role in promoting renewable energy projects across the region...' },
+    { date: 'October 2024', title: 'RBM Awarded Contract for Dubai Solar Park', description: 'RBM’s recent investments in new equipment and engineering capabilities have strengthened our role in solar development...' },
+    { date: 'October 2024', title: 'RBM Honoured with Good Governance Award', description: 'RBM (Thailand) has been awarded the Good Governance Standards Certification Award 2024 at a recent ceremony in Bangkok...' },
+    { date: 'October 2024', title: 'RBM Makes Impressive Debut at OGA2024', description: 'With over 30,000 attendees from 72 countries, OGA2024 provided the ideal platform to showcase our energy engineering solutions...' },
+    { date: 'September 2024', title: 'RBM Expands Operations in Asia', description: 'RBM is excited to announce the expansion of our operations in Asia, focusing on sustainable energy solutions...' },
+    { date: 'September 2024', title: 'New Partnership with EcoTech', description: 'RBM has partnered with EcoTech to enhance our renewable energy initiatives across the region...' },
+    { date: 'August 2024', title: 'RBM Wins Green Building Award', description: 'At the recent Green Building Conference, RBM was awarded for our outstanding contributions to sustainable building practices...' },
+    { date: 'August 2024', title: 'RBM Launches New Sustainability Initiative', description: 'Our new sustainability initiative aims to reduce carbon emissions in our operations by 25% over the next five years...' },
+    { date: 'July 2024', title: 'RBM Hosts Annual Community Event', description: 'Join us for our annual community event to learn more about our projects and meet our team...' },
+    { date: 'July 2024', title: 'RBM Celebrates 10 Years of Service', description: 'RBM is proud to celebrate a decade of service in the renewable energy sector...' },
+    { date: 'June 2024', title: 'RBM’s Role in Renewable Energy', description: 'RBM is playing a key role in promoting renewable energy projects across the region...' },
     // Add more items if needed for testing pagination
 ];
 
