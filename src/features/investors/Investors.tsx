@@ -10,12 +10,12 @@ import anualReport22_23 from '../../assets/features/investors/AnualReport22-23.p
 import outstanding_dues from '../../assets/features/investors/Outstanding-dues.pdf';
 import prospectus from '../../assets/features/investors/Prospectus.pdf';
 import financialResult23 from '../../assets/features/investors/FinancialResult23.pdf';
-import anualResult22_23 from '../../assets/features/investors/AnualResult22_23.pdf';
-import valuationOfConvertibaleEquity from '../../assets/features/investors/ValuationOfConvertibaleEquity.pdf';
-import pcsWarrants from '../../assets/features/investors/PcsWarrants.pdf';
-import pcsEquity from '../../assets/features/investors/PcsEquity.pdf';
-import scripts from '../../assets/features/investors/Scripts.pdf';
-import sOutcomeFR from '../../assets/features/investors/SOutcomeFR.pdf';
+// import anualResult22_23 from '../../assets/features/investors/AnualResult22_23.pdf';
+// import valuationOfConvertibaleEquity from '../../assets/features/investors/ValuationOfConvertibaleEquity.pdf';
+// import pcsWarrants from '../../assets/features/investors/PcsWarrants.pdf';
+// import pcsEquity from '../../assets/features/investors/PcsEquity.pdf';
+// import scripts from '../../assets/features/investors/Scripts.pdf';
+// import sOutcomeFR from '../../assets/features/investors/SOutcomeFR.pdf';
 import CustomDialog from '../common/CustomDailog';
 
 const investorItems = [
@@ -28,12 +28,12 @@ const investorItems = [
   { title: 'Outstanding Dues', content: outstanding_dues, type: 'pdf' },
   { title: 'Prospectus', content: prospectus, type: 'pdf' },
   { title: 'Financial Result', content: financialResult23, type: 'pdf' },
-  { title: 'Annual Return (2022-23)', content: anualResult22_23, type: 'pdf' },
-  { title: 'Valuation of Convertible Equity Warrants and Shares', content: valuationOfConvertibaleEquity, type: 'pdf' },
-  { title: 'PCS Warrants', content: pcsWarrants, type: 'pdf' },
-  { title: 'PCS Equity', content: pcsEquity, type: 'pdf' },
-  { title: 'Scripts', content: scripts, type: 'pdf' },
-  { title: 'S Outcome FR', content: sOutcomeFR, type: 'pdf' },
+  // { title: 'Annual Return (2022-23)', content: anualResult22_23, type: 'pdf' },
+  // { title: 'Valuation of Convertible Equity Warrants and Shares', content: valuationOfConvertibaleEquity, type: 'pdf' },
+  // { title: 'PCS Warrants', content: pcsWarrants, type: 'pdf' },
+  // { title: 'PCS Equity', content: pcsEquity, type: 'pdf' },
+  // { title: 'Scripts', content: scripts, type: 'pdf' },
+  // { title: 'S Outcome FR', content: sOutcomeFR, type: 'pdf' },
 ];
 
 const Investor: React.FC = () => {
@@ -55,9 +55,7 @@ const Investor: React.FC = () => {
     <>
       <PageTitle imageUrl='https://picsum.photos/1920/1080' tileContent='Investors' />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
-        <Typography variant="h4" gutterBottom>
-          Company Details
-        </Typography>
+       
         <Grid container spacing={3}>
           {investorItems.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>

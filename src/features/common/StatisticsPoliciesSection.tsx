@@ -49,7 +49,7 @@ const StatisticsPoliciesSection = () => {
 
       {/* Policies Section */}
       <Box textAlign="center" mb={4}>
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
+        <Typography variant="h3" fontWeight="bold" gutterBottom>
           System & Control
         </Typography>
         <Typography>
