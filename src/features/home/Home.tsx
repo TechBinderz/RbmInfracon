@@ -1,7 +1,7 @@
 // src/components/Home.tsx
 import React from 'react';
 import { Container } from "@mui/material";
-import backgroundImage from '../../assets/features/home/home3.jpeg'; // Adjust the path as necessary
+import backgroundImage from '../../assets/features/home/home3.jpg'; // Adjust the path as necessary
 import TextImageCarousel from './TextImageCarousal';
 import CustomerPage from '../common/CustomerPage';
 import BannerButton from './BannerButton';
