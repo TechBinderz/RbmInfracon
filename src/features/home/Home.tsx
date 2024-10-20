@@ -5,7 +5,6 @@ import { Container } from "@mui/material";
 import backgroundImage from "../../assets/features/home/home1.jpg"; // Adjust the path as necessary
 import TextImageCarousel from "./TextImageCarousal";
 import CustomerPage from "../common/CustomerPage";
-import BannerButton from "./BannerButton";
 import SolutionSection from "./SolutionSection";
 import CompanySection from "./CompanySection";
 import NewsSection from "./NewsSection";
