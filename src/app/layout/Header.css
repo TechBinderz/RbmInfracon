@@ -43,8 +43,8 @@
   }
   
   .dropdown:hover .dropbtn {
-    background-color: #39ac4b;
-    color: white;
+    /* background-color: #39ac4b; */
+    color: #39ac4b;
   }
   
   /* Keyframe animation for dropdown */
