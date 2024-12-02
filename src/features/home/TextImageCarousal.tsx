@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import slider1 from "../../assets/features/home/slider/slider (1).jpeg";
+import slider2 from "../../assets/features/home/slider/slider (2).jpeg";
+import slider3 from "../../assets/features/home/slider/slider (3).jpeg";
+import slider4 from "../../assets/features/home/slider/slider (4).jpeg";
+import slider5 from "../../assets/features/home/slider/slider (5).jpeg";
+import slider6 from "../../assets/features/home/slider/slider (6).jpeg";
+import slider7 from "../../assets/features/home/slider/slider (7).jpeg";
 
 interface Item {
   text: string;
@@ -9,16 +16,32 @@ interface Item {
 
 const items: Item[] = [
   {
-    text: "First Slide Text",
-    image: "https://picsum.photos/1920/1080",
+    text: "",
+    image: slider1,
   },
   {
-    text: "Second Slide Text",
-    image: "https://picsum.photos/1920/1080",
+    text: "",
+    image: slider2,
   },
   {
-    text: "Third Slide Text",
-    image: "https://picsum.photos/1920/1080",
+    text: "",
+    image: slider3,
+  },
+  {
+    text: "",
+    image: slider4,
+  },
+  {
+    text: "",
+    image: slider5,
+  },
+  {
+    text: "",
+    image: slider6,
+  },
+  {
+    text: "",
+    image: slider7,
   },
 ];
 
@@ -89,7 +112,7 @@ const TextImageCarousel: React.FC = () => {
         sx={{
           width: "100%",
           height: "40vh",
-          backgroundImage: `url(${items[activeStep].image})`,
+          backgroundImage: `url("${items[activeStep].image}")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",

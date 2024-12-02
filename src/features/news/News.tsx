@@ -12,7 +12,8 @@ import NewsCard from "./NewsCard";
 import PageTitle from "../common/PageTitleDiv";
 import { SelectChangeEvent } from "@mui/material";
 import themeColor from "../common/common";
-import { newsItems, NewsItem } from "./NewsData";
+import { newsItems, NewsItem } from "./newsPages/NewsData";
+import { useLocation, Outlet, Link } from "react-router-dom";
 
 const categories = [
   "All Categories",
@@ -23,6 +24,7 @@ const categories = [
 ];
 
 const News: React.FC = () => {
+  const { pathname } = useLocation();
   const [category, setCategory] = React.useState<string>(categories[0]);
   const [currentPage, setCurrentPage] = React.useState<number>(1);
   const itemsPerPage = 9;
@@ -50,7 +52,7 @@ const News: React.FC = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
 
-  return (
+  const AllNews: React.FC = () => (
     <>
       <PageTitle
         imageUrl="https://picsum.photos/1920/1080"
@@ -94,12 +96,17 @@ const News: React.FC = () => {
                 padding: { xs: "10px", sm: "15px" },
               }}
             >
-              <NewsCard
-                image={item.image}
-                date={item.date}
-                title={item.title}
-                description={item.description}
-              />
+              <Link
+                to={`/news/${item.pathName}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <NewsCard
+                  image={item.image}
+                  date={item.date}
+                  title={item.title}
+                  description={item.description}
+                />
+              </Link>
             </Grid>
           ))}
         </Grid>
@@ -115,6 +122,8 @@ const News: React.FC = () => {
       </Container>
     </>
   );
+
+  return (<>{pathname === "/news" ? <AllNews /> : <Outlet />}</>)
 };
 
 export default News;

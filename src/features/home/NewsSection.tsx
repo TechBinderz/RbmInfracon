@@ -1,18 +1,9 @@
-import { Grid, Typography, Card, CardMedia, CardContent } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+import {newsItems, NewsItem} from "../news/newsPages/NewsData"
+import NewsCard from "../news/NewsCard";
 
-const newsItems = [
-  {
-    title: "CR3 Makes Impressive Debut at OGA2024",
-    image: "path_to_image",
-    description: "Short description of the event",
-  },
-  {
-    title: "CR3 Earns Praise from Middle East Client",
-    image: "path_to_image",
-    description: "Short description of the event",
-  },
-  // Add more news articles here...
-];
+const filteredNewsItems = newsItems.slice(0, 3);
 
 const NewsSection = () => {
   return (
@@ -21,20 +12,19 @@ const NewsSection = () => {
         Latest News
       </Typography>
       <Grid container spacing={2} justifyContent="center">
-        {newsItems.map((news, index) => (
+        {filteredNewsItems.map((item: NewsItem, index: number) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card>
-              <CardMedia
-                component="img"
-                alt={news.title}
-                height="140"
-                image={news.image}
-              />
-              <CardContent>
-                <Typography variant="h6">{news.title}</Typography>
-                <Typography variant="body2">{news.description}</Typography>
-              </CardContent>
-            </Card>
+            <Link
+                to={`/news/${item.pathName}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <NewsCard
+                  image={item.image}
+                  date={item.date}
+                  title={item.title}
+                  description={item.description}
+                />
+              </Link>
           </Grid>
         ))}
       </Grid>

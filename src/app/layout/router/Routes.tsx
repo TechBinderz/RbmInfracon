@@ -15,6 +15,22 @@ import PlateWork from "../../../features/services/PlateWork";
 import BoardOfDirectors from "../../../features/about/BoardOfDirectors";
 import HSEPerformance from "../../../features/about/HSEPerformance";
 import News from "../../../features/news/News";
+import ONGC_WorkOrderSigned from "../../../features/news/newsPages/ongc_work_order_signed"
+
+const newsRoutes = {
+  path: "news",
+  element: <News />,
+  children: [
+    {
+      path: "",
+      element: <News />,
+    },
+    {
+      path: "ongc_work_order_signed",
+      element: <ONGC_WorkOrderSigned />,
+    },
+  ],
+};
 
 const servicesRoutes = {
   path: "services",
@@ -22,7 +38,7 @@ const servicesRoutes = {
   children: [
     {
       path: "",
-      element: <Services />
+      element: <Services />,
     },
     {
       path: "pipingServices",
@@ -76,22 +92,18 @@ export const router = createBrowserRouter([
       },
       {
         path: "/aboutus/boardofdirector",
-        element: <BoardOfDirectors/>
+        element: <BoardOfDirectors />,
       },
       {
         path: "/aboutus/hseperformance",
-        element: <HSEPerformance/>
+        element: <HSEPerformance />,
       },
       {
         path: "/investors",
         element: <Investors />,
       },
-      
-      {
-        path: "/news",
-        element: <News/>,
-      },
       servicesRoutes, // Add services routes here
+      newsRoutes, // Add news routes here
     ],
   },
 ]);

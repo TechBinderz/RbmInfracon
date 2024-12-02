@@ -22,7 +22,8 @@ import CustomerPage from "../common/CustomerPage";
 import PageTitle from "../common/PageTitleDiv";
 import "../common/common.css";
 import themeColor from "../common/common";
-import about_us_image from "../../assets/features/about-us/about_us.png";
+// import about_us_image from "../../assets/features/about-us/about_us.png";
+import about_us_image from "../../assets/features/about-us/about_us1.jpeg";
 
 interface InfoCardProps {
   icon: React.ReactNode;

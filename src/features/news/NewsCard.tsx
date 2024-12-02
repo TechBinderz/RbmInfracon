@@ -48,7 +48,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
         >
           {date}
         </Typography>
-        <Typography gutterBottom sx={{ height: 120,fontSize: "30px" }}>
+        <Typography gutterBottom sx={{ height: 120, fontSize: "30px" }}>
           {title}
         </Typography>
         <Divider sx={{ my: 2, bgcolor: "black" }} />{" "}
