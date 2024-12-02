@@ -1,4 +1,11 @@
-import { Card, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material";
 import { Link } from "react-router-dom"; // Import from react-router-dom for proper navigation
 import React from "react";
 
@@ -17,10 +24,29 @@ interface ServiceCardProps {
 const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
   return (
     <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
-      <Grid container spacing={2} sx={{ justifyContent: "center" }}>
+      <Grid container spacing={3} sx={{ justifyContent: "center" }}>
         {cardData.map((card, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card className="card-shadow-1" sx={{ padding: "5px" }}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={index}
+            sx={{
+              padding: { xs: "10px", sm: "15px" },
+            }}
+          >
+            <Card
+              className="card-shadow-1"
+              sx={{
+                padding: "5px",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
+                },
+              }}
+            >
               <Link
                 to={`/services/${card.pathName}`}
                 style={{ textDecoration: "none", color: "inherit" }}

@@ -174,7 +174,7 @@ const Header: React.FC = () => {
               }
               links={[
                 { to: "/aboutus", text: "About Us" },
-                // { to: "/aboutus/boardofdirector", text: "Board Of Directors" },
+               { to: "/aboutus/boardofdirector", text: "Board Of Directors" },
                 { to: "/aboutus/hseperformance", text: "HSE" },
               ]}
             />

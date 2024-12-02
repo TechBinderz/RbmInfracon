@@ -69,7 +69,16 @@ const Services: React.FC = () => {
               to={`/services/${card.pathName}`}
               style={{ textDecoration: "none", color: "inherit" }}
             >
-              <Card sx={{ padding: "5px" }}>
+              <Card
+                sx={{
+                  padding: "5px",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
+                  },
+                }}
+              >
                 <CardMedia
                   component="img"
                   height="240"
