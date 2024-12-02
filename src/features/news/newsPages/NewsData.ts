@@ -1,3 +1,5 @@
+import ongc_work_order_signed from "../../../assets/features/news/news_pages/ongc_work_order_signed.png";
+
 export interface NewsItem {
   image: string;
   date: string;
@@ -9,7 +11,7 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
-    image: "https://picsum.photos/1024",
+    image: ongc_work_order_signed,
     date: "November 2024",
     title: "ONGC Contract for Oil & Gas Extraction",
     description:
