@@ -16,7 +16,6 @@ import BoardOfDirectors from "../../../features/about/BoardOfDirectors";
 import HSEPerformance from "../../../features/about/HSEPerformance";
 import News from "../../../features/news/News";
 import ONGC_WorkOrderSigned from "../../../features/news/newsPages/ongc_work_order_signed"
-import { CarRental } from "@mui/icons-material";
 import CareerPage from "../../../features/careers/CareerPage";
 
 const newsRoutes = {
@@ -37,7 +36,6 @@ const newsRoutes = {
 const careerRoutes = {
   path: "careers",
   element: <CareerPage />,
- 
 };
 
 const servicesRoutes = {

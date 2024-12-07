@@ -5,11 +5,13 @@ import {
   CardMedia,
   CardContent,
   Typography,
-  Button,
   Box,
   Container,
 } from "@mui/material";
 import PageTitle from "../common/PageTitleDiv";
+import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
+import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Jay Bajrang Mani.jpg";
+import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
 
 interface Director {
   name: string;
@@ -22,29 +24,27 @@ interface Director {
 // Mock data for directors
 const directors: Director[] = [
   {
-    name: "Mukesh D. Ambani",
-    title: "Chairman & Managing Director, RIL",
-    image: "/images/mukesh.jpg", // replace with actual image path
+    name: "Mr. Jaybajrag Ramaishish Mani",
+    title: "Chairman & Managing Director, RBM",
+    image: jaybajrang_ramaishish_photo,
     description:
-      "RIL Chairman and Managing Director Mukesh D. Ambani is a chemical engineer from the Institute of Chemical Technology...",
+      "He has over 25 years of experience, showcasing strong leadership in managing high-profile projects and driving RBM Infracon Limited’s growth. His strategic insight and focus on quality have been critical in delivering complex projects on time, within budget, and to the highest standards. He oversees the Finance, Sales, and Marketing divisions, playing a key role in shaping policy decisions and steering the company towards continued success.",
     isChairman: true,
   },
   {
-    name: "Isha M. Ambani",
-    title: "Non-Executive Director",
-    image: "/images/isha.jpg", // replace with actual image path
+    name: "Mr. Aditya Jay Bajrag Mani",
+    title: "Whole Time Director",
+    image: aditya_jay_photo,
+    description:
+      "A Mechanical Engineer from Jamnagar, Gujarat, with 6+ years of experience driving growth and operational excellence. He leads Mechanical and Civil operations and excels in strategic planning, team leadership, and fostering strong stakeholder relationships. Passionate about the Oil & Gas industry, he is committed to delivering innovative solutions and impactful results.",
   },
   {
-    name: "Akash M. Ambani",
-    title: "Non-Executive Director",
-    image: "/images/akash.jpg", // replace with actual image path
+    name: "Mr. Deepak Saxena",
+    title: "Director",
+    image: deepak_saxena_photo,
+    description:
+      "A vast experience of 33 years in the Procurement of Materials and Services with experience in Project, Engineering, 0&M, Contract Management for Capex and 0&M, SCM, Purchase, Inbound and outbound logistics, imports, custom clearance and freight forwarding, Import and export licensing. He has been working in O&G, Polyester, Petrochemical refinery, Energy, Pipeline.",
   },
-  {
-    name: "Anant M. Ambani",
-    title: "Non-Executive Director",
-    image: "/images/anant.jpg", // replace with actual image path
-  },
-  // Add more directors here...
 ];
 
 const BoardOfDirectors: React.FC = () => {
@@ -69,31 +69,30 @@ const BoardOfDirectors: React.FC = () => {
         >
           <CardMedia
             component="img"
-            sx={{ width: { xs: "100%", md: "50%" }, height: "auto" }}
-            image="/images/mukesh.jpg" // replace with actual path
-            alt="Mukesh D. Ambani"
+            sx={{ width: { xs: "50%", md: "30%" }, height: "auto" }}
+            image={directors[0].image} // replace with actual path
+            alt={directors[0].name}
           />
           <Box sx={{ padding: 2, maxWidth: 600 }}>
             <Typography
               variant="h3"
               sx={{ fontWeight: "bold", textAlign: "left" }}
             >
-              Mukesh Ambani
+              {directors[0].name}
             </Typography>
             <Typography
-              variant="subtitle1"
+              variant="h5"
               sx={{ textAlign: "left", marginBottom: 2 }}
             >
-              Chairman & Managing Director, RIL
+              {directors[0].title}
             </Typography>
             <Typography
               variant="body1"
               sx={{ textAlign: "left", marginBottom: 4 }}
             >
-              RIL Chairman and Managing Director Mukesh D. Ambani is a chemical
-              engineer from the Institute of Chemical Technology...
+              {directors[0].description}
             </Typography>
-            <Button variant="outlined">Read more</Button>
+            {/* <Button variant="outlined">Read more</Button> */}
           </Box>
         </Box>
 
@@ -102,18 +101,36 @@ const BoardOfDirectors: React.FC = () => {
           {directors
             .filter((director) => !director.isChairman)
             .map((director, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
+              <Grid item xs={12} sm={6} md={6} key={index}>
                 <Card>
                   <CardMedia
                     component="img"
-                    height="250"
+                    sx={{
+                      width: { xs: "35%", md: "25%" },
+                      height: { xs: "200px", md: "150px" },
+                      borderRadius: "50%", // Makes the image rounded
+                      margin: "0 auto", // Centers the image
+                    }}
                     image={director.image}
                     alt={director.name}
                   />
                   <CardContent>
-                    <Typography variant="h6">{director.name}</Typography>
-                    <Typography variant="subtitle1" color="text.secondary">
+                    <Typography variant="h5" align="center">
+                      {director.name}
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      color="text.secondary"
+                      align="center"
+                    >
                       {director.title}
+                    </Typography>
+                    <Typography
+                      variant="subtitle1"
+                      color="text.secondary"
+                      align="center"
+                    >
+                      {director.description}
                     </Typography>
                   </CardContent>
                 </Card>

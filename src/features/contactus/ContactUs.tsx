@@ -14,28 +14,83 @@ import {
 } from "@mui/material";
 import { Email as EmailIcon, Phone as PhoneIcon } from "@mui/icons-material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import '../common/common.css';
-import PageTitle from '../common/PageTitleDiv';
+import "../common/common.css";
+import PageTitle from "../common/PageTitleDiv";
 import themeColor from "../common/common";
+import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Jay Bajrang Mani.jpg";
+import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
+import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
+import narendra_sharma_photo from "../../assets/features/rbm_management/Mr. Narendra Sharma.png";
+import pankaj_kumar_photo from "../../assets/features/rbm_management/Mr. Pankaj Kumar.png";
+import ranjan_kumar_photo from "../../assets/features/rbm_management/Mr. Ranjan Kumar.png";
+import ravi_pratap_photo from "../../assets/features/rbm_management/Mr. Ravi Pratap Singh.png";
+import sanjay_singh_photo from "../../assets/features/rbm_management/Mr. Sanjay Singh.png";
+import sreejith_pillai_photo from "../../assets/features/rbm_management/Mr. Sreejith Pillai.png";
+import sunil_srivastava_photo from "../../assets/features/rbm_management/Mr. Sunil Srivastava.png";
+import sunil_kumar_photo from "../../assets/features/rbm_management/Sunil Kumar Singh.png";
 
 // Management team data
 const managementTeamList = [
-  { title: "Managing Director", name: "Mr. J.B. Mani", emails: ["md@rbminfracon.com", "jbmani6212@gmail.com"] },
-  { title: "Project Head", name: "Mr. Ranjay Kumar Roy", emails: ["ranjankumar@rbminfracon.com"] },
-  { title: "HR & Admin-Central", name: "Mr. Santosh Gauda", emails: ["hr@rbminfracon.com"] },
-  { title: "Account & Finance-Central", name: "Mr. Pankaj Kumar Sinha", emails: ["cfo@rbminfracon.com"] },
-  { title: "Project Coordinator/Manager - Planning", name: "Mr. Aditya Mani", emails: ["planning@rbminfracon.com"], phone: "+91-96625494820" },
-  { title: "Project Coordinator/Manager - Execution", name: "Mr. Kunal Soni", emails: ["execution@rbminfracon.com"], phone: "+91-96625494820" },
-  { title: "Site Manager - RIL_IDC_Nagpur", name: "Mr. Raju Mani Tripathi", emails: ["rajeevrbminfracon@gmail.com"], phone: "+91-8511139662" },
-  { title: "Site Manager - L&T_IOCL_Paradeep", name: "Mr. Shriniwash Tripathi", phone: "9712397606 / 7990109213" },
-  { title: "Site Manager - Yara Fertilizer_Babralla", name: "P. Subhash Kartha", emails: ["rbmbabrala@gmail.com"], phone: "+91-7017599964, 09904018311" },
-  { title: "Site Manager - RIL_Jamnagar", name: "Mr. Shriniwash Mishra", emails: ["shriniwashrbm@gmail.com"], phone: "+91-9825032634" },
-  { title: "Site Manager - Nayara_Jamnagar", name: "Mr. Ramniwas Mishra", emails: ["mishraramniwashrbminfracon@gmail.com"] },
+  {
+    image: jaybajrang_ramaishish_photo,
+    title: "Chairman & Managing Director",
+    name: "Mr. Jaybajrag Ramaishish Mani",
+    emails: ["md@rbminfracon.com", "jbmani6212@gmail.com"],
+  },
+  {
+    image: aditya_jay_photo,
+    title: "Whole Time Director",
+    name: "Mr. Aditya Jay Bajrag Mani",
+  },
+  { image: deepak_saxena_photo, title: "Director", name: "Mr. Deepak Saxena" },
+  {
+    image: narendra_sharma_photo,
+    title: "Chief Financial Officer",
+    name: "Mr. Narendra Sharma",
+  },
+  {
+    image: pankaj_kumar_photo,
+    title: "Corporate Projects & Operations Head",
+    name: "Mr. Pankaj Kumar",
+  },
+  {
+    image: sreejith_pillai_photo,
+    title: "Commercial Head",
+    name: "Mr. Sreejith Pillai",
+  },
+  {
+    image: ranjan_kumar_photo,
+    title: "Projects Head",
+    name: "Mr. Ranjan Kumar",
+  },
+  {
+    image: sunil_srivastava_photo,
+    title: "Chief Human Resourses Officer",
+    name: "Mr. Sunil Srivastava",
+  },
+  {
+    image: ravi_pratap_photo,
+    title: "Non-Executive Director of Oil & Gas Division",
+    name: "Mr. Ravi Pratap Singh",
+  },
+  {
+    image: sunil_kumar_photo,
+    title: "ONGC Project Head",
+    name: "Sunil Kumar Singh",
+  },
+  {
+    image: sanjay_singh_photo,
+    title: "President - Oil & Gas Division",
+    name: "Mr. Sanjay Singh",
+  },
 ];
 
 const ContactUs: React.FC = () => (
   <>
-    <PageTitle imageUrl="https://picsum.photos/1920/1080" tileContent="Contact Us" />
+    <PageTitle
+      imageUrl="https://picsum.photos/1920/1080"
+      tileContent="Contact Us"
+    />
     <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
       <Grid container spacing={4}>
         {/* Contact Form Section */}
@@ -44,15 +99,28 @@ const ContactUs: React.FC = () => (
             Get in Touch
           </Typography>
           <Grid container spacing={2}>
-            {['Your name', 'Your email address', 'Company', 'Phone', 'Country', 'Subject'].map((label, index) => (
+            {[
+              "Your name",
+              "Your email address",
+              "Company",
+              "Phone",
+              "Country",
+              "Subject",
+            ].map((label, index) => (
               <Grid item xs={12} sm={6} key={index}>
                 <TextField
                   fullWidth
                   required
                   label={label}
-                  id={`contact-${label.replace(/\s+/g, '-').toLowerCase()}`}
+                  id={`contact-${label.replace(/\s+/g, "-").toLowerCase()}`}
                   variant="outlined"
-                  type={label.includes("email") ? "email" : label.includes("Phone") ? "tel" : "text"}
+                  type={
+                    label.includes("email")
+                      ? "email"
+                      : label.includes("Phone")
+                      ? "tel"
+                      : "text"
+                  }
                 />
               </Grid>
             ))}
@@ -69,11 +137,24 @@ const ContactUs: React.FC = () => (
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox color="default" name="agree" sx={{ color: themeColor }} />}
+                control={
+                  <Checkbox
+                    color="default"
+                    name="agree"
+                    sx={{ color: themeColor }}
+                  />
+                }
                 label={
                   <Typography variant="body2">
                     I agree to the terms and conditions of RBM Infracon Limited{" "}
-                    <Link href="#" underline="always" sx={{ color: themeColor }}>privacy policy</Link>.
+                    <Link
+                      href="#"
+                      underline="always"
+                      sx={{ color: themeColor }}
+                    >
+                      privacy policy
+                    </Link>
+                    .
                   </Typography>
                 }
               />
@@ -88,24 +169,35 @@ const ContactUs: React.FC = () => (
 
         {/* Contact Info & Map Section */}
         <Grid item xs={12} md={6}>
-          
-          <Typography variant="h4" gutterBottom sx={{color: themeColor}}> Corporate Office </Typography>
+          <Typography variant="h4" gutterBottom sx={{ color: themeColor }}>
+            {" "}
+            Corporate Office{" "}
+          </Typography>
 
           {/* Address with Icon */}
           <Box display="flex" alignItems="center" sx={{ marginBottom: "16px" }}>
             <LocationOnIcon sx={{ marginRight: "8px", color: themeColor }} />
             <Typography fontSize="18px" variant="body2">
-              03, Snehdeep Residency, Office No. 3, Digjam Circle, Jamnagar, Gujarat, PIN Code: 361006
+              03, Snehdeep Residency, Office No. 3, Digjam Circle, Jamnagar,
+              Gujarat, PIN Code: 361006
             </Typography>
           </Box>
 
           {/* Email and Phone Number */}
-          <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ marginBottom: "16px" }}>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            sx={{ marginBottom: "16px" }}
+          >
             {/* Email with Icon (left) */}
             <Box display="flex" alignItems="center">
               <EmailIcon sx={{ marginRight: "8px", color: themeColor }} />
               <Typography fontSize="18px" variant="body2">
-                <a href="mailto:info@rbminfracon.com" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <a
+                  href="mailto:info@rbminfracon.com"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   info@rbminfracon.com
                 </a>
               </Typography>
@@ -115,7 +207,10 @@ const ContactUs: React.FC = () => (
             <Box display="flex" alignItems="center">
               <PhoneIcon sx={{ marginRight: "8px", color: themeColor }} />
               <Typography fontSize="18px" variant="body2">
-                <a href="tel:+9102882710463" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <a
+                  href="tel:+9102882710463"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   +91 0288 2710463
                 </a>
               </Typography>
@@ -126,19 +221,23 @@ const ContactUs: React.FC = () => (
           <Box
             component="iframe"
             src="https://www.google.com/maps/d/u/2/embed?mid=1JUsnk-PMXnixDXzdjDaSvdwfjvs_TRw&ehbc=2E312F&noprof=1"
-            sx={{ border: 0, width: "100%", height: { xs: "200px", sm: "300px" } }}
+            sx={{
+              border: 0,
+              width: "100%",
+              height: { xs: "200px", sm: "300px" },
+            }}
             allowFullScreen
             loading="lazy"
           />
-        
-      
         </Grid>
       </Grid>
 
       {/* Management Team Section */}
       <Grid container spacing={4} sx={{ marginTop: "40px" }}>
         <Grid item xs={12} sx={{ padding: { xs: "0px 20px", sm: "0px 40px" } }}>
-          <Typography variant="h4" gutterBottom>Our Management Team</Typography>
+          <Typography variant="h4" gutterBottom>
+            Our Management Team
+          </Typography>
           <Box
             sx={{
               borderBottom: "2px solid #000", // Customize the color and thickness as needed
@@ -146,7 +245,7 @@ const ContactUs: React.FC = () => (
             }}
           />
         </Grid>
-        <Grid container spacing={4} sx={{ marginLeft : "auto"}}>
+        <Grid container spacing={4} sx={{ marginLeft: "auto" }}>
           {managementTeamList.map((member, index) => (
             <Grid
               item
@@ -154,20 +253,46 @@ const ContactUs: React.FC = () => (
               sm={6}
               md={4}
               key={index}
-              sx={{ paddingLeft: { xs: "20px", sm: "40px" }  }}
+              sx={{ paddingLeft: { xs: "20px", sm: "40px" } }}
             >
-            <Card
-              className="card-shadow-1"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                height: "170px",
-              }}
-            >
-                <CardContent sx={{ flex: 1 }}>
-                  <Typography variant="h6">{member.title}</Typography>
-                  <Typography variant="body1" fontWeight="bold">{member.name}</Typography>
-                  {member.emails?.map((email, i) => (
+              <Card
+                className="card-shadow-1"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "200px",
+                  textAlign: "center",
+                  padding: "16px",
+                }}
+              >
+                <CardContent
+                  sx={{
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    style={{
+                      width: "80px",
+                      height: "80px",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                      marginBottom: "16px",
+                    }}
+                  />
+                  <Typography variant="h6" gutterBottom>
+                    {member.name}
+                  </Typography>
+                  <Typography variant="body1" color="textSecondary">
+                    {member.title}
+                  </Typography>
+                  {/* {member.emails?.map((email, i) => (
                     <Typography variant="body2" key={i}>
                       <EmailIcon sx={{ verticalAlign: "middle", mr: 1 }} />
                       {email}
@@ -178,7 +303,7 @@ const ContactUs: React.FC = () => (
                       <PhoneIcon sx={{ verticalAlign: "middle", mr: 1 }} />
                       {member.phone}
                     </Typography>
-                  )}
+                  )} */}
                 </CardContent>
               </Card>
             </Grid>
