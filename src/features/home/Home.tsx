@@ -1,4 +1,3 @@
-// src/components/Home.tsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container } from "@mui/material";
@@ -9,9 +8,13 @@ import SolutionSection from "./SolutionSection";
 import CompanySection from "./CompanySection";
 import NewsSection from "./NewsSection";
 import StatisticsPoliciesSection from "../common/StatisticsPoliciesSection";
+import useScrollEffect from "../hooks/useScrollEffect"; // Import the custom hook
 import "./home.css";
 
 const Home: React.FC = () => {
+  // Apply the scroll effect
+  useScrollEffect("hidden");
+
   return (
     <>
       <div className="hero-section">
@@ -32,17 +35,26 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div>
-      </div>
-
-      {/* <BannerButton /> */}
       <Container>
-        <SolutionSection />
-        <CompanySection />
-        <TextImageCarousel />
-        <NewsSection />
-        <StatisticsPoliciesSection />
-        <CustomerPage />
+        {/* Add "hidden" class to animate sections on scroll */}
+        <div className="hidden">
+          <SolutionSection />
+        </div>
+        <div className="hidden">
+          <CompanySection />
+        </div>
+        <div className="hidden">
+          <TextImageCarousel />
+        </div>
+        <div className="hidden">
+          <NewsSection />
+        </div>
+        <div className="hidden">
+          <StatisticsPoliciesSection />
+        </div>
+        <div className="hidden">
+          <CustomerPage />
+        </div>
       </Container>
     </>
   );
