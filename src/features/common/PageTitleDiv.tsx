@@ -16,7 +16,12 @@ interface PageTitleProps {
 const PageTitle: React.FC<PageTitleProps> = ({
   imageUrl,
   tileContent,
-  tilePosition = { bottom: "20px", left: {lg: "20%", md: "4%", sm:"5%", xs: "3%"}, top: "auto", right: "auto" }, // Default position of the tile
+  tilePosition = {
+    bottom: "20px",
+    left: { lg: "20%", md: "4%", sm: "5%", xs: "3%" },
+    top: "auto",
+    right: "auto",
+  }, // Default position of the tile
 }) => {
   return (
     <Box
@@ -69,9 +74,7 @@ const PageTitle: React.FC<PageTitleProps> = ({
           zIndex: 2, // Ensure tile is above the tint overlay
         }}
       >
-        <h1 style={{ fontSize: "3.5rem", margin: 0 }}>
-          {tileContent}
-        </h1>
+        <h1 style={{ fontSize: "3.5rem", margin: 0 }}>{tileContent}</h1>
       </Box>
     </Box>
   );

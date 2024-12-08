@@ -28,6 +28,7 @@ import sanjay_singh_photo from "../../assets/features/rbm_management/Mr. Sanjay 
 import sreejith_pillai_photo from "../../assets/features/rbm_management/Mr. Sreejith Pillai.png";
 import sunil_srivastava_photo from "../../assets/features/rbm_management/Mr. Sunil Srivastava.png";
 import sunil_kumar_photo from "../../assets/features/rbm_management/Sunil Kumar Singh.png";
+import contact_us_image from "../../assets/features/contact_us/contact_us.jpg";
 
 // Management team data
 const managementTeamList = [
@@ -88,7 +89,7 @@ const managementTeamList = [
 const ContactUs: React.FC = () => (
   <>
     <PageTitle
-      imageUrl="https://picsum.photos/1920/1080"
+      imageUrl={contact_us_image}
       tileContent="Contact Us"
     />
     <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>

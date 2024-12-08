@@ -17,6 +17,7 @@ import financialResult23 from '../../assets/features/investors/FinancialResult23
 // import scripts from '../../assets/features/investors/Scripts.pdf';
 // import sOutcomeFR from '../../assets/features/investors/SOutcomeFR.pdf';
 import CustomDialog from '../common/CustomDailog';
+import investors_Image from "../../assets/features/investors/investors.jpg";
 
 const investorItems = [
   { title: 'Board Of Directors', content: <DirectorTable />, type: 'table' },
@@ -53,7 +54,7 @@ const Investor: React.FC = () => {
 
   return (
     <>
-      <PageTitle imageUrl='https://picsum.photos/1920/1080' tileContent='Investors' />
+      <PageTitle imageUrl={investors_Image} tileContent='Investors' />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
        
         <Grid container spacing={3}>

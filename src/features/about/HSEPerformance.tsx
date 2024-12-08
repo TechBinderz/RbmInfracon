@@ -22,6 +22,7 @@ import {
 } from "recharts";
 import PageTitle from "../common/PageTitleDiv";
 import hse_image from "../../assets/features/about-us/hse.jpg";
+import hse_image1 from "../../assets/features/about-us/hse.jpeg";
 
 // Sample HSE data
 const hseData = [
@@ -93,7 +94,7 @@ const HSEPerformance: React.FC = () => {
         tileContent="Past 5 Years HSE Performance"
       />
       <Container sx={{ py: 4 }}>
-        <Typography variant="body1" paragraph sx={{ marginBottom: 4 }}>
+        <Typography variant="h6" paragraph sx={{ marginBottom: 4 }}>
           In the past five years, RBM Infracon Limited has demonstrated
           exceptional commitment to Health, Safety, and Environment (HSE),
           achieving zero fatal incidents and a remarkable record of
@@ -174,8 +175,18 @@ const HSEPerformance: React.FC = () => {
             </ResponsiveContainer>
           </Grid>
         </Grid>
-
-        <Typography variant="body2" paragraph>
+        <img
+          src={hse_image1}
+          alt="Full Width"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
+            marginBottom: "25px",
+          }}
+        />
+        <Typography variant="h6" paragraph>
           RBM Infracon Limited has proactively implemented robust safety
           protocols, comprehensive training programs, and advanced technology to
           ensure the well-being of its employees. Through these measures, the

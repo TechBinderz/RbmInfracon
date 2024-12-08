@@ -12,6 +12,7 @@ import PageTitle from "../common/PageTitleDiv";
 import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
 import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Jay Bajrang Mani.jpg";
 import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
+import board_of_directors_image from "../../assets/features/about-us/board_of_directors.jpg";
 
 interface Director {
   name: string;
@@ -51,7 +52,7 @@ const BoardOfDirectors: React.FC = () => {
   return (
     <>
       <PageTitle
-        imageUrl="https://picsum.photos/1920/1080"
+        imageUrl={board_of_directors_image}
         tileContent="Board of Directors"
       />
       <Container sx={{ py: 4 }}>

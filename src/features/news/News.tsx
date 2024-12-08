@@ -14,6 +14,7 @@ import { SelectChangeEvent } from "@mui/material";
 import themeColor from "../common/common";
 import { newsItems, NewsItem } from "./newsPages/NewsData";
 import { useLocation, Outlet, Link } from "react-router-dom";
+import news_Image from "../../assets/features/news/news.jpg";
 
 const categories = [
   "All Categories",
@@ -55,7 +56,7 @@ const News: React.FC = () => {
   const AllNews: React.FC = () => (
     <>
       <PageTitle
-        imageUrl="https://picsum.photos/1920/1080"
+        imageUrl={news_Image}
         tileContent="News"
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
