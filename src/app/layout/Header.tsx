@@ -208,8 +208,7 @@ const Header: React.FC = () => {
               }
               links={[
                 { to: "/careers", text: "Job Openings" },
-                { to: "/internships", text: "Internships" },
-                { to: "/financials", text: "Financials" },
+                { to: "/careers/CareerOpening", text: "Career Openings " },
               ]}
             />
             <HeaderButton buttonText="News" linkTo="/news"></HeaderButton>

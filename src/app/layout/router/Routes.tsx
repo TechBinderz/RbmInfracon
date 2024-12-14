@@ -17,6 +17,7 @@ import HSEPerformance from "../../../features/about/HSEPerformance";
 import News from "../../../features/news/News";
 import ONGC_WorkOrderSigned from "../../../features/news/newsPages/ongc_work_order_signed"
 import CareerPage from "../../../features/careers/CareerPage";
+import JobOpenings from "../../../features/careers/JobOpenings";
 
 const newsRoutes = {
   path: "news",
@@ -35,7 +36,7 @@ const newsRoutes = {
 
 const careerRoutes = {
   path: "careers",
-  element: <CareerPage />,
+  element: <JobOpenings />,
 };
 
 const servicesRoutes = {
@@ -111,6 +112,8 @@ export const router = createBrowserRouter([
       servicesRoutes, // Add services routes here
       newsRoutes, // Add news routes here
       careerRoutes,
+      {path:"careers/CareerOpening",
+      element:<CareerPage/>,}
     ],
   },
 ]);

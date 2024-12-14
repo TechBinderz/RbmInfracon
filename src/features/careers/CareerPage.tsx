@@ -11,11 +11,14 @@ import {
   CssBaseline,
 } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import PageTitle from '../common/PageTitleDiv';
+import about_us_image from "../../assets/features/about-us/about_us1.jpeg";
+import themeColor from '../common/common';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#004d40', // Deep green
+      main: themeColor, // Deep green
     },
     secondary: {
       main: '#ff9800', // Amber
@@ -98,6 +101,11 @@ const CareerPage: React.FC = () => {
   const qualifications = ['High School', 'Bachelor\'s Degree', 'Master\'s Degree', 'PhD'];
 
   return (
+    <>
+    <PageTitle
+      imageUrl={about_us_image}
+      tileContent="Career Page"
+    />
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="md" sx={{ marginTop: 4, marginBottom: 4 }}>
@@ -291,6 +299,7 @@ const CareerPage: React.FC = () => {
         </Paper>
       </Container>
     </ThemeProvider>
+    </>
   );
 };
 
