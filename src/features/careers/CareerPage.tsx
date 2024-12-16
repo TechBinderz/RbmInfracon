@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Container,
   Grid,
@@ -9,57 +9,64 @@ import {
   Paper,
   MenuItem,
   CssBaseline,
-} from '@mui/material';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import PageTitle from '../common/PageTitleDiv';
+} from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import PageTitle from "../common/PageTitleDiv";
 import about_us_image from "../../assets/features/about-us/about_us1.jpeg";
-import themeColor from '../common/common';
+import themeColor from "../common/common";
+
+// Options moved outside the component
+const noticePeriodOptions = [
+  "Immediate",
+  "15 Days",
+  "30 Days",
+  "60 Days",
+  "90+ Days",
+];
+const qualifications = [
+  "High School",
+  "Bachelor's Degree",
+  "Master's Degree",
+  "PhD",
+];
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: themeColor, // Deep green
-    },
-    secondary: {
-      main: '#ff9800', // Amber
-    },
-    background: {
-      default: '#f5f5f5', // Light gray
-      paper: '#ffffff', // White background for form
-    },
-    text: {
-      primary: '#212121', // Dark gray
-      secondary: '#757575', // Medium gray
-    },
+    primary: { main: themeColor },
+    secondary: { main: "#ff9800" },
+    background: { default: "#f5f5f5", paper: "#ffffff" },
+    text: { primary: "#212121", secondary: "#757575" },
   },
   typography: {
-    fontFamily: 'Roboto, Arial, sans-serif',
-    h4: {
-      fontWeight: 700,
-      color: '#004d40',
-    },
-    body1: {
-      fontWeight: 400,
-      color: '#212121',
+    fontFamily: "Roboto, Arial, sans-serif",
+    h4: { fontWeight: 700, color: "#004d40" },
+    body1: { fontWeight: 400, color: "#212121" },
+  },
+  components: {
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: "grey",
+        },
+      },
     },
   },
 });
 
 const CareerPage: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    role: '',
-    totalExperience: '',
-    currentOrganization: '',
-    noticePeriod: '',
-    currentLocation: '',
-    currentCTC: '',
-    expectedCTC: '',
-    highestQualification: '',
+    name: "",
+    email: "",
+    phone: "",
+    role: "",
+    totalExperience: "",
+    currentOrganization: "",
+    noticePeriod: "",
+    currentLocation: "",
+    currentCTC: "",
+    expectedCTC: "",
+    highestQualification: "",
   });
-
   const [resume, setResume] = useState<File | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,232 +80,186 @@ const CareerPage: React.FC = () => {
     }
   };
 
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone: string) => {
+    const phoneRegex = /^\d{10}$/;
+    return phoneRegex.test(phone);
+  };
+
   const handleSubmit = () => {
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.role ||
-      !formData.totalExperience ||
-      !formData.currentOrganization ||
-      !formData.noticePeriod ||
-      !formData.currentLocation ||
-      !formData.currentCTC ||
-      !formData.expectedCTC ||
-      !formData.highestQualification ||
-      !resume
-    ) {
-      alert('Please fill all fields and upload a resume.');
+    if (Object.values(formData).some((field) => !field) || !resume) {
+      alert("Please fill all fields and upload a resume.");
       return;
     }
 
-    console.log('Form Data:', formData);
-    console.log('Resume File:', resume);
-    alert('Application submitted successfully!');
-  };
+    if (!validateEmail(formData.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
 
-  const noticePeriodOptions = ['Immediate', '15 Days', '30 Days', '60 Days', '90+ Days'];
-  const qualifications = ['High School', 'Bachelor\'s Degree', 'Master\'s Degree', 'PhD'];
+    if (!validatePhone(formData.phone)) {
+      alert("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
+    console.log("Form Data:", formData);
+    console.log("Resume File:", resume);
+    alert("Application submitted successfully!");
+  };
 
   return (
     <>
-    <PageTitle
-      imageUrl={about_us_image}
-      tileContent="Career Page"
-    />
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="md" sx={{ marginTop: 4, marginBottom: 4 }}>
-        <Paper elevation={3} sx={{ padding: 4, borderRadius: 2 }}>
-          <Typography variant="h4" align="center" gutterBottom>
-            Career Opportunities
-          </Typography>
-          <Typography variant="body1" align="center" gutterBottom>
-            Join us! Fill in your details and upload your resume.
-          </Typography>
-          <Box component="form" noValidate>
-            <Grid container spacing={3}>
-              {/* Personal Information */}
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  variant="outlined"
-                  required
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  variant="outlined"
-                  required
-                  type="email"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Phone Number"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  variant="outlined"
-                  required
-                  type="tel"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Role Applied For"
-                  name="role"
-                  value={formData.role}
-                  onChange={handleInputChange}
-                  variant="outlined"
-                  required
-                />
-              </Grid>
+      <PageTitle imageUrl={about_us_image} tileContent="Career Page" />
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Container maxWidth="md" sx={{ marginTop: 4, marginBottom: 4 }}>
+          <Paper elevation={3} sx={{ padding: 4, borderRadius: 2 }}>
+            <Typography variant="h4" align="center" gutterBottom>
+              Career Opportunities
+            </Typography>
+            <Typography variant="body1" align="center" gutterBottom>
+              Join us! Fill in your details and upload your resume.
+            </Typography>
+            <Box component="form" noValidate sx={{ marginTop: "40px" }}>
+              <Grid container spacing={3}>
+                {/* Personal Information */}
+                {[
+                  { label: "Name", name: "name", type: "text" },
+                  { label: "Email", name: "email", type: "email" },
+                  { label: "Phone Number", name: "phone", type: "tel" },
+                  { label: "Role Applied For", name: "role", type: "text" },
+                ].map((field, index) => (
+                  <Grid item xs={12} sm={6} key={index}>
+                    <TextField
+                      fullWidth
+                      label={field.label}
+                      name={field.name}
+                      value={(formData as any)[field.name]}
+                      onChange={handleInputChange}
+                      variant="outlined"
+                      required
+                      type={field.type}
+                    />
+                  </Grid>
+                ))}
 
-              {/* Job Details */}
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Total Experience (in years)"
-                  name="totalExperience"
-                  value={formData.totalExperience}
-                  onChange={handleInputChange}
-                  variant="outlined"
-                  required
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Current Organization"
-                  name="currentOrganization"
-                  value={formData.currentOrganization}
-                  onChange={handleInputChange}
-                  variant="outlined"
-                  required
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Notice Period"
-                  name="noticePeriod"
-                  value={formData.noticePeriod}
-                  onChange={handleInputChange}
-                  variant="outlined"
-                  select
-                  required
-                >
-                  {noticePeriodOptions.map((option) => (
-                    <MenuItem key={option} value={option}>
-                      {option}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Current Location"
-                  name="currentLocation"
-                  value={formData.currentLocation}
-                  onChange={handleInputChange}
-                  variant="outlined"
-                  required
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Current CTC (in LPA)"
-                  name="currentCTC"
-                  value={formData.currentCTC}
-                  onChange={handleInputChange}
-                  variant="outlined"
-                  required
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Expected CTC (in LPA)"
-                  name="expectedCTC"
-                  value={formData.expectedCTC}
-                  onChange={handleInputChange}
-                  variant="outlined"
-                  required
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Highest Qualification"
-                  name="highestQualification"
-                  value={formData.highestQualification}
-                  onChange={handleInputChange}
-                  variant="outlined"
-                  select
-                  required
-                >
-                  {qualifications.map((qualification) => (
-                    <MenuItem key={qualification} value={qualification}>
-                      {qualification}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Grid>
+                {/* Job Details */}
+                {[
+                  {
+                    label: "Total Experience (in years)",
+                    name: "totalExperience",
+                  },
+                  {
+                    label: "Current Organization",
+                    name: "currentOrganization",
+                  },
+                  { label: "Current Location", name: "currentLocation" },
+                  { label: "Current CTC (in LPA)", name: "currentCTC" },
+                  { label: "Expected CTC (in LPA)", name: "expectedCTC" },
+                ].map((field, index) => (
+                  <Grid item xs={12} sm={6} key={index}>
+                    <TextField
+                      fullWidth
+                      label={field.label}
+                      name={field.name}
+                      value={(formData as any)[field.name]}
+                      onChange={handleInputChange}
+                      variant="outlined"
+                      required
+                    />
+                  </Grid>
+                ))}
 
-              {/* Resume Upload */}
-              <Grid item xs={12} sm={6}>
-                <Button
-                  variant="contained"
-                  component="label"
-                  fullWidth
-                  sx={{ height: '56px' }}
-                >
-                  Upload Resume
-                  <input
-                    type="file"
-                    hidden
-                    accept=".pdf,.doc,.docx"
-                    onChange={handleFileChange}
-                  />
-                </Button>
-                {resume && (
-                  <Typography variant="body2" color="textSecondary" mt={1}>
-                    {resume.name}
-                  </Typography>
-                )}
-              </Grid>
+                {/* Dropdowns */}
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    fullWidth
+                    label="Notice Period"
+                    name="noticePeriod"
+                    value={formData.noticePeriod}
+                    onChange={handleInputChange}
+                    variant="outlined"
+                    select
+                    required
+                  >
+                    {noticePeriodOptions.map((option) => (
+                      <MenuItem key={option} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    fullWidth
+                    label="Highest Qualification"
+                    name="highestQualification"
+                    value={formData.highestQualification}
+                    onChange={handleInputChange}
+                    variant="outlined"
+                    select
+                    required
+                  >
+                    {qualifications.map((qualification) => (
+                      <MenuItem key={qualification} value={qualification}>
+                        {qualification}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </Grid>
 
-              {/* Submit Button */}
-              <Grid item xs={12}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                  onClick={handleSubmit}
-                  sx={{ padding: 1.5, fontSize: '1rem' }}
-                >
-                  Submit Application
-                </Button>
+                {/* Resume Upload */}
+                <Grid item xs={12} sm={6}>
+                  <Box sx={{ position: "relative", width: "100%" }}>
+                    <TextField
+                      variant="outlined"
+                      fullWidth
+                      value={resume ? resume.name : ""}
+                      placeholder="Upload Resume"
+                      InputProps={{ readOnly: true }}
+                      sx={{ cursor: "pointer" }}
+                      onClick={() =>
+                        document.getElementById("fileInput")?.click()
+                      }
+                    />
+                    <input
+                      id="fileInput"
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      style={{ display: "none" }}
+                      onChange={handleFileChange}
+                    />
+                  </Box>
+                </Grid>
+
+                {/* Submit Button */}
+                <Grid item xs={12}>
+                  <Box display="flex" justifyContent="center" width="100%">
+                    <Button
+                      variant="contained"
+                      sx={{
+                        color: "white",
+                        backgroundColor: themeColor,
+                        padding: 1.5,
+                        fontSize: "1rem",
+                        width: "50%",
+                        marginTop: "30px",
+                      }}
+                      onClick={handleSubmit}
+                    >
+                      Submit Application
+                    </Button>
+                  </Box>
+                </Grid>
               </Grid>
-            </Grid>
-          </Box>
-        </Paper>
-      </Container>
-    </ThemeProvider>
+            </Box>
+          </Paper>
+        </Container>
+      </ThemeProvider>
     </>
   );
 };
