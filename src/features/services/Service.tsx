@@ -57,7 +57,7 @@ const Services: React.FC = () => {
           600: {
             slidesPerView: 2,
           },
-          480: {
+          0: {
             slidesPerView: 1,
           },
         }}
