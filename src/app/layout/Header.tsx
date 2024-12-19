@@ -141,7 +141,15 @@ const Header: React.FC = () => {
       }}
     >
       <Container maxWidth="xl" sx={{ display: "flex", height: "100%" }}>
-        <Link to="/">
+        <Link
+          to="/"
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth", // Adds smooth scrolling effect
+            });
+          }}
+        >
           <img
             src={isScrolled ? RBMLOGOSMALL : RBMLOGOFULL}
             alt="Logo"
@@ -174,7 +182,7 @@ const Header: React.FC = () => {
               }
               links={[
                 { to: "/aboutus", text: "About Us" },
-               { to: "/aboutus/boardofdirector", text: "Board Of Directors" },
+                { to: "/aboutus/boardofdirector", text: "Board Of Directors" },
                 { to: "/aboutus/hseperformance", text: "HSE" },
               ]}
             />
@@ -190,9 +198,18 @@ const Header: React.FC = () => {
                 { text: "Piping Services", to: "/services/pipingServices" },
                 { text: "Plate Work", to: "/services/plateWork" },
                 { text: "Heater Operation", to: "/services/heaterOperation" },
-                { text: "Drilling and O&M Services of Crewed Wells", to: "/services/drillingAndOMServices", },
-                { text: "Structural Steel Work", to: "/services/structuralSteelWork", },
-                { text: "Rail Wagon Loading Services", to: "/services/railWagonLoadingServices", },
+                {
+                  text: "Drilling and O&M Services of Crewed Wells",
+                  to: "/services/drillingAndOMServices",
+                },
+                {
+                  text: "Structural Steel Work",
+                  to: "/services/structuralSteelWork",
+                },
+                {
+                  text: "Rail Wagon Loading Services",
+                  to: "/services/railWagonLoadingServices",
+                },
               ]}
             />
             <HeaderButton

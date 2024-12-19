@@ -24,7 +24,7 @@ const Services: React.FC = () => {
   const ServicesPage: React.FC = () => (
     <>
       <PageTitle imageUrl={services_image} tileContent="Services" />
-      <ServiceCard cardData={filteredCardData} />
+      <ServiceCard cardData={filteredCardData} showDetails={true} />
     </>
   );
 

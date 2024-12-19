@@ -38,7 +38,7 @@ const Home: React.FC = () => {
       <Container>
         {/* Add "hidden" class to animate sections on scroll */}
         <div className="hidden">
-          <SolutionSection />
+          <SolutionSection showDetails={false}/>
         </div>
         <div className="hidden">
           <CompanySection />

@@ -13,6 +13,7 @@ import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr
 import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Jay Bajrang Mani.jpg";
 import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
 import board_of_directors_image from "../../assets/features/about-us/board_of_directors.jpg";
+import Management from "./Management";
 
 interface Director {
   name: string;
@@ -103,7 +104,7 @@ const BoardOfDirectors: React.FC = () => {
             .filter((director) => !director.isChairman)
             .map((director, index) => (
               <Grid item xs={12} sm={6} md={6} key={index}>
-                <Card>
+                <Card className="card-shadow-1">
                   <CardMedia
                     component="img"
                     sx={{
@@ -138,6 +139,8 @@ const BoardOfDirectors: React.FC = () => {
               </Grid>
             ))}
         </Grid>
+
+        <Management />
       </Container>
     </>
   );

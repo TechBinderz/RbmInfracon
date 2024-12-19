@@ -17,81 +17,81 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import "../common/common.css";
 import PageTitle from "../common/PageTitleDiv";
 import themeColor from "../common/common";
-import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Jay Bajrang Mani.jpg";
-import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
-import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
-import narendra_sharma_photo from "../../assets/features/rbm_management/Mr. Narendra Sharma.png";
-import pankaj_kumar_photo from "../../assets/features/rbm_management/Mr. Pankaj Kumar.png";
-import ranjan_kumar_photo from "../../assets/features/rbm_management/Mr. Ranjan Kumar.png";
-import ravi_pratap_photo from "../../assets/features/rbm_management/Mr. Ravi Pratap Singh.png";
-import sanjay_singh_photo from "../../assets/features/rbm_management/Mr. Sanjay Singh.png";
-import sreejith_pillai_photo from "../../assets/features/rbm_management/Mr. Sreejith Pillai.png";
-import sunil_srivastava_photo from "../../assets/features/rbm_management/Mr. Sunil Srivastava.png";
-import sunil_kumar_photo from "../../assets/features/rbm_management/Sunil Kumar Singh.png";
 import contact_us_image from "../../assets/features/contact_us/contact_us.jpg";
 
-// Management team data
-const managementTeamList = [
+const locations = [
   {
-    image: jaybajrang_ramaishish_photo,
-    title: "Chairman & Managing Director",
-    name: "Mr. Jaybajrag Ramaishish Mani",
-    emails: ["md@rbminfracon.com", "jbmani6212@gmail.com"],
+    name: "BN Agritech Limited",
+    location:
+      "Survey No. 406, 407/1, 407/2, Village Bhimasar Anjar, Gujarat State Highway 50, Bhimasar, Gujarat 370240",
+    state: "+91 99974 00788",
   },
   {
-    image: aditya_jay_photo,
-    title: "Whole Time Director",
-    name: "Mr. Aditya Jay Bajrag Mani",
-  },
-  { image: deepak_saxena_photo, title: "Director", name: "Mr. Deepak Saxena" },
-  {
-    image: narendra_sharma_photo,
-    title: "Chief Financial Officer",
-    name: "Mr. Narendra Sharma",
+    name: "Chambal Fertilizers & Chemicals Limited",
+    location: "555G+R5H, NH 76, CFCL Twp, Kota, Rajasthan 325208",
+    state: "+91 744 278 2928",
   },
   {
-    image: pankaj_kumar_photo,
-    title: "Corporate Projects & Operations Head",
-    name: "Mr. Pankaj Kumar",
+    name: "Epitome Industires India Limited",
+    location: "63MH+587, Road, Chandrani, Lakhapar, Gujarat 370020",
+    // state: "Gujarat",
   },
   {
-    image: sreejith_pillai_photo,
-    title: "Commercial Head",
-    name: "Mr. Sreejith Pillai",
+    name: "Kutch Copper Limited",
+    location: "Shiracha, Navinal, Gujarat 370405",
+    // state: "Gujarat"
   },
   {
-    image: ranjan_kumar_photo,
-    title: "Projects Head",
-    name: "Mr. Ranjan Kumar",
+    name: "Mundra Petrochemicals LIMITED",
+    location: "RGFX+MJ6, NH 8A, Shiracha, Gujarat 370405",
+    // state: "Gujarat",
   },
   {
-    image: sunil_srivastava_photo,
-    title: "Chief Human Resourses Officer",
-    name: "Mr. Sunil Srivastava",
+    name: "Nayara Energy Limited",
+    location: "Timbdi, Gujarat 361010",
+    state: "+91 2833 661 444",
   },
   {
-    image: ravi_pratap_photo,
-    title: "Non-Executive Director of Oil & Gas Division",
-    name: "Mr. Ravi Pratap Singh",
+    name: "Nayara Energy Limited",
+    location: "Dist, Khambhalia, Zankhar, Gujarat 361305",
+    // state: "Gujarat"
   },
   {
-    image: sunil_kumar_photo,
-    title: "ONGC Project Head",
-    name: "Sunil Kumar Singh",
+    name: "ONGC",
+    location: "WMF2+C28 Khodiyar Mata Ka Mandir, Ahmedabad, Gujarat 382435",
+    // state: "Gujarat"
   },
   {
-    image: sanjay_singh_photo,
-    title: "President - Oil & Gas Division",
-    name: "Mr. Sanjay Singh",
+    name: "Praj Industries Limited",
+    location:
+      "Plot No. 307 to 314, Kandla SEZ, 24Q8+6PV, Kidana, Kidana Village, Gandhidham, Gujarat 370230",
+    state: "+91 20 7180 2000",
+  },
+  {
+    name: "Reliance Industries Limited",
+    location: "G4X5+RJF, Nagothane Pezari Rd, Kadsure, Maharashtra 402125",
+    state: "+91 22 3555 5000",
+  },
+  {
+    name: "Thyssenkrupp (Technip - IOCL)",
+    location: "96W3+PHG, Savli - Vadodara Rd, Vadodara, Gujarat 390022",
+    // state: "Gujarat",
+  },
+  {
+    name: "Vedanta Sesa coke  Gujrat",
+    location: "7772+488, Lunva, Gujarat 370140",
+    //  state: "Gujarat"
+  },
+  {
+    name: "Yara Fertilizers India Pvt limited",
+    location: "Indira Dham, Babrala, Uttar Pradesh 243201",
+    // state: "UP",
   },
 ];
 
 const ContactUs: React.FC = () => (
   <>
-    <PageTitle
-      imageUrl={contact_us_image}
-      tileContent="Contact Us"
-    />
+    <PageTitle imageUrl={contact_us_image} tileContent="Contact Us" />
     <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
       <Grid container spacing={4}>
         {/* Contact Form Section */}
@@ -233,78 +233,54 @@ const ContactUs: React.FC = () => (
         </Grid>
       </Grid>
 
-      {/* Management Team Section */}
-      <Grid container spacing={4} sx={{ marginTop: "40px" }}>
+      <Grid container spacing={4} sx={{ marginTop: "40px" }} id="locations">
         <Grid item xs={12} sx={{ padding: { xs: "0px 20px", sm: "0px 40px" } }}>
-          <Typography variant="h4" gutterBottom>
-            Our Management Team
+          <Typography
+            variant="h3"
+            align="center"
+            fontWeight="bold"
+            gutterBottom
+            sx={{ mb: 8 }} // Adds margin-bottom to create space after the heading
+          >
+            Our Locations
           </Typography>
-          <Box
-            sx={{
-              borderBottom: "2px solid #000", // Customize the color and thickness as needed
-              marginBottom: "20px",
-            }}
-          />
         </Grid>
-        <Grid container spacing={4} sx={{ marginLeft: "auto" }}>
-          {managementTeamList.map((member, index) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              key={index}
-              sx={{ paddingLeft: { xs: "20px", sm: "40px" } }}
-            >
+        <Grid container spacing={4}>
+          {locations.map((location, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
               <Card
                 className="card-shadow-1"
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
                   height: "200px",
-                  textAlign: "center",
-                  padding: "16px",
+                  // padding: "16px",
                 }}
               >
-                <CardContent
-                  sx={{
-                    flex: 1,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    style={{
-                      width: "80px",
-                      height: "80px",
-                      borderRadius: "50%",
-                      objectFit: "cover",
-                      marginBottom: "16px",
-                    }}
-                  />
-                  <Typography variant="h6" gutterBottom>
-                    {member.name}
-                  </Typography>
-                  <Typography variant="body1" color="textSecondary">
-                    {member.title}
-                  </Typography>
-                  {/* {member.emails?.map((email, i) => (
-                    <Typography variant="body2" key={i}>
-                      <EmailIcon sx={{ verticalAlign: "middle", mr: 1 }} />
-                      {email}
-                    </Typography>
-                  ))}
-                  {member.phone && (
-                    <Typography variant="body2">
-                      <PhoneIcon sx={{ verticalAlign: "middle", mr: 1 }} />
-                      {member.phone}
-                    </Typography>
-                  )} */}
+                <CardContent>
+                  <Box display="flex">
+                    <LocationOnIcon
+                      sx={{
+                        fontSize: 50,
+                        color: themeColor,
+                      }}
+                    />
+                    <Box>
+                      <Typography
+                        variant="h5"
+                        sx={{ color: themeColor }}
+                        gutterBottom
+                      >
+                        {location.name}
+                      </Typography>
+                      <Typography variant="body1">
+                        {location.location}
+                      </Typography>
+                      <Typography variant="h6" sx={{ color: themeColor }}>
+                        {location.state}
+                      </Typography>
+                    </Box>
+                  </Box>
                 </CardContent>
               </Card>
             </Grid>

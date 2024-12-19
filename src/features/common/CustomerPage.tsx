@@ -79,7 +79,7 @@ const customers = [
 
 const CustomerPage: React.FC = () => {
   return (
-    <Container sx={{ padding: 4 }}>
+    <Container sx={{ padding: 4 }} id="customer-page">
       {/* Centered Heading with additional spacing */}
       <Typography 
         variant="h3" 

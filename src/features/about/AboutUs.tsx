@@ -57,7 +57,7 @@ const AboutUs: React.FC = () => {
     },
     {
       icon: <EngineeringIcon fontSize="large" sx={{ color: themeColor }} />,
-      title: "Our Expertise", 
+      title: "Our Expertise",
       description:
         "A team of experienced professionals dedicated to executing contracts with precision and efficiency.",
     },
@@ -89,14 +89,11 @@ const AboutUs: React.FC = () => {
 
   return (
     <>
-      <PageTitle
-        imageUrl={about_us_image}
-        tileContent="About Us"
-      />
+      <PageTitle imageUrl={about_us_image} tileContent="About Us" />
       <Container sx={{ py: 4 }}>
         <Grid container spacing={4} alignItems="flex-start">
           {/* Left Section - Content */}
-          <Grid item xs={12} md={8} >
+          <Grid item xs={12} md={8}>
             <Typography
               variant="body1"
               paragraph

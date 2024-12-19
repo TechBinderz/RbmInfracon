@@ -19,9 +19,13 @@ interface CardData {
 
 interface ServiceCardProps {
   cardData: CardData[];
+  showDetails: boolean;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  cardData,
+  showDetails = true,
+}) => {
   return (
     <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
       <Grid container spacing={3} sx={{ justifyContent: "center" }}>
@@ -53,17 +57,22 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
               >
                 <CardMedia
                   component="img"
-                  height="240"
+                  height={showDetails ? "240" : "350"}
                   image={card.image}
                   alt={card.title}
                 />
-                <CardContent sx={{ height: "140px" }}>
-                  <Typography variant="h6" component="div">
+                <CardContent sx={{ height: showDetails ? "140px" : "90px" }}>
+                  <Typography
+                    variant={showDetails ? "h6" : "h5"}
+                    component="div"
+                  >
                     {card.title}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {card.description}
-                  </Typography>
+                  {showDetails && (
+                    <Typography variant="body2" color="text.secondary">
+                      {card.description}
+                    </Typography>
+                  )}
                 </CardContent>
               </Link>
             </Card>
