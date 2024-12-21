@@ -173,9 +173,13 @@ const Header: React.FC = () => {
         },
       }}
     >
-      <Typography variant="h6" sx={{ marginBottom: 2 }}>
-        Menu
-      </Typography>
+      <div style={{ marginBottom: 2 }}>
+      <img
+              src={RBMLOGOFULL}
+              alt="Logo"
+              style={{width:"130px"}}
+            />
+      </div>
       <Divider />
       <List>
         <ListItem component={Link} to="/" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
