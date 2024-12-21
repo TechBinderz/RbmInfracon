@@ -12,6 +12,7 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import PeopleIcon from "@mui/icons-material/People";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
+import CountUp from "react-countup";
 
 const statsData = [
   {
@@ -60,41 +61,48 @@ const StatisticsPoliciesSection = () => {
     <Box sx={{ p: 4 }}>
       {/* Statistics Section */}
       <Box
-        sx={{
-          backgroundColor: "#4caf50",
-          color: "white",
-          py: 3,
-          mb: 4,
-          textAlign: "center",
-        }}
-      >
-        <Grid container spacing={2} justifyContent="center">
-          {statsData.map((stat, index) => (
-            <Grid item xs={6} sm={3} key={index}>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                {stat.icon}
-                <Typography variant="h4" fontWeight="bold">
-                  {stat.count}
-                </Typography>
-                <Typography>{stat.label}</Typography>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-
+      sx={{
+        backgroundColor: "#4caf50",
+        color: "white",
+        py: 3,
+        mb: 4,
+        textAlign: "center",
+      }}
+    >
+      <Grid container spacing={2} justifyContent="center">
+        {statsData.map((stat, index) => (
+          <Grid item xs={6} sm={3} key={index}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              {stat.icon}
+              <Typography variant="h4" fontWeight="bold">
+                
+                  <CountUp
+                    start={0}
+                    end={parseInt(stat.count)} // Numeric part
+                    duration={2.5}
+                    separator=","
+                    suffix="+"
+                  />
+                
+              </Typography>
+              <Typography>{stat.label}</Typography>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
       {/* Policies Section */}
       <Box textAlign="center" mb={4}>
         <Typography variant="h3" fontWeight="bold" gutterBottom>
           System & Control
         </Typography>
-        <Typography>
+        <Typography variant="h6">
           From complete turn key to System & Control RBM Infracon LTD. Leave the
           building to the professionals.
         </Typography>
