@@ -53,8 +53,7 @@ const Header: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({});
-  const isSmallScreen = useMediaQuery("(max-width:600px)");
-
+  const isSmallScreen = useMediaQuery("(max-width:1100px)");
   useEffect(() => {
     const updateStockData = async () => {
       const data = await checkAndUpdateStockData();
