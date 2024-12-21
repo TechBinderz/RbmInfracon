@@ -94,7 +94,7 @@ const StatisticsPoliciesSection = () => {
         <Typography variant="h3" fontWeight="bold" gutterBottom>
           System & Control
         </Typography>
-        <Typography>
+        <Typography variant="h6">
           From complete turn key to System & Control RBM Infracon LTD. Leave the
           building to the professionals.
         </Typography>

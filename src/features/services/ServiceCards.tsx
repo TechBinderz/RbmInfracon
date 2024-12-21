@@ -61,10 +61,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                   image={card.image}
                   alt={card.title}
                 />
-                <CardContent sx={{ height: showDetails ? "140px" : "90px" }}>
+                <CardContent sx={{ height: showDetails ? "140px" : "90px" , textAlign: "center"}}>
                   <Typography
                     variant={showDetails ? "h6" : "h5"}
                     component="div"
+                    textAlign="center"
                   >
                     {card.title}
                   </Typography>
