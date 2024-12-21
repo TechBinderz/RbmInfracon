@@ -16,12 +16,18 @@ const RailWagonLoadingServices: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={8}>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               RBM Infracon offers efficient and reliable rail wagon loading services designed to streamline
               logistics and transportation processes. Our services focus on maximizing loading capacity
               while ensuring compliance with all safety standards.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               Our team utilizes advanced techniques and equipment to manage the loading process effectively,
               optimizing the logistics chain and enhancing operational efficiency. We are committed to
               delivering reliable solutions that meet our clients' specific needs and regulatory requirements.

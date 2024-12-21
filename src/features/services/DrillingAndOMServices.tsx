@@ -23,12 +23,18 @@ const DrillingAndOMServices: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={6}>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               RBM Infracon offers specialized drilling and Operations &
               Maintenance (O&M) services for crewed wells, ensuring reliable and
               efficient operations.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               Our skilled team combines technical expertise with industry
               standards, delivering precision in both drilling and ongoing
               maintenance.

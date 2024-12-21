@@ -21,15 +21,24 @@ const PlateWork: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10} sx={{ marginBottom: 3 }}>
           <Grid item xs={12} md={6}>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               RBM Infracon's Plate Work services deliver precise fabrication and
               erection of structures like ducts, hoppers, and chutes.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               Our skilled team ensures each structure meets client requirements
               with a focus on quality, performance, and durability.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               Using advanced techniques and premium materials, we handle complex
               designs, maintain tight tolerances, and meet timelines,
               positioning us as a trusted industrial partner.

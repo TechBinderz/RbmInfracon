@@ -20,12 +20,18 @@ const HeaterOperation: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={6}>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               RBM Infracon is a trusted provider of Heater Operation O&M
               services, ensuring reliable and efficient heating for residential,
               commercial, and industrial spaces.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               Our skilled team uses advanced technology to manage, monitor, and
               maintain heating systems, focusing on minimizing downtime and
               maximizing efficiency.

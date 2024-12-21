@@ -24,12 +24,18 @@ const PipingServices: React.FC = () => {
         </Typography> */}
         <Grid container spacing={10} sx={{ marginBottom: 3 }}>
           <Grid item xs={12} md={6}>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               RBM Infracon offers precision piping services with fabrication and
               erection solutions for carbon steel (CS), stainless steel (SS),
               and alloy steel systems.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               Our skilled team provides industry-standard installation and
               alignment for both aboveground and underground projects, ensuring
               durability, safety, and efficiency.

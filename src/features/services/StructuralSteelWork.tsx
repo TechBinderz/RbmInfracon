@@ -20,13 +20,19 @@ const StructuralSteelWork: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={6}>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               RBM Infracon's Structural Steel Work services provide expertise in
               civil construction, coke plant maintenance, and the erection of
               plants and equipment. Our team excels in delivering high-quality
               solutions tailored to the needs of industrial clients.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph variant="body1" sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
               From blasting cleaning to painting, insulation, and refractory
               work, we handle every aspect of structural steel projects with
               precision and adherence to industry standards. Whether it’s a
