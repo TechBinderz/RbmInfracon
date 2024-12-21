@@ -23,18 +23,26 @@ const DrillingAndOMServices: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={6}>
-            <Typography paragraph variant="body1" sx={{
+            <Typography
+              paragraph
+              variant="body1"
+              sx={{
                 fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                 lineHeight: 1.6,
-              }}>
+              }}
+            >
               RBM Infracon offers specialized drilling and Operations &
               Maintenance (O&M) services for crewed wells, ensuring reliable and
               efficient operations.
             </Typography>
-            <Typography paragraph variant="body1" sx={{
+            <Typography
+              paragraph
+              variant="body1"
+              sx={{
                 fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                 lineHeight: 1.6,
-              }}>
+              }}
+            >
               Our skilled team combines technical expertise with industry
               standards, delivering precision in both drilling and ongoing
               maintenance.
@@ -42,12 +50,37 @@ const DrillingAndOMServices: React.FC = () => {
             <Typography variant="h6" gutterBottom>
               Key Features:
             </Typography>
-            <ul>
-              <li>Precision-driven drilling services with a safety focus.</li>
-              <li>Tailored O&M services for crewed wells.</li>
-              <li>Enhanced efficiency and reduced downtime.</li>
-              <li>Compliance with strict safety protocols.</li>
-              <li>Experienced team for projects of all scales.</li>
+            <ul style={{ paddingLeft: "20px", margin: 0 }}>
+            <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Precision-driven drilling services with a safety focus.
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Tailored O&M services for crewed wells.
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Enhanced efficiency and reduced downtime.
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Compliance with strict safety protocols.
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Experienced team for projects of all scales.
+              </Typography>
             </ul>
           </Grid>
           <Grid item xs={12} md={6}>

@@ -20,19 +20,27 @@ const StructuralSteelWork: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={6}>
-            <Typography paragraph variant="body1" sx={{
+            <Typography
+              paragraph
+              variant="body1"
+              sx={{
                 fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                 lineHeight: 1.6,
-              }}>
+              }}
+            >
               RBM Infracon's Structural Steel Work services provide expertise in
               civil construction, coke plant maintenance, and the erection of
               plants and equipment. Our team excels in delivering high-quality
               solutions tailored to the needs of industrial clients.
             </Typography>
-            <Typography paragraph variant="body1" sx={{
+            <Typography
+              paragraph
+              variant="body1"
+              sx={{
                 fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                 lineHeight: 1.6,
-              }}>
+              }}
+            >
               From blasting cleaning to painting, insulation, and refractory
               work, we handle every aspect of structural steel projects with
               precision and adherence to industry standards. Whether it’s a
@@ -42,24 +50,41 @@ const StructuralSteelWork: React.FC = () => {
             <Typography variant="h6" gutterBottom>
               Key Services:
             </Typography>
-            <ul>
-              <li>Expertise in civil construction and plant erection.</li>
-              <li>
+            <ul style={{ paddingLeft: "20px", margin: 0 }}>
+            <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Expertise in civil construction and plant erection.
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
                 Maintenance and upkeep of coke plants and heavy industrial
                 equipment.
-              </li>
-              <li>
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
                 Blasting cleaning and professional painting services for
                 industrial structures.
-              </li>
-              <li>
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
                 Comprehensive insulation and refractory work for structural
                 projects.
-              </li>
-              <li>
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
                 Highly skilled workforce ensuring timely and safe project
                 execution.
-              </li>
+              </Typography>
             </ul>
           </Grid>
           <Grid item xs={12} md={6}>

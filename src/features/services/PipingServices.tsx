@@ -24,18 +24,26 @@ const PipingServices: React.FC = () => {
         </Typography> */}
         <Grid container spacing={10} sx={{ marginBottom: 3 }}>
           <Grid item xs={12} md={6}>
-            <Typography paragraph variant="body1" sx={{
+            <Typography
+              paragraph
+              variant="body1"
+              sx={{
                 fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                 lineHeight: 1.6,
-              }}>
+              }}
+            >
               RBM Infracon offers precision piping services with fabrication and
               erection solutions for carbon steel (CS), stainless steel (SS),
               and alloy steel systems.
             </Typography>
-            <Typography paragraph variant="body1" sx={{
+            <Typography
+              paragraph
+              variant="body1"
+              sx={{
                 fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                 lineHeight: 1.6,
-              }}>
+              }}
+            >
               Our skilled team provides industry-standard installation and
               alignment for both aboveground and underground projects, ensuring
               durability, safety, and efficiency.
@@ -43,14 +51,53 @@ const PipingServices: React.FC = () => {
             <Typography variant="h6" gutterBottom>
               Key Services:
             </Typography>
-            <Typography component="ul" sx={{ pl: 2, listStyleType: "disc" }}>
-              <li>Structural Fabrication & Erection</li>
-              <li>Aboveground & Underground Piping Installation</li>
-              <li>ARC Maintenance for Refineries & Petrochemicals</li>
-              <li>Turnaround (Shutdown) Services</li>
-              <li>Blasting & Painting</li>
-              <li>Insulation & Refractory Work</li>
-              <li>Electrical & Instrumentation</li>
+            <Typography
+              component="ul"
+              sx={{ pl: 2, listStyleType: "disc" }}
+              style={{ paddingLeft: "20px", margin: 0 }}
+            >
+               <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Structural Fabrication & Erection
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Aboveground & Underground Piping Installation
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                ARC Maintenance for Refineries & Petrochemicals
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Turnaround (Shutdown) Services
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Blasting & Painting
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Insulation & Refractory Work
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Electrical & Instrumentation
+              </Typography>
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
