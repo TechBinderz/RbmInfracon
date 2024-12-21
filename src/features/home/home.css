@@ -27,7 +27,7 @@
 .text-overlay {
   position: absolute;
   bottom: 100px;
-  left: 200px;
+  left: 100px;
   text-align: left;
   color: white;
 }
@@ -132,7 +132,7 @@
   }
 
   .buttons {
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
   }
 
@@ -159,9 +159,9 @@
   }
 
   .text-overlay {
-    bottom: 30px;
+    bottom: 50px;
     left: 20px;
-    text-align: center;
+    text-align: left;
   }
 
   .text-overlay h1 {
@@ -170,7 +170,7 @@
   }
 
   .buttons {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 10px;
   }
