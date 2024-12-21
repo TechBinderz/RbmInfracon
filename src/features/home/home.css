@@ -1,62 +1,63 @@
+/* Base Styles */
 .hero-section {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  .image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .background-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(60%);
-  }
-  
-  .text-overlay {
-    position: absolute;
-    bottom: 100px;  /* Align text to bottom */
-    left: 200px;    /* Align text to left */
-    text-align: left;
-    color: white;
-  }
-  
-  .text-overlay h1 {
-    font-size: 4rem;  /* Make the text larger */
-    margin-bottom: 20px;
-  }
-  
-  .buttons {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .hero-btn {
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    color: white;
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .hero-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  /* home.css */
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+.text-overlay {
+  position: absolute;
+  bottom: 100px;
+  left: 200px;
+  text-align: left;
+  color: white;
+}
+
+.text-overlay h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.hero-btn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Scroll Animation */
 .hidden {
   opacity: 0;
   transform: translateY(50px);
@@ -67,14 +68,14 @@
   opacity: 1;
   transform: translateY(0);
 }
- 
+
 /* Marquee Section */
 .marquee-container {
   position: absolute;
-  bottom: 5px; /* Place marquee below buttons */
+  bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background: rgba(0, 0, 0, 0.7); /* Slightly darker for better readability */
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
@@ -91,10 +92,20 @@
   animation: marquee-scroll 15s linear infinite;
 }
 
-.marquee-content p {
-  display: inline-block;
-  margin: 0;
-  padding: 0 20px;
+.marquee-link {
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.marquee-link:hover {
+  color: #f39c12;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
 }
 
 /* Marquee Animation */
@@ -107,19 +118,79 @@
   }
 }
 
-/* Marquee Link Styling */
-.marquee-link {
-  color: white; /* Make the text white */
-  font-size: 1.5rem; /* Increase font size */
-  margin-right: 30px; /* Add space between words */
-  text-decoration: none; /* Remove underline */
-  font-weight: bold;
+/* RESPONSIVE DESIGN */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .text-overlay {
+    bottom: 50px;
+    left: 50px;
+  }
+
+  .text-overlay h1 {
+    font-size: 2.5rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .marquee-container {
+    font-size: 0.9rem;
+    padding: 8px 0;
+  }
+
+  .marquee-link {
+    font-size: 1.2rem;
+    margin-right: 20px;
+  }
 }
 
-.marquee-link:hover {
-  color: #f39c12; /* Change color on hover */
-}
+/* Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .hero-section {
+    height: 70vh;
+  }
 
-.marquee-container:hover .marquee-content {
-  animation-play-state: paused;
+  .text-overlay {
+    bottom: 30px;
+    left: 20px;
+    text-align: center;
+  }
+
+  .text-overlay h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .marquee-container {
+    font-size: 0.8rem;
+    padding: 5px 0;
+  }
+
+  .marquee-link {
+    font-size: 1rem;
+    margin-right: 15px;
+  }
+
+  .marquee-content {
+    animation-duration: 10s;
+  }
 }
