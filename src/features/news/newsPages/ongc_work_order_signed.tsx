@@ -9,13 +9,14 @@ import {
 } from "@mui/material";
 import PageTitle from "../../common/PageTitleDiv";
 import ongc_work_order_signed from "../../../assets/features/news/news_pages/ongc_work_order_signed.png";
+import news_background from "../../../assets/features/news/news_pages/news_background.avif";
 import themeColor from "../../common/common";
 
 const ONGC_WorkOrderSigned: React.FC = () => {
   return (
     <>
       <PageTitle
-        imageUrl={ongc_work_order_signed}
+        imageUrl={news_background}
         tileContent="ONGC Work Order Signed"
       />
       <Container maxWidth="lg" sx={{ py: 4 }}>
