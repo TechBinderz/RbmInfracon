@@ -22,6 +22,8 @@ const Home: React.FC = () => {
         <div className="image-overlay">
           <img src={backgroundImage} alt="Image" className="background-image" />
         </div>
+
+        {/* Text Overlay */}
         <div className="text-overlay">
           <h1>Building Strong Foundations</h1>
           <div className="buttons">
@@ -33,12 +35,39 @@ const Home: React.FC = () => {
             </Link>
           </div>
         </div>
+
+        {/* Marquee Section with CSS Scrolling */}
+        <div className="marquee-container">
+          <div className="marquee-content">
+            <Link to="/services" className="marquee-link">
+            All Services |
+            </Link>
+            <Link to="/services/pipingServices" className="marquee-link">
+            Piping Services |
+            </Link>
+            <Link to="/services/plateWork" className="marquee-link">
+            Plate Work Service |
+            </Link>
+            <Link to="/services/HeaterOperation" className="marquee-link">
+              Heater Operation Services |
+            </Link>
+            <Link to="/services/drillingAndOMServices" className="marquee-link">
+            Drilling And OM Services |
+            </Link>
+            <Link to="/services/structuralSteelWork" className="marquee-link">
+            Structural Steel Work Services |
+            </Link>
+            <Link to="/services/railWagonLoadingServices" className="marquee-link">
+            Rail Wagon Loading Services |
+            </Link>
+          </div>
+        </div>
       </div>
 
       <Container>
         {/* Add "hidden" class to animate sections on scroll */}
         <div className="hidden">
-          <SolutionSection showDetails={false}/>
+          <SolutionSection showDetails={false} />
         </div>
         <div className="hidden">
           <CompanySection />
