@@ -20,12 +20,26 @@ const HeaterOperation: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={6}>
-            <Typography paragraph>
+            <Typography
+              paragraph
+              variant="body1"
+              sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}
+            >
               RBM Infracon is a trusted provider of Heater Operation O&M
               services, ensuring reliable and efficient heating for residential,
               commercial, and industrial spaces.
             </Typography>
-            <Typography paragraph>
+            <Typography
+              paragraph
+              variant="body1"
+              sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}
+            >
               Our skilled team uses advanced technology to manage, monitor, and
               maintain heating systems, focusing on minimizing downtime and
               maximizing efficiency.
@@ -33,14 +47,37 @@ const HeaterOperation: React.FC = () => {
             <Typography variant="h6" gutterBottom>
               Key Features:
             </Typography>
-            <ul>
-              <li>Comprehensive O&M services for heating systems.</li>
-              <li>Dedicated teams for optimal efficiency.</li>
-              <li>
+            <ul style={{ paddingLeft: "20px", margin: 0 }}>
+            <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Comprehensive O&M services for heating systems.
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Dedicated teams for optimal efficiency.
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
                 Support for residential, commercial, and industrial setups.
-              </li>
-              <li>Quick response for maintenance and repairs.</li>
-              <li>Safety-focused and sustainable operations.</li>
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Quick response for maintenance and repairs.
+              </Typography>
+              <Typography variant="body1" component="li"    sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}>
+                Safety-focused and sustainable operations.
+              </Typography>
             </ul>
           </Grid>
           <Grid item xs={12} md={6}>

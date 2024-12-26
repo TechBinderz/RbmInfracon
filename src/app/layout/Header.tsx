@@ -1,3 +1,4 @@
+
 import "./Header.css";
 import React, { useState, useEffect } from "react";
 import {
@@ -7,8 +8,21 @@ import {
   Container,
   Box,
   Typography,
+  IconButton,
+  Drawer,
+  List,
+  Divider,
+  ListItem,
+  ListItemText,
+  Collapse,
+  useMediaQuery,
+  ThemeProvider,
+  createTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -37,7 +51,9 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [stockData, setStockData] = useState<StockData>(defaultStockData);
   const [isMounted, setIsMounted] = useState(false);
-
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({});
+  const isSmallScreen = useMediaQuery("(max-width:1100px)");
   useEffect(() => {
     const updateStockData = async () => {
       const data = await checkAndUpdateStockData();
@@ -52,6 +68,13 @@ const Header: React.FC = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleToggleMenu = (menu: string) => {
+    setOpenMenus((prevOpenMenus) => ({
+      ...prevOpenMenus,
+      [menu]: !prevOpenMenus[menu],
+    }));
+  };
 
   const StockPriceDisplay: React.FC<{ stockData: StockData }> = ({
     stockData,
@@ -96,7 +119,6 @@ const Header: React.FC = () => {
     textTransform: "capitalize",
     "&:hover": {
       color: "#39ac4b",
-      // backgroundColor: "#39ac4b",
     },
   };
 
@@ -126,118 +148,219 @@ const Header: React.FC = () => {
     </Box>
   );
 
-  return (
-    <AppBar
-      position="fixed"
+  const HamburgerMenu = () => (
+    <>
+      <IconButton
+      edge="start"
+      color="inherit"
+      aria-label="menu"
+      onClick={() => setDrawerOpen(true)}
+      sx={{ marginRight: 2 }}
+    >
+      <MenuIcon />
+    </IconButton>
+    <Drawer
+      anchor="right"
+      open={drawerOpen}
+      onClose={() => setDrawerOpen(false)}
       sx={{
-        backgroundColor: isScrolled ? "white" : "transparent",
-        transition:
-          "background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease",
-        height: isScrolled ? "70px" : "110px",
-        boxShadow: isScrolled ? "0px 8px 5px 0px rgba(0, 0, 0, 0.2)" : "none",
-        paddingTop: isScrolled ? "0px" : "15px",
-        opacity: isMounted ? 1 : 0,
-        transform: isMounted ? "translateY(0)" : "translateY(-20px)",
+        "& .MuiDrawer-paper": {
+          backgroundColor: "#f5f5f5",
+          color: "#333",
+          width: "80%",
+          padding: "20px",
+          boxShadow: "0 2px 10px rgba(0,0,0,0.2)",
+        },
       }}
     >
-      <Container maxWidth="xl" sx={{ display: "flex", height: "100%" }}>
-        <Link
-          to="/"
-          onClick={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth", // Adds smooth scrolling effect
-            });
-          }}
-        >
-          <img
-            src={isScrolled ? RBMLOGOSMALL : RBMLOGOFULL}
-            alt="Logo"
-            style={{ height: isScrolled ? "70px" : "100px", width: "auto" }}
-          />
-        </Link>
-        <Box sx={{ flexGrow: 3 }}>
-          {!isScrolled && (
-            <Toolbar sx={{ alignItems: "center" }}>
-              <Box sx={{ flexGrow: 1, textAlign: "center" }}>
-                <StockPriceDisplay stockData={stockData} />
-                <Box sx={{ borderBottom: "1px solid lightgray", my: 1 }} />
-              </Box>
-            </Toolbar>
-          )}
+      <div style={{ marginBottom: 2 }}>
+      <img
+              src={RBMLOGOFULL}
+              alt="Logo"
+              style={{width:"130px"}}
+            />
+      </div>
+      <Divider />
+      <List>
+        <ListItem component={Link} to="/" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+          <ListItemText primary="Home" />
+        </ListItem>
+        <ListItem onClick={() => handleToggleMenu("aboutUs")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+          <ListItemText primary="About Us" />
+          {openMenus.aboutUs ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+        </ListItem>
+        <Collapse in={openMenus.aboutUs} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItem component={Link} to="/aboutus" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+              <ListItemText primary="About Us" />
+            </ListItem>
+            <ListItem component={Link} to="/aboutus/boardofdirector" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+              <ListItemText primary="Board Of Directors" />
+            </ListItem>
+            <ListItem component={Link} to="/aboutus/hseperformance" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+              <ListItemText primary="HSE" />
+            </ListItem>
+          </List>
+        </Collapse>
+        <ListItem onClick={() => handleToggleMenu("services")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+          <ListItemText primary="Services" />
+          {openMenus.services ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+        </ListItem>
+        <Collapse in={openMenus.services} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+          <ListItem component={Link} to="/services" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="All Services" /> </ListItem> <ListItem component={Link} to="/services/pipingservices" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Piping Services" /> </ListItem> <ListItem component={Link} to="/services/platework" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Plate Work" /> </ListItem> <ListItem component={Link} to="/services/heateroperation" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Heater Operation" /> </ListItem> <ListItem component={Link} to="/services/drillingAndOMServices" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Drilling and O&M Services of Crewed Wells" /> </ListItem> <ListItem component={Link} to="/services/structuralsteelwork" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Structural Steel Work" /> </ListItem> <ListItem component={Link} to="/services/railwagonloadingservices" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Rail Wagon Loading Services" /> </ListItem>
+          </List> </Collapse>
+        <ListItem component={Link} to="/investors" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+          <ListItemText primary="Investors" />
+        </ListItem>
+        <ListItem onClick={() => handleToggleMenu("careers")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+          <ListItemText primary="Careers" />
+          {openMenus.careers ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+        </ListItem>
+        <Collapse in={openMenus.careers} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItem component={Link} to="/careers" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+              <ListItemText primary="Job Openings" />
+            </ListItem>
+            <ListItem component={Link} to="/careers/CareerOpening" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+              <ListItemText primary="Career Openings" />
+            </ListItem>
+          </List>
+        </Collapse>
+        <ListItem component={Link} to="/news" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+          <ListItemText primary="News" />
+        </ListItem>
+        <ListItem component={Link} to="/contact" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+          <ListItemText primary="Contact Us" />
+        </ListItem>
+      </List>
+    </Drawer>
+  </>
 
-          <Toolbar
-            sx={{
-              justifyContent: "right",
-              marginTop: isScrolled ? "5px" : "0px",
+  );
+
+  return (
+    <ThemeProvider
+      theme={createTheme({
+        typography: {
+          fontFamily: ["Arial", "sans-serif"].join(","),
+        },
+      })}
+    >
+      <AppBar
+        position="fixed"
+        sx={{
+          backgroundColor: isScrolled ? "white" : "transparent",
+          transition:
+            "background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease",
+          height: isScrolled ? "70px" : "110px",
+          boxShadow: isScrolled ? "0px 8px 5px 0px rgba(0, 0, 0, 0.2)" : "none",
+          paddingTop: isScrolled ? "0px" : "15px",
+          opacity: isMounted ? 1 : 0,
+          transform: isMounted ? "translateY(0)" : "translateY(-20px)",
+        }}
+      >
+        <Container maxWidth="xl" sx={{ display: "flex", height: "100%" }}>
+          <Link
+            to="/"
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth", // Adds smooth scrolling effect
+              });
             }}
           >
-            <HeaderButton buttonText="Home" linkTo="/"></HeaderButton>
-            <DropdownMenu
-              buttonText={
-                <>
-                  <span>About Us</span>
-                  <ArrowDropDownIcon />
-                </>
-              }
-              links={[
-                { to: "/aboutus", text: "About Us" },
-                { to: "/aboutus/boardofdirector", text: "Board Of Directors" },
-                { to: "/aboutus/hseperformance", text: "HSE" },
-              ]}
+            <img
+              src={isScrolled ? RBMLOGOSMALL : RBMLOGOFULL}
+              alt="Logo"
+              style={{ height: isScrolled ? "70px" : "100px", width: "auto" }}
             />
-            <DropdownMenu
-              buttonText={
+          </Link>
+          <Box sx={{ flexGrow: 3 }}>
+            {!isScrolled && (
+              <Toolbar sx={{ alignItems: "center" }}>
+                <Box sx={{ flexGrow: 1, textAlign: "center" }}>
+                  <StockPriceDisplay stockData={stockData} />
+                  <Box sx={{ borderBottom: "1px solid lightgray", my: 1 }} />
+                </Box>
+              </Toolbar>
+            )}
+
+            <Toolbar
+              sx={{
+                justifyContent: "right",
+                marginTop: isScrolled ? "5px" : "0px",
+              }}
+            >
+              {isSmallScreen ? (
+                <HamburgerMenu />
+              ) : (
                 <>
-                  <span>Services</span>
-                  <ArrowDropDownIcon />
+                  <HeaderButton buttonText="Home" linkTo="/"></HeaderButton>
+                  <DropdownMenu
+                    buttonText={
+                      <>
+                        <span>About Us</span>
+                        <ArrowDropDownIcon />
+                      </>
+                    }
+                    links={[
+                      { to: "/aboutus", text: "About Us" },
+                      { to: "/aboutus/boardofdirector", text: "Board Of Directors" },
+                      { to: "/aboutus/hseperformance", text: "HSE" },
+                    ]}
+                  />
+                  <DropdownMenu
+                    buttonText={
+                      <>
+                        <span>Services</span>
+                        <ArrowDropDownIcon />
+                      </>
+                    }
+                    links={[
+                      { text: "All Services", to: "/services" },
+                      { text: "Piping Services", to: "/services/pipingServices" },
+                      { text: "Plate Work", to: "/services/plateWork" },
+                      { text: "Heater Operation", to: "/services/heaterOperation" },
+                      {
+                        text: "Drilling and O&M Services of Crewed Wells",
+                        to: "/services/drillingAndOMServices",
+                      },
+                      {
+                        text: "Structural Steel Work",
+                        to: "/services/structuralSteelWork",
+                      },
+                      {
+                        text: "Rail Wagon Loading Services",
+                        to: "/services/railWagonLoadingServices",
+                      },
+                    ]}
+                  />
+                  <HeaderButton buttonText="Investors" linkTo="/investors"></HeaderButton>
+                  <DropdownMenu
+                    buttonText={
+                      <>
+                        <span>Careers</span>
+                        <ArrowDropDownIcon />
+                      </>
+                    }
+                    links={[
+                      { to: "/careers", text: "Job Openings" },
+                      { to: "/careers/CareerOpening", text: "Career Openings " },
+                    ]}
+                  />
+                  <HeaderButton buttonText="News" linkTo="/news"></HeaderButton>
+                  <HeaderButton buttonText="Contact Us" linkTo="/contact"></HeaderButton>
                 </>
-              }
-              links={[
-                { text: "All Services", to: "/services" },
-                { text: "Piping Services", to: "/services/pipingServices" },
-                { text: "Plate Work", to: "/services/plateWork" },
-                { text: "Heater Operation", to: "/services/heaterOperation" },
-                {
-                  text: "Drilling and O&M Services of Crewed Wells",
-                  to: "/services/drillingAndOMServices",
-                },
-                {
-                  text: "Structural Steel Work",
-                  to: "/services/structuralSteelWork",
-                },
-                {
-                  text: "Rail Wagon Loading Services",
-                  to: "/services/railWagonLoadingServices",
-                },
-              ]}
-            />
-            <HeaderButton
-              buttonText="Investors"
-              linkTo="/investors"
-            ></HeaderButton>
-            <DropdownMenu
-              buttonText={
-                <>
-                  <span>Careers</span>
-                  <ArrowDropDownIcon />
-                </>
-              }
-              links={[
-                { to: "/careers", text: "Job Openings" },
-                { to: "/careers/CareerOpening", text: "Career Openings " },
-              ]}
-            />
-            <HeaderButton buttonText="News" linkTo="/news"></HeaderButton>
-            <HeaderButton
-              buttonText="Contact Us"
-              linkTo="/contact"
-            ></HeaderButton>
-          </Toolbar>
-        </Box>
-      </Container>
-    </AppBar>
+              )}
+            </Toolbar>
+          </Box>
+        </Container>
+      </AppBar>
+    </ThemeProvider>
   );
 };
 
 export default Header;
+
+         

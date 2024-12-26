@@ -1,62 +1,63 @@
+/* Base Styles */
 .hero-section {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  .image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .background-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(60%);
-  }
-  
-  .text-overlay {
-    position: absolute;
-    bottom: 100px;  /* Align text to bottom */
-    left: 200px;    /* Align text to left */
-    text-align: left;
-    color: white;
-  }
-  
-  .text-overlay h1 {
-    font-size: 4rem;  /* Make the text larger */
-    margin-bottom: 20px;
-  }
-  
-  .buttons {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .hero-btn {
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    color: white;
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .hero-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  /* home.css */
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+.text-overlay {
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
+  text-align: left;
+  color: white;
+}
+
+.text-overlay h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.hero-btn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Scroll Animation */
 .hidden {
   opacity: 0;
   transform: translateY(50px);
@@ -66,4 +67,130 @@
 .visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Marquee Section */
+.marquee-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Slightly darker for better readability */
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 2;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee-scroll 15s linear infinite;
+}
+
+.marquee-link {
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.marquee-link:hover {
+  color: #f39c12;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Marquee Animation */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .text-overlay {
+    bottom: 50px;
+    left: 50px;
+  }
+
+  .text-overlay h1 {
+    font-size: 2.5rem;
+  }
+
+  .buttons {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .hero-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .marquee-container {
+    font-size: 0.9rem;
+    padding: 8px 0;
+  }
+
+  .marquee-link {
+    font-size: 1.2rem;
+    margin-right: 20px;
+  }
+}
+
+/* Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .hero-section {
+    height: 70vh;
+  }
+
+  .text-overlay {
+    bottom: 50px;
+    left: 20px;
+    text-align: left;
+  }
+
+  .text-overlay h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .buttons {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .marquee-container {
+    font-size: 0.8rem;
+    padding: 5px 0;
+  }
+
+  .marquee-link {
+    font-size: 1rem;
+    margin-right: 15px;
+  }
+
+  .marquee-content {
+    animation-duration: 10s;
+  }
 }
