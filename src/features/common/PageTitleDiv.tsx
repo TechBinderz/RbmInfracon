@@ -1,5 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
+import "./PageTitleDiv.css"; // Import the CSS file
 
 // Define the types for props
 interface PageTitleProps {
@@ -64,6 +65,7 @@ const PageTitle: React.FC<PageTitleProps> = ({
       </Box>
       {/* Tile with custom content */}
       <Box
+        className="page-title" // Add the class for styling
         sx={{
           position: "absolute",
           color: "white",
@@ -74,7 +76,7 @@ const PageTitle: React.FC<PageTitleProps> = ({
           zIndex: 2, // Ensure tile is above the tint overlay
         }}
       >
-        <h1 style={{ fontSize: "3.5rem", margin: 0 }}>{tileContent}</h1>
+        <h1>{tileContent}</h1> {/* Title content */}
       </Box>
     </Box>
   );

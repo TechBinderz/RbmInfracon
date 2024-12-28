@@ -234,7 +234,7 @@ const ContactUs: React.FC = () => (
       </Grid>
 
       <Grid container spacing={4} sx={{ marginTop: "40px" }} id="locations">
-        <Grid item xs={12} sx={{ padding: { xs: "0px 20px", sm: "0px 40px" } }}>
+        <Grid item xs={12}>
           <Typography
             variant="h3"
             align="center"
@@ -245,7 +245,7 @@ const ContactUs: React.FC = () => (
             Our Locations
           </Typography>
         </Grid>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} sx={{ margin: "auto" }}>
           {locations.map((location, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card
