@@ -152,10 +152,9 @@ const Header: React.FC = () => {
     <>
       <IconButton
         edge="start"
-        color="inherit"
         aria-label="menu"
         onClick={() => setDrawerOpen(true)}
-        sx={{ marginRight: 2 , float: "right" , position:"fixed", right : "0px" , top:"40px"}}
+        sx={{ marginRight: 2 , float: "right" , position:"fixed", right : "0px" , top: isScrolled ? "20px" : "40px", color: isScrolled || drawerOpen ? "black" : "white"}}
       >
         <MenuIcon />
       </IconButton>
