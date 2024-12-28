@@ -151,57 +151,57 @@ const Header: React.FC = () => {
   const HamburgerMenu = () => (
     <>
       <IconButton
-      edge="start"
-      color="inherit"
-      aria-label="menu"
-      onClick={() => setDrawerOpen(true)}
-      sx={{ marginRight: 2 }}
-    >
-      <MenuIcon />
-    </IconButton>
-    <Drawer
-      anchor="right"
-      open={drawerOpen}
-      onClose={() => setDrawerOpen(false)}
-      sx={{
-        "& .MuiDrawer-paper": {
-          backgroundColor: "#f5f5f5",
-          color: "#333",
-          width: "80%",
-          padding: "20px",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.2)",
-        },
-      }}
-    >
-      <div style={{ marginBottom: 2 }}>
-      <img
-              src={RBMLOGOFULL}
-              alt="Logo"
-              style={{width:"130px"}}
-            />
-      </div>
-      <Divider />
-      <List>
-        <ListItem component={Link} to="/" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-          <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem onClick={() => handleToggleMenu("aboutUs")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-          <ListItemText primary="About Us" />
-          {openMenus.aboutUs ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-        </ListItem>
-        <Collapse in={openMenus.aboutUs} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItem component={Link} to="/aboutus" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-              <ListItemText primary="About Us" />
-            </ListItem>
-            <ListItem component={Link} to="/aboutus/boardofdirector" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-              <ListItemText primary="Board Of Directors" />
-            </ListItem>
-            <ListItem component={Link} to="/aboutus/hseperformance" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-              <ListItemText primary="HSE" />
-            </ListItem>
-          </List>
-        </Collapse>
+        edge="start"
+        color="inherit"
+        aria-label="menu"
+        onClick={() => setDrawerOpen(true)}
+        sx={{ marginRight: 2 , float: "right" , position:"fixed", right : "0px" , top:"40px"}}
+      >
+        <MenuIcon />
+      </IconButton>
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        sx={{
+          "& .MuiDrawer-paper": {
+            backgroundColor: "#f5f5f5",
+            color: "#333",
+            width: "80%",
+            padding: "20px",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.2)",
+          },
+        }}
+      >
+        <Box style={{ marginBottom: 2 }}>
+          <img
+            src={RBMLOGOFULL}
+            alt="Logo"
+            style={{ width: "130px" }}
+          />
+        </Box>
+        <Divider />
+        <List>
+          <ListItem component={Link} to="/" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+            <ListItemText primary="Home" />
+          </ListItem>
+          <ListItem onClick={() => handleToggleMenu("aboutUs")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+            <ListItemText primary="About Us" />
+            {openMenus.aboutUs ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </ListItem>
+          <Collapse in={openMenus.aboutUs} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem component={Link} to="/aboutus" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+                <ListItemText primary="About Us" />
+              </ListItem>
+              <ListItem component={Link} to="/aboutus/boardofdirector" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+                <ListItemText primary="Board Of Directors" />
+              </ListItem>
+              <ListItem component={Link} to="/aboutus/hseperformance" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+                <ListItemText primary="HSE" />
+              </ListItem>
+            </List>
+          </Collapse>
         <ListItem onClick={() => handleToggleMenu("services")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
           <ListItemText primary="Services" />
           {openMenus.services ? <ExpandLessIcon /> : <ExpandMoreIcon />}
@@ -227,17 +227,25 @@ const Header: React.FC = () => {
             </ListItem>
           </List>
         </Collapse>
-        <ListItem component={Link} to="/news" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-          <ListItemText primary="News" />
-        </ListItem>
-        <ListItem component={Link} to="/contact" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-          <ListItemText primary="Contact Us" />
-        </ListItem>
-      </List>
-    </Drawer>
-  </>
+          <ListItem component={Link} to="/news" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+            <ListItemText primary="News" />
+          </ListItem>
+          <ListItem component={Link} to="/contact" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+            <ListItemText primary="Contact Us" />
+          </ListItem>
+        </List>
 
+        <Divider />
+        {/* Add the StockPriceDisplay here */}
+        <Box sx={{ marginBottom: "20px" }}>
+          <StockPriceDisplay stockData={stockData} />
+        </Box>
+      </Drawer>
+
+      
+    </>
   );
+  
 
   return (
     <ThemeProvider
@@ -276,6 +284,10 @@ const Header: React.FC = () => {
               style={{ height: isScrolled ? "70px" : "100px", width: "auto" }}
             />
           </Link>
+          {isSmallScreen ? (
+            <HamburgerMenu />
+          ) : (
+            <>
           <Box sx={{ flexGrow: 3 }}>
             {!isScrolled && (
               <Toolbar sx={{ alignItems: "center" }}>
@@ -292,10 +304,7 @@ const Header: React.FC = () => {
                 marginTop: isScrolled ? "5px" : "0px",
               }}
             >
-              {isSmallScreen ? (
-                <HamburgerMenu />
-              ) : (
-                <>
+              
                   <HeaderButton buttonText="Home" linkTo="/"></HeaderButton>
                   <DropdownMenu
                     buttonText={
@@ -351,10 +360,12 @@ const Header: React.FC = () => {
                   />
                   <HeaderButton buttonText="News" linkTo="/news"></HeaderButton>
                   <HeaderButton buttonText="Contact Us" linkTo="/contact"></HeaderButton>
-                </>
-              )}
+                
+              
             </Toolbar>
           </Box>
+          </>
+          )}
         </Container>
       </AppBar>
     </ThemeProvider>
