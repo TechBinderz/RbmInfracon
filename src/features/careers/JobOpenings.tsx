@@ -8,7 +8,7 @@ import themeColor from "../common/common";
 const JobOpenings = () => {
   const navigate = useNavigate();
 
-  const handleApplyNow = (job) => {
+  const handleApplyNow = (job: any) => {
     // Navigate to CareerPage and pass job details in the state
     navigate("/careers/CareerOpening", { state: { jobDetails: job } });
   };
