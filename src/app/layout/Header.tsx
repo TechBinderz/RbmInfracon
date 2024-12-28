@@ -150,87 +150,106 @@ const Header: React.FC = () => {
 
   const HamburgerMenu = () => (
     <>
-      <IconButton
+    <IconButton
       edge="start"
       color="inherit"
       aria-label="menu"
       onClick={() => setDrawerOpen(true)}
-      sx={{ marginRight: 2 }}
+      sx={{
+        marginRight: 2,
+        '&:hover': {
+          backgroundColor: 'transparent',
+        },
+      }}
     >
-      <MenuIcon />
+      <MenuIcon sx={{ fontSize: 30 }} />
     </IconButton>
+    
     <Drawer
       anchor="right"
       open={drawerOpen}
       onClose={() => setDrawerOpen(false)}
       sx={{
-        "& .MuiDrawer-paper": {
-          backgroundColor: "#f5f5f5",
-          color: "#333",
-          width: "80%",
-          padding: "20px",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.2)",
+        '& .MuiDrawer-paper': {
+          backgroundColor: '#fff',
+          color: '#333',
+          width: '75%',
+          padding: '30px',
+          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+          borderRadius: '8px 0 0 8px',
+          transition: 'all 0.3s ease',
         },
       }}
     >
-      <div style={{ marginBottom: 2 }}>
-      <img
-              src={RBMLOGOFULL}
-              alt="Logo"
-              style={{width:"130px"}}
-            />
-      </div>
-      <Divider />
+      <Box sx={{ marginBottom: 2, textAlign: 'left' }}>
+        <img src={RBMLOGOFULL} alt="Logo" style={{ width: '150px' }} />
+      </Box>
+      <Divider sx={{ marginBottom: 2 }} />
+
       <List>
-        <ListItem component={Link} to="/" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+        <ListItem component={Link} to="/" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#f0f0f0', borderRadius: '5px' } }}>
           <ListItemText primary="Home" />
         </ListItem>
-        <ListItem onClick={() => handleToggleMenu("aboutUs")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+
+        <ListItem onClick={() => handleToggleMenu('aboutUs')} sx={{ '&:hover': { backgroundColor: '#f0f0f0', borderRadius: '5px' } }}>
           <ListItemText primary="About Us" />
           {openMenus.aboutUs ? <ExpandLessIcon /> : <ExpandMoreIcon />}
         </ListItem>
+
         <Collapse in={openMenus.aboutUs} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItem component={Link} to="/aboutus" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+            <ListItem component={Link} to="/aboutus" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0', borderRadius: '5px' } }}>
               <ListItemText primary="About Us" />
             </ListItem>
-            <ListItem component={Link} to="/aboutus/boardofdirector" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-              <ListItemText primary="Board Of Directors" />
+            <ListItem component={Link} to="/aboutus/boardofdirector" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0', borderRadius: '5px' } }}>
+              <ListItemText primary="Board of Directors" />
             </ListItem>
-            <ListItem component={Link} to="/aboutus/hseperformance" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+            <ListItem component={Link} to="/aboutus/hseperformance" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0', borderRadius: '5px' } }}>
               <ListItemText primary="HSE" />
             </ListItem>
           </List>
         </Collapse>
-        <ListItem onClick={() => handleToggleMenu("services")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+
+        <ListItem onClick={() => handleToggleMenu('services')} sx={{ '&:hover': { backgroundColor: '#f0f0f0', borderRadius: '5px' } }}>
           <ListItemText primary="Services" />
           {openMenus.services ? <ExpandLessIcon /> : <ExpandMoreIcon />}
         </ListItem>
+
         <Collapse in={openMenus.services} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-          <ListItem component={Link} to="/services" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="All Services" /> </ListItem> <ListItem component={Link} to="/services/pipingservices" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Piping Services" /> </ListItem> <ListItem component={Link} to="/services/platework" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Plate Work" /> </ListItem> <ListItem component={Link} to="/services/heateroperation" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Heater Operation" /> </ListItem> <ListItem component={Link} to="/services/drillingAndOMServices" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Drilling and O&M Services of Crewed Wells" /> </ListItem> <ListItem component={Link} to="/services/structuralsteelwork" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Structural Steel Work" /> </ListItem> <ListItem component={Link} to="/services/railwagonloadingservices" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Rail Wagon Loading Services" /> </ListItem>
-          </List> </Collapse>
-        <ListItem component={Link} to="/investors" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+            {['All Services', 'Piping Services', 'Plate Work', 'Heater Operation', 'Drilling and O&M Services of Crewed Wells', 'Structural Steel Work', 'Rail Wagon Loading Services'].map((service, index) => (
+              <ListItem component={Link} to={`/services/${service.toLowerCase().replace(/\s+/g, '')}`} key={index} onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399', color: '#fff', borderRadius: '5px' } }}>
+                <ListItemText primary={service} />
+              </ListItem>
+            ))}
+          </List>
+        </Collapse>
+
+        <ListItem component={Link} to="/investors" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#f0f0f0', borderRadius: '5px' } }}>
           <ListItemText primary="Investors" />
         </ListItem>
-        <ListItem onClick={() => handleToggleMenu("careers")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+
+        <ListItem onClick={() => handleToggleMenu('careers')} sx={{ '&:hover': { backgroundColor: '#f0f0f0', borderRadius: '5px' } }}>
           <ListItemText primary="Careers" />
           {openMenus.careers ? <ExpandLessIcon /> : <ExpandMoreIcon />}
         </ListItem>
+
         <Collapse in={openMenus.careers} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItem component={Link} to="/careers" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+            <ListItem component={Link} to="/careers" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0', borderRadius: '5px' } }}>
               <ListItemText primary="Job Openings" />
             </ListItem>
-            <ListItem component={Link} to="/careers/CareerOpening" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+            <ListItem component={Link} to="/careers/CareerOpening" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0', borderRadius: '5px' } }}>
               <ListItemText primary="Career Openings" />
             </ListItem>
           </List>
         </Collapse>
-        <ListItem component={Link} to="/news" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+
+        <ListItem component={Link} to="/news" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#f0f0f0', borderRadius: '5px' } }}>
           <ListItemText primary="News" />
         </ListItem>
-        <ListItem component={Link} to="/contact" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+
+        <ListItem component={Link} to="/contact" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#f0f0f0', borderRadius: '5px' } }}>
           <ListItemText primary="Contact Us" />
         </ListItem>
       </List>
