@@ -1,5 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
+import "../home/home.css"
 
 // Define the types for props
 interface PageTitleProps {
@@ -74,7 +75,9 @@ const PageTitle: React.FC<PageTitleProps> = ({
           zIndex: 2, // Ensure tile is above the tint overlay
         }}
       >
-        <h1 style={{ fontSize: "3.5rem", margin: 0 }}>{tileContent}</h1>
+        <div className="text-overlay">
+          <h1 style={{ fontSize: "3.5rem", margin: 0 }}>{tileContent}</h1>
+        </div>
       </Box>
     </Box>
   );
