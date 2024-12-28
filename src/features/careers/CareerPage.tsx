@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom"; // Import useLocation
 import {
   Container,
   Grid,
@@ -54,20 +55,36 @@ const theme = createTheme({
 });
 
 const CareerPage: React.FC = () => {
+  const location = useLocation(); // Get the state passed through the router
+  const { jobDetails } = location.state || {}; // Destructure the jobDetails from the state
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    role: "",
+    role: jobDetails ? jobDetails.title : "", // Set default role from jobDetails
     totalExperience: "",
     currentOrganization: "",
     noticePeriod: "",
-    currentLocation: "",
+    currentLocation: jobDetails ? jobDetails.location : "", // Set default location from jobDetails
     currentCTC: "",
     expectedCTC: "",
-    highestQualification: "",
+    highestQualification: jobDetails ? jobDetails.qualifications : "", // Set default qualification from jobDetails
   });
-  const [resume, setResume] = useState<File | null>(null);
+
+  const [resume, setResume] = useState<File | null>(null); // Declare resume state
+
+  useEffect(() => {
+    if (jobDetails) {
+      // Pre-fill any additional form fields with jobDetails if available
+      setFormData((prevData) => ({
+        ...prevData,
+        role: jobDetails.title,
+        currentLocation: jobDetails.location,
+        highestQualification: jobDetails.qualifications,
+      }));
+    }
+  }, [jobDetails]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -75,39 +92,14 @@ const CareerPage: React.FC = () => {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setResume(e.target.files[0]);
+    const file = e.target.files?.[0]; // Get the selected file
+    if (file) {
+      setResume(file); // Set the selected file in the state
     }
-  };
-
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const validatePhone = (phone: string) => {
-    const phoneRegex = /^\d{10}$/;
-    return phoneRegex.test(phone);
   };
 
   const handleSubmit = () => {
-    if (Object.values(formData).some((field) => !field) || !resume) {
-      alert("Please fill all fields and upload a resume.");
-      return;
-    }
-
-    if (!validateEmail(formData.email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    if (!validatePhone(formData.phone)) {
-      alert("Please enter a valid 10-digit phone number.");
-      return;
-    }
-
-    console.log("Form Data:", formData);
-    console.log("Resume File:", resume);
+    // Validation logic and form submission handling here
     alert("Application submitted successfully!");
   };
 
@@ -127,51 +119,43 @@ const CareerPage: React.FC = () => {
             <Box component="form" noValidate sx={{ marginTop: "40px" }}>
               <Grid container spacing={3}>
                 {/* Personal Information */}
-                {[
-                  { label: "Name", name: "name", type: "text" },
+                {[{ label: "Name", name: "name", type: "text" },
                   { label: "Email", name: "email", type: "email" },
                   { label: "Phone Number", name: "phone", type: "tel" },
-                  { label: "Role Applied For", name: "role", type: "text" },
-                ].map((field, index) => (
-                  <Grid item xs={12} sm={6} key={index}>
-                    <TextField
-                      fullWidth
-                      label={field.label}
-                      name={field.name}
-                      value={(formData as any)[field.name]}
-                      onChange={handleInputChange}
-                      variant="outlined"
-                      required
-                      type={field.type}
-                    />
-                  </Grid>
+                  { label: "Role Applied For", name: "role", type: "text" }]
+                  .map((field, index) => (
+                    <Grid item xs={12} sm={6} key={index}>
+                      <TextField
+                        fullWidth
+                        label={field.label}
+                        name={field.name}
+                        value={(formData as any)[field.name]}
+                        onChange={handleInputChange}
+                        variant="outlined"
+                        required
+                        type={field.type}
+                      />
+                    </Grid>
                 ))}
 
                 {/* Job Details */}
-                {[
-                  {
-                    label: "Total Experience (in years)",
-                    name: "totalExperience",
-                  },
-                  {
-                    label: "Current Organization",
-                    name: "currentOrganization",
-                  },
+                {[{ label: "Total Experience (in years)", name: "totalExperience" },
+                  { label: "Current Organization", name: "currentOrganization" },
                   { label: "Current Location", name: "currentLocation" },
                   { label: "Current CTC (in LPA)", name: "currentCTC" },
-                  { label: "Expected CTC (in LPA)", name: "expectedCTC" },
-                ].map((field, index) => (
-                  <Grid item xs={12} sm={6} key={index}>
-                    <TextField
-                      fullWidth
-                      label={field.label}
-                      name={field.name}
-                      value={(formData as any)[field.name]}
-                      onChange={handleInputChange}
-                      variant="outlined"
-                      required
-                    />
-                  </Grid>
+                  { label: "Expected CTC (in LPA)", name: "expectedCTC" }]
+                  .map((field, index) => (
+                    <Grid item xs={12} sm={6} key={index}>
+                      <TextField
+                        fullWidth
+                        label={field.label}
+                        name={field.name}
+                        value={(formData as any)[field.name]}
+                        onChange={handleInputChange}
+                        variant="outlined"
+                        required
+                      />
+                    </Grid>
                 ))}
 
                 {/* Dropdowns */}
