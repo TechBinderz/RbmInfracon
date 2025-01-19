@@ -1,6 +1,6 @@
-
 import "./Header.css";
 import React, { useState, useEffect } from "react";
+import { Add, Remove } from "@mui/icons-material";
 import {
   AppBar,
   Toolbar,
@@ -21,8 +21,6 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -154,7 +152,14 @@ const Header: React.FC = () => {
         edge="start"
         aria-label="menu"
         onClick={() => setDrawerOpen(true)}
-        sx={{ marginRight: 2 , float: "right" , position:"fixed", right : "0px" , top: isScrolled ? "20px" : "40px", color: isScrolled || drawerOpen ? "black" : "white"}}
+        sx={{
+          marginRight: 2,
+          float: "right",
+          position: "fixed",
+          right: "0px",
+          top: isScrolled ? "20px" : "40px",
+          color: isScrolled || drawerOpen ? "black" : "white",
+        }}
       >
         <MenuIcon />
       </IconButton>
@@ -173,78 +178,317 @@ const Header: React.FC = () => {
         }}
       >
         <Box style={{ marginBottom: 2 }}>
-          <img
-            src={RBMLOGOFULL}
-            alt="Logo"
-            style={{ width: "130px" }}
-          />
+          <img src={RBMLOGOFULL} alt="Logo" style={{ width: "130px" }} />
         </Box>
         <Divider />
         <List>
-          <ListItem component={Link} to="/" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+          <ListItem
+            component={Link}
+            to="/"
+            onClick={() => setDrawerOpen(false)}
+            sx={{
+              "&:hover": { backgroundColor: "transparent", color: "#39ac4b" }, // No green background, only green text on hover
+              textDecoration: "none",
+              color: "#333",
+              borderBottom: "0.5px solid #ccc",
+            }}
+          >
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem onClick={() => handleToggleMenu("aboutUs")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+
+          <ListItem
+            onClick={() => handleToggleMenu("aboutUs")}
+            sx={{
+              "&:hover": { backgroundColor: "transparent", color: "#39ac4b" }, // No green background, only green text on hover
+              color: "#333",
+              borderBottom: "0.5px solid #ccc",
+            }}
+          >
             <ListItemText primary="About Us" />
-            {openMenus.aboutUs ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+            {openMenus.aboutUs ? (
+              <Remove sx={{ fontSize: "2rem", color: "#39ac4b" }} /> // Stylish minus icon
+            ) : (
+              <Add sx={{ fontSize: "2rem", color: "#39ac4b" }} /> // Stylish plus icon
+            )}
           </ListItem>
+
           <Collapse in={openMenus.aboutUs} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItem component={Link} to="/aboutus" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+            <List component="div" disablePadding sx={{ paddingLeft: 2 }}>
+              <ListItem
+                component={Link}
+                to="/aboutus"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
                 <ListItemText primary="About Us" />
               </ListItem>
-              <ListItem component={Link} to="/aboutus/boardofdirector" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+              <ListItem
+                component={Link}
+                to="/aboutus/boardofdirector"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
                 <ListItemText primary="Board Of Directors" />
               </ListItem>
-              <ListItem component={Link} to="/aboutus/hseperformance" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+              <ListItem
+                component={Link}
+                to="/aboutus/hseperformance"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
                 <ListItemText primary="HSE" />
               </ListItem>
             </List>
           </Collapse>
-        <ListItem onClick={() => handleToggleMenu("services")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-          <ListItemText primary="Services" />
-          {openMenus.services ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-        </ListItem>
-        <Collapse in={openMenus.services} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-          <ListItem component={Link} to="/services" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="All Services" /> </ListItem> <ListItem component={Link} to="/services/pipingservices" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Piping Services" /> </ListItem> <ListItem component={Link} to="/services/platework" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Plate Work" /> </ListItem> <ListItem component={Link} to="/services/heateroperation" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Heater Operation" /> </ListItem> <ListItem component={Link} to="/services/drillingAndOMServices" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Drilling and O&M Services of Crewed Wells" /> </ListItem> <ListItem component={Link} to="/services/structuralsteelwork" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Structural Steel Work" /> </ListItem> <ListItem component={Link} to="/services/railwagonloadingservices" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#003399' } }}> <ListItemText primary="Rail Wagon Loading Services" /> </ListItem>
-          </List> </Collapse>
-        <ListItem component={Link} to="/investors" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-          <ListItemText primary="Investors" />
-        </ListItem>
-        <ListItem onClick={() => handleToggleMenu("careers")} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-          <ListItemText primary="Careers" />
-          {openMenus.careers ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-        </ListItem>
-        <Collapse in={openMenus.careers} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItem component={Link} to="/careers" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-              <ListItemText primary="Job Openings" />
-            </ListItem>
-            <ListItem component={Link} to="/careers/CareerOpening" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
-              <ListItemText primary="Career Openings" />
-            </ListItem>
-          </List>
-        </Collapse>
-          <ListItem component={Link} to="/news" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+
+          <ListItem
+            onClick={() => handleToggleMenu("services")}
+            sx={{
+              "&:hover": { backgroundColor: "transparent", color: "#39ac4b" },
+              color: "#333",
+              borderBottom: "0.5px solid #ccc",
+            }}
+          >
+            <ListItemText primary="Services" />
+            {openMenus.services ? (
+              <Remove sx={{ fontSize: "2rem", color: "#39ac4b" }} />
+            ) : (
+              <Add sx={{ fontSize: "2rem", color: "#39ac4b" }} />
+            )}
+          </ListItem>
+
+          <Collapse in={openMenus.services} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding sx={{ paddingLeft: 2 }}>
+              <ListItem
+                component={Link}
+                to="/services"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="All Services" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/services/pipingservices"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Piping Services" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/services/platework"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Plate Work" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/services/heateroperation"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Heater Operation" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/services/drillingAndOMServices"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Drilling and O&M Services of Crewed Wells" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/services/structuralsteelwork"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Structural Steel Work" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/services/railwagonloadingservices"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Rail Wagon Loading Services" />
+              </ListItem>
+            </List>
+          </Collapse>
+
+          <ListItem
+            component={Link}
+            to="/investors"
+            onClick={() => setDrawerOpen(false)}
+            sx={{
+              "&:hover": { backgroundColor: "transparent", color: "#39ac4b" },
+              textDecoration: "none",
+              color: "#333",
+              borderBottom: "0.5px solid #ccc",
+            }}
+          >
+            <ListItemText primary="Investors" />
+          </ListItem>
+
+          <ListItem
+            onClick={() => handleToggleMenu("careers")}
+            sx={{
+              "&:hover": { backgroundColor: "transparent", color: "#39ac4b" },
+              color: "#333",
+              borderBottom: "0.5px solid #ccc",
+            }}
+          >
+            <ListItemText primary="Careers" />
+            {openMenus.careers ? (
+              <Remove sx={{ fontSize: "2rem", color: "#39ac4b" }} />
+            ) : (
+              <Add sx={{ fontSize: "2rem", color: "#39ac4b" }} />
+            )}
+          </ListItem>
+
+          <Collapse in={openMenus.careers} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding sx={{ paddingLeft: 2 }}>
+              <ListItem
+                component={Link}
+                to="/careers"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Job Openings" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/careers/CareerOpening"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Career Openings" />
+              </ListItem>
+            </List>
+          </Collapse>
+
+          <ListItem
+            component={Link}
+            to="/news"
+            onClick={() => setDrawerOpen(false)}
+            sx={{
+              "&:hover": { backgroundColor: "transparent", color: "#39ac4b" },
+              textDecoration: "none",
+              color: "#333",
+              borderBottom: "0.5px solid #ccc",
+            }}
+          >
             <ListItemText primary="News" />
           </ListItem>
-          <ListItem component={Link} to="/contact" onClick={() => setDrawerOpen(false)} sx={{ '&:hover': { backgroundColor: '#e0e0e0' } }}>
+
+          <ListItem
+            component={Link}
+            to="/contact"
+            onClick={() => setDrawerOpen(false)}
+            sx={{
+              "&:hover": { backgroundColor: "transparent", color: "#39ac4b" },
+              textDecoration: "none",
+              color: "#333",
+              borderBottom: "0.5px solid #ccc",
+            }}
+          >
             <ListItemText primary="Contact Us" />
           </ListItem>
         </List>
 
         <Divider />
-        {/* Add the StockPriceDisplay here */}
         <Box sx={{ marginBottom: "20px" }}>
           <StockPriceDisplay stockData={stockData} />
         </Box>
       </Drawer>
-
-      
     </>
   );
-  
 
   return (
     <ThemeProvider
@@ -287,23 +531,24 @@ const Header: React.FC = () => {
             <HamburgerMenu />
           ) : (
             <>
-          <Box sx={{ flexGrow: 3 }}>
-            {!isScrolled && (
-              <Toolbar sx={{ alignItems: "center" }}>
-                <Box sx={{ flexGrow: 1, textAlign: "center" }}>
-                  <StockPriceDisplay stockData={stockData} />
-                  <Box sx={{ borderBottom: "1px solid lightgray", my: 1 }} />
-                </Box>
-              </Toolbar>
-            )}
+              <Box sx={{ flexGrow: 3 }}>
+                {!isScrolled && (
+                  <Toolbar sx={{ alignItems: "center" }}>
+                    <Box sx={{ flexGrow: 1, textAlign: "center" }}>
+                      <StockPriceDisplay stockData={stockData} />
+                      <Box
+                        sx={{ borderBottom: "1px solid lightgray", my: 1 }}
+                      />
+                    </Box>
+                  </Toolbar>
+                )}
 
-            <Toolbar
-              sx={{
-                justifyContent: "right",
-                marginTop: isScrolled ? "5px" : "0px",
-              }}
-            >
-              
+                <Toolbar
+                  sx={{
+                    justifyContent: "right",
+                    marginTop: isScrolled ? "5px" : "0px",
+                  }}
+                >
                   <HeaderButton buttonText="Home" linkTo="/"></HeaderButton>
                   <DropdownMenu
                     buttonText={
@@ -314,7 +559,10 @@ const Header: React.FC = () => {
                     }
                     links={[
                       { to: "/aboutus", text: "About Us" },
-                      { to: "/aboutus/boardofdirector", text: "Board Of Directors" },
+                      {
+                        to: "/aboutus/boardofdirector",
+                        text: "Board Of Directors",
+                      },
                       { to: "/aboutus/hseperformance", text: "HSE" },
                     ]}
                   />
@@ -327,9 +575,15 @@ const Header: React.FC = () => {
                     }
                     links={[
                       { text: "All Services", to: "/services" },
-                      { text: "Piping Services", to: "/services/pipingServices" },
+                      {
+                        text: "Piping Services",
+                        to: "/services/pipingServices",
+                      },
                       { text: "Plate Work", to: "/services/plateWork" },
-                      { text: "Heater Operation", to: "/services/heaterOperation" },
+                      {
+                        text: "Heater Operation",
+                        to: "/services/heaterOperation",
+                      },
                       {
                         text: "Drilling and O&M Services of Crewed Wells",
                         to: "/services/drillingAndOMServices",
@@ -344,7 +598,10 @@ const Header: React.FC = () => {
                       },
                     ]}
                   />
-                  <HeaderButton buttonText="Investors" linkTo="/investors"></HeaderButton>
+                  <HeaderButton
+                    buttonText="Investors"
+                    linkTo="/investors"
+                  ></HeaderButton>
                   <DropdownMenu
                     buttonText={
                       <>
@@ -354,16 +611,20 @@ const Header: React.FC = () => {
                     }
                     links={[
                       { to: "/careers", text: "Job Openings" },
-                      { to: "/careers/CareerOpening", text: "Career Openings " },
+                      {
+                        to: "/careers/CareerOpening",
+                        text: "Career Openings ",
+                      },
                     ]}
                   />
                   <HeaderButton buttonText="News" linkTo="/news"></HeaderButton>
-                  <HeaderButton buttonText="Contact Us" linkTo="/contact"></HeaderButton>
-                
-              
-            </Toolbar>
-          </Box>
-          </>
+                  <HeaderButton
+                    buttonText="Contact Us"
+                    linkTo="/contact"
+                  ></HeaderButton>
+                </Toolbar>
+              </Box>
+            </>
           )}
         </Container>
       </AppBar>
@@ -372,5 +633,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
-         
