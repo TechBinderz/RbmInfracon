@@ -16,6 +16,13 @@ const serviceCardData = [
         "Expert handling of new boiler installations, including design coordination, equipment assembly, and commissioning.",
     },
     {
+      pathName: "workoverDrillingServices",
+      image: piping_service_1,
+      title: "Workover Drilling Services",
+      description:
+        "our commitment to driving performance improvements and operational excellence within the oil and gas sector.",
+    },
+    {
       pathName: "pipingServices",
       image: piping_service_1,
       title: "Piping Services",

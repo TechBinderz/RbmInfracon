@@ -13,6 +13,7 @@ import RailWagonLoadingServices from "../../../features/services/RailWagonLoadin
 import StructuralSteelWork from "../../../features/services/StructuralSteelWork";
 import PlateWork from "../../../features/services/PlateWork";
 import BoilerErectionWork from "../../../features/services/BoilerErectionWork";
+import WorkoverDrillingServices from "../../../features/services/WorkoverDrillingServices";
 import BoardOfDirectors from "../../../features/about/BoardOfDirectors";
 import HSEPerformance from "../../../features/about/HSEPerformance";
 import News from "../../../features/news/News"; 
@@ -75,6 +76,10 @@ const servicesRoutes = {
     {
       path: "boilerErectionWork",
       element: <BoilerErectionWork />,
+    },
+    {
+      path: "workoverDrillingServices",
+      element: <WorkoverDrillingServices />,
     },
   ],
 };
