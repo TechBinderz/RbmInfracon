@@ -9,6 +9,13 @@ import rail_wagon_1 from "../../assets/features/services/rail_wagon (1).jpg";
 // Define the card data
 const serviceCardData = [
     {
+      pathName: "boilerErectionWork",
+      image: piping_service_1,
+      title: "Boiler Erection Work",
+      description:
+        "Expert handling of new boiler installations, including design coordination, equipment assembly, and commissioning.",
+    },
+    {
       pathName: "pipingServices",
       image: piping_service_1,
       title: "Piping Services",

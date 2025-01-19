@@ -12,9 +12,10 @@ import PipingServices from "../../../features/services/PipingServices";
 import RailWagonLoadingServices from "../../../features/services/RailWagonLoadingServices";
 import StructuralSteelWork from "../../../features/services/StructuralSteelWork";
 import PlateWork from "../../../features/services/PlateWork";
+import BoilerErectionWork from "../../../features/services/BoilerErectionWork";
 import BoardOfDirectors from "../../../features/about/BoardOfDirectors";
 import HSEPerformance from "../../../features/about/HSEPerformance";
-import News from "../../../features/news/News";
+import News from "../../../features/news/News"; 
 import ONGC_WorkOrderSigned from "../../../features/news/newsPages/ongc_work_order_signed"
 import CareerPage from "../../../features/careers/CareerPage";
 import JobOpenings from "../../../features/careers/JobOpenings";
@@ -70,6 +71,10 @@ const servicesRoutes = {
     {
       path: "railWagonLoadingServices",
       element: <RailWagonLoadingServices />,
+    },
+    {
+      path: "boilerErectionWork",
+      element: <BoilerErectionWork />,
     },
   ],
 };
