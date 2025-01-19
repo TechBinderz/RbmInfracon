@@ -28,6 +28,7 @@ import RBMLOGOFULL from "../../assets/header/Rmb_logo_big.png";
 import RBMLOGOSMALL from "../../assets/header/Rmb_logo_small.png";
 import { checkAndUpdateStockData, StockData } from "../api/StockData";
 import { headerFontSize } from "../../features/common/common";
+import serviceCardData from "../../features/services/ServiceCardData";
 
 interface DropdownMenuProps {
   buttonText: React.ReactNode;
@@ -174,6 +175,9 @@ const Header: React.FC = () => {
             width: "80%",
             padding: "20px",
             boxShadow: "0 2px 10px rgba(0,0,0,0.2)",
+            display: "flex",
+            flexDirection: "column",
+            height: "100vh", // Make sure the Drawer takes the full viewport height
           },
         }}
       >
@@ -181,7 +185,7 @@ const Header: React.FC = () => {
           <img src={RBMLOGOFULL} alt="Logo" style={{ width: "130px" }} />
         </Box>
         <Divider />
-        <List>
+        <List sx={{ flexGrow: 1 }}>
           <ListItem
             component={Link}
             to="/"
@@ -295,96 +299,24 @@ const Header: React.FC = () => {
               >
                 <ListItemText primary="All Services" />
               </ListItem>
-              <ListItem
-                component={Link}
-                to="/services/pipingservices"
-                onClick={() => setDrawerOpen(false)}
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                    color: "#39ac4b",
-                  },
-                  textDecoration: "none",
-                  color: "#333",
-                }}
-              >
-                <ListItemText primary="Piping Services" />
-              </ListItem>
-              <ListItem
-                component={Link}
-                to="/services/platework"
-                onClick={() => setDrawerOpen(false)}
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                    color: "#39ac4b",
-                  },
-                  textDecoration: "none",
-                  color: "#333",
-                }}
-              >
-                <ListItemText primary="Plate Work" />
-              </ListItem>
-              <ListItem
-                component={Link}
-                to="/services/heateroperation"
-                onClick={() => setDrawerOpen(false)}
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                    color: "#39ac4b",
-                  },
-                  textDecoration: "none",
-                  color: "#333",
-                }}
-              >
-                <ListItemText primary="Heater Operation" />
-              </ListItem>
-              <ListItem
-                component={Link}
-                to="/services/drillingAndOMServices"
-                onClick={() => setDrawerOpen(false)}
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                    color: "#39ac4b",
-                  },
-                  textDecoration: "none",
-                  color: "#333",
-                }}
-              >
-                <ListItemText primary="Drilling and O&M Services of Crewed Wells" />
-              </ListItem>
-              <ListItem
-                component={Link}
-                to="/services/structuralsteelwork"
-                onClick={() => setDrawerOpen(false)}
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                    color: "#39ac4b",
-                  },
-                  textDecoration: "none",
-                  color: "#333",
-                }}
-              >
-                <ListItemText primary="Structural Steel Work" />
-              </ListItem>
-              <ListItem
-                component={Link}
-                to="/services/railwagonloadingservices"
-                onClick={() => setDrawerOpen(false)}
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                    color: "#39ac4b",
-                  },
-                  textDecoration: "none",
-                  color: "#333",
-                }}
-              >
-                <ListItemText primary="Rail Wagon Loading Services" />
-              </ListItem>
+              {serviceCardData.map((service) => (
+                <ListItem
+                  key={service.pathName}
+                  component={Link}
+                  to={`/services/${service.pathName}`}
+                  onClick={() => setDrawerOpen(false)}
+                  sx={{
+                    "&:hover": {
+                      backgroundColor: "transparent",
+                      color: "#39ac4b",
+                    },
+                    textDecoration: "none",
+                    color: "#333",
+                  }}
+                >
+                  <ListItemText primary={service.title} />
+                </ListItem>
+              ))}
             </List>
           </Collapse>
 
@@ -482,9 +414,18 @@ const Header: React.FC = () => {
           </ListItem>
         </List>
 
-        <Divider />
-        <Box sx={{ marginBottom: "20px" }}>
-          <StockPriceDisplay stockData={stockData} />
+        <Box
+          sx={{
+            position: "fixed",
+            bottom: 0,
+            width: "100%",
+            zIndex: 1000,
+          }}
+        >
+          <Divider />
+          <Box sx={{ marginTop: "10px", marginBottom: "10px" }}>
+            <StockPriceDisplay stockData={stockData} />
+          </Box>
         </Box>
       </Drawer>
     </>
@@ -573,30 +514,10 @@ const Header: React.FC = () => {
                         <ArrowDropDownIcon />
                       </>
                     }
-                    links={[
-                      { text: "All Services", to: "/services" },
-                      {
-                        text: "Piping Services",
-                        to: "/services/pipingServices",
-                      },
-                      { text: "Plate Work", to: "/services/plateWork" },
-                      {
-                        text: "Heater Operation",
-                        to: "/services/heaterOperation",
-                      },
-                      {
-                        text: "Drilling and O&M Services of Crewed Wells",
-                        to: "/services/drillingAndOMServices",
-                      },
-                      {
-                        text: "Structural Steel Work",
-                        to: "/services/structuralSteelWork",
-                      },
-                      {
-                        text: "Rail Wagon Loading Services",
-                        to: "/services/railWagonLoadingServices",
-                      },
-                    ]}
+                    links={serviceCardData.map((service) => ({
+                      text: service.title,
+                      to: `/services/${service.pathName}`,
+                    }))}
                   />
                   <HeaderButton
                     buttonText="Investors"

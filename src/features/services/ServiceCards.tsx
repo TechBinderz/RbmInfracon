@@ -61,16 +61,29 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                   image={card.image}
                   alt={card.title}
                 />
-                <CardContent sx={{ height: showDetails ? "140px" : "90px" , textAlign: "center"}}>
+                <CardContent
+                  sx={{
+                    height: showDetails ? "245px" : "110px",
+                    textAlign: "center",
+                  }}
+                >
                   <Typography
-                    variant={showDetails ? "h6" : "h5"}
                     component="div"
                     textAlign="center"
+                    sx={{
+                      fontWeight: "bold",
+                      fontSize: "27px",
+                    }}
                   >
                     {card.title}
                   </Typography>
                   {showDetails && (
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography
+                      sx={{
+                        fontSize: "19px",
+                      }}
+                      color="text.secondary"
+                    >
                       {card.description}
                     </Typography>
                   )}

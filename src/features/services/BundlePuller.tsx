@@ -1,0 +1,91 @@
+import React from "react";
+import PageTitle from "../common/PageTitleDiv";
+import {
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  Container,
+} from "@mui/material";
+import bundle_puller_1 from "../../assets/features/services/drilling_service (1).jpg";
+import bundle_puller_2 from "../../assets/features/services/drilling_service (1).jpg";
+import bundle_puller_3 from "../../assets/features/services/drilling_service (1).jpg";
+import bundle_puller_4 from "../../assets/features/services/drilling_service (1).jpg";
+
+const BundlePuller: React.FC = () => {
+  return (
+    <>
+      <PageTitle
+        imageUrl={bundle_puller_1}
+        tileContent="Bundle Puller"
+      />
+      <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
+        <Grid container spacing={10}>
+          <Grid item xs={12} md={6}>
+            <Typography
+              paragraph
+              variant="body1"
+              sx={{
+                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                lineHeight: 1.6,
+              }}
+            >
+              We provide a variety of services related to Bundle Puller equipment. Our skilled technicians are well-versed in the installation, operation, and maintenance of Bundle Puller systems. Their expertise ensures the safe and efficient extraction and replacement of heat exchanger bundles. Recognizing the importance of minimizing downtime and maximizing productivity, we prioritize delivering high-quality services in a timely manner.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Card className="card-shadow">
+              <CardMedia
+                component="img"
+                height={300}
+                image={bundle_puller_2}
+                alt="Bundle Puller Service"
+              />
+            </Card>
+          </Grid>
+        </Grid>
+        <Grid container spacing={5} sx={{ marginTop: 3 }}>
+          <Grid item xs={12} md={6}>
+            <Card className="card-shadow">
+              <CardMedia
+                component="img"
+                height="140"
+                image={bundle_puller_3}
+                alt="Safe Extraction"
+              />
+              <CardContent>
+                <Typography variant="h6" component="div">
+                  Safe Extraction
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Expert handling to ensure the safe and efficient removal of heat exchanger bundles.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Card className="card-shadow">
+              <CardMedia
+                component="img"
+                height="140"
+                image={bundle_puller_4}
+                alt="Timely Maintenance"
+              />
+              <CardContent>
+                <Typography variant="h6" component="div">
+                  Timely Maintenance
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Regular maintenance services to ensure reliable performance and reduce downtime.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
+    </>
+  );
+};
+
+export default BundlePuller;

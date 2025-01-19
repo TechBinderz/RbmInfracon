@@ -14,10 +14,12 @@ import StructuralSteelWork from "../../../features/services/StructuralSteelWork"
 import PlateWork from "../../../features/services/PlateWork";
 import BoilerErectionWork from "../../../features/services/BoilerErectionWork";
 import WorkoverDrillingServices from "../../../features/services/WorkoverDrillingServices";
+import Hydrojetting from "../../../features/services/Hydrojetting";
+import BundlePuller from "../../../features/services/BundlePuller";
 import BoardOfDirectors from "../../../features/about/BoardOfDirectors";
 import HSEPerformance from "../../../features/about/HSEPerformance";
-import News from "../../../features/news/News"; 
-import ONGC_WorkOrderSigned from "../../../features/news/newsPages/ongc_work_order_signed"
+import News from "../../../features/news/News";
+import ONGC_WorkOrderSigned from "../../../features/news/newsPages/ongc_work_order_signed";
 import CareerPage from "../../../features/careers/CareerPage";
 import JobOpenings from "../../../features/careers/JobOpenings";
 
@@ -81,6 +83,14 @@ const servicesRoutes = {
       path: "workoverDrillingServices",
       element: <WorkoverDrillingServices />,
     },
+    {
+      path: "hydrojetting",
+      element: <Hydrojetting />,
+    },
+    {
+      path: "bundlePuller",
+      element: <BundlePuller />,
+    },
   ],
 };
 
@@ -122,8 +132,7 @@ export const router = createBrowserRouter([
       servicesRoutes, // Add services routes here
       newsRoutes, // Add news routes here
       careerRoutes,
-      {path:"careers/CareerOpening",
-      element:<CareerPage/>,}
+      { path: "careers/CareerOpening", element: <CareerPage /> },
     ],
   },
 ]);

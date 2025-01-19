@@ -16,6 +16,7 @@ import technip from '../../assets/features/about-us/rbm-customers-images/technip
 import malco from '../../assets/features/about-us/rbm-customers-images/malco.jpg'
 import petron from '../../assets/features/about-us/rbm-customers-images/petron.avif'
 import essarprojects from '../../assets/features/about-us/rbm-customers-images/essarprojects.png'
+import ongc from '../../assets/features/about-us/rbm-customers-images/ongc.jpg'
 
 // Sample customer data
 const customers = [
@@ -74,6 +75,10 @@ const customers = [
   {
     image: essarprojects,
     title: 'Customer 14',
+  },
+  {
+    image: ongc,
+    title: 'Customer 15',
   }
 ];
 
