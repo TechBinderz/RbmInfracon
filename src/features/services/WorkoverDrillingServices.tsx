@@ -9,10 +9,10 @@ import {
   Container,
   Box,
 } from "@mui/material";
-import workover_drilling_1 from "../../assets/features/services/drilling_service (1).jpg";
-import workover_drilling_2 from "../../assets/features/services/drilling_service (1).jpg";
-import workover_drilling_3 from "../../assets/features/services/drilling_service (1).jpg";
-import workover_drilling_4 from "../../assets/features/services/drilling_service (1).jpg";
+import workover_drilling_1 from "../../assets/features/services/no_image.png";
+import workover_drilling_2 from "../../assets/features/services/no_image.png";
+import workover_drilling_3 from "../../assets/features/services/no_image.png";
+import workover_drilling_4 from "../../assets/features/services/no_image.png";
 
 const WorkoverDrillingServices: React.FC = () => {
   return (

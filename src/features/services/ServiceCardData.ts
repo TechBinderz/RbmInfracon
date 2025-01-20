@@ -4,33 +4,34 @@ import drilling_service_1 from "../../assets/features/services/drilling_service 
 import heater_operation_1 from "../../assets/features/services/heater_operation (1).jpg";
 import steel_work_1 from "../../assets/features/services/steel_work (1).jpg";
 import rail_wagon_1 from "../../assets/features/services/rail_wagon (1).jpg";
+import no_image from "../../assets/features/services/no_image.png"
 
 // Define the card data
 const serviceCardData = [
   {
     pathName: "boilerErectionWork",
-    image: piping_service_1,
+    image: no_image,
     title: "Boiler Erection Work",
     description:
       "Expert handling of new boiler installations, including design coordination, equipment assembly, and commissioning.",
   },
   {
     pathName: "workoverDrillingServices",
-    image: piping_service_1,
+    image: no_image,
     title: "Performance Enhancement Services",
     description:
       "Our commitment to driving performance improvements and operational excellence within the oil and gas sector.",
   },
   {
     pathName: "hydrojetting",
-    image: piping_service_1,
+    image: no_image,
     title: "Hydrojetting Service",
     description:
       "With cutting-edge technology and state-of-the-art equipment at our disposal, our team provides high-pressure water jetting services.",
   },
   {
-    pathName: "BundlePuller",
-    image: piping_service_1,
+    pathName: "bundlePuller",
+    image: no_image,
     title: "Bundle Puller",
     description:
       "Recognizing the importance of minimizing downtime and maximizing productivity, we prioritize delivering high-quality services in a timely manner.",

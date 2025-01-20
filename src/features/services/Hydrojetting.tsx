@@ -8,10 +8,10 @@ import {
   CardContent,
   Container,
 } from "@mui/material";
-import hydrojetting_1 from "../../assets/features/services/drilling_service (1).jpg";
-import hydrojetting_2 from "../../assets/features/services/drilling_service (1).jpg";
-import hydrojetting_3 from "../../assets/features/services/drilling_service (1).jpg";
-import hydrojetting_4 from "../../assets/features/services/drilling_service (1).jpg";
+import hydrojetting_1 from "../../assets/features/services/no_image.png";
+import hydrojetting_2 from "../../assets/features/services/no_image.png";
+import hydrojetting_3 from "../../assets/features/services/no_image.png";
+import hydrojetting_4 from "../../assets/features/services/no_image.png";
 
 const Hydrojetting: React.FC = () => {
   return (
