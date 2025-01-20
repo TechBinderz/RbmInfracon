@@ -63,7 +63,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 />
                 <CardContent
                   sx={{
-                    height: showDetails ? "245px" : "110px",
+                    height: showDetails ? "245px" : "140px",
                     textAlign: "center",
                   }}
                 >
