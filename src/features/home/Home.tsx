@@ -9,6 +9,7 @@ import CompanySection from "./CompanySection";
 import NewsSection from "./NewsSection";
 import StatisticsPoliciesSection from "../common/StatisticsPoliciesSection";
 import useScrollEffect from "../hooks/useScrollEffect"; // Import the custom hook
+import CompanyDescription from "./CompanyDescription";
 import "./home.css";
 
 const Home: React.FC = () => {
@@ -66,6 +67,10 @@ const Home: React.FC = () => {
 
       <Container>
         {/* Add "hidden" class to animate sections on scroll */}
+        <br/>
+        <div className="hidden">
+          <CompanyDescription />
+        </div>
         <div className="hidden">
           <SolutionSection showDetails={false} />
         </div>
@@ -75,9 +80,11 @@ const Home: React.FC = () => {
         <div className="hidden">
           <TextImageCarousel />
         </div>
+        <br/>
         <div className="hidden">
           <NewsSection />
         </div>
+        <br/>
         <div className="hidden">
           <StatisticsPoliciesSection />
         </div>
