@@ -117,13 +117,13 @@ const CompanyDescription: React.FC = () => {
                 <Typography variant="h6" component="span" sx={{
                   fontWeight: 'bold',
                   color: item.color,
-                  fontSize: { xs: "18px", md: "24px" }
+                  fontSize: { xs: "18px", md: "22px" }
                 }}>
                   {item.year}
                 </Typography>
                 <Typography sx={{
                   color: '#000000',
-                  fontSize: { xs: "16px", md: "18px" },
+                  fontSize: { xs: "18px", md: "22px" },
                   mt: 1
                 }}>
                   {item.content}
