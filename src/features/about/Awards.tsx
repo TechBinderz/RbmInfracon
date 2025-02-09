@@ -12,6 +12,8 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import PageTitle from '../../features/common/PageTitleDiv';
+import BANNER_IMAGE from "../../assets/features/home/pexels-tomfisk-10407691.jpg";
 
 const Awards: React.FC = () => {
   const theme = useTheme();
@@ -42,22 +44,12 @@ const Awards: React.FC = () => {
   ];
 
   return (
-    <Box sx={{ pt: 12, pb: 6, backgroundColor: '#fafafa' }}>
-      <Container maxWidth="xl">
-        <Typography
-          variant="h3"
-          align="center"
-          gutterBottom
-          sx={{
-            fontWeight: 'bold',
-            color: '#333',
-            mb: 4,
-            fontSize: { xs: '2.2rem', sm: '2.5rem', md: '3rem' }
-          }}
-        >
-          Awards & Recognition
-        </Typography>
-
+    <>
+      <PageTitle
+        imageUrl={BANNER_IMAGE}
+        tileContent="Awards & Recognition"
+      />
+      <Container maxWidth="xl" sx={{ py: 4 }}>
         <Typography
           variant="h6"
           align="center"
@@ -157,7 +149,7 @@ const Awards: React.FC = () => {
           ))}
         </Grid>
       </Container>
-    </Box>
+    </>
   );
 };
 
