@@ -32,7 +32,7 @@ import serviceCardData from "../../features/services/ServiceCardData";
 
 interface DropdownMenuProps {
   buttonText: React.ReactNode;
-  links: { to: string; text: string }[];
+  links: { to: string; text: string; hidden?: boolean }[];
 }
 
 const defaultStockData: StockData = {
@@ -259,6 +259,7 @@ const Header: React.FC = () => {
                   },
                   textDecoration: "none",
                   color: "#333",
+                  display: "none", // Hide the HSE menu item
                 }}
               >
                 <ListItemText primary="HSE" />
@@ -549,11 +550,11 @@ const Header: React.FC = () => {
                         to: "/aboutus/boardofdirector",
                         text: "Board Of Directors",
                       },
-                      { to: "/aboutus/hseperformance", text: "HSE" },
+                      { to: "/aboutus/hseperformance", text: "HSE", hidden: true },
                       { to: "/aboutus/current-projects", text: "Current Projects" },
                       { to: "/aboutus/executed-projects", text: "Executed Projects" },
                       { to: "/aboutus/awards", text: "Awards" },
-                    ]}
+                    ].filter((link) => !link.hidden)}
                   />
                   <DropdownMenu
                     buttonText={

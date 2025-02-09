@@ -1,30 +1,167 @@
-import React from 'react';
-import { Container, Typography, Grid, Card, CardContent, CardMedia, Box, Chip } from '@mui/material';
+import React, { useState } from 'react';
+import { 
+  Container, 
+  Typography, 
+  Grid, 
+  Card, 
+  CardContent, 
+  Box, 
+  Chip,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Tabs,
+  Tab,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import BusinessIcon from '@mui/icons-material/Business';
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          {children}
+        </Box>
+      )}
+    </div>
+  );
+}
 
 const ExecutedProjects: React.FC = () => {
-  const projects = [
+  const [tabValue, setTabValue] = useState(0);
+
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    setTabValue(newValue);
+  };
+
+  const clientProjects = [
     {
-      title: 'Project Name 1',
-      location: 'Location 1',
-      description: 'Description of the completed project 1. Details about the scope and achievements.',
-      completionYear: '2024',
-      category: 'Residential',
-      image: '/path/to/completed-project1-image.jpg', // You'll need to add actual project images
+      client: "Nayara Energy Limited",
+      projects: [
+        {
+          name: "Revamp Project & IBR Package",
+          details: [
+            "Revamp Project- Fabrication and Erection of Piping jobs at CCR/NHT",
+            "Arc of IBR package- fabrication and erection of piping and equipment jobs in green field area"
+          ],
+          value: "₹9.91 Crores",
+          completionDate: "27-02-2019"
+        },
+        {
+          name: "Major Turnaround (TA-2018)",
+          details: [
+            "Hot & Cold Jobs - Package 1",
+            "Hot & Cold jobs (Pkg. 6 & 7)",
+            "Hydro testing, IBR Inspection and Approval",
+            "M & I Jobs of Offsite (Jetty) Area",
+            "M&I jobs for PIT Area",
+            "Various maintenance and replacement works"
+          ],
+          value: "₹6.99 Crores",
+          completionDate: "28-02-2019"
+        },
+        {
+          name: "VGO-MHC Revamp & Critical MOCs (TA-2022)",
+          details: [
+            "ARC for Fabrication & Erection of Piping & Structural work"
+          ],
+          value: "₹7.29 Crores",
+          completionDate: "30-08-2023"
+        }
+      ]
     },
     {
-      title: 'Project Name 2',
-      location: 'Location 2',
-      description: 'Description of the completed project 2. Details about the scope and achievements.',
-      completionYear: '2023',
-      category: 'Commercial',
-      image: '/path/to/completed-project2-image.jpg',
+      client: "Reliance Industries Limited",
+      projects: [
+        {
+          name: "MPC C2 Complex",
+          details: ["Mechanical works for MPC C2 Complex"],
+          value: "₹16.37 Crores",
+          completionDate: "16-03-2022"
+        }
+      ]
     },
-    // Add more projects as needed
+    {
+      client: "Technip Energies",
+      projects: [
+        {
+          name: "PP Unit Civil Works",
+          details: ["Civil Works - TS01, VRU and TEAL Areas (Package 1) for PP Unit, Nayara Energies"],
+          value: "₹16.16 Crores",
+          completionDate: "30-11-2023"
+        }
+      ]
+    },
+    {
+      client: "Yara Fertilizers India Pvt. Ltd.",
+      projects: [
+        {
+          name: "Various Installation Works",
+          details: [
+            "Ammonia Loading Arm Piping work",
+            "Belt Conveyor (BC 21) installation & commissioning at PPP",
+            "Replacement of 3 nos UCT pumps"
+          ],
+          value: "₹1.17 Crores",
+          completionDate: "17-06-2024"
+        }
+      ]
+    }
+  ];
+
+  const turnaroundProjects = [
+    { year: "2015", projects: [
+      { description: "IBR Circuit Inspection & Hydrotest jobs", value: "32,00,000.00" },
+      { description: "DCU Heater Tube Installation & Thermocouple welding Job", value: "24,43,799.70" },
+      { description: "Online Leaksealing clamp normalization at CDU-I & CDU-II plants", value: "31,99,939.00" },
+      { description: "Deployment of Static Manpower", value: "57,06,193.00" },
+      { description: "M&I Job of Tanks (4 Nos.)", value: "22,94,400.00" },
+      { description: "IBR PCN Piping jobs", value: "35,45,070.00" },
+      { description: "PCN Piping job", value: "2,11,61,479.00" },
+      { description: "Tie-ins and line replacement jobs in CDU, DCU & ISOM plants", value: "56,10,142.28" }
+    ]},
+    { year: "2018", projects: [
+      { description: "Hot & Cold Jobs - Package 1 (VGO DHDT ISOM)", value: "4,08,00,000.00" },
+      { description: "VGO HP loop support rectification jobs", value: "14,50,000.00" },
+      { description: "IBR jobs - Hydro testing and Inspection", value: "60,60,000.00" },
+      { description: "M&I jobs for PIT Area", value: "47,00,000.00" },
+      { description: "M & I Jobs of Offsite (Jetty) Area", value: "54,00,000.00" }
+    ]},
+    { year: "2022", projects: [
+      { description: "Reformer Catalyst Tubes Replacement Jobs in HMU-1 & 2", value: "64,99,999.64" },
+      { description: "Fabrication & Erection of IBR & Non-IBR Jobs at CPP", value: "2,01,00,000.00" },
+      { description: "Heater M & I Jobs in CDU-2, CCR NHT Plants", value: "2,41,34,340.00" },
+      { description: "Cast Air Pre-Heaters Replacement Job in CDU-2", value: "85,00,000.00" },
+      { description: "Hot & Cold jobs in ISOM, VGO & DHDT units (Package-3)", value: "11,00,00,000.00" }
+    ]}
   ];
 
   return (
     <Box sx={{ pt: 12, pb: 6 }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Typography
           variant="h3"
           align="center"
@@ -32,61 +169,107 @@ const ExecutedProjects: React.FC = () => {
           sx={{
             fontWeight: 'bold',
             color: '#333',
-            mb: 6
+            mb: 4
           }}
         >
           Executed Projects
         </Typography>
 
-        <Grid container spacing={4}>
-          {projects.map((project, index) => (
-            <Grid item xs={12} md={6} key={index}>
-              <Card 
-                sx={{ 
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'transform 0.2s',
-                  '&:hover': {
-                    transform: 'scale(1.02)',
-                  },
-                }}
+        <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
+          <Tabs value={tabValue} onChange={handleTabChange} centered>
+            <Tab icon={<BusinessIcon />} label="Client-wise Projects" />
+            <Tab icon={<EngineeringIcon />} label="Turnaround Projects" />
+          </Tabs>
+        </Box>
+
+        <TabPanel value={tabValue} index={0}>
+          {clientProjects.map((client, index) => (
+            <Accordion key={index} sx={{ mb: 2 }}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                sx={{ backgroundColor: '#f5f5f5' }}
               >
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={project.image}
-                  alt={project.title}
-                  sx={{ objectFit: 'cover' }}
-                />
-                <CardContent>
-                  <Typography variant="h5" component="h2" gutterBottom>
-                    {project.title}
-                  </Typography>
-                  <Box sx={{ mb: 2 }}>
-                    <Chip 
-                      label={project.category} 
-                      color="primary" 
-                      size="small" 
-                      sx={{ mr: 1 }}
-                    />
-                    <Chip 
-                      label={`Completed ${project.completionYear}`} 
-                      color="success" 
-                      size="small" 
-                    />
-                  </Box>
-                  <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-                    {project.location}
-                  </Typography>
-                  <Typography variant="body1">
-                    {project.description}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+                <Typography variant="h6" component="div">
+                  {client.client}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Grid container spacing={3}>
+                  {client.projects.map((project, pIndex) => (
+                    <Grid item xs={12} key={pIndex}>
+                      <Card>
+                        <CardContent>
+                          <Typography variant="h6" color="primary" gutterBottom>
+                            {project.name}
+                          </Typography>
+                          <Box sx={{ mb: 2 }}>
+                            <Chip 
+                              label={`Value: ${project.value}`}
+                              color="primary"
+                              sx={{ mr: 1, mb: 1 }}
+                            />
+                            <Chip 
+                              label={`Completed: ${project.completionDate}`}
+                              color="success"
+                              sx={{ mb: 1 }}
+                            />
+                          </Box>
+                          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+                            Scope of Work:
+                          </Typography>
+                          <ul>
+                            {project.details.map((detail, dIndex) => (
+                              <li key={dIndex}>
+                                <Typography variant="body1">{detail}</Typography>
+                              </li>
+                            ))}
+                          </ul>
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                  ))}
+                </Grid>
+              </AccordionDetails>
+            </Accordion>
           ))}
-        </Grid>
+        </TabPanel>
+
+        <TabPanel value={tabValue} index={1}>
+          {turnaroundProjects.map((yearGroup, index) => (
+            <Accordion key={index} sx={{ mb: 2 }}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                sx={{ backgroundColor: '#f5f5f5' }}
+              >
+                <Typography variant="h6" component="div">
+                  Turnaround {yearGroup.year}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <TableContainer component={Paper}>
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Sr. No.</TableCell>
+                        <TableCell>Description</TableCell>
+                        <TableCell align="right">Value (₹)</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {yearGroup.projects.map((project, pIndex) => (
+                        <TableRow key={pIndex}>
+                          <TableCell>{pIndex + 1}</TableCell>
+                          <TableCell>{project.description}</TableCell>
+                          <TableCell align="right">{project.value}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </AccordionDetails>
+            </Accordion>
+          ))}
+        </TabPanel>
       </Container>
     </Box>
   );
