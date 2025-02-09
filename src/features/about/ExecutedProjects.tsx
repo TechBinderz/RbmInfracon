@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { 
+  Box, 
   Container, 
   Typography, 
   Grid, 
   Card, 
   CardContent, 
-  Box, 
   Chip,
   Table,
   TableBody,
@@ -23,6 +23,9 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import BusinessIcon from '@mui/icons-material/Business';
+import { formatCurrency } from '../../features/common/common';
+import PageTitle from '../../features/common/PageTitleDiv';
+import BANNER_IMAGE from "../../assets/features/home/pexels-tomfisk-10407692.jpg";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -160,250 +163,242 @@ const ExecutedProjects: React.FC = () => {
   ];
 
   return (
-    <Box sx={{ pt: 12, pb: 6 }}>
-      <Container maxWidth="xl">
-        <Typography
-          variant="h3"
-          align="center"
-          gutterBottom
-          sx={{
-            fontWeight: 'bold',
-            color: '#333',
-            mb: 4,
-            fontSize: { xs: '2.2rem', sm: '2.5rem', md: '3rem' }
-          }}
-        >
-          Executed Projects
-        </Typography>
-
-        <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
-          <Tabs 
-            value={tabValue} 
-            onChange={handleTabChange} 
-            centered
-            sx={{
-              '& .MuiTab-root': {
-                color: '#666',
-                '&.Mui-selected': {
-                  color: '#39ac4b',
+    <>
+      <PageTitle
+        imageUrl={BANNER_IMAGE}
+        tileContent="Executed Projects"
+      />
+      <Container maxWidth="xl" sx={{ py: 4 }}>
+        <Box sx={{ pt: 12, pb: 6 }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
+            <Tabs 
+              value={tabValue} 
+              onChange={handleTabChange} 
+              centered
+              sx={{
+                '& .MuiTab-root': {
+                  color: '#666',
+                  '&.Mui-selected': {
+                    color: '#39ac4b',
+                  },
                 },
-              },
-              '& .MuiTabs-indicator': {
-                backgroundColor: '#39ac4b',
-              },
-            }}
-          >
-            <Tab 
-              icon={<BusinessIcon />} 
-              label="Client-wise Projects" 
-              sx={{ 
-                fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
-                textTransform: 'none'
-              }}
-            />
-            <Tab 
-              icon={<EngineeringIcon />} 
-              label="Turnaround Projects"
-              sx={{ 
-                fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
-                textTransform: 'none'
-              }}
-            />
-          </Tabs>
-        </Box>
-
-        <TabPanel value={tabValue} index={0}>
-          {clientProjects.map((client, index) => (
-            <Accordion 
-              key={index} 
-              sx={{ 
-                mb: 2,
-                '&.MuiAccordion-root': {
-                  '&:before': {
-                    display: 'none',
-                  },
-                  boxShadow: 2,
-                  '&.Mui-expanded': {
-                    boxShadow: 4,
-                  },
-                }
+                '& .MuiTabs-indicator': {
+                  backgroundColor: '#39ac4b',
+                },
               }}
             >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: '#39ac4b' }} />}
+              <Tab 
+                icon={<BusinessIcon />} 
+                label="Client-wise Projects" 
                 sx={{ 
-                  backgroundColor: '#f8f9fa',
-                  '&:hover': {
-                    backgroundColor: '#e8f5e9',
+                  fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
+                  textTransform: 'none'
+                }}
+              />
+              <Tab 
+                icon={<EngineeringIcon />} 
+                label="Turnaround Projects"
+                sx={{ 
+                  fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
+                  textTransform: 'none'
+                }}
+              />
+            </Tabs>
+          </Box>
+
+          <TabPanel value={tabValue} index={0}>
+            {clientProjects.map((client, index) => (
+              <Accordion 
+                key={index} 
+                sx={{ 
+                  mb: 2,
+                  '&.MuiAccordion-root': {
+                    '&:before': {
+                      display: 'none',
+                    },
+                    boxShadow: 2,
+                    '&.Mui-expanded': {
+                      boxShadow: 4,
+                    },
                   }
                 }}
               >
-                <Typography variant="h6" component="div" sx={{ 
-                  color: '#333', 
-                  fontWeight: 'bold',
-                  fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }
-                }}>
-                  {client.client}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Grid container spacing={3}>
-                  {client.projects.map((project, pIndex) => (
-                    <Grid item xs={12} key={pIndex}>
-                      <Card sx={{ 
-                        boxShadow: 2,
-                        '&:hover': {
-                          boxShadow: 4,
-                          transform: 'translateY(-2px)',
-                        },
-                        transition: 'all 0.3s ease-in-out'
-                      }}>
-                        <CardContent>
-                          <Typography variant="h6" sx={{ 
-                            color: '#39ac4b', 
-                            fontWeight: 'bold', 
-                            mb: 2,
-                            fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.4rem' }
-                          }}>
-                            {project.name}
-                          </Typography>
-                          <Box sx={{ mb: 2 }}>
-                            <Chip 
-                              label={`Value: ${project.value}`}
-                              sx={{ 
-                                mr: 1, 
-                                mb: 1, 
-                                backgroundColor: '#e8f5e9',
-                                color: '#39ac4b',
-                                fontWeight: 'bold'
-                              }}
-                            />
-                            <Chip 
-                              label={`Completed: ${project.completionDate}`}
-                              sx={{ 
-                                mb: 1,
-                                backgroundColor: '#f1f8e9',
-                                color: '#689f38'
-                              }}
-                            />
-                          </Box>
-                          <Typography variant="subtitle1" sx={{ 
-                            color: '#666', 
-                            mb: 1,
-                            fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' }
-                          }}>
-                            Scope of Work:
-                          </Typography>
-                          <ul style={{ color: '#333' }}>
-                            {project.details.map((detail, dIndex) => (
-                              <li key={dIndex}>
-                                <Typography variant="body1" sx={{
-                                  fontSize: { xs: '0.875rem', sm: '0.9rem', md: '1rem' }
-                                }}>
-                                  {detail}
-                                </Typography>
-                              </li>
-                            ))}
-                          </ul>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-        </TabPanel>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon sx={{ color: '#39ac4b' }} />}
+                  sx={{ 
+                    backgroundColor: '#f8f9fa',
+                    '&:hover': {
+                      backgroundColor: '#e8f5e9',
+                    }
+                  }}
+                >
+                  <Typography variant="h6" component="div" sx={{ 
+                    color: '#333', 
+                    fontWeight: 'bold',
+                    fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }
+                  }}>
+                    {client.client}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Grid container spacing={3}>
+                    {client.projects.map((project, pIndex) => (
+                      <Grid item xs={12} key={pIndex}>
+                        <Card sx={{ 
+                          boxShadow: 2,
+                          '&:hover': {
+                            boxShadow: 4,
+                            transform: 'translateY(-2px)',
+                          },
+                          transition: 'all 0.3s ease-in-out'
+                        }}>
+                          <CardContent>
+                            <Typography variant="h6" sx={{ 
+                              color: '#39ac4b', 
+                              fontWeight: 'bold', 
+                              mb: 2,
+                              fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.4rem' }
+                            }}>
+                              {project.name}
+                            </Typography>
+                            <Box sx={{ mb: 2 }}>
+                              <Chip 
+                                label={`Value: ${project.value}`}
+                                sx={{ 
+                                  mr: 1, 
+                                  mb: 1, 
+                                  backgroundColor: '#e8f5e9',
+                                  color: '#39ac4b',
+                                  fontWeight: 'bold'
+                                }}
+                              />
+                              <Chip 
+                                label={`Completed: ${project.completionDate}`}
+                                sx={{ 
+                                  mb: 1,
+                                  backgroundColor: '#f1f8e9',
+                                  color: '#689f38'
+                                }}
+                              />
+                            </Box>
+                            <Typography variant="subtitle1" sx={{ 
+                              color: '#666', 
+                              mb: 1,
+                              fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' }
+                            }}>
+                              Scope of Work:
+                            </Typography>
+                            <ul style={{ color: '#333' }}>
+                              {project.details.map((detail, dIndex) => (
+                                <li key={dIndex}>
+                                  <Typography variant="body1" sx={{
+                                    fontSize: { xs: '0.875rem', sm: '0.9rem', md: '1rem' }
+                                  }}>
+                                    {detail}
+                                  </Typography>
+                                </li>
+                              ))}
+                            </ul>
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </AccordionDetails>
+              </Accordion>
+            ))}
+          </TabPanel>
 
-        <TabPanel value={tabValue} index={1}>
-          {turnaroundProjects.map((yearGroup, index) => (
-            <Accordion 
-              key={index} 
-              sx={{ 
-                mb: 2,
-                '&.MuiAccordion-root': {
-                  '&:before': {
-                    display: 'none',
-                  },
-                  boxShadow: 2,
-                  '&.Mui-expanded': {
-                    boxShadow: 4,
-                  },
-                }
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: '#39ac4b' }} />}
+          <TabPanel value={tabValue} index={1}>
+            {turnaroundProjects.map((yearGroup, index) => (
+              <Accordion 
+                key={index} 
                 sx={{ 
-                  backgroundColor: '#f8f9fa',
-                  '&:hover': {
-                    backgroundColor: '#e8f5e9',
+                  mb: 2,
+                  '&.MuiAccordion-root': {
+                    '&:before': {
+                      display: 'none',
+                    },
+                    boxShadow: 2,
+                    '&.Mui-expanded': {
+                      boxShadow: 4,
+                    },
                   }
                 }}
               >
-                <Typography variant="h6" component="div" sx={{ color: '#333', fontWeight: 'bold' }}>
-                  Turnaround {yearGroup.year}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <TableContainer component={Paper} sx={{ boxShadow: 2 }}>
-                  <Table>
-                    <TableHead>
-                      <TableRow sx={{ backgroundColor: '#f5f5f5' }}>
-                        <TableCell sx={{ 
-                          fontWeight: 'bold', 
-                          color: '#333',
-                          fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
-                        }}>Sr. No.</TableCell>
-                        <TableCell sx={{ 
-                          fontWeight: 'bold', 
-                          color: '#333',
-                          fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
-                        }}>Description</TableCell>
-                        <TableCell sx={{ 
-                          fontWeight: 'bold', 
-                          color: '#333',
-                          fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' },
-                          textAlign: 'right'
-                        }}>Value (₹)</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {yearGroup.projects.map((project, pIndex) => (
-                        <TableRow 
-                          key={pIndex}
-                          hover
-                          sx={{
-                            '&:hover': {
-                              backgroundColor: '#f8faf8',
-                            }
-                          }}
-                        >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon sx={{ color: '#39ac4b' }} />}
+                  sx={{ 
+                    backgroundColor: '#f8f9fa',
+                    '&:hover': {
+                      backgroundColor: '#e8f5e9',
+                    }
+                  }}
+                >
+                  <Typography variant="h6" component="div" sx={{ color: '#333', fontWeight: 'bold' }}>
+                    Turnaround {yearGroup.year}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <TableContainer component={Paper} sx={{ boxShadow: 2 }}>
+                    <Table>
+                      <TableHead>
+                        <TableRow sx={{ backgroundColor: '#f5f5f5' }}>
                           <TableCell sx={{ 
-                            fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' }
-                          }}>{pIndex + 1}</TableCell>
-                          <TableCell sx={{ 
-                            fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' }
-                          }}>{project.description}</TableCell>
-                          <TableCell sx={{ 
-                            color: '#39ac4b', 
                             fontWeight: 'bold', 
-                            textAlign: 'right',
-                            fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' }
-                          }}>
-                            {project.value}
-                          </TableCell>
+                            color: '#333',
+                            fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
+                          }}>Sr. No.</TableCell>
+                          <TableCell sx={{ 
+                            fontWeight: 'bold', 
+                            color: '#333',
+                            fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
+                          }}>Description</TableCell>
+                          <TableCell sx={{ 
+                            fontWeight: 'bold', 
+                            color: '#333',
+                            fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' },
+                            textAlign: 'right'
+                          }}>Value (₹)</TableCell>
                         </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-        </TabPanel>
+                      </TableHead>
+                      <TableBody>
+                        {yearGroup.projects.map((project, pIndex) => (
+                          <TableRow 
+                            key={pIndex}
+                            hover
+                            sx={{
+                              '&:hover': {
+                                backgroundColor: '#f8faf8',
+                              }
+                            }}
+                          >
+                            <TableCell sx={{ 
+                              fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' }
+                            }}>{pIndex + 1}</TableCell>
+                            <TableCell sx={{ 
+                              fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' }
+                            }}>{project.description}</TableCell>
+                            <TableCell sx={{ 
+                              color: '#39ac4b', 
+                              fontWeight: 'bold', 
+                              textAlign: 'right',
+                              fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' }
+                            }}>
+                              {project.value}
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </AccordionDetails>
+              </Accordion>
+            ))}
+          </TabPanel>
+        </Box>
       </Container>
-    </Box>
+    </>
   );
 };
 

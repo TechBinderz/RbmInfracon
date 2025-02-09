@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import {
-  Container,
-  Typography,
   Box,
+  Container,
+  Card,
+  CardContent,
+  Typography,
   Table,
   TableBody,
   TableCell,
@@ -10,17 +12,20 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Chip,
+  IconButton,
+  Collapse,
   TextField,
   InputAdornment,
-  IconButton,
-  Card,
-  CardContent,
   Grid,
+  Chip
 } from '@mui/material';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { formatCurrency } from '../../features/common/common';
+import PageTitle from '../../features/common/PageTitleDiv';
+import BANNER_IMAGE from "../../assets/features/home/pexels-tomfisk-10407691.jpg";
 
 interface Project {
   id: number;
@@ -191,22 +196,12 @@ const CurrentProjects: React.FC = () => {
   );
 
   return (
-    <Box sx={{ pt: 12, pb: 6 }}>
-      <Container maxWidth="xl">
-        <Typography
-          variant="h3"
-          align="center"
-          gutterBottom
-          sx={{
-            fontWeight: 'bold',
-            color: '#333',
-            mb: 4,
-            fontSize: { xs: '2.2rem', sm: '2.5rem', md: '3rem' }
-          }}
-        >
-          Current Projects
-        </Typography>
-
+    <>
+      <PageTitle
+        imageUrl={BANNER_IMAGE}
+        tileContent="Current Projects"
+      />
+      <Container maxWidth="xl" sx={{ py: 4 }}>
         <Card sx={{ mb: 4, backgroundColor: '#f8f9fa', boxShadow: 3 }}>
           <CardContent>
             <Grid container spacing={2} alignItems="center">
@@ -365,7 +360,7 @@ const CurrentProjects: React.FC = () => {
           </Table>
         </TableContainer>
       </Container>
-    </Box>
+    </>
   );
 };
 

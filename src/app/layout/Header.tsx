@@ -427,7 +427,7 @@ const Header: React.FC = () => {
                   color: "#333",
                 }}
               >
-                <ListItemText primary="Career Openings" />
+                <ListItemText primary="Apply Online" />
               </ListItem>
             </List>
           </Collapse>
@@ -588,7 +588,7 @@ const Header: React.FC = () => {
                       { to: "/careers", text: "Job Openings" },
                       {
                         to: "/careers/CareerOpening",
-                        text: "Career Openings ",
+                        text: "Apply Online",
                       },
                     ]}
                   />
