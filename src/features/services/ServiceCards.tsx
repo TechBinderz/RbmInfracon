@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { themeColor } from "../../features/common/common";
 
 // Define the structure of the card data using TypeScript
 interface CardData {
@@ -93,7 +94,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     overflow: "hidden",
                     borderRadius: 2,
                   }}
-                >
+                >   
                   <img
                     src={card.image}
                     alt={card.title}
@@ -119,9 +120,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     gutterBottom
                     sx={{
                       fontWeight: "bold",
-                      fontSize: { xs: "24px", md: "32px" },
+                      fontSize: { xs: "28px", md: "38px" },
                       mb: 2,
-                      color: 'primary.main',
+                      color: themeColor,
                     }}
                   >
                     {card.title}
@@ -129,7 +130,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                   <Typography
                     variant="body1"
                     sx={{
-                      fontSize: { xs: "16px", md: "18px" },
+                      fontSize: { xs: "18px", md: "22px" },
                       lineHeight: 1.6,
                       color: 'text.secondary',
                       mb: 3,
@@ -142,8 +143,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     sx={{
                       display: 'flex',
                       alignItems: 'center',
-                      color: 'primary.main',
+                      color: themeColor,
                       cursor: 'pointer',
+                      fontSize: { xs: "16px", md: "18px" },
+                      fontWeight: 500,
                       '&:hover': {
                         textDecoration: 'underline',
                       },
@@ -167,8 +170,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           alignItems: 'stretch',
           mt: 4,
           borderTop: '1px solid rgba(0, 0, 0, 0.1)',
-          pt: 2,
-          px: 2,
+          pt: 3,
+          pb: 2,
+          px: 4,
         }}
       >
         <Box
@@ -177,25 +181,39 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             display: 'flex',
             alignItems: 'center',
             cursor: 'pointer',
-            opacity: 0.7,
-            transition: 'opacity 0.3s',
-            '&:hover': { opacity: 1 },
+            opacity: 0.8,
+            transition: 'all 0.3s ease',
             flex: 1,
             maxWidth: '45%',
+            backgroundColor: 'rgba(57, 172, 75, 0.05)',
+            padding: 2,
+            borderRadius: 2,
+            '&:hover': {
+              opacity: 1,
+              backgroundColor: 'rgba(57, 172, 75, 0.1)',
+              transform: 'translateX(-5px)',
+            },
           }}
         >
-          <IconButton size="small">
+          <IconButton 
+            size="small"
+            sx={{ 
+              color: themeColor,
+              '&:hover': { backgroundColor: 'rgba(57, 172, 75, 0.15)' }
+            }}
+          >
             <ArrowBackIosNewIcon />
           </IconButton>
-          <Box sx={{ ml: 1 }}>
-            <Typography variant="caption" color="text.secondary">
+          <Box sx={{ ml: 2 }}>
+            <Typography variant="caption" sx={{ color: themeColor, fontWeight: 500, fontSize: { xs: '14px', md: '16px' } }}>
               PREVIOUS
             </Typography>
             <Typography 
               variant="subtitle1" 
               sx={{ 
                 fontWeight: 'bold',
-                lineHeight: 1.2,
+                lineHeight: 1.3,
+                fontSize: { xs: '20px', md: '24px' },
               }}
             >
               {getPreviousSlide().title}
@@ -210,7 +228,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 WebkitBoxOrient: 'vertical',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
-                lineHeight: 1.2,
+                lineHeight: 1.4,
+                fontSize: { xs: '16px', md: '18px' },
               }}
             >
               {getPreviousSlide().description}
@@ -220,9 +239,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
         <Box
           sx={{
-            width: '1px',
-            bgcolor: 'rgba(0, 0, 0, 0.1)',
-            mx: 2,
+            width: '2px',
+            bgcolor: 'rgba(57, 172, 75, 0.1)',
+            mx: 3,
           }}
         />
 
@@ -232,23 +251,31 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             display: 'flex',
             alignItems: 'center',
             cursor: 'pointer',
-            opacity: 0.7,
-            transition: 'opacity 0.3s',
-            '&:hover': { opacity: 1 },
+            opacity: 0.8,
+            transition: 'all 0.3s ease',
             flex: 1,
             maxWidth: '45%',
             justifyContent: 'flex-end',
+            backgroundColor: 'rgba(57, 172, 75, 0.05)',
+            padding: 2,
+            borderRadius: 2,
+            '&:hover': {
+              opacity: 1,
+              backgroundColor: 'rgba(57, 172, 75, 0.1)',
+              transform: 'translateX(5px)',
+            },
           }}
         >
-          <Box sx={{ mr: 1, textAlign: 'right' }}>
-            <Typography variant="caption" color="text.secondary">
+          <Box sx={{ mr: 2, textAlign: 'right' }}>
+            <Typography variant="caption" sx={{ color: themeColor, fontWeight: 500, fontSize: { xs: '14px', md: '16px' } }}>
               NEXT
             </Typography>
             <Typography 
               variant="subtitle1" 
               sx={{ 
                 fontWeight: 'bold',
-                lineHeight: 1.2,
+                lineHeight: 1.3,
+                fontSize: { xs: '20px', md: '24px' },
               }}
             >
               {getNextSlide().title}
@@ -263,14 +290,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 WebkitBoxOrient: 'vertical',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
-                lineHeight: 1.2,
+                lineHeight: 1.4,
+                fontSize: { xs: '16px', md: '18px' },
                 textAlign: 'right',
               }}
             >
               {getNextSlide().description}
             </Typography>
           </Box>
-          <IconButton size="small">
+          <IconButton 
+            size="small"
+            sx={{ 
+              color: themeColor,
+              '&:hover': { backgroundColor: 'rgba(57, 172, 75, 0.15)' }
+            }}
+          >
             <ArrowForwardIosIcon />
           </IconButton>
         </Box>
