@@ -1,13 +1,15 @@
 import {
-  Card,
-  CardContent,
-  CardMedia,
+  Box,
   Container,
-  Grid,
   Typography,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
-import { Link } from "react-router-dom"; // Import from react-router-dom for proper navigation
+import { Link } from "react-router-dom";
 import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Define the structure of the card data using TypeScript
 interface CardData {
@@ -26,73 +28,100 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   cardData,
   showDetails = true,
 }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: !isMobile,
+  };
+
   return (
     <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
-      <Grid container spacing={3} sx={{ justifyContent: "center" }}>
+      <Slider {...settings}>
         {cardData.map((card, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            key={index}
-            sx={{
-              padding: { xs: "10px", sm: "15px" },
-            }}
-          >
-            <Card
-              className="card-shadow-1"
-              sx={{
-                padding: "5px",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
-                },
-              }}
+          <div key={index}>
+            <Link
+              to={`/services/${card.pathName}`}
+              style={{ textDecoration: "none", color: "inherit" }}
             >
-              <Link
-                to={`/services/${card.pathName}`}
-                style={{ textDecoration: "none", color: "inherit" }}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: { xs: "column", md: "row" },
+                  alignItems: "center",
+                  gap: 4,
+                  padding: 2,
+                  backgroundColor: "background.paper",
+                  borderRadius: 2,
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+                  },
+                }}
               >
-                <CardMedia
-                  component="img"
-                  height={showDetails ? "240" : "350"}
-                  image={card.image}
-                  alt={card.title}
-                />
-                <CardContent
+                <Box
                   sx={{
-                    height: showDetails ? "245px" : "110px",
-                    textAlign: "center",
+                    width: { xs: "100%", md: "50%" },
+                    height: { xs: "300px", md: "400px" },
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: 2,
+                  }}
+                >
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </Box>
+                <Box
+                  sx={{
+                    width: { xs: "100%", md: "50%" },
+                    padding: 3,
                   }}
                 >
                   <Typography
-                    component="div"
-                    textAlign="center"
+                    variant="h4"
+                    component="h2"
+                    gutterBottom
                     sx={{
                       fontWeight: "bold",
-                      fontSize: "27px",
+                      fontSize: { xs: "24px", md: "32px" },
+                      mb: 3,
                     }}
                   >
                     {card.title}
                   </Typography>
                   {showDetails && (
                     <Typography
-                      sx={{
-                        fontSize: "19px",
-                      }}
+                      variant="body1"
                       color="text.secondary"
+                      sx={{
+                        fontSize: { xs: "16px", md: "19px" },
+                        lineHeight: 1.6,
+                      }}
                     >
                       {card.description}
                     </Typography>
                   )}
-                </CardContent>
-              </Link>
-            </Card>
-          </Grid>
+                </Box>
+              </Box>
+            </Link>
+          </div>
         ))}
-      </Grid>
+      </Slider>
     </Container>
   );
 };
