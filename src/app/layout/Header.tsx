@@ -263,6 +263,51 @@ const Header: React.FC = () => {
               >
                 <ListItemText primary="HSE" />
               </ListItem>
+              <ListItem
+                component={Link}
+                to="/aboutus/current-projects"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Current Projects" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/aboutus/executed-projects"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Executed Projects" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/aboutus/awards"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Awards" />
+              </ListItem>
             </List>
           </Collapse>
 
@@ -504,7 +549,10 @@ const Header: React.FC = () => {
                         to: "/aboutus/boardofdirector",
                         text: "Board Of Directors",
                       },
-                      // { to: "/aboutus/hseperformance", text: "HSE" },
+                      { to: "/aboutus/hseperformance", text: "HSE" },
+                      { to: "/aboutus/current-projects", text: "Current Projects" },
+                      { to: "/aboutus/executed-projects", text: "Executed Projects" },
+                      { to: "/aboutus/awards", text: "Awards" },
                     ]}
                   />
                   <DropdownMenu
