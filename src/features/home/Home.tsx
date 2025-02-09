@@ -26,7 +26,7 @@ const Home: React.FC = () => {
 
         {/* Text Overlay */}
         <div className="text-overlay">
-          <h1>Building Strong Foundations</h1>
+          <h1>Empowered by the Resonance of Excellence</h1>
           <div className="buttons">
             <Link to="/aboutus">
               <button className="hero-btn"> About Us →</button>
