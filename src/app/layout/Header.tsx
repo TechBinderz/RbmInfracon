@@ -504,7 +504,7 @@ const Header: React.FC = () => {
                         to: "/aboutus/boardofdirector",
                         text: "Board Of Directors",
                       },
-                      { to: "/aboutus/hseperformance", text: "HSE" },
+                      // { to: "/aboutus/hseperformance", text: "HSE" },
                     ]}
                   />
                   <DropdownMenu
