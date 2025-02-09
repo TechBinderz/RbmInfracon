@@ -9,8 +9,8 @@ import {
   Container,
 } from "@mui/material";
 import "../common/common.css";
-import plate_work_1 from "../../assets/features/services/plate_work (1).jpg";
-import plate_work_2 from "../../assets/features/services/plate_work (2).jpg";
+import plate_work_1 from "../../assets/features/services/004.jpg";
+import plate_work_2 from "../../assets/features/services/002.jpg";
 import plate_work_3 from "../../assets/features/services/plate_work (3).jpg";
 import plate_work_4 from "../../assets/features/services/plate_work (4).jpg";
 
