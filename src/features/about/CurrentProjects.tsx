@@ -200,28 +200,43 @@ const CurrentProjects: React.FC = () => {
           sx={{
             fontWeight: 'bold',
             color: '#333',
-            mb: 4
+            mb: 4,
+            fontSize: { xs: '2.2rem', sm: '2.5rem', md: '3rem' }
           }}
         >
           Current Projects
         </Typography>
 
-        <Card sx={{ mb: 4, backgroundColor: '#f8f9fa' }}>
+        <Card sx={{ mb: 4, backgroundColor: '#f8f9fa', boxShadow: 3 }}>
           <CardContent>
             <Grid container spacing={2} alignItems="center">
               <Grid item xs={12} md={8}>
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h6" gutterBottom sx={{ 
+                  color: '#333',
+                  fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }
+                }}>
                   Total Portfolio Value
                 </Typography>
-                <Typography variant="h4" color="primary">
+                <Typography variant="h4" sx={{ 
+                  color: '#39ac4b', 
+                  fontWeight: 'bold',
+                  fontSize: { xs: '1.8rem', sm: '2rem', md: '2.5rem' }
+                }}>
                   ₹{(totalValue / 10000000).toFixed(2)} Crores
                 </Typography>
               </Grid>
               <Grid item xs={12} md={4}>
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h6" gutterBottom sx={{ 
+                  color: '#333',
+                  fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }
+                }}>
                   Active Projects
                 </Typography>
-                <Typography variant="h4" color="primary">
+                <Typography variant="h4" sx={{ 
+                  color: '#39ac4b', 
+                  fontWeight: 'bold',
+                  fontSize: { xs: '1.8rem', sm: '2rem', md: '2.5rem' }
+                }}>
                   {projects.length}
                 </Typography>
               </Grid>
@@ -236,6 +251,16 @@ const CurrentProjects: React.FC = () => {
             placeholder="Search by company, description, or location..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '&:hover fieldset': {
+                  borderColor: '#39ac4b',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#39ac4b',
+                }
+              }
+            }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -257,23 +282,54 @@ const CurrentProjects: React.FC = () => {
           <Table>
             <TableHead>
               <TableRow sx={{ backgroundColor: '#f5f5f5' }}>
-                <TableCell>Company</TableCell>
-                <TableCell>Location</TableCell>
-                <TableCell>Work Order</TableCell>
-                <TableCell>Issue Date</TableCell>
-                <TableCell>Description</TableCell>
-                <TableCell align="right">Contract Value (₹)</TableCell>
+                <TableCell sx={{ 
+                  fontWeight: 'bold', 
+                  color: '#333',
+                  fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
+                }}>Company</TableCell>
+                <TableCell sx={{ 
+                  fontWeight: 'bold', 
+                  color: '#333',
+                  fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
+                }}>Location</TableCell>
+                <TableCell sx={{ 
+                  fontWeight: 'bold', 
+                  color: '#333',
+                  fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
+                }}>Work Order</TableCell>
+                <TableCell sx={{ 
+                  fontWeight: 'bold', 
+                  color: '#333',
+                  fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
+                }}>Issue Date</TableCell>
+                <TableCell sx={{ 
+                  fontWeight: 'bold', 
+                  color: '#333',
+                  fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
+                }}>Description</TableCell>
+                <TableCell sx={{ 
+                  fontWeight: 'bold', 
+                  color: '#333',
+                  fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
+                }} align="right">Contract Value (₹)</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {filteredProjects.map((project) => (
                 <TableRow key={project.id} hover>
                   <TableCell>
-                    <Typography variant="body1" fontWeight="medium">
+                    <Typography variant="body1" sx={{ 
+                      fontWeight: 'medium', 
+                      color: '#333',
+                      fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' }
+                    }}>
                       {project.companyName}
                     </Typography>
                     {project.vendorCode && (
-                      <Typography variant="caption" color="textSecondary">
+                      <Typography variant="caption" sx={{ 
+                        color: 'text.secondary',
+                        fontSize: { xs: '0.85rem', sm: '0.95rem', md: '1rem' }
+                      }}>
                         Vendor Code: {project.vendorCode}
                       </Typography>
                     )}
@@ -281,17 +337,27 @@ const CurrentProjects: React.FC = () => {
                   <TableCell>
                     <Chip 
                       label={project.location} 
-                      size="small" 
-                      sx={{ backgroundColor: '#e3f2fd' }}
+                      size="medium"
+                      sx={{ 
+                        backgroundColor: '#e8f5e9',
+                        color: '#39ac4b',
+                        '&:hover': {
+                          backgroundColor: '#c8e6c9'
+                        },
+                        fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' }
+                      }}
                     />
                   </TableCell>
-                  <TableCell>{project.workOrderNumber}</TableCell>
-                  <TableCell>{project.issueDate}</TableCell>
-                  <TableCell>{project.description}</TableCell>
-                  <TableCell align="right">
-                    <Typography variant="body2" fontWeight="bold">
-                      {project.contractAmount}
-                    </Typography>
+                  <TableCell sx={{ fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' } }}>{project.workOrderNumber}</TableCell>
+                  <TableCell sx={{ fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' } }}>{project.issueDate}</TableCell>
+                  <TableCell sx={{ fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' } }}>{project.description}</TableCell>
+                  <TableCell sx={{ 
+                    fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' },
+                    fontWeight: 'medium',
+                    color: '#39ac4b',
+                    textAlign: 'right'
+                  }}>
+                    ₹{project.contractAmount}
                   </TableCell>
                 </TableRow>
               ))}
