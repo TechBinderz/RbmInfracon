@@ -132,7 +132,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     sx={{
                       fontSize: { xs: "18px", md: "22px" },
                       lineHeight: 1.6,
-                      color: 'text.secondary',
+                      color: '#000000',
                       mb: 3,
                     }}
                   >
@@ -143,7 +143,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     sx={{
                       display: 'flex',
                       alignItems: 'center',
-                      color: themeColor,
+                      color: '#000000',
                       cursor: 'pointer',
                       fontSize: { xs: "16px", md: "18px" },
                       fontWeight: 500,
