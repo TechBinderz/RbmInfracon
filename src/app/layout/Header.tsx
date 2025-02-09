@@ -318,9 +318,10 @@ const Header: React.FC = () => {
               "&:hover": { backgroundColor: "transparent", color: "#39ac4b" },
               color: "#333",
               borderBottom: "0.5px solid #ccc",
+              textTransform: "capitalize"
             }}
           >
-            <ListItemText primary="Services" />
+            <ListItemText primary="Our Services" />
             {openMenus.services ? (
               <Remove sx={{ fontSize: "2rem", color: "#39ac4b" }} />
             ) : (
@@ -491,7 +492,7 @@ const Header: React.FC = () => {
           backgroundColor: isScrolled ? "white" : "transparent",
           transition:
             "background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease",
-          height: isScrolled ? "70px" : "110px",
+          height: isScrolled ? "90px" : "130px",
           boxShadow: isScrolled ? "0px 8px 5px 0px rgba(0, 0, 0, 0.2)" : "none",
           paddingTop: isScrolled ? "0px" : "15px",
           opacity: isMounted ? 1 : 0,
@@ -511,7 +512,11 @@ const Header: React.FC = () => {
             <img
               src={isScrolled ? RBMLOGOSMALL : RBMLOGOFULL}
               alt="Logo"
-              style={{ height: isScrolled ? "70px" : "100px", width: "auto" }}
+              style={{
+                height: isScrolled ? "85px" : "125px",
+                width: "auto",
+                transition: "height 0.6s ease"
+              }}
             />
           </Link>
           {isSmallScreen ? (
@@ -559,7 +564,7 @@ const Header: React.FC = () => {
                   <DropdownMenu
                     buttonText={
                       <>
-                        <span>our Services</span>
+                        <span>Our Services</span>
                         <ArrowDropDownIcon />
                       </>
                     }
