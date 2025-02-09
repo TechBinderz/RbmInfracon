@@ -124,10 +124,10 @@ export const router = createBrowserRouter([
         path: "/aboutus/boardofdirector",
         element: <BoardOfDirectors />,
       },
-      {
-        path: "/aboutus/hseperformance",
-        element: <HSEPerformance />,
-      },
+      // {
+      //   path: "/aboutus/hseperformance",
+      //   element: <HSEPerformance />,
+      // },
       {
         path: "/aboutus/current-projects",
         element: <CurrentProjects />,
