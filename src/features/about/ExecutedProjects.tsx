@@ -235,7 +235,7 @@ const ExecutedProjects: React.FC = () => {
                   <Typography variant="h6" component="div" sx={{ 
                     color: '#333', 
                     fontWeight: 'bold',
-                    fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }
+                    fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.6rem' }
                   }}>
                     {client.client}
                   </Typography>
@@ -257,7 +257,7 @@ const ExecutedProjects: React.FC = () => {
                               color: '#39ac4b', 
                               fontWeight: 'bold', 
                               mb: 2,
-                              fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.4rem' }
+                              fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }
                             }}>
                               {project.name}
                             </Typography>
@@ -269,7 +269,8 @@ const ExecutedProjects: React.FC = () => {
                                   mb: 1, 
                                   backgroundColor: '#e8f5e9',
                                   color: '#39ac4b',
-                                  fontWeight: 'bold'
+                                  fontWeight: 'bold',
+                                  fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' }
                                 }}
                               />
                               <Chip 
@@ -277,14 +278,16 @@ const ExecutedProjects: React.FC = () => {
                                 sx={{ 
                                   mb: 1,
                                   backgroundColor: '#f1f8e9',
-                                  color: '#689f38'
+                                  color: '#689f38',
+                                  fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' }
                                 }}
                               />
                             </Box>
                             <Typography variant="subtitle1" sx={{ 
                               color: '#666', 
                               mb: 1,
-                              fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' }
+                              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
+                              fontWeight: 'bold'
                             }}>
                               Scope of Work:
                             </Typography>
@@ -292,7 +295,8 @@ const ExecutedProjects: React.FC = () => {
                               {project.details.map((detail, dIndex) => (
                                 <li key={dIndex}>
                                   <Typography variant="body1" sx={{
-                                    fontSize: { xs: '0.875rem', sm: '0.9rem', md: '1rem' }
+                                    fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' },
+                                    lineHeight: 1.6
                                   }}>
                                     {detail}
                                   </Typography>
@@ -335,7 +339,11 @@ const ExecutedProjects: React.FC = () => {
                     }
                   }}
                 >
-                  <Typography variant="h6" component="div" sx={{ color: '#333', fontWeight: 'bold' }}>
+                  <Typography variant="h6" component="div" sx={{ 
+                    color: '#333', 
+                    fontWeight: 'bold',
+                    fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.6rem' }
+                  }}>
                     Turnaround {yearGroup.year}
                   </Typography>
                 </AccordionSummary>
