@@ -98,7 +98,7 @@ const StatisticsPoliciesSection = () => {
       </Grid>
     </Box>
       {/* Policies Section */}
-      <Box textAlign="center" mb={4}>
+      {/* <Box textAlign="center" mb={4}>
         <Typography variant="h3" fontWeight="bold" gutterBottom>
           System & Control
         </Typography>
@@ -143,7 +143,7 @@ const StatisticsPoliciesSection = () => {
             </Card>
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
     </Box>
   );
 };
