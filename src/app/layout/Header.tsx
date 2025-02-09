@@ -396,7 +396,7 @@ const Header: React.FC = () => {
               borderBottom: "0.5px solid #ccc",
             }}
           >
-            <ListItemText primary="News" />
+            <ListItemText primary="News & Media" />
           </ListItem>
 
           <ListItem
@@ -538,7 +538,10 @@ const Header: React.FC = () => {
                       },
                     ]}
                   />
-                  <HeaderButton buttonText="News" linkTo="/news"></HeaderButton>
+                  <HeaderButton
+                    buttonText="News & Media"
+                    linkTo="/news"
+                  ></HeaderButton>
                   <HeaderButton
                     buttonText="Contact Us"
                     linkTo="/contact"
