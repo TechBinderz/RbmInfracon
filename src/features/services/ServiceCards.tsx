@@ -108,6 +108,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                   sx={{
                     width: { xs: "100%", md: "50%" },
                     padding: 3,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
                   }}
                 >
                   <Typography
@@ -117,23 +120,38 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     sx={{
                       fontWeight: "bold",
                       fontSize: { xs: "24px", md: "32px" },
-                      mb: 3,
+                      mb: 2,
+                      color: 'primary.main',
                     }}
                   >
                     {card.title}
                   </Typography>
-                  {showDetails && (
-                    <Typography
-                      variant="body1"
-                      color="text.secondary"
-                      sx={{
-                        fontSize: { xs: "16px", md: "19px" },
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      {card.description}
-                    </Typography>
-                  )}
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontSize: { xs: "16px", md: "18px" },
+                      lineHeight: 1.6,
+                      color: 'text.secondary',
+                      mb: 3,
+                    }}
+                  >
+                    {card.description}
+                  </Typography>
+                  <Typography
+                    variant="button"
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      color: 'primary.main',
+                      cursor: 'pointer',
+                      '&:hover': {
+                        textDecoration: 'underline',
+                      },
+                    }}
+                  >
+                    Read more
+                    <ArrowForwardIosIcon sx={{ fontSize: 14, ml: 1 }} />
+                  </Typography>
                 </Box>
               </Box>
             </Link>
@@ -146,10 +164,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center',
+          alignItems: 'stretch',
           mt: 4,
           borderTop: '1px solid rgba(0, 0, 0, 0.1)',
           pt: 2,
+          px: 2,
         }}
       >
         <Box
@@ -161,6 +180,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             opacity: 0.7,
             transition: 'opacity 0.3s',
             '&:hover': { opacity: 1 },
+            flex: 1,
+            maxWidth: '45%',
           }}
         >
           <IconButton size="small">
@@ -170,11 +191,40 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             <Typography variant="caption" color="text.secondary">
               PREVIOUS
             </Typography>
-            <Typography variant="subtitle2" noWrap sx={{ maxWidth: 150 }}>
+            <Typography 
+              variant="subtitle1" 
+              sx={{ 
+                fontWeight: 'bold',
+                lineHeight: 1.2,
+              }}
+            >
               {getPreviousSlide().title}
+            </Typography>
+            <Typography 
+              variant="body2" 
+              color="text.secondary"
+              sx={{ 
+                mt: 0.5,
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                lineHeight: 1.2,
+              }}
+            >
+              {getPreviousSlide().description}
             </Typography>
           </Box>
         </Box>
+
+        <Box
+          sx={{
+            width: '1px',
+            bgcolor: 'rgba(0, 0, 0, 0.1)',
+            mx: 2,
+          }}
+        />
 
         <Box
           onClick={() => sliderRef.current?.slickNext()}
@@ -185,14 +235,39 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             opacity: 0.7,
             transition: 'opacity 0.3s',
             '&:hover': { opacity: 1 },
+            flex: 1,
+            maxWidth: '45%',
+            justifyContent: 'flex-end',
           }}
         >
           <Box sx={{ mr: 1, textAlign: 'right' }}>
             <Typography variant="caption" color="text.secondary">
               NEXT
             </Typography>
-            <Typography variant="subtitle2" noWrap sx={{ maxWidth: 150 }}>
+            <Typography 
+              variant="subtitle1" 
+              sx={{ 
+                fontWeight: 'bold',
+                lineHeight: 1.2,
+              }}
+            >
               {getNextSlide().title}
+            </Typography>
+            <Typography 
+              variant="body2" 
+              color="text.secondary"
+              sx={{ 
+                mt: 0.5,
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                lineHeight: 1.2,
+                textAlign: 'right',
+              }}
+            >
+              {getNextSlide().description}
             </Typography>
           </Box>
           <IconButton size="small">
