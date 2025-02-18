@@ -10,6 +10,7 @@ import sanjay_singh_photo from "../../assets/features/rbm_management/Mr. Sanjay 
 import sreejith_pillai_photo from "../../assets/features/rbm_management/Mr. Sreejith Pillai.png";
 import sunil_srivastava_photo from "../../assets/features/rbm_management/Mr. Sunil Srivastava.png";
 import sunil_kumar_photo from "../../assets/features/rbm_management/Sunil Kumar Singh.png";
+import jina_kuttath_photo from "../../assets/features/rbm_management/Ms. Jina Kuttath.png";
 
 // Management team data
 const managementTeamList = [
@@ -28,6 +29,11 @@ const managementTeamList = [
     image: narendra_sharma_photo,
     title: "Chief Financial Officer",
     name: "Mr. Narendra Sharma",
+  },
+  {
+    image: jina_kuttath_photo,
+    title: "Chief Human Resources Officer",
+    name: "Ms. Jina Kuttath",
   },
   {
     image: pankaj_kumar_photo,
