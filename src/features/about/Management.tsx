@@ -69,15 +69,22 @@ const managementTeamList = [
 const Management = () => {
   return (
     <Grid container spacing={4} sx={{ marginTop: "40px" }}>
-      <Grid item xs={12} sx={{ padding: { xs: "0px 20px", sm: "0px 40px" } }}>
+      {/* <Grid item xs={12} sx={{ padding: { xs: "0px 20px", sm: "0px 40px" } }}>
         <Typography variant="h4" gutterBottom>
           Our Management Team
         </Typography>
         <Box sx={{ borderBottom: "2px solid #000", marginBottom: "30px" }} />
-      </Grid>
+      </Grid> */}
       <Grid container spacing={4} sx={{ marginLeft: "auto" }}>
         {managementTeamList.map((member, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index} sx={{ paddingLeft: { xs: "20px", sm: "40px" } }}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={index}
+            sx={{ paddingLeft: { xs: "20px", sm: "40px" } }}
+          >
             <Card
               className="card-shadow-1"
               sx={{
@@ -90,7 +97,14 @@ const Management = () => {
                 padding: "16px",
               }}
             >
-              <CardContent sx={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <CardContent
+                sx={{
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
                 <img
                   src={member.image}
                   alt={member.name}

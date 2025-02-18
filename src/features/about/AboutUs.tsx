@@ -50,7 +50,7 @@ Driven by a philosophy of integrity, innovation, and excellence, RBM Infracon re
     icon: any;
     title: string;
   }) => (
-    <Box sx={{ mb: 3 }}>
+    <Box sx={{marginTop: "50px", marginBottom: "30px" }}>
       <Typography
         variant="h4"
         sx={{
@@ -69,7 +69,7 @@ Driven by a philosophy of integrity, innovation, and excellence, RBM Infracon re
           mt: 2,
           backgroundColor: themeColor,
           height: 3,
-          width: "60px",
+          width: "30%",
         }}
       />
     </Box>
@@ -78,9 +78,15 @@ Driven by a philosophy of integrity, innovation, and excellence, RBM Infracon re
   return (
     <>
       <PageTitle imageUrl={BANNER_IMAGE} tileContent="About Us" />
-      <Container maxWidth="xl" sx={{ py: 6 }}>
+      <Container sx={{marginTop: "40px", marginBottom: "40px"}}>
+        {/* Business Roadmap Section */}
+        <Box>
+          <SectionTitle icon={HistoryIcon} title="Business Roadmap" />
+          <BusinessRoadmap />
+        </Box>
+
         {/* Chairman's Message */}
-        <Box sx={{ mb: 8 }}>
+        <Box>
           <SectionTitle icon={PersonIcon} title="Chairman's Message" />
           <Card
             sx={{
@@ -195,7 +201,7 @@ Thank you for your continued trust and support.`}
         </Box>
 
         {/* Company Overview Section */}
-        <Box sx={{ mb: 8 }}>
+        <Box>
           <SectionTitle icon={BusinessIcon} title="Company Overview" />
           <Card
             sx={{
@@ -230,26 +236,20 @@ Thank you for your continued trust and support.`}
           </Card>
         </Box>
 
-        {/* Business Roadmap Section */}
-        <Box sx={{ mb: 8 }}>
-          <SectionTitle icon={HistoryIcon} title="Business Roadmap" />
-          <BusinessRoadmap />
-        </Box>
-
         {/* Vission Mission and Values */}
-        <Box sx={{ mb: 8 }}>
+        <Box>
           <SectionTitle icon={FlagIcon} title="Vision, Mission & Values" />
           <VisionMissionValues />
         </Box>
 
         {/* Board of Directors Section */}
-        <Box sx={{ mb: 8 }}>
+        <Box>
           <SectionTitle icon={GroupsIcon} title="Board of Directors" />
           <BoardDirectorsSection />
         </Box>
 
         {/* Executive Management Section */}
-        <Box sx={{ mb: 8 }}>
+        <Box>
           <SectionTitle icon={GroupsIcon} title="Executive Management" />
           <Management />
         </Box>

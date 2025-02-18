@@ -65,7 +65,10 @@ const BusinessRoadmap: React.FC = () => {
   };
 
   const pathPoints = calculatePointsAlongPath();
-
+  const rocketPath = pathPoints.map((point, index) => ({
+    x: point.x - 50,
+    y: point.y - 300,
+  }));
   // Visualize points on the path (optional, for debugging)
   const renderPoints = pathPoints.map((point, index) => (
     <circle key={index} cx={point.x} cy={point.y} r="10" fill={themeColor} />
@@ -142,12 +145,14 @@ const BusinessRoadmap: React.FC = () => {
             </svg>
 
             {/* Timeline Points */}
+            {/* Timeline Points */}
             {timelineData.map((item, index) => (
               <motion.div
                 key={item.year}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.3 }}
+                transition={{ duration: 3, delay: index * 0.3 }}
+                // whileHover={{ scale: 1.2, opacity: 1 }}
                 style={{
                   position: "absolute",
                   left: `${pathPoints[index].x}px`,
@@ -158,11 +163,17 @@ const BusinessRoadmap: React.FC = () => {
                   <Box
                     sx={{
                       ml: 3,
-                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                      backgroundColor: "rgba(255, 255, 255, 0.15)",
                       p: 2,
                       borderRadius: 2,
-                      backdropFilter: "blur(5px)",
+                      backdropFilter: "blur(8px)",
                       maxWidth: "150px",
+                      boxShadow: "0px 4px 12px rgba(255, 255, 255, 0.2)",
+                      transition: "all 0.3s ease-in-out",
+                      "&:hover": {
+                        backgroundColor: "rgba(255, 255, 255, 0.3)",
+                        transform: "scale(1.1)",
+                      },
                     }}
                   >
                     <Typography
@@ -181,13 +192,26 @@ const BusinessRoadmap: React.FC = () => {
 
             {/* Rocket Icon */}
             <motion.div
-              initial={{ x: -100, y: 100 }}
-              animate={{ x: 0, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              initial={{ x: rocketPath[0].x, y: rocketPath[0].y }}
+              animate={{
+                x: [
+                  rocketPath[0].x,
+                  rocketPath[1].x,
+                  rocketPath[2].x,
+                  rocketPath[3].x,
+                  rocketPath[4].x,
+                ],
+                y: [
+                  rocketPath[0].y,
+                  rocketPath[1].y,
+                  rocketPath[2].y,
+                  rocketPath[3].y,
+                  rocketPath[4].y,
+                ],
+              }}
+              transition={{ duration: 3, ease: "easeInOut" }}
               style={{
                 position: "absolute",
-                right: `${pathDetails.endX - 750}px`,
-                top: `${pathDetails.endY - 100}px`,
               }}
             >
               <RocketLaunchIcon
@@ -202,7 +226,7 @@ const BusinessRoadmap: React.FC = () => {
             <Box
               sx={{
                 position: "absolute",
-                right: "30px",
+                right: "15%",
                 bottom: "-30px",
                 width: "150px",
                 height: "auto",
