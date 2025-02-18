@@ -57,7 +57,7 @@ const News: React.FC = () => {
     <>
       <PageTitle
         imageUrl={news_Image}
-        tileContent="News"
+        tileContent="News & Media"
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Box

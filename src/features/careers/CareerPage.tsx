@@ -105,7 +105,7 @@ const CareerPage: React.FC = () => {
 
   return (
     <>
-      <PageTitle imageUrl={about_us_image} tileContent="Careers" />
+      <PageTitle imageUrl={about_us_image} tileContent="Apply Online" />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Container maxWidth="md" sx={{ marginTop: 4, marginBottom: 4 }}>

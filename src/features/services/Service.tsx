@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import services_image from "../../assets/features/services/services.jpg";
 import serviceCardData from "./ServiceCardData";
-import ServiceCard from "./ServiceCards";
+import AllServiceCards from "./AllServiceCards";
 
 const Services: React.FC = () => {
   const { pathname } = useLocation();
@@ -24,7 +24,7 @@ const Services: React.FC = () => {
   const ServicesPage: React.FC = () => (
     <>
       <PageTitle imageUrl={services_image} tileContent="Services" />
-      <ServiceCard cardData={filteredCardData} showDetails={true} />
+      <AllServiceCards cardData={filteredCardData} showDetails={true} />
     </>
   );
 

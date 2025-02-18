@@ -17,7 +17,10 @@ import WorkoverDrillingServices from "../../../features/services/WorkoverDrillin
 import Hydrojetting from "../../../features/services/Hydrojetting";
 import BundlePuller from "../../../features/services/BundlePuller";
 import BoardOfDirectors from "../../../features/about/BoardOfDirectors";
-import HSEPerformance from "../../../features/about/HSEPerformance";
+// import HSEPerformance from "../../../features/about/HSEPerformance";
+import CurrentProjects from "../../../features/about/CurrentProjects";
+import ExecutedProjects from "../../../features/about/ExecutedProjects";
+import Awards from "../../../features/about/Awards";
 import News from "../../../features/news/News";
 import ONGC_WorkOrderSigned from "../../../features/news/newsPages/ongc_work_order_signed";
 import CareerPage from "../../../features/careers/CareerPage";
@@ -121,9 +124,21 @@ export const router = createBrowserRouter([
         path: "/aboutus/boardofdirector",
         element: <BoardOfDirectors />,
       },
+      // {
+      //   path: "/aboutus/hseperformance",
+      //   element: <HSEPerformance />,
+      // },
       {
-        path: "/aboutus/hseperformance",
-        element: <HSEPerformance />,
+        path: "/aboutus/current-projects",
+        element: <CurrentProjects />,
+      },
+      {
+        path: "/aboutus/executed-projects",
+        element: <ExecutedProjects />,
+      },
+      {
+        path: "/aboutus/awards",
+        element: <Awards />,
       },
       {
         path: "/investors",

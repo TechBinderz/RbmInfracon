@@ -7,6 +7,7 @@ import {
   Typography,
   Box,
   Container,
+  // Avatar,
 } from "@mui/material";
 import PageTitle from "../common/PageTitleDiv";
 import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
@@ -14,39 +15,50 @@ import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Ja
 import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
 import board_of_directors_image from "../../assets/features/about-us/board_of_directors.jpg";
 import Management from "./Management";
+import themeColor from "../common/common";
 
 interface Director {
   name: string;
   title: string;
-  image: string;
+  image?: string;
   description?: string;
   isChairman?: boolean;
 }
 
-// Mock data for directors
+// Directors data
 const directors: Director[] = [
   {
-    name: "Mr. Jaybajrag Ramaishish Mani",
-    title: "Chairman & Managing Director, RBM",
+    name: "Mr. Jai Bajrang Mani",
+    title: "Managing Director",
     image: jaybajrang_ramaishish_photo,
     description:
-      "He has over 25 years of experience, showcasing strong leadership in managing high-profile projects and driving RBM Infracon Limited’s growth. His strategic insight and focus on quality have been critical in delivering complex projects on time, within budget, and to the highest standards. He oversees the Finance, Sales, and Marketing divisions, playing a key role in shaping policy decisions and steering the company towards continued success.",
+      "He has over 25 years of experience, showcasing strong leadership in managing high-profile projects and driving RBM Infracon Limited's growth. His strategic insight and focus on quality have been critical in delivering complex projects on time, within budget, and to the highest standards. He oversees the Finance, Sales, and Marketing divisions, playing a key role in shaping policy decisions and steering the company towards continued success.",
     isChairman: true,
   },
   {
-    name: "Mr. Aditya Jay Bajrag Mani",
-    title: "Whole Time Director",
+    name: "Mr. Aditya Mani",
+    title: "Executive Director (Whole-time)",
     image: aditya_jay_photo,
     description:
       "A Mechanical Engineer from Jamnagar, Gujarat, with 6+ years of experience driving growth and operational excellence. He leads Mechanical and Civil operations and excels in strategic planning, team leadership, and fostering strong stakeholder relationships. Passionate about the Oil & Gas industry, he is committed to delivering innovative solutions and impactful results.",
   },
   {
     name: "Mr. Deepak Saxena",
-    title: "Director",
+    title: "Non-Executive Director",
     image: deepak_saxena_photo,
     description:
       "A vast experience of 33 years in the Procurement of Materials and Services with experience in Project, Engineering, 0&M, Contract Management for Capex and 0&M, SCM, Purchase, Inbound and outbound logistics, imports, custom clearance and freight forwarding, Import and export licensing. He has been working in O&G, Polyester, Petrochemical refinery, Energy, Pipeline.",
   },
+  {
+    name: "Mr. Ravi Pratap Singh",
+    title: "Non-Executive Director",
+    description: "An experienced professional bringing valuable insights to the board with expertise in strategic planning and corporate governance.",
+  },
+  {
+    name: "Ms. Kriya Shah",
+    title: "Independent Director",
+    description: "A seasoned professional with expertise in corporate governance and regulatory compliance, bringing diverse perspective to the board.",
+  }
 ];
 
 const BoardOfDirectors: React.FC = () => {
@@ -57,7 +69,7 @@ const BoardOfDirectors: React.FC = () => {
         tileContent="Board of Directors"
       />
       <Container sx={{ py: 4 }}>
-        {/* Special layout for Mukesh Ambani */}
+        {/* Special layout for Chairman */}
         <Box
           sx={{
             backgroundColor: "#f5f5f5",
@@ -67,79 +79,126 @@ const BoardOfDirectors: React.FC = () => {
             alignItems: "center",
             marginBottom: 4,
             padding: 4,
+            '&:hover': {
+              boxShadow: 3,
+              borderColor: themeColor,
+              borderWidth: 1,
+              borderStyle: 'solid'
+            },
+            transition: 'all 0.3s ease-in-out'
           }}
         >
           <CardMedia
             component="img"
             sx={{ width: { xs: "50%", md: "30%" }, height: "auto" }}
-            image={directors[0].image} // replace with actual path
+            image={directors[0].image}
             alt={directors[0].name}
           />
           <Box sx={{ padding: 2, maxWidth: 600 }}>
             <Typography
               variant="h3"
-              sx={{ fontWeight: "bold", textAlign: "left" }}
+              sx={{ 
+                fontWeight: "bold", 
+                color: themeColor
+              }}
             >
               {directors[0].name}
             </Typography>
             <Typography
               variant="h5"
-              sx={{ textAlign: "left", marginBottom: 2 }}
+              sx={{ 
+                color: themeColor,
+                marginBottom: 2
+              }}
             >
               {directors[0].title}
             </Typography>
             <Typography
               variant="body1"
-              sx={{ textAlign: "left", marginBottom: 4 }}
+              sx={{ marginBottom: 4 }}
             >
               {directors[0].description}
             </Typography>
-            {/* <Button variant="outlined">Read more</Button> */}
           </Box>
         </Box>
 
         {/* Other Directors */}
-        <Grid container spacing={4} justifyContent="center">
-          {directors
-            .filter((director) => !director.isChairman)
-            .map((director, index) => (
-              <Grid item xs={12} sm={6} md={6} key={index}>
-                <Card className="card-shadow-1">
+        <Grid container spacing={4}>
+          {directors.slice(1).map((director, index) => (
+            <Grid item xs={12} md={6} key={index}>
+              <Card sx={{ 
+                display: 'flex',
+                backgroundColor: '#f5f5f5',
+                height: '100%',
+                '&:hover': {
+                  boxShadow: 3,
+                  borderColor: themeColor,
+                  borderWidth: 1,
+                  borderStyle: 'solid'
+                },
+                transition: 'all 0.3s ease-in-out'
+              }}>
+                {director.image ? (
                   <CardMedia
                     component="img"
-                    sx={{
-                      width: { xs: "35%", md: "25%" },
-                      height: { xs: "200px", md: "150px" },
-                      borderRadius: "50%", // Makes the image rounded
-                      margin: "0 auto", // Centers the image
+                    sx={{ 
+                      width: '40%',
+                      objectFit: 'cover',
+                      borderRadius: '4px 0 0 4px'
                     }}
                     image={director.image}
                     alt={director.name}
                   />
-                  <CardContent>
-                    <Typography variant="h5" align="center">
-                      {director.name}
-                    </Typography>
-                    <Typography
-                      variant="h6"
-                      color="text.secondary"
-                      align="center"
-                    >
-                      {director.title}
-                    </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      color="text.secondary"
-                      align="center"
-                    >
-                      {director.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
+                ) : (
+                  <Box sx={{ 
+                    width: '40%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    bgcolor: themeColor,
+                    color: 'white',
+                    fontSize: '2rem',
+                    fontWeight: 'bold'
+                  }}>
+                    {director.name.split(' ').map(n => n[0]).join('')}
+                  </Box>
+                )}
+                <CardContent sx={{ flex: 1 }}>
+                  <Typography
+                    variant="h6"
+                    sx={{ 
+                      fontWeight: "bold",
+                      color: themeColor,
+                      mb: 1
+                    }}
+                  >
+                    {director.name}
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ 
+                      color: themeColor,
+                      mb: 2
+                    }}
+                  >
+                    {director.title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ 
+                      color: '#333',
+                      lineHeight: 1.6
+                    }}
+                  >
+                    {director.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
 
+        {/* Management Team */}
         <Management />
       </Container>
     </>

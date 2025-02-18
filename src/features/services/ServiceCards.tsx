@@ -1,13 +1,17 @@
 import {
-  Card,
-  CardContent,
-  CardMedia,
+  Box,
   Container,
-  Grid,
   Typography,
+  IconButton,
 } from "@mui/material";
-import { Link } from "react-router-dom"; // Import from react-router-dom for proper navigation
-import React from "react";
+import { Link } from "react-router-dom";
+import React, { useRef } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { themeColor } from "../../features/common/common";
 
 // Define the structure of the card data using TypeScript
 interface CardData {
@@ -24,75 +28,282 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
   cardData,
-  showDetails = true,
 }) => {
+  const sliderRef = useRef<Slider>(null);
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+    beforeChange: (newIndex: number) => {
+      setCurrentSlide(newIndex);
+    },
+  };
+
+  const getPreviousSlide = () => {
+    const prevIndex = currentSlide === 0 ? cardData.length - 1 : currentSlide - 1;
+    return cardData[prevIndex];
+  };
+
+  const getNextSlide = () => {
+    const nextIndex = currentSlide === cardData.length - 1 ? 0 : currentSlide + 1;
+    return cardData[nextIndex];
+  };
+
   return (
-    <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
-      <Grid container spacing={3} sx={{ justifyContent: "center" }}>
+    <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" }, position: 'relative' }}>
+      <Slider ref={sliderRef} {...settings}>
         {cardData.map((card, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            key={index}
-            sx={{
-              padding: { xs: "10px", sm: "15px" },
-            }}
-          >
-            <Card
-              className="card-shadow-1"
-              sx={{
-                padding: "5px",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
-                },
-              }}
+          <div key={index}>
+            <Link
+              to={`/services/${card.pathName}`}
+              style={{ textDecoration: "none", color: "inherit" }}
             >
-              <Link
-                to={`/services/${card.pathName}`}
-                style={{ textDecoration: "none", color: "inherit" }}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: { xs: "column", md: "row" },
+                  alignItems: "center",
+                  gap: 4,
+                  padding: 2,
+                  backgroundColor: "background.paper",
+                  borderRadius: 2,
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+                  },
+                }}
               >
-                <CardMedia
-                  component="img"
-                  height={showDetails ? "240" : "350"}
-                  image={card.image}
-                  alt={card.title}
-                />
-                <CardContent
+                <Box
                   sx={{
-                    height: showDetails ? "245px" : "140px",
-                    textAlign: "center",
+                    width: { xs: "100%", md: "50%" },
+                    height: { xs: "300px", md: "400px" },
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: 2,
+                  }}
+                >   
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </Box>
+                <Box
+                  sx={{
+                    width: { xs: "100%", md: "50%" },
+                    padding: 3,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
                   }}
                 >
                   <Typography
-                    component="div"
-                    textAlign="center"
+                    variant="h4"
+                    component="h2"
+                    gutterBottom
                     sx={{
                       fontWeight: "bold",
-                      fontSize: "27px",
+                      fontSize: { xs: "28px", md: "38px" },
+                      mb: 2,
+                      color: themeColor,
                     }}
                   >
                     {card.title}
                   </Typography>
-                  {showDetails && (
-                    <Typography
-                      sx={{
-                        fontSize: "19px",
-                      }}
-                      color="text.secondary"
-                    >
-                      {card.description}
-                    </Typography>
-                  )}
-                </CardContent>
-              </Link>
-            </Card>
-          </Grid>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontSize: { xs: "18px", md: "22px" },
+                      lineHeight: 1.6,
+                      color: '#000000',
+                      mb: 3,
+                    }}
+                  >
+                    {card.description}
+                  </Typography>
+                  <Typography
+                    variant="button"
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      color: '#000000',
+                      cursor: 'pointer',
+                      fontSize: { xs: "16px", md: "18px" },
+                      fontWeight: 500,
+                      '&:hover': {
+                        textDecoration: 'underline',
+                      },
+                    }}
+                  >
+                    Read more
+                    <ArrowForwardIosIcon sx={{ fontSize: 14, ml: 1 }} />
+                  </Typography>
+                </Box>
+              </Box>
+            </Link>
+          </div>
         ))}
-      </Grid>
+      </Slider>
+
+      {/* Bottom Navigation Bar */}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'stretch',
+          mt: 4,
+          borderTop: '1px solid rgba(0, 0, 0, 0.1)',
+          pt: 3,
+          pb: 2,
+          px: 4,
+        }}
+      >
+        <Box
+          onClick={() => sliderRef.current?.slickPrev()}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            cursor: 'pointer',
+            opacity: 0.8,
+            transition: 'all 0.3s ease',
+            flex: 1,
+            maxWidth: '45%',
+            backgroundColor: 'rgba(57, 172, 75, 0.05)',
+            padding: 2,
+            borderRadius: 2,
+            '&:hover': {
+              opacity: 1,
+              backgroundColor: 'rgba(57, 172, 75, 0.1)',
+              transform: 'translateX(-5px)',
+            },
+          }}
+        >
+          <IconButton 
+            size="small"
+            sx={{ 
+              color: themeColor,
+              '&:hover': { backgroundColor: 'rgba(57, 172, 75, 0.15)' }
+            }}
+          >
+            <ArrowBackIosNewIcon />
+          </IconButton>
+          <Box sx={{ ml: 2 }}>
+            <Typography variant="caption" sx={{ color: themeColor, fontWeight: 500, fontSize: { xs: '14px', md: '16px' } }}>
+              PREVIOUS
+            </Typography>
+            <Typography 
+              variant="subtitle1" 
+              sx={{ 
+                fontWeight: 'bold',
+                lineHeight: 1.3,
+                fontSize: { xs: '20px', md: '24px' },
+              }}
+            >
+              {getPreviousSlide().title}
+            </Typography>
+            <Typography 
+              variant="body2" 
+              color="text.secondary"
+              sx={{ 
+                mt: 0.5,
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                lineHeight: 1.4,
+                fontSize: { xs: '16px', md: '18px' },
+              }}
+            >
+              {getPreviousSlide().description}
+            </Typography>
+          </Box>
+        </Box>
+
+        <Box
+          sx={{
+            width: '2px',
+            bgcolor: 'rgba(57, 172, 75, 0.1)',
+            mx: 3,
+          }}
+        />
+
+        <Box
+          onClick={() => sliderRef.current?.slickNext()}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            cursor: 'pointer',
+            opacity: 0.8,
+            transition: 'all 0.3s ease',
+            flex: 1,
+            maxWidth: '45%',
+            justifyContent: 'flex-end',
+            backgroundColor: 'rgba(57, 172, 75, 0.05)',
+            padding: 2,
+            borderRadius: 2,
+            '&:hover': {
+              opacity: 1,
+              backgroundColor: 'rgba(57, 172, 75, 0.1)',
+              transform: 'translateX(5px)',
+            },
+          }}
+        >
+          <Box sx={{ mr: 2, textAlign: 'right' }}>
+            <Typography variant="caption" sx={{ color: themeColor, fontWeight: 500, fontSize: { xs: '14px', md: '16px' } }}>
+              NEXT
+            </Typography>
+            <Typography 
+              variant="subtitle1" 
+              sx={{ 
+                fontWeight: 'bold',
+                lineHeight: 1.3,
+                fontSize: { xs: '20px', md: '24px' },
+              }}
+            >
+              {getNextSlide().title}
+            </Typography>
+            <Typography 
+              variant="body2" 
+              color="text.secondary"
+              sx={{ 
+                mt: 0.5,
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                lineHeight: 1.4,
+                fontSize: { xs: '16px', md: '18px' },
+                textAlign: 'right',
+              }}
+            >
+              {getNextSlide().description}
+            </Typography>
+          </Box>
+          <IconButton 
+            size="small"
+            sx={{ 
+              color: themeColor,
+              '&:hover': { backgroundColor: 'rgba(57, 172, 75, 0.15)' }
+            }}
+          >
+            <ArrowForwardIosIcon />
+          </IconButton>
+        </Box>
+      </Box>
     </Container>
   );
 };

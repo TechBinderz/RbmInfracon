@@ -32,7 +32,7 @@ import serviceCardData from "../../features/services/ServiceCardData";
 
 interface DropdownMenuProps {
   buttonText: React.ReactNode;
-  links: { to: string; text: string }[];
+  links: { to: string; text: string; hidden?: boolean }[];
 }
 
 const defaultStockData: StockData = {
@@ -259,9 +259,55 @@ const Header: React.FC = () => {
                   },
                   textDecoration: "none",
                   color: "#333",
+                  display: "none", // Hide the HSE menu item
                 }}
               >
                 <ListItemText primary="HSE" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/aboutus/current-projects"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Current Projects" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/aboutus/executed-projects"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Executed Projects" />
+              </ListItem>
+              <ListItem
+                component={Link}
+                to="/aboutus/awards"
+                onClick={() => setDrawerOpen(false)}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "#39ac4b",
+                  },
+                  textDecoration: "none",
+                  color: "#333",
+                }}
+              >
+                <ListItemText primary="Awards" />
               </ListItem>
             </List>
           </Collapse>
@@ -272,9 +318,10 @@ const Header: React.FC = () => {
               "&:hover": { backgroundColor: "transparent", color: "#39ac4b" },
               color: "#333",
               borderBottom: "0.5px solid #ccc",
+              textTransform: "capitalize",
             }}
           >
-            <ListItemText primary="Services" />
+            <ListItemText primary="Our Services" />
             {openMenus.services ? (
               <Remove sx={{ fontSize: "2rem", color: "#39ac4b" }} />
             ) : (
@@ -380,7 +427,7 @@ const Header: React.FC = () => {
                   color: "#333",
                 }}
               >
-                <ListItemText primary="Career Openings" />
+                <ListItemText primary="Apply Online" />
               </ListItem>
             </List>
           </Collapse>
@@ -396,7 +443,7 @@ const Header: React.FC = () => {
               borderBottom: "0.5px solid #ccc",
             }}
           >
-            <ListItemText primary="News" />
+            <ListItemText primary="News & Media" />
           </ListItem>
 
           <ListItem
@@ -445,7 +492,7 @@ const Header: React.FC = () => {
           backgroundColor: isScrolled ? "white" : "transparent",
           transition:
             "background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease",
-          height: isScrolled ? "70px" : "110px",
+          height: isScrolled ? "90px" : "130px",
           boxShadow: isScrolled ? "0px 8px 5px 0px rgba(0, 0, 0, 0.2)" : "none",
           paddingTop: isScrolled ? "0px" : "15px",
           opacity: isMounted ? 1 : 0,
@@ -465,7 +512,11 @@ const Header: React.FC = () => {
             <img
               src={isScrolled ? RBMLOGOSMALL : RBMLOGOFULL}
               alt="Logo"
-              style={{ height: isScrolled ? "70px" : "100px", width: "auto" }}
+              style={{
+                height: isScrolled ? "85px" : "125px",
+                width: "auto",
+                transition: "height 0.6s ease",
+              }}
             />
           </Link>
           {isSmallScreen ? (
@@ -504,20 +555,36 @@ const Header: React.FC = () => {
                         to: "/aboutus/boardofdirector",
                         text: "Board Of Directors",
                       },
-                      { to: "/aboutus/hseperformance", text: "HSE" },
-                    ]}
+                      {
+                        to: "/aboutus/hseperformance",
+                        text: "HSE",
+                        hidden: true,
+                      },
+                      {
+                        to: "/aboutus/current-projects",
+                        text: "Current Projects",
+                      },
+                      {
+                        to: "/aboutus/executed-projects",
+                        text: "Executed Projects",
+                      },
+                      { to: "/aboutus/awards", text: "Awards" },
+                    ].filter((link) => !link.hidden)}
                   />
                   <DropdownMenu
                     buttonText={
                       <>
-                        <span>Services</span>
+                        <span>Our Services</span>
                         <ArrowDropDownIcon />
                       </>
                     }
-                    links={serviceCardData.map((service) => ({
-                      text: service.title,
-                      to: `/services/${service.pathName}`,
-                    }))}
+                    links={[
+                      { to: "/services", text: "All Services" },
+                      ...serviceCardData.map((service) => ({
+                        text: service.title,
+                        to: `/services/${service.pathName}`,
+                      })),
+                    ]}
                   />
                   <HeaderButton
                     buttonText="Investors"
@@ -534,11 +601,14 @@ const Header: React.FC = () => {
                       { to: "/careers", text: "Job Openings" },
                       {
                         to: "/careers/CareerOpening",
-                        text: "Career Openings ",
+                        text: "Apply Online",
                       },
                     ]}
                   />
-                  <HeaderButton buttonText="News" linkTo="/news"></HeaderButton>
+                  <HeaderButton
+                    buttonText="News & Media"
+                    linkTo="/news"
+                  ></HeaderButton>
                   <HeaderButton
                     buttonText="Contact Us"
                     linkTo="/contact"
