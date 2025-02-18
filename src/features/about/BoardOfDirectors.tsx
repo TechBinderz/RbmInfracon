@@ -7,7 +7,6 @@ import {
   Typography,
   Box,
   Container,
-  // Avatar,
 } from "@mui/material";
 import PageTitle from "../common/PageTitleDiv";
 import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
@@ -25,7 +24,6 @@ interface Director {
   isChairman?: boolean;
 }
 
-// Directors data
 const directors: Director[] = [
   {
     name: "Mr. Jai Bajrang Mani",
@@ -47,18 +45,20 @@ const directors: Director[] = [
     title: "Non-Executive Director",
     image: deepak_saxena_photo,
     description:
-      "A vast experience of 33 years in the Procurement of Materials and Services with experience in Project, Engineering, 0&M, Contract Management for Capex and 0&M, SCM, Purchase, Inbound and outbound logistics, imports, custom clearance and freight forwarding, Import and export licensing. He has been working in O&G, Polyester, Petrochemical refinery, Energy, Pipeline.",
+      "A vast experience of 33 years in the Procurement of Materials and Services with experience in Project, Engineering, O&M, Contract Management for Capex and O&M, SCM, Purchase, Inbound and outbound logistics, imports, custom clearance and freight forwarding, Import and export licensing. He has been working in O&G, Polyester, Petrochemical refinery, Energy, Pipeline.",
   },
   {
     name: "Mr. Ravi Pratap Singh",
     title: "Non-Executive Director",
-    description: "An experienced professional bringing valuable insights to the board with expertise in strategic planning and corporate governance.",
+    description:
+      "An experienced professional bringing valuable insights to the board with expertise in strategic planning and corporate governance.",
   },
   {
     name: "Ms. Kriya Shah",
     title: "Independent Director",
-    description: "A seasoned professional with expertise in corporate governance and regulatory compliance, bringing diverse perspective to the board.",
-  }
+    description:
+      "A seasoned professional with expertise in corporate governance and regulatory compliance, bringing diverse perspective to the board.",
+  },
 ];
 
 const BoardOfDirectors: React.FC = () => {
@@ -69,7 +69,6 @@ const BoardOfDirectors: React.FC = () => {
         tileContent="Board of Directors"
       />
       <Container sx={{ py: 4 }}>
-        {/* Special layout for Chairman */}
         <Box
           sx={{
             backgroundColor: "#f5f5f5",
@@ -79,13 +78,13 @@ const BoardOfDirectors: React.FC = () => {
             alignItems: "center",
             marginBottom: 4,
             padding: 4,
-            '&:hover': {
+            "&:hover": {
               boxShadow: 3,
               borderColor: themeColor,
               borderWidth: 1,
-              borderStyle: 'solid'
+              borderStyle: "solid",
             },
-            transition: 'all 0.3s ease-in-out'
+            transition: "all 0.3s ease-in-out",
           }}
         >
           <CardMedia
@@ -97,98 +96,93 @@ const BoardOfDirectors: React.FC = () => {
           <Box sx={{ padding: 2, maxWidth: 600 }}>
             <Typography
               variant="h3"
-              sx={{ 
-                fontWeight: "bold", 
-                color: themeColor
-              }}
+              sx={{ fontWeight: "bold", color: themeColor, textAlign: "center" }}
             >
               {directors[0].name}
             </Typography>
             <Typography
               variant="h5"
-              sx={{ 
-                color: themeColor,
-                marginBottom: 2
-              }}
+              sx={{ color: themeColor, marginBottom: 2, textAlign: "center" }}
             >
               {directors[0].title}
             </Typography>
-            <Typography
-              variant="body1"
-              sx={{ marginBottom: 4 }}
-            >
+            <Typography variant="body1" sx={{ marginBottom: 4 }}>
               {directors[0].description}
             </Typography>
           </Box>
         </Box>
 
-        {/* Other Directors */}
         <Grid container spacing={4}>
           {directors.slice(1).map((director, index) => (
-            <Grid item xs={12} md={6} key={index}>
-              <Card sx={{ 
-                display: 'flex',
-                backgroundColor: '#f5f5f5',
-                height: '100%',
-                '&:hover': {
-                  boxShadow: 3,
-                  borderColor: themeColor,
-                  borderWidth: 1,
-                  borderStyle: 'solid'
-                },
-                transition: 'all 0.3s ease-in-out'
-              }}>
+            <Grid item xs={12} sm={6} key={index}>
+              <Card
+                sx={{
+                  display: "flex",
+                  flexDirection: { xs: "column", md: "row" },
+                  backgroundColor: "#f5f5f5",
+                  height: "100%",
+                  "&:hover": {
+                    boxShadow: 3,
+                    borderColor: themeColor,
+                    borderWidth: 1,
+                    borderStyle: "solid",
+                  },
+                  transition: "all 0.3s ease-in-out",
+                }}
+              >
                 {director.image ? (
                   <CardMedia
                     component="img"
-                    sx={{ 
-                      width: '40%',
-                      objectFit: 'cover',
-                      borderRadius: '4px 0 0 4px'
+                    sx={{
+                      paddingLeft: 2,
+                      width: { xs: "50%", md: "30%" },
+                      height: "auto",
+                      alignSelf: "center",
                     }}
                     image={director.image}
                     alt={director.name}
                   />
                 ) : (
-                  <Box sx={{ 
-                    width: '40%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    bgcolor: themeColor,
-                    color: 'white',
-                    fontSize: '2rem',
-                    fontWeight: 'bold'
-                  }}>
-                    {director.name.split(' ').map(n => n[0]).join('')}
+                  <Box
+                    sx={{
+                      alignSelf: "center",
+                      width: "40%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      bgcolor: themeColor,
+                      color: "white",
+                      fontSize: "2rem",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {director.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
                   </Box>
                 )}
                 <CardContent sx={{ flex: 1 }}>
                   <Typography
                     variant="h6"
-                    sx={{ 
+                    sx={{
                       fontWeight: "bold",
                       color: themeColor,
-                      mb: 1
+                      mb: 1,
+                      textAlign: "center",
                     }}
                   >
                     {director.name}
                   </Typography>
                   <Typography
                     variant="subtitle1"
-                    sx={{ 
-                      color: themeColor,
-                      mb: 2
-                    }}
+                    sx={{ color: themeColor, mb: 2, textAlign: "center" }}
                   >
                     {director.title}
                   </Typography>
                   <Typography
                     variant="body2"
-                    sx={{ 
-                      color: '#333',
-                      lineHeight: 1.6
-                    }}
+                    sx={{ color: "#333", lineHeight: 1.6, textAlign: "center" }}
                   >
                     {director.description}
                   </Typography>
@@ -197,8 +191,6 @@ const BoardOfDirectors: React.FC = () => {
             </Grid>
           ))}
         </Grid>
-
-        {/* Management Team */}
         <Management />
       </Container>
     </>
