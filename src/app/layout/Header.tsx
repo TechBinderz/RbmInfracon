@@ -318,7 +318,7 @@ const Header: React.FC = () => {
               "&:hover": { backgroundColor: "transparent", color: "#39ac4b" },
               color: "#333",
               borderBottom: "0.5px solid #ccc",
-              textTransform: "capitalize"
+              textTransform: "capitalize",
             }}
           >
             <ListItemText primary="Our Services" />
@@ -515,7 +515,7 @@ const Header: React.FC = () => {
               style={{
                 height: isScrolled ? "85px" : "125px",
                 width: "auto",
-                transition: "height 0.6s ease"
+                transition: "height 0.6s ease",
               }}
             />
           </Link>
@@ -555,9 +555,19 @@ const Header: React.FC = () => {
                         to: "/aboutus/boardofdirector",
                         text: "Board Of Directors",
                       },
-                      { to: "/aboutus/hseperformance", text: "HSE", hidden: true },
-                      { to: "/aboutus/current-projects", text: "Current Projects" },
-                      { to: "/aboutus/executed-projects", text: "Executed Projects" },
+                      {
+                        to: "/aboutus/hseperformance",
+                        text: "HSE",
+                        hidden: true,
+                      },
+                      {
+                        to: "/aboutus/current-projects",
+                        text: "Current Projects",
+                      },
+                      {
+                        to: "/aboutus/executed-projects",
+                        text: "Executed Projects",
+                      },
                       { to: "/aboutus/awards", text: "Awards" },
                     ].filter((link) => !link.hidden)}
                   />
@@ -568,10 +578,13 @@ const Header: React.FC = () => {
                         <ArrowDropDownIcon />
                       </>
                     }
-                    links={serviceCardData.map((service) => ({
-                      text: service.title,
-                      to: `/services/${service.pathName}`,
-                    }))}
+                    links={[
+                      { to: "/services", text: "All Services" },
+                      ...serviceCardData.map((service) => ({
+                        text: service.title,
+                        to: `/services/${service.pathName}`,
+                      })),
+                    ]}
                   />
                   <HeaderButton
                     buttonText="Investors"

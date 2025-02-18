@@ -22,6 +22,8 @@ import BoardDirectorsSection from "./BoardDirectorsSection";
 import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
 import BusinessRoadmap from "./BusinessRoadmap";
 import VisionMissionValues from "./VisionMissionValues";
+import "../home/home.css";
+import useScrollEffect from "../hooks/useScrollEffect";
 
 const AboutUs: React.FC = () => {
   // const theme = useTheme();
@@ -50,7 +52,7 @@ Driven by a philosophy of integrity, innovation, and excellence, RBM Infracon re
     icon: any;
     title: string;
   }) => (
-    <Box sx={{marginTop: "50px", marginBottom: "30px" }}>
+    <Box sx={{ marginTop: "50px", marginBottom: "30px" }}>
       <Typography
         variant="h4"
         sx={{
@@ -74,19 +76,20 @@ Driven by a philosophy of integrity, innovation, and excellence, RBM Infracon re
       />
     </Box>
   );
+  useScrollEffect("hidden");
 
   return (
     <>
       <PageTitle imageUrl={BANNER_IMAGE} tileContent="About Us" />
-      <Container sx={{marginTop: "40px", marginBottom: "40px"}}>
+      <Container sx={{ marginTop: "40px", marginBottom: "40px" }}>
         {/* Business Roadmap Section */}
-        <Box>
+        <Box className="hidden">
           <SectionTitle icon={HistoryIcon} title="Business Roadmap" />
           <BusinessRoadmap />
         </Box>
 
         {/* Chairman's Message */}
-        <Box>
+        <Box className="hidden">
           <SectionTitle icon={PersonIcon} title="Chairman's Message" />
           <Card
             sx={{
@@ -201,7 +204,7 @@ Thank you for your continued trust and support.`}
         </Box>
 
         {/* Company Overview Section */}
-        <Box>
+        <Box className="hidden">
           <SectionTitle icon={BusinessIcon} title="Company Overview" />
           <Card
             sx={{
@@ -237,19 +240,19 @@ Thank you for your continued trust and support.`}
         </Box>
 
         {/* Vission Mission and Values */}
-        <Box>
+        <Box className="hidden">
           <SectionTitle icon={FlagIcon} title="Vision, Mission & Values" />
           <VisionMissionValues />
         </Box>
 
         {/* Board of Directors Section */}
-        <Box>
+        <Box className="hidden">
           <SectionTitle icon={GroupsIcon} title="Board of Directors" />
           <BoardDirectorsSection />
         </Box>
 
         {/* Executive Management Section */}
-        <Box>
+        <Box className="hidden">
           <SectionTitle icon={GroupsIcon} title="Executive Management" />
           <Management />
         </Box>
