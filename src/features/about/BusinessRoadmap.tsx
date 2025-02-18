@@ -65,7 +65,7 @@ const BusinessRoadmap: React.FC = () => {
   };
 
   const pathPoints = calculatePointsAlongPath();
-  const rocketPath = pathPoints.map((point, index) => ({
+  const rocketPath = pathPoints.map((point) => ({
     x: point.x - 50,
     y: point.y - 300,
   }));

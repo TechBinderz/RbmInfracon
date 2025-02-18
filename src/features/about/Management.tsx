@@ -1,4 +1,4 @@
-import { Grid, Typography, Box, Card, CardContent } from "@mui/material";
+import { Grid, Typography, Card, CardContent } from "@mui/material";
 // import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Jay Bajrang Mani.jpg";
 // import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
 // import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
