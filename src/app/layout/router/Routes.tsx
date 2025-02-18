@@ -17,7 +17,7 @@ import WorkoverDrillingServices from "../../../features/services/WorkoverDrillin
 import Hydrojetting from "../../../features/services/Hydrojetting";
 import BundlePuller from "../../../features/services/BundlePuller";
 import BoardOfDirectors from "../../../features/about/BoardOfDirectors";
-import HSEPerformance from "../../../features/about/HSEPerformance";
+// import HSEPerformance from "../../../features/about/HSEPerformance";
 import CurrentProjects from "../../../features/about/CurrentProjects";
 import ExecutedProjects from "../../../features/about/ExecutedProjects";
 import Awards from "../../../features/about/Awards";

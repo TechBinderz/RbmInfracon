@@ -2,8 +2,6 @@ import {
   Box,
   Container,
   Typography,
-  useTheme,
-  useMediaQuery,
   IconButton,
 } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -30,10 +28,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
   cardData,
-  showDetails = true,
 }) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
@@ -46,7 +41,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     autoplay: true,
     autoplaySpeed: 5000,
     arrows: false,
-    beforeChange: (oldIndex: number, newIndex: number) => {
+    beforeChange: (newIndex: number) => {
       setCurrentSlide(newIndex);
     },
   };

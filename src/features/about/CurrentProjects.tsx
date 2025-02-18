@@ -13,17 +13,13 @@ import {
   TableRow,
   Paper,
   IconButton,
-  Collapse,
   TextField,
   InputAdornment,
   Grid,
   Chip
 } from '@mui/material';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
-import { formatCurrency } from '../../features/common/common';
 import PageTitle from '../../features/common/PageTitleDiv';
 import BANNER_IMAGE from "../../assets/features/home/pexels-tomfisk-10407691.jpg";
 

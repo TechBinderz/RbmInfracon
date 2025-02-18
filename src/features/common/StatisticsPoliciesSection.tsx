@@ -2,16 +2,11 @@ import {
   Box,
   Typography,
   Grid,
-  Card,
-  CardContent,
-  Button,
 } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import PeopleIcon from "@mui/icons-material/People";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { Link } from "react-router-dom";
 import CountUp from "react-countup";
 
 const statsData = [
@@ -37,24 +32,24 @@ const statsData = [
   },
 ];
 
-const policiesData = [
-  {
-    title: "Quality Policy",
-    description:
-      "Policy of RBM Infracon Limited that all of our activities are carried out in accordance with our business management system.",
-  },
-  {
-    title: "HSE Policy",
-    description:
-      "RBM Infracon LTD. is committed to protecting the health and safety of everybody involved with our activities.",
-    routerLinkTo: "/aboutus/hseperformance",
-  },
-  {
-    title: "HR Policy",
-    description:
-      "Our policy and action to possess and retain this valuable resource for getting the end objectives of our organization.",
-  },
-];
+// const policiesData = [
+//   {
+//     title: "Quality Policy",
+//     description:
+//       "Policy of RBM Infracon Limited that all of our activities are carried out in accordance with our business management system.",
+//   },
+//   {
+//     title: "HSE Policy",
+//     description:
+//       "RBM Infracon LTD. is committed to protecting the health and safety of everybody involved with our activities.",
+//     routerLinkTo: "/aboutus/hseperformance",
+//   },
+//   {
+//     title: "HR Policy",
+//     description:
+//       "Our policy and action to possess and retain this valuable resource for getting the end objectives of our organization.",
+//   },
+// ];
 
 const StatisticsPoliciesSection = () => {
   return (

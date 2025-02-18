@@ -5,19 +5,18 @@ import {
   Grid,
   Card,
   CardContent,
-  CardMedia,
   Box,
   Chip,
-  useTheme,
-  useMediaQuery,
+  // useTheme,
+  // useMediaQuery,
 } from '@mui/material';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import PageTitle from '../../features/common/PageTitleDiv';
 import BANNER_IMAGE from "../../assets/features/home/pexels-tomfisk-10407691.jpg";
 
 const Awards: React.FC = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const awards = [
     {
