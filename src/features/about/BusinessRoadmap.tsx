@@ -49,9 +49,6 @@ const BusinessRoadmap: React.FC = () => {
   const isMdScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("lg")
   );
-  // const isLgScreen = useMediaQuery((theme: Theme) =>
-  //   theme.breakpoints.down("xl")
-  // );
 
   const increaseHeight = isXsScreen
     ? true
@@ -149,7 +146,23 @@ const BusinessRoadmap: React.FC = () => {
     y: point.y - 300,
   }));
 
-  // Visualize points on the path (optional, for debugging)
+  // Check if the points are in a straight line (for small screens)
+  const isStraightLine = pathPoints.every((point, index, arr) => {
+    if (index === 0) return true; // Skip the first point
+    return point.x === arr[index - 1].x || point.y === arr[index - 1].y;
+  });
+
+  // Set rocket path if points are straight, otherwise use cubic bezier curve
+  const rocketAnimation = isStraightLine
+    ? {
+        x: rocketPath.map((point) => point.x + 10),
+        y: rocketPath.map((point) => point.y - 770),
+      }
+    : {
+        x: rocketPath.map((point) => point.x),
+        y: rocketPath.map((point) => point.y),
+      };
+
   const renderPoints = pathPoints.map((point, index) => (
     <circle key={index} cx={point.x} cy={point.y} r="10" fill={themeColor} />
   ));
@@ -197,7 +210,7 @@ const BusinessRoadmap: React.FC = () => {
               <Box
                 sx={{
                   ml: isXsScreen ? 1 : isSmScreen ? 2 : 3,
-                  backgroundColor: "rgba(255, 255, 255, 0.15)",
+                  backgroundColor: "rgb(0 0 0 / 15%)",
                   p: isXsScreen ? 1 : 2,
                   borderRadius: 2,
                   backdropFilter: "blur(8px)",
@@ -211,7 +224,7 @@ const BusinessRoadmap: React.FC = () => {
                   boxShadow: "0px 4px 12px rgba(255, 255, 255, 0.2)",
                   transition: "all 0.3s ease-in-out",
                   "&:hover": {
-                    backgroundColor: "rgba(255, 255, 255, 0.3)",
+                    backgroundColor: "rgb(0 0 0 / 15%)",
                     transform: "scale(1.05)",
                   },
                 }}
@@ -252,22 +265,7 @@ const BusinessRoadmap: React.FC = () => {
         {/* Rocket Icon */}
         <motion.div
           initial={{ x: rocketPath[0].x, y: rocketPath[0].y }}
-          animate={{
-            x: [
-              rocketPath[0].x,
-              rocketPath[1].x,
-              rocketPath[2].x,
-              rocketPath[3].x,
-              rocketPath[4].x,
-            ],
-            y: [
-              rocketPath[0].y,
-              rocketPath[1].y,
-              rocketPath[2].y,
-              rocketPath[3].y,
-              rocketPath[4].y,
-            ],
-          }}
+          animate={rocketAnimation}
           transition={{ duration: 3, ease: "easeInOut" }}
           style={{
             position: "absolute",
@@ -277,6 +275,9 @@ const BusinessRoadmap: React.FC = () => {
             sx={{
               fontSize: "80px",
               color: themeColor,
+              transform: isStraightLine
+                ? "rotate(-45deg)" // Horizontal path
+                : "rotate(0deg)", // For curved paths, no rotation
             }}
           />
         </motion.div>
