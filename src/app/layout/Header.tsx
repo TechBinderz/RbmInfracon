@@ -494,7 +494,7 @@ const Header: React.FC = () => {
             "background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease",
           height: isScrolled ? "90px" : "130px",
           boxShadow: isScrolled ? "0px 8px 5px 0px rgba(0, 0, 0, 0.2)" : "none",
-          paddingTop: isScrolled ? "0px" : "15px",
+          paddingTop: isScrolled ? "7px" : "15px",
           opacity: isMounted ? 1 : 0,
           transform: isMounted ? "translateY(0)" : "translateY(-20px)",
         }}

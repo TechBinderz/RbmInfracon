@@ -8,23 +8,12 @@ import ranjan_kumar_photo from "../../assets/features/rbm_management/Mr. Ranjan 
 import ravi_pratap_photo from "../../assets/features/rbm_management/Mr. Ravi Pratap Singh.png";
 import sanjay_singh_photo from "../../assets/features/rbm_management/Mr. Sanjay Singh.png";
 import sreejith_pillai_photo from "../../assets/features/rbm_management/Mr. Sreejith Pillai.png";
-import sunil_srivastava_photo from "../../assets/features/rbm_management/Mr. Sunil Srivastava.png";
+// import sunil_srivastava_photo from "../../assets/features/rbm_management/Mr. Sunil Srivastava.png";
 import sunil_kumar_photo from "../../assets/features/rbm_management/Sunil Kumar Singh.png";
 import jina_kuttath_photo from "../../assets/features/rbm_management/Ms. Jina Kuttath.png";
 
 // Management team data
 const managementTeamList = [
-  // {
-  //   image: jaybajrang_ramaishish_photo,
-  //   title: "Chairman & Managing Director",
-  //   name: "Mr. Jaybajrag Ramaishish Mani",
-  // },
-  // {
-  //   image: aditya_jay_photo,
-  //   title: "Whole Time Director",
-  //   name: "Mr. Aditya Jay Bajrag Mani",
-  // },
-  // { image: deepak_saxena_photo, title: "Director", name: "Mr. Deepak Saxena" },
   {
     image: narendra_sharma_photo,
     title: "Chief Financial Officer",
@@ -42,7 +31,7 @@ const managementTeamList = [
   },
   {
     image: sreejith_pillai_photo,
-    title: "Commercial Head",
+    title: "Chief Commercial Head",
     name: "Mr. Sreejith Pillai",
   },
   {
@@ -50,11 +39,11 @@ const managementTeamList = [
     title: "Projects Head",
     name: "Mr. Ranjan Kumar",
   },
-  {
-    image: sunil_srivastava_photo,
-    title: "Chief Human Resourses Officer",
-    name: "Mr. Sunil Srivastava",
-  },
+  // {
+  //   image: sunil_srivastava_photo,
+  //   title: "Chief Human Resourses Officer",
+  //   name: "Mr. Sunil Srivastava",
+  // },
   {
     image: ravi_pratap_photo,
     title: "Non-Executive Director of Oil & Gas Division",
