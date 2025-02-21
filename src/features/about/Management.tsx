@@ -20,6 +20,11 @@ const managementTeamList = [
     name: "Mr. Narendra Sharma",
   },
   {
+    image: sreejith_pillai_photo,
+    title: "Chief Commercial Officer",
+    name: "Mr. Sreejith Pillai",
+  },
+  {
     image: jina_kuttath_photo,
     title: "Chief Human Resources Officer",
     name: "Ms. Jina Kuttath",
@@ -28,11 +33,6 @@ const managementTeamList = [
     image: pankaj_kumar_photo,
     title: "Corporate Projects & Operations Head",
     name: "Mr. Pankaj Kumar",
-  },
-  {
-    image: sreejith_pillai_photo,
-    title: "Chief Commercial Head",
-    name: "Mr. Sreejith Pillai",
   },
   {
     image: ranjan_kumar_photo,
