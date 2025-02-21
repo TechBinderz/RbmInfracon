@@ -8,10 +8,10 @@ import {
   CardContent,
   Container,
 } from "@mui/material";
-import heater_operation_1 from "../../assets/features/services/heater_operation (1).jpg";
-import heater_operation_2 from "../../assets/features/services/heater_operation (2).jpg";
-import heater_operation_3 from "../../assets/features/services/heater_operation (3).jpg";
-import heater_operation_4 from "../../assets/features/services/heater_operation (4).jpg";
+import heater_operation_1 from "../../assets/features/services/heater/heater_operation (1).jpg";
+import heater_operation_2 from "../../assets/features/services/heater/heater_operation (2).jpg";
+import heater_operation_3 from "../../assets/features/services/heater/heater_operation (3).jpg";
+import heater_operation_4 from "../../assets/features/services/heater/heater_operation (4).jpg";
 
 const HeaterOperation: React.FC = () => {
   return (

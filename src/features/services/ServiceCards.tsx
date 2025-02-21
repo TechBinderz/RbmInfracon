@@ -1,16 +1,11 @@
-import {
-  Box,
-  Container,
-  Typography,
-  IconButton,
-} from "@mui/material";
+import { Box, Container, Typography, IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { themeColor } from "../../features/common/common";
 
 // Define the structure of the card data using TypeScript
@@ -26,9 +21,7 @@ interface ServiceCardProps {
   showDetails: boolean;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({
-  cardData,
-}) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
@@ -47,17 +40,22 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   };
 
   const getPreviousSlide = () => {
-    const prevIndex = currentSlide === 0 ? cardData.length - 1 : currentSlide - 1;
+    const prevIndex =
+      currentSlide === 0 ? cardData.length - 1 : currentSlide - 1;
     return cardData[prevIndex];
   };
 
   const getNextSlide = () => {
-    const nextIndex = currentSlide === cardData.length - 1 ? 0 : currentSlide + 1;
+    const nextIndex =
+      currentSlide === cardData.length - 1 ? 0 : currentSlide + 1;
     return cardData[nextIndex];
   };
 
   return (
-    <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" }, position: 'relative' }}>
+    <Container
+      maxWidth="lg"
+      sx={{ padding: { xs: "20px", sm: "40px" }, position: "relative" }}
+    >
       <Slider ref={sliderRef} {...settings}>
         {cardData.map((card, index) => (
           <div key={index}>
@@ -71,7 +69,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                   flexDirection: { xs: "column", md: "row" },
                   alignItems: "center",
                   gap: 4,
-                  padding: 2,
+                  padding: { xs: 0, sm: 2 },
                   backgroundColor: "background.paper",
                   borderRadius: 2,
                   transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -89,7 +87,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     overflow: "hidden",
                     borderRadius: 2,
                   }}
-                >   
+                >
                   <img
                     src={card.image}
                     alt={card.title}
@@ -104,9 +102,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                   sx={{
                     width: { xs: "100%", md: "50%" },
                     padding: 3,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
                   }}
                 >
                   <Typography
@@ -127,7 +125,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     sx={{
                       fontSize: { xs: "18px", md: "22px" },
                       lineHeight: 1.6,
-                      color: '#000000',
+                      color: "#000000",
                       mb: 3,
                     }}
                   >
@@ -136,14 +134,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                   <Typography
                     variant="button"
                     sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      color: '#000000',
-                      cursor: 'pointer',
+                      display: "flex",
+                      alignItems: "center",
+                      color: "#000000",
+                      cursor: "pointer",
                       fontSize: { xs: "16px", md: "18px" },
                       fontWeight: 500,
-                      '&:hover': {
-                        textDecoration: 'underline',
+                      "&:hover": {
+                        textDecoration: "underline",
                       },
                     }}
                   >
@@ -160,71 +158,80 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       {/* Bottom Navigation Bar */}
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'stretch',
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
           mt: 4,
-          borderTop: '1px solid rgba(0, 0, 0, 0.1)',
+          borderTop: "1px solid rgba(0, 0, 0, 0.1)",
           pt: 3,
           pb: 2,
           px: 4,
+          flexWrap: "wrap", // Prevents overlap on small screens
         }}
       >
+        {/* Previous Slide */}
         <Box
           onClick={() => sliderRef.current?.slickPrev()}
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            cursor: 'pointer',
+            display: "flex",
+            alignItems: "center",
+            cursor: "pointer",
             opacity: 0.8,
-            transition: 'all 0.3s ease',
+            transition: "all 0.3s ease",
             flex: 1,
-            maxWidth: '45%',
-            backgroundColor: 'rgba(57, 172, 75, 0.05)',
-            padding: 2,
+            maxWidth: { xs: "48%", sm: "45%" }, // Adjusted for better spacing
+            backgroundColor: "rgba(57, 172, 75, 0.05)",
+            padding: { xs: 0, sm: 2 },
             borderRadius: 2,
-            '&:hover': {
+            "&:hover": {
               opacity: 1,
-              backgroundColor: 'rgba(57, 172, 75, 0.1)',
-              transform: 'translateX(-5px)',
+              backgroundColor: "rgba(57, 172, 75, 0.1)",
+              transform: "translateX(-5px)",
             },
           }}
         >
-          <IconButton 
+          <IconButton
             size="small"
-            sx={{ 
+            sx={{
               color: themeColor,
-              '&:hover': { backgroundColor: 'rgba(57, 172, 75, 0.15)' }
+              "&:hover": { backgroundColor: "rgba(57, 172, 75, 0.15)" },
             }}
           >
             <ArrowBackIosNewIcon />
           </IconButton>
           <Box sx={{ ml: 2 }}>
-            <Typography variant="caption" sx={{ color: themeColor, fontWeight: 500, fontSize: { xs: '14px', md: '16px' } }}>
+            <Typography
+              variant="caption"
+              sx={{
+                color: themeColor,
+                fontWeight: 500,
+                fontSize: { xs: "14px", md: "16px" },
+              }}
+            >
               PREVIOUS
             </Typography>
-            <Typography 
-              variant="subtitle1" 
-              sx={{ 
-                fontWeight: 'bold',
+            <Typography
+              variant="subtitle1"
+              sx={{
+                fontWeight: "bold",
                 lineHeight: 1.3,
-                fontSize: { xs: '20px', md: '24px' },
+                fontSize: { xs: "18px", md: "24px" }, // Slightly smaller on mobile
               }}
             >
               {getPreviousSlide().title}
             </Typography>
-            <Typography 
-              variant="body2" 
+            <Typography
+              variant="body2"
               color="text.secondary"
-              sx={{ 
+              sx={{
                 mt: 0.5,
-                display: '-webkit-box',
+                display: { xs: "none", md: "-webkit-box" }, // Hide description on small screens
                 WebkitLineClamp: 2,
-                WebkitBoxOrient: 'vertical',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
                 lineHeight: 1.4,
-                fontSize: { xs: '16px', md: '18px' },
+                fontSize: { xs: "16px", md: "18px" },
               }}
             >
               {getPreviousSlide().description}
@@ -232,72 +239,82 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </Box>
         </Box>
 
+        {/* Divider */}
         <Box
           sx={{
-            width: '2px',
-            bgcolor: 'rgba(57, 172, 75, 0.1)',
-            mx: 3,
+            width: "2px",
+            bgcolor: "rgba(57, 172, 75, 0.1)",
+            mx: { xs: 1, sm: 3 },
+            height: "100%",
           }}
         />
 
+        {/* Next Slide */}
         <Box
           onClick={() => sliderRef.current?.slickNext()}
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            cursor: 'pointer',
+            display: "flex",
+            alignItems: "center",
+            cursor: "pointer",
             opacity: 0.8,
-            transition: 'all 0.3s ease',
+            transition: "all 0.3s ease",
             flex: 1,
-            maxWidth: '45%',
-            justifyContent: 'flex-end',
-            backgroundColor: 'rgba(57, 172, 75, 0.05)',
-            padding: 2,
+            maxWidth: { xs: "40%", sm: "45%" }, // Adjusted for better spacing
+            justifyContent: "flex-end",
+            backgroundColor: "rgba(57, 172, 75, 0.05)",
+            padding: { xs: 0, sm: 2 },
             borderRadius: 2,
-            '&:hover': {
+            "&:hover": {
               opacity: 1,
-              backgroundColor: 'rgba(57, 172, 75, 0.1)',
-              transform: 'translateX(5px)',
+              backgroundColor: "rgba(57, 172, 75, 0.1)",
+              transform: "translateX(5px)",
             },
           }}
         >
-          <Box sx={{ mr: 2, textAlign: 'right' }}>
-            <Typography variant="caption" sx={{ color: themeColor, fontWeight: 500, fontSize: { xs: '14px', md: '16px' } }}>
+          <Box sx={{ mr: 2, textAlign: "right" }}>
+            <Typography
+              variant="caption"
+              sx={{
+                color: themeColor,
+                fontWeight: 500,
+                fontSize: { xs: "14px", md: "16px" },
+              }}
+            >
               NEXT
             </Typography>
-            <Typography 
-              variant="subtitle1" 
-              sx={{ 
-                fontWeight: 'bold',
+            <Typography
+              variant="subtitle1"
+              sx={{
+                fontWeight: "bold",
                 lineHeight: 1.3,
-                fontSize: { xs: '20px', md: '24px' },
+                fontSize: { xs: "18px", md: "24px" }, // Slightly smaller on mobile
               }}
             >
               {getNextSlide().title}
             </Typography>
-            <Typography 
-              variant="body2" 
+            <Typography
+              variant="body2"
               color="text.secondary"
-              sx={{ 
+              sx={{
                 mt: 0.5,
-                display: '-webkit-box',
+                display: { xs: "none", md: "-webkit-box" }, // Hide description on small screens
                 WebkitLineClamp: 2,
-                WebkitBoxOrient: 'vertical',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
                 lineHeight: 1.4,
-                fontSize: { xs: '16px', md: '18px' },
-                textAlign: 'right',
+                fontSize: { xs: "16px", md: "18px" },
+                textAlign: "right",
               }}
             >
               {getNextSlide().description}
             </Typography>
           </Box>
-          <IconButton 
+          <IconButton
             size="small"
-            sx={{ 
+            sx={{
               color: themeColor,
-              '&:hover': { backgroundColor: 'rgba(57, 172, 75, 0.15)' }
+              "&:hover": { backgroundColor: "rgba(57, 172, 75, 0.15)" },
             }}
           >
             <ArrowForwardIosIcon />

@@ -8,10 +8,10 @@ import {
   CardContent,
   Container,
 } from "@mui/material";
-import boiler_erection_1 from "../../assets/features/services/no_image.png";
-import boiler_erection_2 from "../../assets/features/services/no_image.png";
-import boiler_erection_3 from "../../assets/features/services/no_image.png";
-import boiler_erection_4 from "../../assets/features/services/no_image.png";
+import boiler_erection_1 from "../../assets/features/services/boiler/boiler_erection (1).jpg";
+import boiler_erection_2 from "../../assets/features/services/boiler/boiler_erection (2).jpg";
+import boiler_erection_3 from "../../assets/features/services/boiler/boiler_erection (3).jpg";
+import boiler_erection_4 from "../../assets/features/services/boiler/boiler_erection (4).jpg";
 
 const BoilerErectionWork: React.FC = () => {
   return (

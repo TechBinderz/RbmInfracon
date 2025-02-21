@@ -8,10 +8,10 @@ import {
   CardContent,
   Container,
 } from "@mui/material";
-import drilling_service_1 from "../../assets/features/services/drilling_service (1).jpg";
-import drilling_service_2 from "../../assets/features/services/drilling_service (2).jpg";
-import drilling_service_3 from "../../assets/features/services/drilling_service (3).jpg";
-import drilling_service_4 from "../../assets/features/services/drilling_service (4).jpg";
+import drilling_service_1 from "../../assets/features/services/drilling/drilling_service (1).jpg";
+import drilling_service_2 from "../../assets/features/services/drilling/drilling_service (2).jpg";
+import drilling_service_3 from "../../assets/features/services/drilling/drilling_service (3).jpg";
+import drilling_service_4 from "../../assets/features/services/drilling/drilling_service (4).jpg";
 
 const DrillingAndOMServices: React.FC = () => {
   return (

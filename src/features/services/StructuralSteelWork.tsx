@@ -8,10 +8,10 @@ import {
   CardContent,
   Container,
 } from "@mui/material";
-import steel_work_1 from "../../assets/features/services/steel_work (1).jpg";
-import steel_work_2 from "../../assets/features/services/steel_work (2).jpg";
-import steel_work_3 from "../../assets/features/services/steel_work (3).jpg";
-import steel_work_4 from "../../assets/features/services/steel_work (4).jpg";
+import steel_work_1 from "../../assets/features/services/structural/steel_work (1).jpg";
+import steel_work_2 from "../../assets/features/services/structural/steel_work (2).jpg";
+import steel_work_3 from "../../assets/features/services/structural/steel_work (3).jpg";
+import steel_work_4 from "../../assets/features/services/structural/steel_work (4).jpg";
 
 const StructuralSteelWork: React.FC = () => {
   return (

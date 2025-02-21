@@ -9,10 +9,10 @@ import {
   Container,
 } from "@mui/material";
 import "../common/common.css";
-import piping_service_1 from "../../assets/features/services/piping_service (1).jpg";
-import piping_service_2 from "../../assets/features/services/piping_service (2).jpg";
-import piping_service_3 from "../../assets/features/services/piping_service (3).jpg";
-import piping_service_4 from "../../assets/features/services/piping_service (4).jpg";
+import piping_service_1 from "../../assets/features/services/piping/piping_service (1).jpg";
+import piping_service_2 from "../../assets/features/services/piping/piping_service (2).jpg";
+import piping_service_3 from "../../assets/features/services/piping/piping_service (3).jpg";
+import piping_service_4 from "../../assets/features/services/piping/piping_service (4).jpg";
 
 const PipingServices: React.FC = () => {
   return (

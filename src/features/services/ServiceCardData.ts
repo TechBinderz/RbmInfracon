@@ -1,16 +1,17 @@
-import piping_service_1 from "../../assets/features/services/piping_service (1).jpg";
-import plate_work_1 from "../../assets/features/services/plate_work (1).jpg";
-import drilling_service_1 from "../../assets/features/services/drilling_service (1).jpg";
-import heater_operation_1 from "../../assets/features/services/heater_operation (1).jpg";
-import steel_work_1 from "../../assets/features/services/steel_work (1).jpg";
+import piping_service_1 from "../../assets/features/services/piping/piping_service (1).jpg";
+import plate_work_1 from "../../assets/features/services/plateworks/plate_work (1).jpg";
+import drilling_service_1 from "../../assets/features/services/drilling/drilling_service (1).jpg";
+import heater_operation_1 from "../../assets/features/services/heater/heater_operation (1).jpg";
+import steel_work_1 from "../../assets/features/services/structural/steel_work (1).jpg";
 import rail_wagon_1 from "../../assets/features/services/rail_wagon (1).jpg";
+import boiler_erection_1 from "../../assets/features/services/boiler/boiler_erection (1).jpg";
 import no_image from "../../assets/features/services/no_image.png"
 
 // Define the card data
 const serviceCardData = [
   {
     pathName: "boilerErectionWork",
-    image: no_image,
+    image: boiler_erection_1,
     title: "Boiler Erection Work",
     description:
       "Expert handling of new boiler installations, including design coordination, equipment assembly, and commissioning.",
@@ -60,7 +61,7 @@ const serviceCardData = [
   {
     pathName: "drillingAndOMServices",
     image: drilling_service_1,
-    title: "Drilling and O&M Services of Crewed Wells",
+    title: "Drilling and O&M Services",
     description:
       "Specialized drilling and Operations and Maintenance (O&M) services for crewed wells, emphasizing reliability, safety, and efficiency.",
   },
