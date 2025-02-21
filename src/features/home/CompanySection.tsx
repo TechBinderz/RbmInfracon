@@ -1,8 +1,8 @@
 import { Grid, Typography, Paper, Box } from "@mui/material";
 import { HashLink } from "react-router-hash-link";
 import CaseStudyIcon from "@mui/icons-material/Book";
-import SafetyIcon from "@mui/icons-material/Security";
-import CustomersIcon from "@mui/icons-material/Group";
+import BuildIcon from "@mui/icons-material/Build";
+import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 import ServiceIcon from "@mui/icons-material/DesignServices";
 import NewsIcon from "@mui/icons-material/Newspaper";
 
@@ -13,14 +13,14 @@ const companyItems = [
     link: "/aboutus/boardofdirector",
   },
   {
-    title: "Safety",
-    icon: <SafetyIcon style={{ fontSize: 50, color: "#39ac4b" }} />,
-    link: "/aboutus/hseperformance",
+    title: "Current Projects",
+    icon: <BuildIcon style={{ fontSize: 50, color: "#39ac4b" }} />, // Updated icon
+    link: "/aboutus/current-projects",
   },
   {
-    title: "Our Customers",
-    icon: <CustomersIcon style={{ fontSize: 50, color: "#39ac4b" }} />,
-    link: "/aboutus#customer-page",
+    title: "Executed Projects",
+    icon: <AssignmentTurnedInIcon style={{ fontSize: 50, color: "#39ac4b" }} />, // Updated icon
+    link: "/aboutus/executed-projects",
   },
   {
     title: "Services",
