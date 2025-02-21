@@ -177,7 +177,7 @@ const Header: React.FC = () => {
             boxShadow: "0 2px 10px rgba(0,0,0,0.2)",
             display: "flex",
             flexDirection: "column",
-            height: "100vh", // Make sure the Drawer takes the full viewport height
+            height: "100vh", // Ensures full height
           },
         }}
       >
@@ -185,7 +185,7 @@ const Header: React.FC = () => {
           <img src={RBMLOGOFULL} alt="Logo" style={{ width: "130px" }} />
         </Box>
         <Divider />
-        <List sx={{ flexGrow: 1 }}>
+        <List sx={{ flexGrow: 1, overflowY: "auto" }}>
           <ListItem
             component={Link}
             to="/"
@@ -461,16 +461,14 @@ const Header: React.FC = () => {
           </ListItem>
         </List>
 
-        <Box
-          sx={{
-            position: "fixed",
-            bottom: 0,
-            width: "100%",
-            zIndex: 1000,
-          }}
-        >
+        <Box>
           <Divider />
-          <Box sx={{ marginTop: "10px", marginBottom: "10px" }}>
+          <Box
+            sx={{
+              marginTop: "10px",
+              textAlign: "center",
+            }}
+          >
             <StockPriceDisplay stockData={stockData} />
           </Box>
         </Box>
