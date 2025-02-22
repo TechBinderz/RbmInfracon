@@ -15,7 +15,7 @@ import {
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import PageTitle from '../../features/common/PageTitleDiv';
-import BANNER_IMAGE from "../../assets/features/home/pexels-tomfisk-10407691.jpg";
+import BANNER_IMAGE from "../../assets/features/Awards/awards_background.jpg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
