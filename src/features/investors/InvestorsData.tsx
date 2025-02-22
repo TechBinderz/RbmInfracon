@@ -69,13 +69,12 @@ const InfoCard: React.FC<InfoCardProps> = ({ title, data }) => (
 
 const DirectorTable: React.FC = () => {
   const data = [
-    { srNo: 1, din: '03417579', name: 'JAY BAJRANG MANI', position: 'MD/Chairman' },
-    { srNo: 2, din: '05228653', name: 'SEEMA MANI', position: 'Women Non Executive Director' },
-    { srNo: 3, din: '08980569', name: 'ADITYA MANI', position: 'Whole Time Director' },
-    { srNo: 4, din: '09718465', name: 'PAYAL MANI', position: 'Executive Director' },
-    { srNo: 5, din: '07752890', name: 'CHANDRACHURD MANI TRIPATHI', position: 'Independent Director' },
-    { srNo: 6, din: '09735893', name: 'ANANDESHWAR DUBEY', position: 'Independent Director' },
-    { srNo: 7, din: 'ARIPS3174J', name: 'PANKAJ KUMAR SINHA', position: 'CFO' },
+    { srNo: 1, din: '03417579', name: 'JAY BAJRANG MANI', position: 'Managing Director' },
+    { srNo: 2, din: '08980569', name: 'ADITYA MANI', position: 'Executive Director (Whole-time)' },
+    { srNo: 4, din: '09718465', name: 'DEEPAK SAXENA', position: 'Non-Executive Director' },
+    { srNo: 5, din: '07752890', name: 'RAVI PRATAP SINGH', position: 'Non-Executive Director' },
+    { srNo: 6, din: '09735893', name: 'KRIYA SHAH', position: 'Independent Director' },
+    // { srNo: 7, din: 'ARIPS3174J', name: 'PANKAJ KUMAR SINHA', position: 'CFO' },
   ];
 
   const columns = [
