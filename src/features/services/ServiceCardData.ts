@@ -5,6 +5,8 @@ import heater_operation_1 from "../../assets/features/services/heater/heater_ope
 import steel_work_1 from "../../assets/features/services/structural/steel_work (1).jpg";
 import rail_wagon_1 from "../../assets/features/services/rail_wagon (1).jpg";
 import boiler_erection_1 from "../../assets/features/services/boiler/boiler_erection (1).jpg";
+import performance_1 from "../../assets/features/services/performance/performance (1).jpg";
+import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (1).jpg";
 import no_image from "../../assets/features/services/no_image.png"
 
 // Define the card data
@@ -18,7 +20,7 @@ const serviceCardData = [
   },
   {
     pathName: "workoverDrillingServices",
-    image: no_image,
+    image: performance_1,
     title: "Performance Enhancement Services",
     description:
       "Our commitment to driving performance improvements and operational excellence within the oil and gas sector.",
@@ -32,7 +34,7 @@ const serviceCardData = [
   },
   {
     pathName: "bundlePuller",
-    image: no_image,
+    image: bundle_puller_1,
     title: "Bundle Puller",
     description:
       "Recognizing the importance of minimizing downtime and maximizing productivity, we prioritize delivering high-quality services in a timely manner.",
