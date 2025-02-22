@@ -19,24 +19,24 @@ export const newsItems: NewsItem[] = [
     category: "Projects",
     pathName: "ongc_work_order_signed",
   },
-  {
-    image: ongc_work_order_signed,
-    date: "November 2024",
-    title: "ONGC Contract for Oil & Gas Extraction",
-    description:
-      "Mumbai, 26th November 2024 – RBM Infracon Limited, an Industrial integrated services provider specializing in EPC contracts and comprehensive services for mechanical and rotary equipment.",
-    category: "Projects",
-    pathName: "ongc_work_order_signed",
-  },
-  {
-    image: ongc_work_order_signed,
-    date: "November 2024",
-    title: "ONGC Contract for Oil & Gas Extraction",
-    description:
-      "Mumbai, 26th November 2024 – RBM Infracon Limited, an Industrial integrated services provider specializing in EPC contracts and comprehensive services for mechanical and rotary equipment.",
-    category: "Projects",
-    pathName: "ongc_work_order_signed",
-  },
+  // {
+  //   image: ongc_work_order_signed,
+  //   date: "November 2024",
+  //   title: "ONGC Contract for Oil & Gas Extraction",
+  //   description:
+  //     "Mumbai, 26th November 2024 – RBM Infracon Limited, an Industrial integrated services provider specializing in EPC contracts and comprehensive services for mechanical and rotary equipment.",
+  //   category: "Projects",
+  //   pathName: "ongc_work_order_signed",
+  // },
+  // {
+  //   image: ongc_work_order_signed,
+  //   date: "November 2024",
+  //   title: "ONGC Contract for Oil & Gas Extraction",
+  //   description:
+  //     "Mumbai, 26th November 2024 – RBM Infracon Limited, an Industrial integrated services provider specializing in EPC contracts and comprehensive services for mechanical and rotary equipment.",
+  //   category: "Projects",
+  //   pathName: "ongc_work_order_signed",
+  // },
   // {
   //   image: "https://picsum.photos/1024",
   //   date: "October 2024",
