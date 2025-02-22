@@ -8,9 +8,9 @@ import {
   CardContent,
   Container,
 } from "@mui/material";
-import bundle_puller_1 from "../../assets/features/services/no_image.png";
-import bundle_puller_2 from "../../assets/features/services/no_image.png";
-import bundle_puller_3 from "../../assets/features/services/no_image.png";
+import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (1).jpg";
+import bundle_puller_2 from "../../assets/features/services/bundlepuller/bundlepuller (2).jpg";
+import bundle_puller_3 from "../../assets/features/services/bundlepuller/bundlepuller (3).jpg";
 import bundle_puller_4 from "../../assets/features/services/no_image.png";
 
 const BundlePuller: React.FC = () => {
