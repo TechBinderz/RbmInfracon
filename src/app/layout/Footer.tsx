@@ -101,28 +101,24 @@ const Footer = () => {
 
           {/* Office Locations Section */}
           <Grid item xs={12} sm={3}>
-            <HashLink
-              smooth
-              to="/contact#locations"
-              scroll={(el) => scrollWithOffset(el)}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <Typography
-                variant="h5"
-                gutterBottom
-                style={{ fontWeight: "600" }}
-              >
-                Office Locations
-              </Typography>
-              <ul style={{ listStyleType: "none", padding: 0 }}>
-                <li>
+            <Typography variant="h5" gutterBottom style={{ fontWeight: "600" }}>
+              Office Locations
+            </Typography>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li>
+                <HashLink
+                  smooth
+                  to="/contact#locations"
+                  scroll={(el) => scrollWithOffset(el)}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Typography variant="body1">India</Typography>
-                </li>
-                <li>
-                  <Typography variant="body1">Dubai</Typography>
-                </li>
-              </ul>
-            </HashLink>
+                </HashLink>
+              </li>
+              <li>
+                <Typography variant="body1">Dubai</Typography>
+              </li>
+            </ul>
             <RouterLink to="/contact" style={{ textDecoration: "none" }}>
               <Button
                 variant="contained"
