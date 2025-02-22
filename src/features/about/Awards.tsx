@@ -90,50 +90,50 @@ import IMG_8409 from '../../assets/features/Awards/IMG_8409.jpg';
 
 // Award years mapping
 const awardYears = {
-  377: 2019, 378: 2019, 379: 2019,
-  380: 2020, 381: 2020, 382: 2020,
-  383: 2020, 385: 2021, 386: 2021,
-  387: 2021, 388: 2021, 389: 2022,
+  377: 2018, 378: 2019, 379: 2019,
+  380: 2021, 381: 2020, 382: 2020,
+  383: 2020, 385: 2021, 386: 2015,
+  387: 2019, 388: 2016, 389: 2022,
   390: 2022, 391: 2022, 392: 2022,
   393: 2022, 394: 2023, 395: 2023,
   396: 2023, 397: 2023, 399: 2023,
-  400: 2023, 401: 2023, 403: 2024,
-  404: 2024, 405: 2024, 406: 2024,
-  407: 2024, 408: 2024, 409: 2024
+  400: 2017, 401: 2023, 403: 2018,
+  404: 2024, 405: 2019, 406: 2016,
+  407: 2024, 408: 2024, 409: 2017
 };
 
 // Replace importAllImages function with static awards data
 const awardsData = [
-  { img: IMG_8377, title: 'Excellence in Construction Quality', description: awardDescriptions[377], year: awardYears[377] },
-  { img: IMG_8378, title: 'Safety Performance Award', description: awardDescriptions[378], year: awardYears[378] },
-  { img: IMG_8379, title: 'Green Building Initiative Award', description: awardDescriptions[379], year: awardYears[379] },
-  { img: IMG_8380, title: 'Project Completion Excellence', description: awardDescriptions[380], year: awardYears[380] },
-  { img: IMG_8381, title: 'Innovation in Construction Technology', description: awardDescriptions[381], year: awardYears[381] },
-  { img: IMG_8382, title: 'Client Satisfaction Award', description: awardDescriptions[382], year: awardYears[382] },
-  { img: IMG_8383, title: 'Best Infrastructure Development', description: awardDescriptions[383], year: awardYears[383] },
-  { img: IMG_8385, title: 'Environmental Stewardship Award', description: awardDescriptions[385], year: awardYears[385] },
-  { img: IMG_8386, title: 'Quality Management Excellence', description: awardDescriptions[386], year: awardYears[386] },
-  { img: IMG_8387, title: 'Best Commercial Project', description: awardDescriptions[387], year: awardYears[387] },
-  { img: IMG_8388, title: 'Sustainable Development Award', description: awardDescriptions[388], year: awardYears[388] },
-  { img: IMG_8389, title: 'Construction Safety Innovation', description: awardDescriptions[389], year: awardYears[389] },
-  { img: IMG_8390, title: 'Project Management Excellence', description: awardDescriptions[390], year: awardYears[390] },
-  { img: IMG_8391, title: 'Corporate Social Responsibility', description: awardDescriptions[391], year: awardYears[391] },
-  { img: IMG_8392, title: 'Best Residential Project', description: awardDescriptions[392], year: awardYears[392] },
-  { img: IMG_8393, title: 'Infrastructure Innovation Award', description: awardDescriptions[393], year: awardYears[393] },
-  { img: IMG_8394, title: 'Construction Leadership Award', description: awardDescriptions[394], year: awardYears[394] },
-  { img: IMG_8395, title: 'Design Excellence Award', description: awardDescriptions[395], year: awardYears[395] },
-  { img: IMG_8396, title: 'Urban Development Achievement', description: awardDescriptions[396], year: awardYears[396] },
-  { img: IMG_8397, title: 'Construction Best Practices', description: awardDescriptions[397], year: awardYears[397] },
-  { img: IMG_8399, title: 'Workplace Safety Excellence', description: awardDescriptions[399], year: awardYears[399] },
-  { img: IMG_8400, title: 'Project Delivery Award', description: awardDescriptions[400], year: awardYears[400] },
-  { img: IMG_8401, title: 'Construction Quality Leadership', description: awardDescriptions[401], year: awardYears[401] },
-  { img: IMG_8403, title: 'Environmental Compliance Award', description: awardDescriptions[403], year: awardYears[403] },
-  { img: IMG_8404, title: 'Customer Excellence Award', description: awardDescriptions[404], year: awardYears[404] },
-  { img: IMG_8405, title: 'Industry Leadership Award', description: awardDescriptions[405], year: awardYears[405] },
-  { img: IMG_8406, title: 'Best Industrial Project', description: awardDescriptions[406], year: awardYears[406] },
-  { img: IMG_8407, title: 'Safety Performance Recognition', description: awardDescriptions[407], year: awardYears[407] },
-  { img: IMG_8408, title: 'Sustainable Construction Award', description: awardDescriptions[408], year: awardYears[408] },
-  { img: IMG_8409, title: 'Project Excellence Award', description: awardDescriptions[409], year: awardYears[409] }
+  { img: IMG_8377, title: 'Yara India Safety Award', description: awardDescriptions[377], year: awardYears[377] },
+  { img: IMG_8378, title: 'Best Contractor Award', description: awardDescriptions[378], year: awardYears[378] },
+  { img: IMG_8379, title: 'Highest Nearmiss Reporter', description: awardDescriptions[379], year: awardYears[379] },
+  { img: IMG_8380, title: 'Best Contractors Safety Performance', description: awardDescriptions[380], year: awardYears[380] },
+  // { img: IMG_8381, title: 'Innovation in Construction Technology', description: awardDescriptions[381], year: awardYears[381] },
+  // { img: IMG_8382, title: 'Client Satisfaction Award', description: awardDescriptions[382], year: awardYears[382] },
+  // { img: IMG_8383, title: 'Best Infrastructure Development', description: awardDescriptions[383], year: awardYears[383] },
+  // { img: IMG_8385, title: 'Environmental Stewardship Award', description: awardDescriptions[385], year: awardYears[385] },
+  { img: IMG_8386, title: 'Best Contractor Award', description: awardDescriptions[386], year: awardYears[386] },
+  { img: IMG_8387, title: 'Highest Sub-Standard Condition Reporter', description: awardDescriptions[387], year: awardYears[387] },
+  { img: IMG_8388, title: 'Suraksha Sahyogi Puraskar', description: awardDescriptions[388], year: awardYears[388] },
+  // { img: IMG_8389, title: 'Construction Safety Innovation', description: awardDescriptions[389], year: awardYears[389] },
+  // { img: IMG_8390, title: 'Project Management Excellence', description: awardDescriptions[390], year: awardYears[390] },
+  // { img: IMG_8391, title: 'Corporate Social Responsibility', description: awardDescriptions[391], year: awardYears[391] },
+  // { img: IMG_8392, title: 'Best Residential Project', description: awardDescriptions[392], year: awardYears[392] },
+  // { img: IMG_8393, title: 'Infrastructure Innovation Award', description: awardDescriptions[393], year: awardYears[393] },
+  // { img: IMG_8394, title: 'Construction Leadership Award', description: awardDescriptions[394], year: awardYears[394] },
+  // { img: IMG_8395, title: 'Design Excellence Award', description: awardDescriptions[395], year: awardYears[395] },
+  // { img: IMG_8396, title: 'Urban Development Achievement', description: awardDescriptions[396], year: awardYears[396] },
+  // { img: IMG_8397, title: 'Construction Best Practices', description: awardDescriptions[397], year: awardYears[397] },
+  // { img: IMG_8399, title: 'Workplace Safety Excellence', description: awardDescriptions[399], year: awardYears[399] },
+  { img: IMG_8400, title: 'Best Contractor Award', description: awardDescriptions[400], year: awardYears[400] },
+  // { img: IMG_8401, title: 'Construction Quality Leadership', description: awardDescriptions[401], year: awardYears[401] },
+  { img: IMG_8403, title: 'Best Contractor Award', description: awardDescriptions[403], year: awardYears[403] },
+  // { img: IMG_8404, title: 'Customer Excellence Award', description: awardDescriptions[404], year: awardYears[404] },
+  { img: IMG_8405, title: 'Best Contractors Safety Performance', description: awardDescriptions[405], year: awardYears[405] },
+  { img: IMG_8406, title: 'Best Contractor Award', description: awardDescriptions[406], year: awardYears[406] },
+  // { img: IMG_8407, title: 'Safety Performance Recognition', description: awardDescriptions[407], year: awardYears[407] },
+  // { img: IMG_8408, title: 'Sustainable Construction Award', description: awardDescriptions[408], year: awardYears[408] },
+  { img: IMG_8409, title: 'Safe Contractor of the Year', description: awardDescriptions[409], year: awardYears[409] }
 ];
 
 const Awards: React.FC = () => {
@@ -270,15 +270,7 @@ const Awards: React.FC = () => {
                   >
                     {award.organization} - {award.year}
                   </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      fontSize: { xs: "18px", md: "22px" },
-                      color: '#000000'
-                    }}
-                  >
-                    {award.description}
-                  </Typography>
+                  
                 </CardContent>
               </Card>
             </Grid>
