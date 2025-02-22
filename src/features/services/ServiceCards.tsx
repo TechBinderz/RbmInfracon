@@ -160,13 +160,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "center",
+          alignItems: "stretch",
           mt: 4,
           borderTop: "1px solid rgba(0, 0, 0, 0.1)",
           pt: 3,
           pb: 2,
-          px: 4,
-          flexWrap: "wrap", // Prevents overlap on small screens
+          px: { xs: 1, sm: 4 },
+          gap: { xs: 1, sm: 2 },
+          flexWrap: "nowrap",
         }}
       >
         {/* Previous Slide */}
@@ -179,9 +180,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
             opacity: 0.8,
             transition: "all 0.3s ease",
             flex: 1,
-            maxWidth: { xs: "48%", sm: "45%" }, // Adjusted for better spacing
+            minWidth: 0, // Allow box to shrink below its content size
             backgroundColor: "rgba(57, 172, 75, 0.05)",
-            padding: { xs: 0, sm: 2 },
+            padding: { xs: 1, sm: 2 },
             borderRadius: 2,
             "&:hover": {
               opacity: 1,
@@ -194,18 +195,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
             size="small"
             sx={{
               color: themeColor,
+              flexShrink: 0,
               "&:hover": { backgroundColor: "rgba(57, 172, 75, 0.15)" },
             }}
           >
             <ArrowBackIosNewIcon />
           </IconButton>
-          <Box sx={{ ml: 2 }}>
+          <Box sx={{ ml: { xs: 1, sm: 2 }, minWidth: 0 }}>
             <Typography
               variant="caption"
               sx={{
                 color: themeColor,
                 fontWeight: 500,
-                fontSize: { xs: "14px", md: "16px" },
+                fontSize: { xs: "12px", sm: "14px", md: "16px" },
+                display: "block",
               }}
             >
               PREVIOUS
@@ -214,40 +217,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
               variant="subtitle1"
               sx={{
                 fontWeight: "bold",
-                lineHeight: 1.3,
-                fontSize: { xs: "18px", md: "24px" }, // Slightly smaller on mobile
+                lineHeight: 1.2,
+                fontSize: { xs: "14px", sm: "18px", md: "24px" },
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
               }}
             >
               {getPreviousSlide().title}
             </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                mt: 0.5,
-                display: { xs: "none", md: "-webkit-box" }, // Hide description on small screens
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                lineHeight: 1.4,
-                fontSize: { xs: "16px", md: "18px" },
-              }}
-            >
-              {getPreviousSlide().description}
-            </Typography>
           </Box>
         </Box>
-
-        {/* Divider */}
-        <Box
-          sx={{
-            width: "2px",
-            bgcolor: "rgba(57, 172, 75, 0.1)",
-            mx: { xs: 1, sm: 3 },
-            height: "100%",
-          }}
-        />
 
         {/* Next Slide */}
         <Box
@@ -259,10 +239,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
             opacity: 0.8,
             transition: "all 0.3s ease",
             flex: 1,
-            maxWidth: { xs: "40%", sm: "45%" }, // Adjusted for better spacing
+            minWidth: 0, // Allow box to shrink below its content size
             justifyContent: "flex-end",
             backgroundColor: "rgba(57, 172, 75, 0.05)",
-            padding: { xs: 0, sm: 2 },
+            padding: { xs: 1, sm: 2 },
             borderRadius: 2,
             "&:hover": {
               opacity: 1,
@@ -271,13 +251,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
             },
           }}
         >
-          <Box sx={{ mr: 2, textAlign: "right" }}>
+          <Box sx={{ mr: { xs: 1, sm: 2 }, textAlign: "right", minWidth: 0 }}>
             <Typography
               variant="caption"
               sx={{
                 color: themeColor,
                 fontWeight: 500,
-                fontSize: { xs: "14px", md: "16px" },
+                fontSize: { xs: "12px", sm: "14px", md: "16px" },
+                display: "block",
               }}
             >
               NEXT
@@ -286,34 +267,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
               variant="subtitle1"
               sx={{
                 fontWeight: "bold",
-                lineHeight: 1.3,
-                fontSize: { xs: "18px", md: "24px" }, // Slightly smaller on mobile
+                lineHeight: 1.2,
+                fontSize: { xs: "14px", sm: "18px", md: "24px" },
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
               }}
             >
               {getNextSlide().title}
-            </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                mt: 0.5,
-                display: { xs: "none", md: "-webkit-box" }, // Hide description on small screens
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                lineHeight: 1.4,
-                fontSize: { xs: "16px", md: "18px" },
-                textAlign: "right",
-              }}
-            >
-              {getNextSlide().description}
             </Typography>
           </Box>
           <IconButton
             size="small"
             sx={{
               color: themeColor,
+              flexShrink: 0,
               "&:hover": { backgroundColor: "rgba(57, 172, 75, 0.15)" },
             }}
           >
