@@ -18,7 +18,7 @@ const DrillingAndOMServices: React.FC = () => {
     <>
       <PageTitle
         imageUrl={drilling_service_1}
-        tileContent="Drilling And O&M Services"
+        tileContent="Drilling And O&M"
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>

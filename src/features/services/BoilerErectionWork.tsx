@@ -39,10 +39,7 @@ const BoilerErectionWork: React.FC = () => {
               our team ensures precision, efficiency, and the highest standards
               of safety and compliance.
             </Typography>
-            <Typography variant="h6" gutterBottom>
-              Our Services Include:
-            </Typography>
-            <Typography variant="body1" gutterBottom>
+            <Typography variant="h4" gutterBottom>
               <strong>Boiler Erection:</strong>
             </Typography>
             <ul style={{ paddingLeft: "20px", margin: 0 }}>

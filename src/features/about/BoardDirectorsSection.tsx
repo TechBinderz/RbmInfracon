@@ -39,11 +39,6 @@ const directors: Director[] = [
     description: "33 years of experience in Procurement, Project Management, and Supply Chain Management across diverse industrial sectors."
   },
   {
-    name: "Mr. Ravi Pratap Singh",
-    title: "Non-Executive Director",
-    description: "An experienced professional bringing valuable insights to the board with expertise in strategic planning and corporate governance."
-  },
-  {
     name: "Ms. Kriya Shah",
     title: "Independent Director",
     description: "A seasoned professional with expertise in corporate governance and regulatory compliance, bringing diverse perspective to the board."

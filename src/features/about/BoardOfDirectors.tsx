@@ -13,7 +13,6 @@ import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr
 import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Jay Bajrang Mani.jpg";
 import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
 import board_of_directors_image from "../../assets/features/about-us/board_of_directors.jpg";
-import Management from "./Management";
 import themeColor from "../common/common";
 
 interface Director {
@@ -46,12 +45,6 @@ const directors: Director[] = [
     image: deepak_saxena_photo,
     description:
       "A vast experience of 33 years in the Procurement of Materials and Services with experience in Project, Engineering, O&M, Contract Management for Capex and O&M, SCM, Purchase, Inbound and outbound logistics, imports, custom clearance and freight forwarding, Import and export licensing. He has been working in O&G, Polyester, Petrochemical refinery, Energy, Pipeline.",
-  },
-  {
-    name: "Mr. Ravi Pratap Singh",
-    title: "Non-Executive Director",
-    description:
-      "An experienced professional bringing valuable insights to the board with expertise in strategic planning and corporate governance.",
   },
   {
     name: "Ms. Kriya Shah",
@@ -191,7 +184,6 @@ const BoardOfDirectors: React.FC = () => {
             </Grid>
           ))}
         </Grid>
-        <Management />
       </Container>
     </>
   );

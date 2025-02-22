@@ -18,7 +18,7 @@ const RailWagonLoadingServices: React.FC = () => {
     <>
       <PageTitle
         imageUrl={rail_wagon_1}
-        tileContent="Rail Wagon Loading Services"
+        tileContent="Rail Wagon Loading"
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>

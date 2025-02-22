@@ -17,7 +17,7 @@ import piping_service_4 from "../../assets/features/services/piping/piping_servi
 const PipingServices: React.FC = () => {
   return (
     <>
-      <PageTitle imageUrl={piping_service_1} tileContent="Piping Services" />
+      <PageTitle imageUrl={piping_service_1} tileContent="Piping" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         {/* <Typography variant="h4" gutterBottom>
           Precision Piping Services

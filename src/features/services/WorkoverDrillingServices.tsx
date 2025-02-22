@@ -19,7 +19,7 @@ const WorkoverDrillingServices: React.FC = () => {
     <>
       <PageTitle
         imageUrl={workover_drilling_1}
-        tileContent="Performance Enhancement Services"
+        tileContent="Performance Enhancement"
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container } from "@mui/material";
 import backgroundImage from "../../assets/features/home/pexels-tomfisk-10407692.jpg"; // Adjust the path as necessary
-import TextImageCarousel from "./TextImageCarousal";
+// import TextImageCarousel from "./TextImageCarousal";
 import CustomerPage from "../common/CustomerPage";
 import SolutionSection from "./SolutionSection";
 import CompanySection from "./CompanySection";
@@ -77,9 +77,9 @@ const Home: React.FC = () => {
         <div className="hidden">
           <CompanySection />
         </div>
-        <div className="hidden">
+        {/* <div className="hidden">
           <TextImageCarousel />
-        </div>
+        </div> */}
         <br/>
         <div className="hidden">
           <NewsSection />

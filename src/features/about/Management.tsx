@@ -5,11 +5,11 @@ import { Grid, Typography, Card, CardContent } from "@mui/material";
 import narendra_sharma_photo from "../../assets/features/rbm_management/Mr. Narendra Sharma.png";
 import pankaj_kumar_photo from "../../assets/features/rbm_management/Mr. Pankaj Kumar.png";
 import ranjan_kumar_photo from "../../assets/features/rbm_management/Mr. Ranjan Kumar.png";
-import ravi_pratap_photo from "../../assets/features/rbm_management/Mr. Ravi Pratap Singh.png";
+// import ravi_pratap_photo from "../../assets/features/rbm_management/Mr. Ravi Pratap Singh.png";
 import sanjay_singh_photo from "../../assets/features/rbm_management/Mr. Sanjay Singh.png";
 import sreejith_pillai_photo from "../../assets/features/rbm_management/Mr. Sreejith Pillai.png";
 // import sunil_srivastava_photo from "../../assets/features/rbm_management/Mr. Sunil Srivastava.png";
-import sunil_kumar_photo from "../../assets/features/rbm_management/Sunil Kumar Singh.png";
+// import sunil_kumar_photo from "../../assets/features/rbm_management/Sunil Kumar Singh.png";
 import jina_kuttath_photo from "../../assets/features/rbm_management/Ms. Jina Kuttath.png";
 
 // Management team data
@@ -44,16 +44,16 @@ const managementTeamList = [
   //   title: "Chief Human Resourses Officer",
   //   name: "Mr. Sunil Srivastava",
   // },
-  {
-    image: ravi_pratap_photo,
-    title: "Non-Executive Director of Oil & Gas Division",
-    name: "Mr. Ravi Pratap Singh",
-  },
-  {
-    image: sunil_kumar_photo,
-    title: "ONGC Project Head",
-    name: "Sunil Kumar Singh",
-  },
+  // {
+  //   image: ravi_pratap_photo,
+  //   title: "Non-Executive Director of Oil & Gas Division",
+  //   name: "Mr. Ravi Pratap Singh",
+  // },
+  // {
+  //   image: sunil_kumar_photo,
+  //   title: "ONGC Project Head",
+  //   name: "Sunil Kumar Singh",
+  // },
   {
     image: sanjay_singh_photo,
     title: "President - Oil & Gas Division",
