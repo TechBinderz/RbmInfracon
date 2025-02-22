@@ -6,8 +6,6 @@ import {
   Card,
   CardContent,
   Box,
-  ImageList,
-  ImageListItem,
   useTheme,
   useMediaQuery,
   Pagination,
@@ -22,52 +20,24 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Award descriptions
-const awardDescriptions = {
-  377: "Excellence in Construction Quality - Recognized for maintaining exceptional construction standards and quality control",
-  378: "Safety Performance Award - Outstanding commitment to workplace safety and accident prevention",
-  379: "Green Building Initiative Award - Leadership in sustainable construction practices and eco-friendly building solutions",
-  380: "Project Completion Excellence - Timely delivery of large-scale infrastructure projects",
-  381: "Innovation in Construction Technology - Implementation of cutting-edge construction methodologies",
-  382: "Client Satisfaction Award - Recognition for exceptional client service and project delivery",
-  383: "Best Infrastructure Development - Excellence in infrastructure project execution",
-  385: "Environmental Stewardship Award - Commitment to environmental conservation in construction",
-  386: "Quality Management Excellence - Superior quality management systems and processes",
-  387: "Best Commercial Project - Outstanding achievement in commercial construction",
-  388: "Sustainable Development Award - Leadership in sustainable construction practices",
-  389: "Construction Safety Innovation - Innovative approaches to construction site safety",
-  390: "Project Management Excellence - Exceptional project planning and execution",
-  391: "Corporate Social Responsibility - Contributing to community development through construction",
-  392: "Best Residential Project - Excellence in residential construction development",
-  393: "Infrastructure Innovation Award - Innovative solutions in infrastructure development",
-  394: "Construction Leadership Award - Outstanding leadership in the construction industry",
-  395: "Design Excellence Award - Superior architectural and construction design",
-  396: "Urban Development Achievement - Excellence in urban construction projects",
-  397: "Construction Best Practices - Setting industry standards in construction",
-  399: "Workplace Safety Excellence - Maintaining highest safety standards on construction sites",
-  400: "Project Delivery Award - Timely completion of complex construction projects",
-  401: "Construction Quality Leadership - Setting benchmarks in construction quality",
-  403: "Environmental Compliance Award - Excellence in environmental regulations compliance",
-  404: "Customer Excellence Award - Superior customer satisfaction in construction projects",
-  405: "Industry Leadership Award - Pioneering advancements in construction industry",
-  406: "Best Industrial Project - Excellence in industrial construction",
-  407: "Safety Performance Recognition - Outstanding safety record in construction",
-  408: "Sustainable Construction Award - Leadership in eco-friendly construction practices",
-  409: "Project Excellence Award - Overall excellence in project execution and delivery"
-};
 
 // Manual imports for award images
 import IMG_8377 from '../../assets/features/Awards/IMG_8377.jpg';
 import IMG_8378 from '../../assets/features/Awards/IMG_8378.jpg';
 import IMG_8379 from '../../assets/features/Awards/IMG_8379.jpg';
 import IMG_8380 from '../../assets/features/Awards/IMG_8380.jpg';
+import IMG_8386 from '../../assets/features/Awards/IMG_8386.jpg';
+import IMG_8387 from '../../assets/features/Awards/IMG_8387.jpg';
+import IMG_8388 from '../../assets/features/Awards/IMG_8388.jpg';
+import IMG_8400 from '../../assets/features/Awards/IMG_8400.jpg';
+import IMG_8403 from '../../assets/features/Awards/IMG_8403.jpg';
+import IMG_8405 from '../../assets/features/Awards/IMG_8405.jpg';
+import IMG_8406 from '../../assets/features/Awards/IMG_8406.jpg';
+import IMG_8409 from '../../assets/features/Awards/IMG_8409.jpg';
 import IMG_8381 from '../../assets/features/Awards/IMG_8381.jpg';
 import IMG_8382 from '../../assets/features/Awards/IMG_8382.jpg';
 import IMG_8383 from '../../assets/features/Awards/IMG_8383.jpg';
 import IMG_8385 from '../../assets/features/Awards/IMG_8385.jpg';
-import IMG_8386 from '../../assets/features/Awards/IMG_8386.jpg';
-import IMG_8387 from '../../assets/features/Awards/IMG_8387.jpg';
-import IMG_8388 from '../../assets/features/Awards/IMG_8388.jpg';
 import IMG_8389 from '../../assets/features/Awards/IMG_8389.jpg';
 import IMG_8390 from '../../assets/features/Awards/IMG_8390.jpg';
 import IMG_8391 from '../../assets/features/Awards/IMG_8391.jpg';
@@ -78,62 +48,130 @@ import IMG_8395 from '../../assets/features/Awards/IMG_8395.jpg';
 import IMG_8396 from '../../assets/features/Awards/IMG_8396.jpg';
 import IMG_8397 from '../../assets/features/Awards/IMG_8397.jpg';
 import IMG_8399 from '../../assets/features/Awards/IMG_8399.jpg';
-import IMG_8400 from '../../assets/features/Awards/IMG_8400.jpg';
 import IMG_8401 from '../../assets/features/Awards/IMG_8401.jpg';
-import IMG_8403 from '../../assets/features/Awards/IMG_8403.jpg';
 import IMG_8404 from '../../assets/features/Awards/IMG_8404.jpg';
-import IMG_8405 from '../../assets/features/Awards/IMG_8405.jpg';
-import IMG_8406 from '../../assets/features/Awards/IMG_8406.jpg';
 import IMG_8407 from '../../assets/features/Awards/IMG_8407.jpg';
 import IMG_8408 from '../../assets/features/Awards/IMG_8408.jpg';
-import IMG_8409 from '../../assets/features/Awards/IMG_8409.jpg';
-
-// Award years mapping
-const awardYears = {
-  377: 2018, 378: 2019, 379: 2019,
-  380: 2021, 381: 2020, 382: 2020,
-  383: 2020, 385: 2021, 386: 2015,
-  387: 2019, 388: 2016, 389: 2022,
-  390: 2022, 391: 2022, 392: 2022,
-  393: 2022, 394: 2023, 395: 2023,
-  396: 2023, 397: 2023, 399: 2023,
-  400: 2017, 401: 2023, 403: 2018,
-  404: 2024, 405: 2019, 406: 2016,
-  407: 2024, 408: 2024, 409: 2017
-};
 
 // Replace importAllImages function with static awards data
 const awardsData = [
-  { img: IMG_8377, title: 'Yara India Safety Award', description: awardDescriptions[377], year: awardYears[377] },
-  { img: IMG_8378, title: 'Best Contractor Award', description: awardDescriptions[378], year: awardYears[378] },
-  { img: IMG_8379, title: 'Highest Nearmiss Reporter', description: awardDescriptions[379], year: awardYears[379] },
-  { img: IMG_8380, title: 'Best Contractors Safety Performance', description: awardDescriptions[380], year: awardYears[380] },
-  // { img: IMG_8381, title: 'Innovation in Construction Technology', description: awardDescriptions[381], year: awardYears[381] },
-  // { img: IMG_8382, title: 'Client Satisfaction Award', description: awardDescriptions[382], year: awardYears[382] },
-  // { img: IMG_8383, title: 'Best Infrastructure Development', description: awardDescriptions[383], year: awardYears[383] },
-  // { img: IMG_8385, title: 'Environmental Stewardship Award', description: awardDescriptions[385], year: awardYears[385] },
-  { img: IMG_8386, title: 'Best Contractor Award', description: awardDescriptions[386], year: awardYears[386] },
-  { img: IMG_8387, title: 'Highest Sub-Standard Condition Reporter', description: awardDescriptions[387], year: awardYears[387] },
-  { img: IMG_8388, title: 'Suraksha Sahyogi Puraskar', description: awardDescriptions[388], year: awardYears[388] },
-  // { img: IMG_8389, title: 'Construction Safety Innovation', description: awardDescriptions[389], year: awardYears[389] },
-  // { img: IMG_8390, title: 'Project Management Excellence', description: awardDescriptions[390], year: awardYears[390] },
-  // { img: IMG_8391, title: 'Corporate Social Responsibility', description: awardDescriptions[391], year: awardYears[391] },
-  // { img: IMG_8392, title: 'Best Residential Project', description: awardDescriptions[392], year: awardYears[392] },
-  // { img: IMG_8393, title: 'Infrastructure Innovation Award', description: awardDescriptions[393], year: awardYears[393] },
-  // { img: IMG_8394, title: 'Construction Leadership Award', description: awardDescriptions[394], year: awardYears[394] },
-  // { img: IMG_8395, title: 'Design Excellence Award', description: awardDescriptions[395], year: awardYears[395] },
-  // { img: IMG_8396, title: 'Urban Development Achievement', description: awardDescriptions[396], year: awardYears[396] },
-  // { img: IMG_8397, title: 'Construction Best Practices', description: awardDescriptions[397], year: awardYears[397] },
-  // { img: IMG_8399, title: 'Workplace Safety Excellence', description: awardDescriptions[399], year: awardYears[399] },
-  { img: IMG_8400, title: 'Best Contractor Award', description: awardDescriptions[400], year: awardYears[400] },
-  // { img: IMG_8401, title: 'Construction Quality Leadership', description: awardDescriptions[401], year: awardYears[401] },
-  { img: IMG_8403, title: 'Best Contractor Award', description: awardDescriptions[403], year: awardYears[403] },
-  // { img: IMG_8404, title: 'Customer Excellence Award', description: awardDescriptions[404], year: awardYears[404] },
-  { img: IMG_8405, title: 'Best Contractors Safety Performance', description: awardDescriptions[405], year: awardYears[405] },
-  { img: IMG_8406, title: 'Best Contractor Award', description: awardDescriptions[406], year: awardYears[406] },
-  // { img: IMG_8407, title: 'Safety Performance Recognition', description: awardDescriptions[407], year: awardYears[407] },
-  // { img: IMG_8408, title: 'Sustainable Construction Award', description: awardDescriptions[408], year: awardYears[408] },
-  { img: IMG_8409, title: 'Safe Contractor of the Year', description: awardDescriptions[409], year: awardYears[409] }
+  {
+    "id": 377,
+    "title": "Yara India Safety Award",
+    "description": "Excellence in Construction Quality - Recognized for maintaining exceptional construction standards and quality control",
+    "year": 2018,
+    "img": IMG_8377
+  },
+  {
+    "id": 378,
+    "title": "Best Contractor Award",
+    "description": "Safety Performance Award - Outstanding commitment to workplace safety and accident prevention",
+    "year": 2019,
+    "img": IMG_8378
+  },
+  {
+    "id": 379,
+    "title": "Highest Nearmiss Reporter",
+    "description": "Green Building Initiative Award - Leadership in sustainable construction practices and eco-friendly building solutions",
+    "year": 2019,
+    "img": IMG_8379
+  },
+  {
+    "id": 380,
+    "title": "Best Contractors Safety Performance",
+    "description": "Project Completion Excellence - Timely delivery of large-scale infrastructure projects",
+    "year": 2021,
+    "img": IMG_8380
+  },
+  {
+    "id": 386,
+    "title": "Best Contractor Award",
+    "description": "Quality Management Excellence - Superior quality management systems and processes",
+    "year": 2015,
+    "img": IMG_8386
+  },
+  {
+    "id": 387,
+    "title": "Highest Sub-Standard Condition Reporter",
+    "description": "Best Commercial Project - Outstanding achievement in commercial construction",
+    "year": 2019,
+    "img": IMG_8387
+  },
+  {
+    "id": 388,
+    "title": "Suraksha Sahyogi Puraskar",
+    "description": "Sustainable Development Award - Leadership in sustainable construction practices",
+    "year": 2016,
+    "img": IMG_8388
+  },
+  {
+    "id": 400,
+    "title": "Best Contractor Award",
+    "description": "Project Delivery Award - Timely completion of complex construction projects",
+    "year": 2017,
+    "img": IMG_8400
+  },
+  {
+    "id": 403,
+    "title": "Best Contractor Award",
+    "description": "Environmental Compliance Award - Excellence in environmental regulations compliance",
+    "year": 2018,
+    "img": IMG_8403
+  },
+  {
+    "id": 405,
+    "title": "Best Contractors Safety Performance",
+    "description": "Industry Leadership Award - Pioneering advancements in construction industry",
+    "year": 2019,
+    "img": IMG_8405
+  },
+  {
+    "id": 406,
+    "title": "Best Contractor Award",
+    "description": "Best Industrial Project - Excellence in industrial construction",
+    "year": 2016,
+    "img": IMG_8406
+  },
+  {
+    "id": 409,
+    "title": "Safe Contractor of the Year",
+    "description": "Project Excellence Award - Overall excellence in project execution and delivery",
+    "year": 2017,
+    "img": IMG_8409
+  }
+]
+
+const allAwards = [
+  {"img": IMG_8377, "title": "IMG_8377"},
+  {"img": IMG_8378, "title": "IMG_8378"},
+  {"img": IMG_8379, "title": "IMG_8379"},
+  {"img": IMG_8380, "title": "IMG_8380"},
+  {"img": IMG_8381, "title": "IMG_8381"},
+  {"img": IMG_8382, "title": "IMG_8382"},
+  {"img": IMG_8383, "title": "IMG_8383"},
+  {"img": IMG_8385, "title": "IMG_8385"},
+  {"img": IMG_8386, "title": "IMG_8386"},
+  {"img": IMG_8387, "title": "IMG_8387"},
+  {"img": IMG_8388, "title": "IMG_8388"},
+  {"img": IMG_8389, "title": "IMG_8389"},
+  {"img": IMG_8390, "title": "IMG_8390"},
+  {"img": IMG_8391, "title": "IMG_8391"},
+  {"img": IMG_8392, "title": "IMG_8392"},
+  {"img": IMG_8393, "title": "IMG_8393"},
+  {"img": IMG_8394, "title": "IMG_8394"},
+  {"img": IMG_8395, "title": "IMG_8395"},
+  {"img": IMG_8396, "title": "IMG_8396"},
+  {"img": IMG_8397, "title": "IMG_8397"},
+  {"img": IMG_8399, "title": "IMG_8399"},
+  {"img": IMG_8400, "title": "IMG_8400"},
+  {"img": IMG_8401, "title": "IMG_8401"},
+  {"img": IMG_8403, "title": "IMG_8403"},
+  {"img": IMG_8404, "title": "IMG_8404"},
+  {"img": IMG_8405, "title": "IMG_8405"},
+  {"img": IMG_8406, "title": "IMG_8406"},
+  {"img": IMG_8407, "title": "IMG_8407"},
+  {"img": IMG_8408, "title": "IMG_8408"},
+  {"img": IMG_8409, "title": "IMG_8409"}
 ];
 
 const Awards: React.FC = () => {
@@ -146,14 +184,14 @@ const Awards: React.FC = () => {
   const awards = awardsData.map((award) => ({
     ...award,
     organization: "RBM Infracon"
-  }));
+  })).sort((a, b) => b.year - a.year);
 
   const currentAwards = awards.slice(
     (page - 1) * itemsPerPage,
     page * itemsPerPage
   );
 
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -334,7 +372,7 @@ const Awards: React.FC = () => {
             <ArrowForwardIosIcon />
           </IconButton>
           <Slider ref={sliderRef} {...settings}>
-            {awardsData.map((item, index) => (
+            {allAwards.map((item, index) => (
               <Box
                 key={index}
                 sx={{
