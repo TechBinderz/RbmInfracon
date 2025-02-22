@@ -11,6 +11,7 @@ import {
   useTheme,
   useMediaQuery,
   Pagination,
+  CardMedia,
   IconButton,
 } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
