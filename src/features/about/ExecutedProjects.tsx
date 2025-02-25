@@ -65,8 +65,8 @@ const ExecutedProjects: React.FC = () => {
         {
           name: "Revamp Project & IBR Package",
           details: [
-            "Revamp Project- Fabrication and Erection of Piping jobs at CCR/NHT",
-            "Arc of IBR package- fabrication and erection of piping and equipment jobs in green field area",
+            "Revamp Project- Fabrication and Erection of Piping jobs at CCR/NHT (₹3.11 Crores)",
+            "Arc of IBR package- fabrication and erection of piping and equipment jobs in green field area (₹6.8 Crores)",
           ],
           value: "₹9.91 Crores",
           completionDate: "27-02-2019",
@@ -74,20 +74,23 @@ const ExecutedProjects: React.FC = () => {
         {
           name: "Major Turnaround (TA-2018)",
           details: [
-            "Hot & Cold Jobs - Package 1",
-            "Hot & Cold jobs (Pkg. 6 & 7)",
-            "Hydro testing, IBR Inspection and Approval",
-            "M & I Jobs of Offsite (Jetty) Area",
-            "M&I jobs for PIT Area",
-            "Various maintenance and replacement works",
+            "Hot & Cold Jobs during Major Turnaround (TA - 2018) - Package 1 at Refinery Site, Nayara Energy Limited, Vadinar (₹4.07 Crores)",
+            "Hot & Cold jobs (Pkg. 6 & 7) during Major TA-2018 (₹81 Lakhs)",
+            "Hydro testing, IBR Inspection and Approval for Various Loops Equipment during TA 2018 (₹60.60 Lakhs)",
+            "M & I Jobs of Offsite (Jetty) Area during TA (₹54 Lakhs)",
+            "M&I jobs for PIT Area during TA (₹47 Lakhs)",
+            "Piping replacement Job of LeanRich Amine pipe line at ARU-1 Unit (₹18.50 Lakhs)",
+            "VGO HP loop support rectification jobs during Turnaround-2018 (₹14.50 Lakhs)",
+            "Heat Exchanger Parts repairing Jobs in Mechanical Maintenance Workshop during TA-2018 (₹10.20 Lakhs)",
+            "Replacement of Bottom Dish end of 85V-302-TA-18 (₹4.90 Lakhs)",
           ],
-          value: "₹6.99 Crores",
+          value: "₹6.98 Crores",
           completionDate: "28-02-2019",
         },
         {
-          name: "VGO-MHC Revamp & Critical MOCs (TA-2022)",
+          name: "Major Turnaround (TA-2022)",
           details: [
-            "ARC for Fabrication & Erection of Piping & Structural work",
+            "ARC for Fabrication & Erection of Piping & Structural work of VGO-MHC Revamp & Critical MOCs related to TA-2022 (₹7.29 Crores)",
           ],
           value: "₹7.29 Crores",
           completionDate: "30-08-2023",
@@ -99,7 +102,7 @@ const ExecutedProjects: React.FC = () => {
       projects: [
         {
           name: "MPC C2 Complex",
-          details: ["Mechanical works for MPC C2 Complex"],
+          details: ["Mechanical works for MPC C2 Complex (₹16.37 Crores)"],
           value: "₹16.37 Crores",
           completionDate: "16-03-2022",
         },
@@ -111,7 +114,7 @@ const ExecutedProjects: React.FC = () => {
         {
           name: "PP Unit Civil Works",
           details: [
-            "Civil Works - TS01, VRU and TEAL Areas (Package 1) for PP Unit, Nayara Energies",
+            "Civil Works - TS01, VRU and TEAL Areas (Package 1) for PP Unit, Nayara Energies (₹16.16 Crores)",
           ],
           value: "₹16.16 Crores",
           completionDate: "30-11-2023",
@@ -124,11 +127,11 @@ const ExecutedProjects: React.FC = () => {
         {
           name: "Various Installation Works",
           details: [
-            "Ammonia Loading Arm Piping work",
-            "Belt Conveyor (BC 21) installation & commissioning at PPP",
-            "Replacement of 3 nos UCT pumps",
+            "Ammonia Loading Arm Piping work (₹43.44 Lakhs)",
+            "Belt Conveyor (BC 21) installation & commissioning at PPP (₹46.83 Lakhs)",
+            "Replacement of 3 nos UCT pumps (₹26.55 Lakhs)",
           ],
-          value: "₹1.17 Crores",
+          value: "₹1.18 Crores",
           completionDate: "17-06-2024",
         },
       ],

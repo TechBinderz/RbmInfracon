@@ -7,7 +7,8 @@ import steel_work_1 from "../../assets/features/services/structural/steel_work (
 import boiler_erection_1 from "../../assets/features/services/boiler/boiler_erection (1).jpg";
 import performance_1 from "../../assets/features/services/performance/performance (1).jpg";
 import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (1).jpg";
-import no_image from "../../assets/features/services/no_image.png"
+import hydrojetting_1 from "../../assets/features/services/hydrojetting/hydrojetting (1).jpg";
+// import no_image from "../../assets/features/services/no_image.png"
 
 // Define the card data
 const serviceCardData = [
@@ -27,7 +28,7 @@ const serviceCardData = [
   },
   {
     pathName: "hydrojetting",
-    image: no_image,
+    image: hydrojetting_1,
     title: "Hydrojetting",
     description:
       "With cutting-edge technology and state-of-the-art equipment at our disposal, our team provides high-pressure water jetting services.",
