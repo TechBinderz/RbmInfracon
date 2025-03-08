@@ -11,7 +11,7 @@ import {
 import hydrojetting_1 from "../../assets/features/services/hydrojetting/hydrojetting (1).jpg";
 import hydrojetting_2 from "../../assets/features/services/hydrojetting/hydrojetting (2).jpg";
 import hydrojetting_3 from "../../assets/features/services/hydrojetting/hydrojetting (3).jpg";
-import hydrojetting_4 from "../../assets/features/services/no_image.png";
+import hydrojetting_4 from "../../assets/features/services/hydrojetting/hydrojetting (4).jpg";
 
 const Hydrojetting: React.FC = () => {
   return (
