@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Container, Typography, Divider, Card, CardContent, Grid, Button, Box, CardActionArea } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Container, Typography, Divider, Card, CardContent, Grid, Box,} from '@mui/material';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import themeColor from '../common/common';
 import anualReport21_22 from '../../assets/features/investors/Annual Report FY 21-22.pdf';
@@ -263,7 +263,6 @@ interface TextPdfProps {
 }
 
 const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
-  const [selectedReport, setSelectedReport] = useState<string | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const annualReports = [
