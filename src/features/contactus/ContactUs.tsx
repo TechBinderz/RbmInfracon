@@ -179,8 +179,8 @@ const ContactUs: React.FC = () => (
           <Box display="flex" alignItems="center" sx={{ marginBottom: "16px" }}>
             <LocationOnIcon sx={{ marginRight: "8px", color: themeColor }} />
             <Typography fontSize="18px" variant="body2">
-              03, Snehdeep Residency, Office No. 3, Digjam Circle, Jamnagar,
-              Gujarat, PIN Code: 361006
+              RBM Infracon Limited, 1st Floor, Ravi Plaza, Nilkanth Park,
+              Dinchda Road, Jamnagar, Gujarat, India - 361002
             </Typography>
           </Box>
 
