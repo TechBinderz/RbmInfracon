@@ -13,6 +13,7 @@ import shareholdingPattern from "../../assets/features/investors/CA CERTIFICATE 
 import groupCompanies from "../../assets/features/investors/3A.SECTION XI - Group Companies.pdf";
 import corporateAnnouncements from "../../assets/features/investors/PROSPECTUS_RBM.pdf";
 import creditRatings from "../../assets/features/investors/Credit Rating Letter.pdf";
+import themeColor from '../common/common';
 
 const investorItems = [
   { title: 'Board Of Directors', content: <DirectorTable />, type: 'table' },
@@ -72,10 +73,10 @@ const Investor: React.FC = () => {
                   transition: 'all 0.3s ease',
                   transform: hoveredIndex === index ? 'translateY(-8px)' : 'none',
                   boxShadow: hoveredIndex === index 
-                    ? '0 12px 24px rgba(0, 0, 0, 0.15)' 
+                    ? `0 12px 24px ${themeColor}40`
                     : '0 4px 12px rgba(0, 0, 0, 0.08)',
                   '&:hover': {
-                    borderColor: 'primary.main',
+                    borderColor: themeColor,
                   },
                   display: 'flex',
                   flexDirection: 'column',
@@ -90,7 +91,7 @@ const Investor: React.FC = () => {
                     left: 0,
                     width: '100%',
                     height: '4px',
-                    backgroundColor: 'primary.main',
+                    backgroundColor: themeColor,
                     opacity: hoveredIndex === index ? 1 : 0,
                     transition: 'opacity 0.3s ease',
                   }
