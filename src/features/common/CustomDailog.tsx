@@ -8,7 +8,7 @@ interface CustomDialogProps {
   onClose: () => void;
   title: string;
   content: React.ReactNode;
-  type: 'pdf' | 'image' | 'table' | 'text';
+  type: 'pdf' | 'image' | 'table' | 'text' | 'text/pdf';
 }
 
 const CustomDialog: React.FC<CustomDialogProps> = ({ open, onClose, title, content, type }) => {
@@ -16,13 +16,14 @@ const CustomDialog: React.FC<CustomDialogProps> = ({ open, onClose, title, conte
   const isImage = type === 'image';
   const isTable = type === 'table';
   const isText = type === 'text';
+  const isTextPdf = type === 'text/pdf';
 
   return (
     <Dialog
       open={open}
       onClose={onClose}
-      maxWidth={isPdf ? 'xl' : 'md'}
-      fullWidth={isPdf} // Make dialog full width for PDFs
+      maxWidth={isPdf ? 'xl' : isTextPdf ? 'lg' : 'md'}
+      fullWidth={isPdf || isTextPdf} // Make dialog full width for PDFs
       PaperProps={{ style: { height: isPdf ? '100vh' : 'auto' } }} // Set height to full viewport height for PDFs
     >
       <DialogTitle>
@@ -52,7 +53,7 @@ const CustomDialog: React.FC<CustomDialogProps> = ({ open, onClose, title, conte
           />
         ) : isTable ? (
           content // content will be a React component for tables
-        ) : isText ? (
+        ) : isText || isTextPdf ? (
           <Typography variant="body1">{content}</Typography>
         ) : null}
       </DialogContent>
