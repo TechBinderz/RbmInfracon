@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Container, Typography, Divider, Card, CardContent, Grid, Button, Box, CardActionArea } from '@mui/material';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import themeColor from '../common/common';
 import anualReport21_22 from '../../assets/features/investors/Annual Report FY 21-22.pdf';
 import anualReport22_23 from '../../assets/features/investors/Annual Report FY 22-23.pdf';
@@ -34,20 +35,54 @@ interface InfoCardProps {
 const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
   return (
     <Container maxWidth="lg" sx={{ padding: { xs: "5px", sm: "10px" } }}>
-      <TableContainer component={Paper}>
+      <TableContainer 
+        component={Paper} 
+        sx={{ 
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+          borderRadius: 2,
+          overflow: 'hidden'
+        }}
+      >
         <Table>
           <TableHead>
-            <TableRow>
+            <TableRow sx={{ backgroundColor: 'primary.main' }}>
               {columns.map((column) => (
-                <TableCell key={column.id}>{column.label}</TableCell>
+                <TableCell 
+                  key={column.id}
+                  sx={{
+                    color: 'white',
+                    fontWeight: 600,
+                    fontSize: '0.95rem'
+                  }}
+                >
+                  {column.label}
+                </TableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
             {data.map((row, rowIndex) => (
-              <TableRow key={rowIndex}>
+              <TableRow 
+                key={rowIndex}
+                sx={{
+                  '&:nth-of-type(odd)': {
+                    backgroundColor: 'rgba(0, 0, 0, 0.02)',
+                  },
+                  '&:hover': {
+                    backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                  },
+                }}
+              >
                 {columns.map((column) => (
-                  <TableCell key={column.id}>{row[column.id]}</TableCell>
+                  <TableCell 
+                    key={column.id}
+                    sx={{
+                      fontSize: '0.9rem',
+                      color: 'text.primary'
+                    }}
+                  >
+                    {row[column.id]}
+                  </TableCell>
                 ))}
               </TableRow>
             ))}
@@ -59,20 +94,60 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 };
 
 const InfoCard: React.FC<InfoCardProps> = ({ title, data }) => (
-  <Card sx={{ maxWidth: 600, margin: '20px auto', padding: 2, border: '1px solid #ccc' }}>
-    <CardContent>
-      <Typography variant="h5" gutterBottom>
+  <Card 
+    sx={{ 
+      maxWidth: 600, 
+      margin: '20px auto', 
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+      borderRadius: 2,
+      transition: 'all 0.3s ease',
+      '&:hover': {
+        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.12)',
+        transform: 'translateY(-4px)',
+      }
+    }}
+  >
+    <CardContent sx={{ p: 3 }}>
+      <Typography 
+        variant="h5" 
+        gutterBottom 
+        sx={{ 
+          fontWeight: 600,
+          color: 'text.primary',
+          mb: 2
+        }}
+      >
         {title}
       </Typography>
-      <Divider sx={{ marginBottom: '20px', borderColor: themeColor }} />
-      <Grid container spacing={2}>
+      <Divider sx={{ 
+        mb: 3,
+        borderColor: themeColor,
+        borderWidth: 2,
+        width: '60px'
+      }} />
+      <Grid container spacing={3}>
         {data.map((item, index) => (
           <React.Fragment key={index}>
-            <Grid item xs={4}>
-              <Typography variant="subtitle1">{item.label}</Typography>
+            <Grid item xs={12} sm={4}>
+              <Typography 
+                variant="subtitle2" 
+                sx={{ 
+                  color: 'text.secondary',
+                  fontWeight: 600 
+                }}
+              >
+                {item.label}
+              </Typography>
             </Grid>
-            <Grid item xs={8}>
-              <Typography>{item.value}</Typography>
+            <Grid item xs={12} sm={8}>
+              <Typography 
+                sx={{ 
+                  color: 'text.primary',
+                  fontSize: '0.95rem'
+                }}
+              >
+                {item.value}
+              </Typography>
             </Grid>
           </React.Fragment>
         ))}
@@ -218,52 +293,82 @@ const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
     { name: "PSC certificate warrant", url: psc_certificate_warrant },
   ];
 
-  const reports = type === 'annual' ? annualReports : type ==="notices" ? noticesList2025 : type== 'preferencial_issue' ? preferencialIssue: quarterlyReports2024;
+  const getReportData = () => {
+    switch (type) {
+      case 'annual':
+        return annualReports;
+      case 'quarterly24':
+        return quarterlyReports2024;
+      case 'notices':
+        return noticesList2025;
+      case 'preferencial_issue':
+        return preferencialIssue;
+      default:
+        return [];
+    }
+  };
 
   return (
-    <Container sx={{ py: 4 }} maxWidth={selectedReport ? false : 'md'}>
-      {!selectedReport ? (
-        <Grid container spacing={2} justifyContent="center">
-          {reports.map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card
-                style={{
-                  margin: '20px',
-                  cursor: 'pointer',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  transform: hoveredIndex === index ? 'scale(1.05)' : 'scale(1)',
-                  boxShadow: hoveredIndex === index ? '0px 4px 15px rgba(0, 0, 0, 0.3)' : '8px 8px 15px 6px rgba(0, 0, 0, 0.1)',
-                }}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                <CardActionArea onClick={() => setSelectedReport(item.url)}>
-                  <CardContent sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Typography variant="h6">{item.name}</Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      ) : (
-        <Box sx={{ height: '100%', width: '100%', display: 'flex', flexDirection: 'column' }}>
-          <Button
-            variant="contained"
-            onClick={() => setSelectedReport(null)}
-            sx={{ mb: 2, alignSelf: 'flex-start' }}
-          >
-            ← Back
-          </Button>
-          <Box sx={{ flexGrow: 1 }}>
-            <iframe
-              src={selectedReport}
-              style={{ width: '100%', height: '80vh', border: 'none' }}
-              title="Financial Report PDF"
-            />
-          </Box>
-        </Box>
-      )}
+    <Container maxWidth="lg">
+      <Grid container spacing={3}>
+        {getReportData().map((report, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Card
+              sx={{
+                height: '100%',
+                transition: 'all 0.3s ease',
+                transform: hoveredIndex === index ? 'translateY(-8px)' : 'none',
+                boxShadow: hoveredIndex === index 
+                  ? `0 12px 24px ${themeColor}40`
+                  : '0 4px 12px rgba(0, 0, 0, 0.08)',
+                '&:hover': {
+                  borderColor: themeColor,
+                },
+                cursor: 'pointer',
+                borderRadius: 2,
+                position: 'relative',
+                overflow: 'hidden',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '4px',
+                  backgroundColor: themeColor,
+                  opacity: hoveredIndex === index ? 1 : 0,
+                  transition: 'opacity 0.3s ease',
+                }
+              }}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              onClick={() => window.open(report.url, '_blank')}
+            >
+              <CardContent sx={{ p: 3 }}>
+                <Box sx={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: 2 
+                }}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 600,
+                      fontSize: '1.1rem',
+                      color: 'text.primary',
+                      lineHeight: 1.3,
+                      flexGrow: 1
+                    }}
+                  >
+                    {report.name}
+                  </Typography>
+                  <PictureAsPdfIcon sx={{ color: '#D32F2F', fontSize: 28 }} />
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   );
 };
