@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Container, Grid, Card, CardContent, Typography } from '@mui/material';
+import { Container, Grid, Card, CardContent, Typography, Box } from '@mui/material';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import TableChartIcon from '@mui/icons-material/TableChart';
+import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import '../common/common.css';
 import PageTitle from '../common/PageTitleDiv';
 import { DirectorTable, CommitteeOfBoard, InvestorGrievance, RegistrarAndTransferAgents, TextPdf } from './InvestorsData';
@@ -43,40 +45,92 @@ const Investor: React.FC = () => {
     setSelectedItem(null);
   };
 
+  const getIcon = (type: string) => {
+    switch (type) {
+      case 'pdf':
+        return <PictureAsPdfIcon sx={{ color: '#D32F2F', fontSize: 28 }} />;
+      case 'table':
+        return <TableChartIcon sx={{ color: '#1976D2', fontSize: 28 }} />;
+      case 'text':
+      case 'text/pdf':
+        return <TextSnippetIcon sx={{ color: '#388E3C', fontSize: 28 }} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
       <PageTitle imageUrl={investors_Image} tileContent='Investors' />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
-       
-        <Grid container spacing={3}>
+        <Grid container spacing={4}>
           {investorItems.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card
-                style={{
-                  margin: '20px',
+                sx={{
+                  height: '100%',
+                  transition: 'all 0.3s ease',
+                  transform: hoveredIndex === index ? 'translateY(-8px)' : 'none',
+                  boxShadow: hoveredIndex === index 
+                    ? '0 12px 24px rgba(0, 0, 0, 0.15)' 
+                    : '0 4px 12px rgba(0, 0, 0, 0.08)',
+                  '&:hover': {
+                    borderColor: 'primary.main',
+                  },
+                  display: 'flex',
+                  flexDirection: 'column',
                   cursor: 'pointer',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  transform: hoveredIndex === index ? 'scale(1.05)' : 'scale(1)',
-                  boxShadow: hoveredIndex === index ? '0px 4px 15px rgba(0, 0, 0, 0.3)' : '8px 8px 15px 6px rgba(0, 0, 0, 0.1)',
+                  borderRadius: 2,
+                  position: 'relative',
+                  overflow: 'hidden',
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '4px',
+                    backgroundColor: 'primary.main',
+                    opacity: hoveredIndex === index ? 1 : 0,
+                    transition: 'opacity 0.3s ease',
+                  }
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => handleClickOpen(item)}
               >
-                <CardContent style={{ display: 'flex', alignItems: 'center' }}>
-                  <Typography variant="h6" style={{ flexGrow: 1 }}>
-                    {item.title}
-                  </Typography>
-                  {item.type === 'pdf' && (
-                    <PictureAsPdfIcon color="action" style={{ marginLeft: '8px' }} />
-                  )}
+                <CardContent sx={{ 
+                  p: 3,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 1.5,
+                  height: '100%'
+                }}>
+                  <Box sx={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'space-between',
+                    gap: 2 
+                  }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: '1.1rem',
+                        color: 'text.primary',
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                    {getIcon(item.type)}
+                  </Box>
                 </CardContent>
               </Card>
             </Grid>
           ))}
         </Grid>
       </Container>
-      
       {selectedItem && (
         <CustomDialog
           open={open}
