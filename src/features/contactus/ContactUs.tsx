@@ -225,7 +225,7 @@ const ContactUs: React.FC = () => (
             sx={{
               border: 0,
               width: "100%",
-              height: { xs: "200px", sm: "300px" },
+              height: { xs: "300px", sm: "400px" },
             }}
             allowFullScreen
             loading="lazy"
