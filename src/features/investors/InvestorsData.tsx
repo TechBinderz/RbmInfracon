@@ -16,7 +16,6 @@ import NSE_Letter_Signed_2 from "../../assets/features/investors/notices/RBMINFR
 import Transcript_Signed from "../../assets/features/investors/notices/RBMINFRACON_24022025171347_Transcript_SIGNED.pdf";
 import psc_certificate_warrant from "../../assets/features/investors/preferencial_issue/PCS Certificate_Warrant_signed.pdf";
 import signed_valuation_report from "../../assets/features/investors/preferencial_issue/Signed Valuation Report (1).pdf";
-
 interface Column {
   id: string;
   label: string;
@@ -45,7 +44,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
       >
         <Table>
           <TableHead>
-            <TableRow sx={{ backgroundColor: 'primary.main' }}>
+            <TableRow sx={{ backgroundColor: themeColor }}>
               {columns.map((column) => (
                 <TableCell 
                   key={column.id}
