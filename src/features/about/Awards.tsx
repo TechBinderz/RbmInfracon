@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Container,
   Typography,
@@ -11,7 +11,6 @@ import {
   Pagination,
   CardMedia,
   IconButton,
-  Skeleton,
 } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -179,9 +178,6 @@ const Awards: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(true);
-  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
-  const [backgroundLoading, setBackgroundLoading] = useState(false);
   const itemsPerPage = 6;
   const sliderRef = React.useRef<Slider>(null);
 
@@ -195,73 +191,6 @@ const Awards: React.FC = () => {
     page * itemsPerPage
   );
 
-  // Load current page images first
-  useEffect(() => {
-    setLoading(true);
-    const currentPageImages = currentAwards.map(award => award.img);
-    let loadedCount = 0;
-
-    const loadImage = (imgSrc: string) => {
-      if (loadedImages.has(imgSrc)) {
-        loadedCount++;
-        if (loadedCount === currentPageImages.length) {
-          setLoading(false);
-        }
-        return;
-      }
-
-      const img = new Image();
-      img.onload = () => {
-        setLoadedImages(prev => new Set([...prev, imgSrc]));
-        loadedCount++;
-        if (loadedCount === currentPageImages.length) {
-          setLoading(false);
-        }
-      };
-      img.src = imgSrc;
-    };
-
-    currentPageImages.forEach(loadImage);
-  }, [page, currentAwards, loadedImages]);
-
-  // Load remaining images in background after current page is loaded
-  useEffect(() => {
-    if (!loading && !backgroundLoading) {
-      setBackgroundLoading(true);
-      
-      // Get all images that aren't in the current page
-      const currentPageImages = new Set(currentAwards.map(award => award.img));
-      const remainingImages = allAwards
-        .map(award => award.img)
-        .filter(img => !currentPageImages.has(img) && !loadedImages.has(img));
-
-      if (remainingImages.length === 0) {
-        setBackgroundLoading(false);
-        return;
-      }
-
-      let loadedCount = 0;
-      const totalToLoad = remainingImages.length;
-
-      const loadImage = (imgSrc: string) => {
-        const img = new Image();
-        img.onload = () => {
-          setLoadedImages(prev => new Set([...prev, imgSrc]));
-          loadedCount++;
-          if (loadedCount === totalToLoad) {
-            setBackgroundLoading(false);
-          }
-        };
-        img.src = imgSrc;
-      };
-
-      // Load remaining images with a slight delay between each
-      remainingImages.forEach((imgSrc, index) => {
-        setTimeout(() => loadImage(imgSrc), index * 100);
-      });
-    }
-  }, [loading, backgroundLoading, currentAwards, loadedImages]);
-
   const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -270,14 +199,22 @@ const Awards: React.FC = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: isMobile ? 1 : 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: false,
-    lazyLoad: 'progressive' as const,
-    waitForAnimate: true,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    pauseOnDotsHover: true,
+    swipe: true,
+    swipeToSlide: true,
+    touchThreshold: 10,
+    cssEase: "cubic-bezier(0.87, 0, 0.13, 1)",
+    useCSS: true,
+    useTransform: true,
+    waitForAnimate: false
   };
 
   const handlePrevClick = () => {
@@ -346,28 +283,16 @@ const Awards: React.FC = () => {
                   boxShadow: 3,
                 }}
               >
-                {!loadedImages.has(award.img) ? (
-                  <Skeleton 
-                    variant="rectangular" 
-                    width="100%" 
-                    height={300} 
-                    animation="wave"
-                    sx={{ bgcolor: 'grey.200' }}
-                  />
-                ) : (
-                  <CardMedia
-                    component="img"
-                    height="300"
-                    width="100%"
-                    image={award.img}
-                    alt={award.title}
-                    loading="lazy"
-                    sx={{ 
-                      objectFit: 'contain',
-                      bgcolor: '#f5f5f5'
-                    }}
-                  />
-                )}
+                <CardMedia
+                  component="img"
+                  height="300"
+                  image={award.img}
+                  alt={award.title}
+                  sx={{ 
+                    objectFit: 'contain',
+                    bgcolor: '#f5f5f5'
+                  }}
+                />
                 <CardContent sx={{ flexGrow: 1, pt: 3 }}>
                   <Typography
                     variant="h5"
@@ -473,34 +398,18 @@ const Awards: React.FC = () => {
                   height: '400px',
                 }}
               >
-                {!loadedImages.has(item.img) ? (
-                  <Skeleton 
-                    variant="rectangular" 
-                    width="100%" 
-                    height="100%" 
-                    animation="wave"
-                    sx={{ 
-                      borderRadius: '12px',
-                      bgcolor: 'grey.200' 
-                    }}
-                  />
-                ) : (
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    loading="lazy"
-                    width="100%"
-                    height="100%"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'contain',
-                      borderRadius: '12px',
-                      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-                      backgroundColor: '#f5f5f5'
-                    }}
-                  />
-                )}
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+                    backgroundColor: '#f5f5f5'
+                  }}
+                />
               </Box>
             ))}
           </Slider>
