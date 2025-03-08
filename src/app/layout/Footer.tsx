@@ -3,10 +3,9 @@ import RBMLOGOFULL from "../../assets/header/Rmb_logo_big.png"; // Default logo
 import { Grid, Typography, Container, Box, Button } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook"; // Example social icons
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { Link as RouterLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import themeColor from "../../features/common/common";
 import corporateBrochurePdf from "../../assets/footer/brochure.pdf";
-import { HashLink } from "react-router-hash-link";
 
 // Custom scroll function to add offset for the fixed navbar
 const scrollWithOffset = (el: HTMLElement) => {
@@ -25,14 +24,11 @@ const Footer = () => {
         <Grid container spacing={4} justifyContent="space-between">
           {/* Company Info Section */}
           <Grid item xs={12} sm={3}>
-            <RouterLink
-              to="/"
-              onClick={() => {
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth", // Adds smooth scrolling effect
-                });
-              }}
+            <HashLink
+              smooth
+              to="/#top"
+              scroll={(el) => scrollWithOffset(el)}
+              style={{ textDecoration: "none", color: "inherit" }}
             >
               <Box display="flex" alignItems="center" marginBottom={2}>
                 <img
@@ -41,7 +37,7 @@ const Footer = () => {
                   style={{ height: 90 }}
                 />
               </Box>
-            </RouterLink>
+            </HashLink>
             <Typography variant="body2" style={{ fontWeight: 200 }}>
               RBM Infracon LTD is a premier integrated industrial service
               provider, delivering innovative solutions in infrastructure
@@ -57,44 +53,54 @@ const Footer = () => {
             </Typography>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
-                <RouterLink
-                  to="/"
+                <HashLink
+                  smooth
+                  to="/#top"
+                  scroll={(el) => scrollWithOffset(el)}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Typography variant="body1">Home</Typography>
-                </RouterLink>
+                </HashLink>
               </li>
               <li>
-                <RouterLink
-                  to="/aboutus"
+                <HashLink
+                  smooth
+                  to="/aboutus#top"
+                  scroll={(el) => scrollWithOffset(el)}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Typography variant="body1">About Us</Typography>
-                </RouterLink>
+                </HashLink>
               </li>
               <li>
-                <RouterLink
-                  to="/services"
+                <HashLink
+                  smooth
+                  to="/services#top"
+                  scroll={(el) => scrollWithOffset(el)}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Typography variant="body1">Services</Typography>
-                </RouterLink>
+                </HashLink>
               </li>
               <li>
-                <RouterLink
-                  to="/contact"
+                <HashLink
+                  smooth
+                  to="/contact#top"
+                  scroll={(el) => scrollWithOffset(el)}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Typography variant="body1">Contact</Typography>
-                </RouterLink>
+                </HashLink>
               </li>
               <li>
-                <RouterLink
-                  to="/investors"
+                <HashLink
+                  smooth
+                  to="/investors#top"
+                  scroll={(el) => scrollWithOffset(el)}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Typography variant="body1">Investors</Typography>
-                </RouterLink>
+                </HashLink>
               </li>
             </ul>
           </Grid>
@@ -119,7 +125,12 @@ const Footer = () => {
                 <Typography variant="body1">Dubai</Typography>
               </li>
             </ul>
-            <RouterLink to="/contact" style={{ textDecoration: "none" }}>
+            <HashLink 
+              smooth
+              to="/contact#top"
+              scroll={(el) => scrollWithOffset(el)}
+              style={{ textDecoration: "none" }}
+            >
               <Button
                 variant="contained"
                 style={{
@@ -130,13 +141,13 @@ const Footer = () => {
                   fontSize: "14px",
                   textAlign: "center",
                   textDecoration: "none",
-                  padding: "10px 16px", // Adjust padding for button appearance
-                  borderRadius: "4px", // Optional: to round the corners
+                  padding: "10px 16px",
+                  borderRadius: "4px",
                 }}
               >
                 Contact Us
               </Button>
-            </RouterLink>
+            </HashLink>
           </Grid>
 
           {/* Additional Actions Section */}
@@ -224,18 +235,11 @@ const Footer = () => {
               textAlign: "center",
             }}
           >
-            © Copyright 2024 All Rights Reserved | Privacy Policy | SEO &
+            &copy; Copyright 2024 All Rights Reserved | Privacy Policy | SEO &
             Website Design by TechBinderz
           </Typography>
         </Box>
       </Container>
-      {/* <CustomDialog
-        open={openDialog}
-        onClose={handleCloseDialog}
-        title="Corporate Brochure"
-        content={corporateBrochurePdf}
-        type="pdf"
-      /> */}
     </footer>
   );
 };
