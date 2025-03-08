@@ -3,15 +3,21 @@ import plate_work_1 from "../../assets/features/services/plateworks/plate_work (
 import drilling_service_1 from "../../assets/features/services/drilling/drilling_service (1).jpg";
 import heater_operation_1 from "../../assets/features/services/heater/heater_operation (1).jpg";
 import steel_work_1 from "../../assets/features/services/structural/steel_work (1).jpg";
-// import rail_wagon_1 from "../../assets/features/services/rail_wagon (1).jpg";
 import boiler_erection_1 from "../../assets/features/services/boiler/boiler_erection (1).jpg";
 import performance_1 from "../../assets/features/services/performance/performance (1).jpg";
 import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (1).jpg";
 import hydrojetting_1 from "../../assets/features/services/hydrojetting/hydrojetting (1).jpg";
-// import no_image from "../../assets/features/services/no_image.png"
+import engineering_service_1 from "../../assets/features/services/engineering_services/engineering_service (1).jpg";
 
 // Define the card data
 const serviceCardData = [
+  {
+    pathName: "engineeringServices",
+    image: engineering_service_1,
+    title: "Engineering Services",
+    description:
+      "Comprehensive engineering solutions including feasibility studies, detailed design, and process optimization for efficient project execution.",
+  },
   {
     pathName: "boilerErectionWork",
     image: boiler_erection_1,
@@ -75,13 +81,6 @@ const serviceCardData = [
     description:
       "Expertise in civil construction, maintenance, and erection of structural steel for various applications, including coke plant maintenance and industrial projects.",
   },
-  // {
-  //   pathName: "railWagonLoadingServices",
-  //   image: rail_wagon_1,
-  //   title: "Rail Wagon Loading Services",
-  //   description:
-  //     "Efficient and reliable rail wagon loading services to streamline logistics and transportation, maximizing loading capacity and ensuring safety compliance.",
-  // },
 ];
 
 export default serviceCardData;
