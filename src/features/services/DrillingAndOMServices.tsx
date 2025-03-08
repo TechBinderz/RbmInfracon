@@ -55,25 +55,25 @@ const DrillingAndOMServices: React.FC = () => {
                 fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                 lineHeight: 1.6,
               }}>
-                Precision-driven drilling services with a safety focus.
+                Exploration & Drilling Operations.
               </Typography>
               <Typography variant="body1" component="li"    sx={{
                 fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                 lineHeight: 1.6,
               }}>
-                Tailored O&M services for crewed wells.
+                Well Completion & Production Enhancement.
               </Typography>
               <Typography variant="body1" component="li"    sx={{
                 fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                 lineHeight: 1.6,
               }}>
-                Enhanced efficiency and reduced downtime.
+                Onshore & Offshore Drilling.
               </Typography>
               <Typography variant="body1" component="li"    sx={{
                 fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                 lineHeight: 1.6,
               }}>
-                Compliance with strict safety protocols.
+                Reservoir Management & Optimization.
               </Typography>
               <Typography variant="body1" component="li"    sx={{
                 fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },

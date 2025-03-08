@@ -32,9 +32,7 @@ const PipingServices: React.FC = () => {
                 lineHeight: 1.6,
               }}
             >
-              RBM Infracon offers precision piping services with fabrication and
-              erection solutions for carbon steel (CS), stainless steel (SS),
-              and alloy steel systems.
+              RBM Infracon Limited has capabilities for complete piping fabrication and erection in the oil & gas, petrochemicals, power generation, refineries and process plants industries. We work with a broad selection of materials including Carbon Steel, Stainless Steel, Alloy Steel, Duplex, and performance alloys such as Inconel/Nickel that are used in industrial applications due to their strength and resistance to corrosion. Custom fabrication, erection, welding, and extensive quality assurance on the materials are performed and in strict compliance with international standards ASME, API, and ISO.
             </Typography>
             <Typography
               paragraph
@@ -44,11 +42,9 @@ const PipingServices: React.FC = () => {
                 lineHeight: 1.6,
               }}
             >
-              Our skilled team provides industry-standard installation and
-              alignment for both aboveground and underground projects, ensuring
-              durability, safety, and efficiency.
+              Focusing on precision, safety, and productivity, the company offers piping welding, NDT, hydro testing, and commissioning needed for piping system reliability. Due to the combination of advanced equipment, highly skilled personnel, and compliance to all HSE, Quality and legal regulations, we are able to provide quality formulated completed Units of complicated piping systems. 
             </Typography>
-            <Typography variant="h6" gutterBottom>
+            {/* <Typography variant="h6" gutterBottom>
               Key Services:
             </Typography>
             <Typography
@@ -98,7 +94,7 @@ const PipingServices: React.FC = () => {
               }}>
                 Electrical & Instrumentation
               </Typography>
-            </Typography>
+            </Typography> */}
           </Grid>
           <Grid item xs={12} md={6}>
             <Card className="card-shadow">
