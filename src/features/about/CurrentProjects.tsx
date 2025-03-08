@@ -368,6 +368,15 @@ const CurrentProjects: React.FC = () => {
                     fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
                   }}
                 >
+                  S. No.
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: "bold",
+                    color: "#333",
+                    fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
+                  }}
+                >
                   Company
                 </TableCell>
                 <TableCell
@@ -421,6 +430,7 @@ const CurrentProjects: React.FC = () => {
             <TableBody>
               {filteredProjects.map((project) => (
                 <TableRow key={project.id} hover>
+                  <TableCell>{project.id}</TableCell>
                   <TableCell>
                     <Typography
                       variant="body1"

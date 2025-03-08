@@ -19,7 +19,7 @@ import BANNER_IMAGE from "../../assets/features/Awards/awards_background.jpg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { themeColor } from "../common/common";
 
 // Manual imports for award images
 import IMG_8377 from '../../assets/features/Awards/IMG_8377.jpg';
@@ -321,7 +321,15 @@ const Awards: React.FC = () => {
             page={page}
             onChange={handlePageChange}
             size={isMobile ? "small" : "large"}
-            color="primary"
+            sx={{ 
+              '& .MuiPaginationItem-root': {
+                color: themeColor
+              },
+              '& .Mui-selected': {
+                backgroundColor: `${themeColor} !important`,
+                color: '#fff'
+              }
+            }}
           />
         </Box>
 
