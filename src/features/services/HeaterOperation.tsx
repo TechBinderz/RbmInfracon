@@ -28,9 +28,7 @@ const HeaterOperation: React.FC = () => {
                 lineHeight: 1.6,
               }}
             >
-              RBM Infracon is a trusted provider of Heater Operation O&M
-              services, ensuring reliable and efficient heating for residential,
-              commercial, and industrial spaces.
+              RBM Infracon Limited proficiently manages heat exchangers guaranteeing superior thermal efficiency and equipment longevity in oil and gas, petrochemicals, refineries, power plants, and process industries. Our expertise also extends to bundle removal and reinsertion, high-pressure hydro jetting, and hydro testing services that withstand the heat exchange systems’ reliability and efficiency. Using advanced methods, and appropriate equipment, RBM Infracon Limited assists clients in minimizing downtime, increasing maintenance budget, and exercising operational efficiency.
             </Typography>
             <Typography
               paragraph
@@ -44,7 +42,7 @@ const HeaterOperation: React.FC = () => {
               maintain heating systems, focusing on minimizing downtime and
               maximizing efficiency.
             </Typography>
-            <Typography variant="h6" gutterBottom>
+            {/* <Typography variant="h6" gutterBottom>
               Key Features:
             </Typography>
             <ul style={{ paddingLeft: "20px", margin: 0 }}>
@@ -77,8 +75,8 @@ const HeaterOperation: React.FC = () => {
                 lineHeight: 1.6,
               }}>
                 Safety-focused and sustainable operations.
-              </Typography>
-            </ul>
+              </Typography> */}
+            {/* </ul> */}
           </Grid>
           <Grid item xs={12} md={6}>
             <Card className="card-shadow">
