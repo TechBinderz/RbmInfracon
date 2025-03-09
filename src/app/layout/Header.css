@@ -1,81 +1,145 @@
 /* Updated Dropdown CSS with Modern Styles */
 .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background: linear-gradient(180deg, #ffffff, #f9f9f9); /* Subtle gradient for depth */
-    min-width: 180px;
-    white-space: nowrap;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15); /* Slightly softer shadow for a modern look */
-    border-radius: 8px;
-    z-index: 1;
-    overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: linear-gradient(180deg, #ffffff, #f9f9f9);
+  min-width: 220px;
+  white-space: nowrap;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  z-index: 1000;
+  overflow: visible;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-left: 10px;
+  margin-top: 0.5px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  position: relative;
+}
+
+.dropdown-item a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 17px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dropdown-item:hover > a {
+  background-color: #f1f1f1;
+  color: #39ac4b;
+}
+
+.dropdown-item:first-child > a {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.dropdown-item:last-child > a {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom: none;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 220px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-item.has-submenu:hover .submenu {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.submenu a {
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.submenu a:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-weight: 600;
+  background-color: #f8f8f8;
+}
+
+.submenu a:hover {
+  background-color: #f1f1f1;
+  color: #39ac4b;
+}
+
+.submenu a:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom: none;
+}
+
+.submenu-arrow {
+  margin-left: 8px;
+  font-size: 20px;
+}
+
+.dropdown:hover .dropbtn {
+  color: #39ac4b;
+}
+
+@keyframes dropdownSlideIn {
+  0% {
     opacity: 0;
-    transform: translateY(10px); /* Initial position for animation */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth opening effect */
-    animation: dropdownSlideIn 0.3s ease forwards; /* Apply the animation */
-    margin-left: 20px;
-    margin-top: 0.5px;
+    transform: translateY(-10px);
   }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
+  100% {
     opacity: 1;
-    transform: translateY(0); /* Move dropdown to final position */
+    transform: translateY(0);
   }
-  
-  .dropdown-content a {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 17px; /* Slightly smaller text for a cleaner look */
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #f1f1f1; /* Light gray background on hover */
-    color: #000; /* Darker text on hover */
-  }
-  
-  .dropdown:hover .dropbtn {
-    /* background-color: #39ac4b; */
-    color: #39ac4b;
-  }
-  
-  /* Keyframe animation for dropdown */
-  @keyframes dropdownSlideIn {
-    0% {
-      opacity: 0;
-      transform: translateY(-10px); /* Start slightly above */
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0); /* End in the correct position */
-    }
-  }
-  
-  /* Additional Modern Enhancements */
-  .dropdown-content a:first-child {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-  
-  .dropdown-content a:last-child {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-  }
-  
-  .dropdown-content a:not(:last-child) {
-    border-bottom: 1px solid #e0e0e0; /* Subtle divider lines */
-  }
-  
-  /* Add subtle shadow to links for a more modern look */
-  .dropdown-content a {
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1); /* Subtle inner shadow for depth */
-  }
-  
+}
+
+/* Additional Modern Enhancements */
+.dropdown-content .dropdown-item:first-child > a {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.dropdown-content .dropdown-item:last-child > a {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom: none;
+}
+
+.dropdown-content .dropdown-item:not(:last-child) > a {
+  border-bottom: 1px solid #e0e0e0;
+}

@@ -32,7 +32,15 @@ import serviceCardData from "../../features/services/ServiceCardData";
 
 interface DropdownMenuProps {
   buttonText: React.ReactNode;
-  links: { to: string; text: string; hidden?: boolean }[];
+  links: {
+    to: string;
+    text: string;
+    hidden?: boolean;
+    additionalServices?: Array<{
+      pathName: string;
+      title: string;
+    }>;
+  }[];
 }
 
 const defaultStockData: StockData = {
@@ -138,11 +146,37 @@ const Header: React.FC = () => {
         {buttonText}
       </Button>
       <Box className="dropdown-content">
-        {links.map((link, index) => (
-          <Link key={index} to={link.to} style={{ textDecoration: "none" }}>
-            {link.text}
-          </Link>
-        ))}
+        {links.map((link, index) => {
+          const hasAdditionalServices = link.additionalServices && link.additionalServices.length > 0;
+          
+          return (
+            <Box key={index} className={hasAdditionalServices ? 'dropdown-item has-submenu' : 'dropdown-item'}>
+              <Link to={link.to} style={{ textDecoration: 'none' }}>
+                {link.text}
+                {hasAdditionalServices && <ArrowDropDownIcon className="submenu-arrow" />}
+              </Link>
+              {hasAdditionalServices && link.additionalServices && (
+                <Box className="submenu">
+                  <Link 
+                    to={link.to}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    {link.text}
+                  </Link>
+                  {link.additionalServices.map((subService, subIndex) => (
+                    <Link 
+                      key={subIndex} 
+                      to={`services/${subService.pathName}`} 
+                      style={{ textDecoration: 'none' }}
+                    >
+                      {subService.title}
+                    </Link>
+                  ))}
+                </Box>
+              )}
+            </Box>
+          );
+        })}
       </Box>
     </Box>
   );
@@ -581,6 +615,10 @@ const Header: React.FC = () => {
                       ...serviceCardData.map((service) => ({
                         text: service.title,
                         to: `/services/${service.pathName}`,
+                        additionalServices: service.additionalServices?.map(subService => ({
+                          pathName: subService.pathName,
+                          title: subService.title
+                        }))
                       })),
                     ]}
                   />
