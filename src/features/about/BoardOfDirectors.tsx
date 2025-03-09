@@ -12,6 +12,7 @@ import PageTitle from "../common/PageTitleDiv";
 import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
 import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Jay Bajrang Mani.jpg";
 import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
+import kriya_shah_photo from "../../assets/features/rbm_management/Ms. Kriya Shah.jpg";
 import board_of_directors_image from "../../assets/features/about-us/board_of_directors.jpg";
 import themeColor from "../common/common";
 
@@ -49,6 +50,7 @@ const directors: Director[] = [
   {
     name: "Ms. Kriya Shah",
     title: "Independent Director",
+    image: kriya_shah_photo,
     description:
       "A seasoned professional with expertise in corporate governance and regulatory compliance, bringing diverse perspective to the board.",
   },
