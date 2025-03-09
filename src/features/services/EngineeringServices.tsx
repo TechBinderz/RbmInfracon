@@ -8,7 +8,11 @@ import {
   Box,
   IconButton,
   useTheme,
-  Paper,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Divider,
 } from "@mui/material";
 import {
   Architecture,
@@ -16,6 +20,7 @@ import {
   Settings,
   Timeline,
   ElectricBolt,
+  CheckCircle,
 } from "@mui/icons-material";
 import "../common/common.css";
 import engineering_service_1 from "../../assets/features/services/engineering_services/engineering_service (1).jpg";
@@ -30,26 +35,31 @@ const EngineeringServices: React.FC = () => {
       title: "Conceptual & Feasibility Studies",
       description: "Comprehensive assessment of technical and financial viability for your projects, ensuring informed decision-making.",
       icon: <Assessment sx={{ fontSize: 40 }} />,
+      benefits: ["Assessing technical", "Financial Viability"],
     },
     {
       title: "Detailed Engineering & Design",
       description: "Expert mechanical, civil, structural, and electrical engineering solutions tailored to your specific requirements.",
       icon: <Architecture sx={{ fontSize: 40 }} />,
+      benefits: ["Mechanical", "Civil", "Structural", "Electrical Engineering"],
     },
     {
       title: "Process Optimization",
-      description: "Advanced techniques to enhance system efficiency and productivity, maximizing operational performance.",
+      description: "Enhancing system efficiency and productivity.",
       icon: <Settings sx={{ fontSize: 40 }} />,
+      benefits: ["Efficiency Improvement", "Performance Analysis"],
     },
     {
       title: "Project Planning & Development",
-      description: "Strategic project execution planning to ensure seamless implementation and successful outcomes.",
+      description: "Strategic project execution planning.",
       icon: <Timeline sx={{ fontSize: 40 }} />,
+      benefits: ["Resource Planning", "Timeline Management", "Quality Control"],
     },
     {
       title: "Electrical & Instrumentation Engineering",
-      description: "Specialized solutions for seamless integration of electrical systems and controls.",
+      description: "Ensuring seamless integration of electrical systems and controls.",
       icon: <ElectricBolt sx={{ fontSize: 40 }} />,
+      benefits: ["System Integration", "Safety Compliance", "Performance Monitoring"],
     },
   ];
 
@@ -57,25 +67,37 @@ const EngineeringServices: React.FC = () => {
     <>
       <PageTitle imageUrl={engineering_service_1} tileContent="Engineering" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
-        <Box sx={{ mb: 6 }}>
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: { xs: "1rem", md: "1.1rem" },
-              lineHeight: 1.8,
-              maxWidth: "800px",
-              mx: "auto",
-              textAlign: "center",
-              mb: 2,
-            }}
-          >
-            RBM offers comprehensive engineering solutions that ensure efficient, cost-effective, and high-quality project engineering. Our team of experienced engineers and technical experts delivers innovative solutions across various industrial sectors.
-          </Typography>
-        </Box>
+        {/* Overview Section */}
+        <Grid container spacing={4} sx={{ mb: 8 }}>
+          <Grid item >
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: { xs: "1rem", md: "1.1rem" },
+                lineHeight: 1.8,
+                mb: 3,
+              }}
+            >
+              RBM offers comprehensive engineering solutions that ensure efficient, cost-effective, and high-quality project engineering. Our team of experienced engineers and technical experts delivers innovative solutions across various industrial sectors.
+            </Typography>
+          </Grid>
+        </Grid>
 
+        {/* Services Grid */}
+        <Typography
+          variant="h4"
+          align="center"
+          sx={{
+            mb: 6,
+            fontWeight: "bold",
+            color: themeColor,
+          }}
+        >
+          Our Engineering Services
+        </Typography>
         <Grid container spacing={4}>
           {services.map((service, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid item xs={12} md={6} lg={4} key={index}>
               <Card 
                 sx={{
                   height: "100%",
@@ -85,102 +107,70 @@ const EngineeringServices: React.FC = () => {
                   "&:hover": {
                     transform: "translateY(-8px)",
                     boxShadow: theme.shadows[10],
-                    "& .MuiIconButton-root": {
-                      backgroundColor: themeColor,
-                      color: "white",
-                    },
                   },
                 }}
+                className="card-shadow"
               >
-                <CardContent 
-                  sx={{
-                    flexGrow: 1,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    textAlign: "center",
-                  }}
-                >
-                  <IconButton
+                <CardContent>
+                  <Box
                     sx={{
-                      backgroundColor: theme.palette.grey[100],
-                      width: 80,
-                      height: 80,
+                      display: "flex",
+                      alignItems: "center",
                       mb: 2,
-                      transition: "all 0.3s ease-in-out",
-                      "& .MuiSvgIcon-root": {
-                        color: themeColor,
-                      },
-                      "&:hover": {
-                        backgroundColor: themeColor,
-                        "& .MuiSvgIcon-root": {
-                          color: "white",
+                    }}
+                  >
+                    <IconButton
+                      sx={{
+                        backgroundColor: theme.palette.grey[100],
+                        mr: 2,
+                        "&:hover": {
+                          backgroundColor: themeColor,
+                          "& .MuiSvgIcon-root": {
+                            color: "white",
+                          },
                         },
-                      },
-                    }}
-                  >
-                    {service.icon}
-                  </IconButton>
-                  <Typography
-                    variant="h6"
-                    gutterBottom
-                    sx={{
-                      fontSize: { xs: "1.1rem", sm: "1.2rem" },
-                      fontWeight: 600,
-                      mb: 2,
-                    }}
-                  >
-                    {service.title}
-                  </Typography>
+                      }}
+                    >
+                      {service.icon}
+                    </IconButton>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: 600,
+                        color: themeColor,
+                      }}
+                    >
+                      {service.title}
+                    </Typography>
+                  </Box>
                   <Typography
                     variant="body2"
                     color="text.secondary"
-                    sx={{
-                      fontSize: { xs: "0.875rem", sm: "0.9rem" },
-                    }}
+                    sx={{ mb: 2 }}
                   >
                     {service.description}
                   </Typography>
+                  <List dense>
+                    {service.benefits.map((benefit, idx) => (
+                      <ListItem key={idx} sx={{ py: 0 }}>
+                        <ListItemIcon sx={{ minWidth: 36 }}>
+                          <CheckCircle sx={{ color: themeColor, fontSize: 16 }} />
+                        </ListItemIcon>
+                        <ListItemText 
+                          primary={benefit}
+                          primaryTypographyProps={{
+                            sx: { fontSize: "0.9rem" }
+                          }}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
                 </CardContent>
               </Card>
             </Grid>
           ))}
         </Grid>
-
-        <Box
-          component={Paper}
-          elevation={3}
-          sx={{
-            mt: 8,
-            p: 4,
-            borderRadius: 2,
-            backgroundColor: theme.palette.grey[50],
-            textAlign: "center",
-          }}
-        >
-          <Typography
-            variant="h4"
-            gutterBottom
-            sx={{
-              fontSize: { xs: "1.5rem", md: "2rem" },
-              fontWeight: "bold",
-              color: themeColor,
-            }}
-          >
-            Why Choose Our Engineering Services?
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              maxWidth: "800px",
-              mx: "auto",
-              mt: 2,
-              lineHeight: 1.8,
-            }}
-          >
-            We combine cutting-edge technology with industry best practices to provide engineering services that meet the highest standards of quality and safety. Our integrated approach ensures that every project is executed with precision and excellence.
-          </Typography>
-        </Box>
+      <Divider sx={{ marginTop: 10}} />
       </Container>
     </>
   );
