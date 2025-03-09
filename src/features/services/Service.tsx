@@ -45,7 +45,7 @@ const Services: React.FC = () => {
   const MoreServices: React.FC = () => (
     <>
       <Outlet />
-      <Container maxWidth="xl" sx={{ py: { xs: 4, md: 8 } }}>
+      <Container maxWidth="xl" sx={{ paddingBottom: { xs: 4, md: 8   } }}>
         <Box sx={{ mb: 6, textAlign: "center" }}>
           <Typography
             variant="h3"
