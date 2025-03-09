@@ -68,14 +68,13 @@ const EngineeringServices: React.FC = () => {
       <PageTitle imageUrl={engineering_service_1} tileContent="Engineering" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}
-        <Grid container spacing={4} sx={{ mb: 8 }}>
+        <Grid container spacing={3} sx={{ mb: 3 }}>
           <Grid item >
             <Typography
               variant="body1"
               sx={{
                 fontSize: { xs: "1rem", md: "1.1rem" },
                 lineHeight: 1.8,
-                mb: 3,
               }}
             >
               RBM offers comprehensive engineering solutions that ensure efficient, cost-effective, and high-quality project engineering. Our team of experienced engineers and technical experts delivers innovative solutions across various industrial sectors.
@@ -88,7 +87,7 @@ const EngineeringServices: React.FC = () => {
           variant="h4"
           align="center"
           sx={{
-            mb: 6,
+            mb: 4,
             fontWeight: "bold",
             color: themeColor,
           }}
