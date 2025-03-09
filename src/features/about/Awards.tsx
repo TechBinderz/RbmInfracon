@@ -8,17 +8,16 @@ import {
   Box,
   useTheme,
   useMediaQuery,
-  Pagination,
+  Pagination as MuiPagination,
   CardMedia,
-  IconButton,
 } from '@mui/material';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import PageTitle from '../../features/common/PageTitleDiv';
 import BANNER_IMAGE from "../../assets/features/Awards/awards_background.jpg";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, A11y } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { themeColor } from "../common/common";
 
 // Manual imports for award images
@@ -179,7 +178,6 @@ const Awards: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [page, setPage] = useState(1);
   const itemsPerPage = 6;
-  const sliderRef = React.useRef<Slider>(null);
 
   const awards = awardsData.map((award) => ({
     ...award,
@@ -194,39 +192,6 @@ const Awards: React.FC = () => {
   const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 800,
-    slidesToShow: isMobile ? 1 : 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-    pauseOnHover: true,
-    pauseOnFocus: true,
-    pauseOnDotsHover: true,
-    swipe: true,
-    swipeToSlide: true,
-    touchThreshold: 10,
-    cssEase: "cubic-bezier(0.87, 0, 0.13, 1)",
-    useCSS: true,
-    useTransform: true,
-    waitForAnimate: false
-  };
-
-  const handlePrevClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
-    }
-  };
-
-  const handleNextClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
-    }
   };
 
   return (
@@ -318,7 +283,6 @@ const Awards: React.FC = () => {
                   >
                     {award.organization} - {award.year}
                   </Typography>
-                  
                 </CardContent>
               </Card>
             </Grid>
@@ -326,7 +290,7 @@ const Awards: React.FC = () => {
         </Grid>
 
         <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
-          <Pagination
+          <MuiPagination
             count={Math.ceil(awards.length / itemsPerPage)}
             page={page}
             onChange={handlePageChange}
@@ -356,63 +320,70 @@ const Awards: React.FC = () => {
           Award Gallery
         </Typography>
 
-        <Box sx={{ position: 'relative', mb: 6 }}>
-          <IconButton
-            onClick={handlePrevClick}
-            sx={{
-              position: 'absolute',
-              left: -20,
-              top: '50%',
-              transform: 'translateY(-50%)',
-              zIndex: 1,
-              bgcolor: 'rgba(255, 255, 255, 0.8)',
-              '&:hover': {
-                bgcolor: 'rgba(255, 255, 255, 0.9)',
-              }
+        <Box sx={{ position: "relative", mx: { xs: -2, md: -4 }, mb: 6 }}>
+          <Swiper
+            modules={[Navigation, Pagination, A11y]}
+            spaceBetween={30}
+            slidesPerView={3}
+            navigation={true}
+            pagination={{ 
+              clickable: true,
+            }}
+            loop={true}
+            breakpoints={{
+              1536: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+              },
+              1200: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+              900: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 16,
+              },
+            }}
+            style={{ 
+              padding: "20px 50px 60px",
             }}
           >
-            <ArrowBackIosNewIcon />
-          </IconButton>
-          <IconButton
-            onClick={handleNextClick}
-            sx={{
-              position: 'absolute',
-              right: -20,
-              top: '50%',
-              transform: 'translateY(-50%)',
-              zIndex: 1,
-              bgcolor: 'rgba(255, 255, 255, 0.8)',
-              '&:hover': {
-                bgcolor: 'rgba(255, 255, 255, 0.9)',
-              }
-            }}
-          >
-            <ArrowForwardIosIcon />
-          </IconButton>
-          <Slider ref={sliderRef} {...settings}>
             {allAwards.map((item, index) => (
-              <Box
-                key={index}
-                sx={{
-                  p: 1,
-                  height: '400px',
-                }}
-              >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'contain',
-                    borderRadius: '12px',
-                    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-                    backgroundColor: '#f5f5f5'
+              <SwiperSlide key={index}>
+                <Box
+                  sx={{
+                    position: "relative",
+                    height: "400px",
+                    width: "100%",
+                    borderRadius: 2,
+                    overflow: "hidden",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+                    bgcolor: '#f5f5f5',
+                    "&:hover": {
+                      "& img": {
+                        transform: "scale(1.05)",
+                      },
+                    },
                   }}
-                />
-              </Box>
+                >
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain',
+                      transition: "transform 0.3s ease-in-out",
+                    }}
+                  />
+                </Box>
+              </SwiperSlide>
             ))}
-          </Slider>
+          </Swiper>
         </Box>
       </Container>
     </>
