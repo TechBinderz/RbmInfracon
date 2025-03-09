@@ -59,8 +59,13 @@ const Header: React.FC = () => {
   const [stockData, setStockData] = useState<StockData>(defaultStockData);
   const [isMounted, setIsMounted] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({});
+  const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({
+    aboutUs: false,
+    services: false,
+    careers: false,
+  });
   const isSmallScreen = useMediaQuery("(max-width:1100px)");
+
   useEffect(() => {
     const updateStockData = async () => {
       const data = await checkAndUpdateStockData();
@@ -82,6 +87,19 @@ const Header: React.FC = () => {
       [menu]: !prevOpenMenus[menu],
     }));
   };
+
+  useEffect(() => {
+    if (openMenus.services) {
+      serviceCardData.forEach((service) => {
+        if (service.additionalServices?.length) {
+          setOpenMenus((prev) => ({
+            ...prev,
+            [`service_${service.pathName}`]: false,
+          }));
+        }
+      });
+    }
+  }, [openMenus.services]);
 
   const StockPriceDisplay: React.FC<{ stockData: StockData }> = ({
     stockData,
@@ -381,22 +399,76 @@ const Header: React.FC = () => {
                 <ListItemText primary="All Services" />
               </ListItem>
               {serviceCardData.map((service) => (
-                <ListItem
-                  key={service.pathName}
-                  component={Link}
-                  to={`/services/${service.pathName}`}
-                  onClick={() => setDrawerOpen(false)}
-                  sx={{
-                    "&:hover": {
-                      backgroundColor: "transparent",
-                      color: "#39ac4b",
-                    },
-                    textDecoration: "none",
-                    color: "#333",
-                  }}
-                >
-                  <ListItemText primary={service.title} />
-                </ListItem>
+                <React.Fragment key={service.pathName}>
+                  <ListItem
+                    component={Link}
+                    to={`/services/${service.pathName}`}
+                    onClick={() => {
+                      if (!service.additionalServices?.length) {
+                        setDrawerOpen(false);
+                      }
+                      handleToggleMenu(`service_${service.pathName}`);
+                    }}
+                    sx={{
+                      "&:hover": {
+                        backgroundColor: "transparent",
+                        color: "#39ac4b",
+                      },
+                      textDecoration: "none",
+                      color: "#333",
+                    }}
+                  >
+                    <ListItemText primary={service.title} />
+                    {service.additionalServices && service.additionalServices.length > 0 && (
+                      openMenus[`service_${service.pathName}`] ? (
+                        <Remove sx={{ fontSize: "2rem", color: "#39ac4b" }} />
+                      ) : (
+                        <Add sx={{ fontSize: "2rem", color: "#39ac4b" }} />
+                      )
+                    )}
+                  </ListItem>
+                  {service.additionalServices && service.additionalServices.length > 0 && (
+                    <Collapse in={openMenus[`service_${service.pathName}`]} timeout="auto" unmountOnExit>
+                      <List component="div" disablePadding sx={{ paddingLeft: 2 }}>
+                        <ListItem
+                          component={Link}
+                          to={`/services/${service.pathName}`}
+                          onClick={() => setDrawerOpen(false)}
+                          sx={{
+                            "&:hover": {
+                              backgroundColor: "transparent",
+                              color: "#39ac4b",
+                            },
+                            textDecoration: "none",
+                            color: "#333",
+                            backgroundColor: "#f8f8f8",
+                            fontWeight: 600,
+                          }}
+                        >
+                          <ListItemText primary={service.title} />
+                        </ListItem>
+                        {service.additionalServices.map((subService) => (
+                          <ListItem
+                            key={subService.pathName}
+                            component={Link}
+                            to={`services/${subService.pathName}`}
+                            onClick={() => setDrawerOpen(false)}
+                            sx={{
+                              "&:hover": {
+                                backgroundColor: "transparent",
+                                color: "#39ac4b",
+                              },
+                              textDecoration: "none",
+                              color: "#333",
+                            }}
+                          >
+                            <ListItemText primary={subService.title} />
+                          </ListItem>
+                        ))}
+                      </List>
+                    </Collapse>
+                  )}
+                </React.Fragment>
               ))}
             </List>
           </Collapse>
