@@ -62,7 +62,7 @@ const serviceCardData = [
       "RBM is a global leader in turnaround services for refineries, petrochemicals, and fertilizer plants. With over three decades of experience.",
   },
   {
-    pathName: "heavyEquipmentServices",
+    pathName: "logisticsServices",
     image: engineering_service_1,
     title: "Heavy Equipment Services",
     description:
