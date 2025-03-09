@@ -63,7 +63,7 @@ import {
                   />
                   <CardContent
                     sx={{
-                      height: showDetails ? "210px" : "110px",
+                      height: showDetails ? "220px" : "110px",
                       textAlign: "center",
                     }}
                   >

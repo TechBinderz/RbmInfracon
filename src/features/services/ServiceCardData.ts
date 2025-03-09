@@ -20,6 +20,13 @@ const serviceCardData = [
       "Comprehensive engineering solutions including feasibility studies, detailed design, and process optimization for efficient project execution.",
   },
   {
+    pathName: "procurementServices",
+    image: construction_service_1,
+    title: "Procurement Services",
+    description:
+      "RBM focuses on sourcing premium materials and equipment from both domestic and international suppliers/manufacturers to support construction and operational activities.",
+  },
+  {
     pathName: "constructionServices",
     image: construction_service_1,
     title: "Construction Services",
