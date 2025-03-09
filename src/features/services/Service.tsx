@@ -20,7 +20,6 @@ import "swiper/css/pagination";
 import services_image from "../../assets/features/services/services.jpg";
 import serviceCardData from "./ServiceCardData";
 import AllServiceCards from "./AllServiceCards";
-import { themeColor } from "../common/common";
 
 const Services: React.FC = () => {
   const { pathname } = useLocation();

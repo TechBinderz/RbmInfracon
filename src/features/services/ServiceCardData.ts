@@ -5,7 +5,7 @@ import heater_operation_1 from "../../assets/features/services/heater/heater_ope
 import steel_work_1 from "../../assets/features/services/structural/steel_work (1).jpg";
 import boiler_erection_1 from "../../assets/features/services/boiler/boiler_erection (1).jpg";
 import performance_1 from "../../assets/features/services/performance/performance (1).jpg";
-import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (1).jpg";
+// import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (1).jpg";
 import hydrojetting_1 from "../../assets/features/services/hydrojetting/hydrojetting (1).jpg";
 import engineering_service_1 from "../../assets/features/services/engineering_service.jpg";
 import construction_service_1 from "../../assets/features/services/construction_services/construction_service (1).jpg";

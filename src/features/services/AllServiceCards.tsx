@@ -6,7 +6,6 @@ import {
   Box,
   Typography,
   Stack,
-  Divider,
   keyframes,
 } from "@mui/material";
 import { Link } from "react-router-dom";
