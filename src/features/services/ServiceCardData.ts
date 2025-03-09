@@ -110,12 +110,12 @@ const serviceCardData = [
         image: boiler_erection_1,
         description: "Expert handling of new boiler installations, including design coordination and commissioning.",
       },
-      {
-        pathName: "bundlePuller",
-        title: "Bundle Puller",
-        image: bundle_puller_1,
-        description: "Efficient bundle pulling services focused on minimizing downtime and maximizing productivity.",
-      },
+      // {
+      //   pathName: "bundlePuller",
+      //   title: "Bundle Puller",
+      //   image: bundle_puller_1,
+      //   description: "Efficient bundle pulling services focused on minimizing downtime and maximizing productivity.",
+      // },
       {
         pathName: "heaterOperation",
         title: "Heater Operation",
