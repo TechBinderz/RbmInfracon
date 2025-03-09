@@ -21,7 +21,7 @@ import {
   CheckCircle,
 } from "@mui/icons-material";
 import "../common/common.css";
-import engineering_service_1 from "../../assets/features/services/engineering_service.jpg";
+import operation_maintenance_services from "../../assets/features/services/operation_maintenance_services.jpg";
 import PageTitle from "../common/PageTitleDiv";
 import { themeColor } from "../common/common";
 import AdditionalServices from "./components/AdditionalServices";
@@ -68,7 +68,7 @@ const OperationMaintenanceServices: React.FC = () => {
 
   return (
     <>
-      <PageTitle imageUrl={engineering_service_1} tileContent="Operation, Maintenance & Inspection" />
+      <PageTitle imageUrl={operation_maintenance_services} tileContent="Operation, Maintenance & Inspection" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}
         <Grid container spacing={3} sx={{ mb: 3 }}>

@@ -12,6 +12,7 @@ import construction_service_1 from "../../assets/features/services/construction_
 import procurment_services_1 from "../../assets/features/services/procurment_services.jpg";
 import bundle_puller_2 from "../../assets/features/services/bundlepuller/bundlepuller (2).jpg";
 import heavy_lifting from "../../assets/features/services/heavy_lifting.jpg";
+import operation_maintenance_services from "../../assets/features/services/operation_maintenance_services.jpg";
 import hydrojetting_2 from "../../assets/features/services/hydrojetting/hydrojetting (2).jpg";
 
 // Define the card data
@@ -61,7 +62,7 @@ const serviceCardData = [
   },
   {
     pathName: "renovationServices",
-    image: engineering_service_1,
+    image: performance_1,
     title: "Renovation & Performance Enhancement Services",
     description:
       "RBM specializes in industrial revamp and operational performance enhancement.",
@@ -84,7 +85,7 @@ const serviceCardData = [
   },
   {
     pathName: "operationMaintenanceServices",
-    image: engineering_service_1,
+    image: operation_maintenance_services,
     title: "Operation, Maintenance & Inspection Services",
     description:
       "RBM provides integrated O&M services to ensure asset longevity and operational efficiency.",
