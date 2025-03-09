@@ -1,8 +1,7 @@
 import React from "react";
 import { useLocation, Outlet, Link } from "react-router-dom";
 import PageTitle from "../common/PageTitleDiv";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, A11y } from "swiper/modules";
+import CustomSwiper from "../common/CustomSwiper";
 import { 
   Typography, 
   CardMedia, 
@@ -14,9 +13,6 @@ import {
   Container
 } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import services_image from "../../assets/features/services/services.jpg";
 import serviceCardData from "./ServiceCardData";
 import AllServiceCards from "./AllServiceCards";
@@ -76,85 +72,57 @@ const Services: React.FC = () => {
           </Typography>
         </Box>
         <Box sx={{ position: "relative", mx: { xs: -2, md: -4 } }}>
-          <Swiper
-            modules={[Navigation, Pagination, A11y]}
-            spaceBetween={30}
-            slidesPerView={3}
-            navigation={true}
-            pagination={{ 
-              clickable: true,
-            }}
-            loop={true}
-            breakpoints={{
-              1536: {
-                slidesPerView: 3,
-                spaceBetween: 40,
-              },
-              1200: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
-              900: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              0: {
-                slidesPerView: 1,
-                spaceBetween: 16,
-              },
-            }}
-            style={{ 
-              padding: "20px 50px 60px",
-            }}
-            className="services-swiper"
-          >
-            {filteredCardData.map((card, index) => (
-              <SwiperSlide key={index}>
+          <CustomSwiper
+            items={filteredCardData.map((card) => ({
+              id: card.pathName,
+              content: (
                 <Link
                   to={`/services/${card.pathName}`}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Card
                     sx={{
-                      height: "600px",
-                      width: "100%",
+                      height: "100%",
                       display: "flex",
                       flexDirection: "column",
-                      transition: "all 0.3s ease-in-out",
+                      transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                       borderRadius: 2,
                       overflow: "hidden",
                       boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+                      transform: "translateY(0) scale(1)",
+                      transformOrigin: "center",
                       "&:hover": {
-                        transform: "translateY(-8px)",
-                        boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
+                        transform: "translateY(-8px) scale(1.02)",
+                        boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
                         "& .MuiCardMedia-root": {
                           transform: "scale(1.05)",
-                        },
-                        "& .arrow-icon": {
-                          transform: "translateX(4px)",
                         },
                       },
                     }}
                   >
-                    <Box sx={{ 
-                      position: "relative", 
-                      overflow: "hidden", 
-                      bgcolor: "grey.100",
-                      height: "350px" 
-                    }}>
+                    <Box
+                      sx={{
+                        position: "relative",
+                        overflow: "hidden",
+                        bgcolor: "grey.100",
+                        height: { xs: "300px", md: "350px" },
+                        flexShrink: 0,
+                      }}
+                    >
                       <CardMedia
                         component="img"
-                        height="350"
                         image={card.image}
-                        alt={card.title}
+                        alt={`${card.title} service illustration`}
                         sx={{
-                          transition: "transform 0.3s ease-in-out",
+                          transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                           objectFit: "cover",
                           width: "100%",
-                          height: "100%"
+                          height: "100%",
                         }}
                       />
                       <Box
+                        className="card-gradient"
+                        role="presentation"
                         sx={{
                           position: "absolute",
                           bottom: 0,
@@ -162,62 +130,66 @@ const Services: React.FC = () => {
                           right: 0,
                           background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
                           height: "50%",
+                          transition: "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                          opacity: 0.6,
                         }}
                       />
                     </Box>
-                    <CardContent sx={{ 
-                      flexGrow: 1, 
-                      p: 4, 
-                      height: "250px",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between"
-                    }}>
-                      <Box>
-                        <Box sx={{ mb: 2 }}>
-                          <Typography
-                            variant="h5"
-                            sx={{
-                              fontWeight: 600,
-                              color: themeColorValue,
-                              mb: 2,
-                              overflow: "hidden",
-                              textOverflow: "ellipsis",
-                              display: "-webkit-box",
-                              WebkitBoxOrient: "vertical",
-                              WebkitLineClamp: 2,
-                              lineHeight: 1.3,
-                            }}
-                          >
-                            {card.title}
-                          </Typography>
-                        </Box>
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                            display: "-webkit-box",
-                            WebkitBoxOrient: "vertical",
-                            WebkitLineClamp: 3,
-                            lineHeight: 1.6,
-                            fontSize: { xs: "1.1rem", md: "1.2rem" },
-                            color: "black",
-                          }}
-                        >
-                          {card.description}
-                        </Typography>
-                      </Box>
+                    <CardContent
+                      sx={{
+                        p: { xs: 3, md: 4 },
+                        flexGrow: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Typography
+                        variant="h5"
+                        component="h3"
+                        sx={{
+                          fontWeight: 600,
+                          color: themeColorValue,
+                          mb: 2,
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          lineHeight: 1.3,
+                          fontSize: { xs: "1.25rem", md: "1.5rem" },
+                        }}
+                      >
+                        {card.title}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="black"
+                        sx={{
+                          display: "-webkit-box",
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          lineHeight: 1.6,
+                          fontSize: { xs: "1.1rem", md: "1.2rem" },
+                          mb: 3,
+                        }}
+                      >
+                        {card.description}
+                      </Typography>
                       <Stack 
                         direction="row" 
                         alignItems="center" 
                         spacing={1}
                         sx={{
                           color: themeColorValue,
-                          mt: 2,
                           "& .arrow-icon": {
                             transition: "transform 0.2s",
                             fontSize: "1.4rem",
+                          },
+                          "&:hover .arrow-icon": {
+                            transform: "translateX(4px)",
                           },
                         }}
                       >
@@ -235,66 +207,16 @@ const Services: React.FC = () => {
                     </CardContent>
                   </Card>
                 </Link>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+              ),
+            }))}
+            className="services-swiper"
+            slidesPerViewMap={{
+              xs: 1,
+              md: 2,
+              lg: 3,
+            }}
+          />
         </Box>
-        <style>
-          {`
-            .services-swiper .swiper-button-next,
-            .services-swiper .swiper-button-prev {
-              width: 40px;
-              height: 40px;
-              background-color: white;
-              border-radius: 50%;
-              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-              transition: all 0.3s ease;
-            }
-
-            .services-swiper .swiper-button-next:hover,
-            .services-swiper .swiper-button-prev:hover {
-              background-color: ${themeColorValue};
-            }
-
-            .services-swiper .swiper-button-next::after,
-            .services-swiper .swiper-button-prev::after {
-              font-size: 20px;
-              color: ${themeColorValue};
-              transition: color 0.3s ease;
-            }
-
-            .services-swiper .swiper-button-next:hover::after,
-            .services-swiper .swiper-button-prev:hover::after {
-              color: white;
-            }
-
-            .services-swiper .swiper-button-next {
-              right: 10px;
-            }
-
-            .services-swiper .swiper-button-prev {
-              left: 10px;
-            }
-
-            .services-swiper .swiper-button-disabled {
-              opacity: 0.5;
-              cursor: not-allowed;
-            }
-
-            .swiper-pagination-bullet {
-              width: 12px;
-              height: 12px;
-              background: #e0e0e0;
-              opacity: 1;
-              transition: all 0.3s ease;
-            }
-
-            .swiper-pagination-bullet-active {
-              background: ${themeColorValue};
-              transform: scale(1.2);
-            }
-          `}
-        </style>
       </Container>
     </>
   );

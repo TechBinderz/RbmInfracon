@@ -13,8 +13,7 @@ import {
 } from '@mui/material';
 import PageTitle from '../../features/common/PageTitleDiv';
 import BANNER_IMAGE from "../../assets/features/Awards/awards_background.jpg";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, A11y } from "swiper/modules";
+import CustomSwiper from "../common/CustomSwiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -321,40 +320,10 @@ const Awards: React.FC = () => {
         </Typography>
 
         <Box sx={{ position: "relative", mx: { xs: -2, md: -4 }, mb: 6 }}>
-          <Swiper
-            modules={[Navigation, Pagination, A11y]}
-            spaceBetween={30}
-            slidesPerView={3}
-            navigation={true}
-            pagination={{ 
-              clickable: true,
-            }}
-            loop={true}
-            breakpoints={{
-              1536: {
-                slidesPerView: 4,
-                spaceBetween: 40,
-              },
-              1200: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
-              900: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              0: {
-                slidesPerView: 1,
-                spaceBetween: 16,
-              },
-            }}
-            style={{ 
-              padding: "20px 50px 60px",
-            }}
-            className="awards-swiper"
-          >
-            {allAwards.map((item, index) => (
-              <SwiperSlide key={index}>
+          <CustomSwiper
+            items={allAwards.map((item) => ({
+              id: item.title,
+              content: (
                 <Box
                   sx={{
                     position: "relative",
@@ -382,65 +351,16 @@ const Awards: React.FC = () => {
                     }}
                   />
                 </Box>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <style>
-            {`
-              .awards-swiper .swiper-button-next,
-              .awards-swiper .swiper-button-prev {
-                width: 40px;
-                height: 40px;
-                background-color: white;
-                border-radius: 50%;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                transition: all 0.3s ease;
-              }
-
-              .awards-swiper .swiper-button-next:hover,
-              .awards-swiper .swiper-button-prev:hover {
-                background-color: ${themeColor};
-              }
-
-              .awards-swiper .swiper-button-next::after,
-              .awards-swiper .swiper-button-prev::after {
-                font-size: 20px;
-                color: ${themeColor};
-                transition: color 0.3s ease;
-              }
-
-              .awards-swiper .swiper-button-next:hover::after,
-              .awards-swiper .swiper-button-prev:hover::after {
-                color: white;
-              }
-
-              .awards-swiper .swiper-button-next {
-                right: 10px;
-              }
-
-              .awards-swiper .swiper-button-prev {
-                left: 10px;
-              }
-
-              .awards-swiper .swiper-button-disabled {
-                opacity: 0.5;
-                cursor: not-allowed;
-              }
-
-              .swiper-pagination-bullet {
-                width: 12px;
-                height: 12px;
-                background: #e0e0e0;
-                opacity: 1;
-                transition: all 0.3s ease;
-              }
-
-              .swiper-pagination-bullet-active {
-                background: ${themeColor};
-                transform: scale(1.2);
-              }
-            `}
-          </style>
+              ),
+            }))}
+            className="awards-swiper"
+            slidesPerViewMap={{
+              xs: 1,
+              md: 2,
+              lg: 3,
+              xl: 4,
+            }}
+          />
         </Box>
       </Container>
     </>
