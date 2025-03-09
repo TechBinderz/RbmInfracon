@@ -2,33 +2,21 @@ import React from "react";
 import {
   Typography,
   Grid,
-  Card,
-  CardContent,
   Container,
-  Box,
-  IconButton,
-  useTheme,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Divider,
 } from "@mui/material";
 import {
   Inventory,
   LocalShipping,
   Build,
-  CheckCircle,
 } from "@mui/icons-material";
 import "../common/common.css";
 import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (2).jpg";
 import PageTitle from "../common/PageTitleDiv";
-import { themeColor } from "../common/common";
 import AdditionalServices from "./components/AdditionalServices";
+import ServiceGrid from "./components/ServiceGrid";
 
 const WorkshopServices: React.FC = () => {
-  const theme = useTheme();
-
   const services = [
     {
       title: "Inventory & Storage Management",
@@ -70,94 +58,10 @@ const WorkshopServices: React.FC = () => {
         </Grid>
 
         {/* Services Grid */}
-        <Typography
-          variant="h4"
-          align="center"
-          sx={{
-            mb: 4,
-            fontWeight: "bold",
-            color: themeColor,
-          }}
-        >
-          Our Workshop & Warehouse Services
-        </Typography>
-        <Grid container spacing={4}>
-          {services.map((service, index) => (
-            <Grid item xs={12} md={6} lg={4} key={index}>
-              <Card 
-                sx={{
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  transition: "all 0.3s ease-in-out",
-                  "&:hover": {
-                    transform: "translateY(-8px)",
-                    boxShadow: theme.shadows[10],
-                  },
-                }}
-                className="card-shadow"
-              >
-                <CardContent>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      mb: 2,
-                    }}
-                  >
-                    <IconButton
-                      sx={{
-                        backgroundColor: theme.palette.grey[100],
-                        mr: 2,
-                        "&:hover": {
-                          backgroundColor: themeColor,
-                          "& .MuiSvgIcon-root": {
-                            color: "white",
-                          },
-                        },
-                      }}
-                    >
-                      {service.icon}
-                    </IconButton>
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        fontWeight: 600,
-                        color: themeColor,
-                      }}
-                    >
-                      {service.title}
-                    </Typography>
-                  </Box>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{ mb: 2 }}
-                  >
-                    {service.description}
-                  </Typography>
-                  <List dense>
-                    {service.benefits.map((benefit, idx) => (
-                      <ListItem key={idx} sx={{ py: 0 }}>
-                        <ListItemIcon sx={{ minWidth: 36 }}>
-                          <CheckCircle sx={{ color: themeColor, fontSize: 16 }} />
-                        </ListItemIcon>
-                        <ListItemText 
-                          primary={benefit}
-                          primaryTypographyProps={{
-                            sx: { fontSize: "0.9rem" }
-                          }}
-                        />
-                      </ListItem>
-                    ))}
-                  </List>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      <Divider sx={{ marginTop: 10}} />
-      <AdditionalServices servicePathName="workshopServices" />
+        <ServiceGrid services={services} title="Our Workshop & Warehouse Services" />
+        
+        <Divider sx={{ marginTop: 10}} />
+        <AdditionalServices servicePathName="workshopServices" />
       </Container>
     </>
   );
