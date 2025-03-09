@@ -23,7 +23,7 @@ import {
   CheckCircle,
 } from "@mui/icons-material";
 import "../common/common.css";
-import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (2).jpg";
+import hydrojetting_2 from "../../assets/features/services/hydrojetting/hydrojetting (2).jpg";
 import PageTitle from "../common/PageTitleDiv";
 import { themeColor } from "../common/common";
 import AdditionalServices from "./components/AdditionalServices";
@@ -92,7 +92,7 @@ const TurnaroundServices: React.FC = () => {
 
   return (
     <>
-      <PageTitle imageUrl={bundle_puller_1} tileContent="Turnaround of Plants" />
+      <PageTitle imageUrl={hydrojetting_2} tileContent="Turnaround of Plants" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}
         <Grid container spacing={3} sx={{ mb: 3 }}>

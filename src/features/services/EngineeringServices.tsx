@@ -23,7 +23,7 @@ import {
   CheckCircle,
 } from "@mui/icons-material";
 import "../common/common.css";
-import engineering_service_1 from "../../assets/features/services/engineering_services/engineering_service (1).jpg";
+import engineering_service_1 from "../../assets/features/services/engineering_service.jpg";
 import PageTitle from "../common/PageTitleDiv";
 import { themeColor } from "../common/common";
 import AdditionalServices from "./components/AdditionalServices";

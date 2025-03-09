@@ -7,11 +7,12 @@ import boiler_erection_1 from "../../assets/features/services/boiler/boiler_erec
 import performance_1 from "../../assets/features/services/performance/performance (1).jpg";
 import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (1).jpg";
 import hydrojetting_1 from "../../assets/features/services/hydrojetting/hydrojetting (1).jpg";
-import engineering_service_1 from "../../assets/features/services/engineering_services/engineering_service (1).jpg";
+import engineering_service_1 from "../../assets/features/services/engineering_service.jpg";
 import construction_service_1 from "../../assets/features/services/construction_services/construction_service (1).jpg";
 import procurment_services_1 from "../../assets/features/services/procurment_services.jpg";
 import bundle_puller_2 from "../../assets/features/services/bundlepuller/bundlepuller (2).jpg";
 import heavy_lifting from "../../assets/features/services/heavy_lifting.jpg";
+import hydrojetting_2 from "../../assets/features/services/hydrojetting/hydrojetting (2).jpg";
 
 // Define the card data
 const serviceCardData = [
@@ -75,7 +76,7 @@ const serviceCardData = [
   },
   {
     pathName: "workshopServices",
-    image: engineering_service_1,
+    image: bundle_puller_2,
     title: "Workshop & Warehouse Management",
     description:
       "RBM ensures streamlined warehouse and material handling operations.",
@@ -91,7 +92,7 @@ const serviceCardData = [
   },
   {
     pathName: "turnaroundServices",
-    image: bundle_puller_2,
+    image: hydrojetting_2,
     title: "Turnaround of Plants",
     description:
       "RBM is a global leader in turnaround services for refineries, petrochemicals, and fertilizer plants. With over three decades of experience.",

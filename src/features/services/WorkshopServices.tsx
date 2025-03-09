@@ -21,7 +21,7 @@ import {
   CheckCircle,
 } from "@mui/icons-material";
 import "../common/common.css";
-import engineering_service_1 from "../../assets/features/services/engineering_services/engineering_service (1).jpg";
+import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (2).jpg";
 import PageTitle from "../common/PageTitleDiv";
 import { themeColor } from "../common/common";
 import AdditionalServices from "./components/AdditionalServices";
@@ -52,7 +52,7 @@ const WorkshopServices: React.FC = () => {
 
   return (
     <>
-      <PageTitle imageUrl={engineering_service_1} tileContent="Workshop & Warehouse Management" />
+      <PageTitle imageUrl={bundle_puller_1} tileContent="Workshop & Warehouse Management" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}
         <Grid container spacing={3} sx={{ mb: 3 }}>
