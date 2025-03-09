@@ -10,6 +10,7 @@ import NewsSection from "./NewsSection";
 import StatisticsPoliciesSection from "../common/StatisticsPoliciesSection";
 import useScrollEffect from "../hooks/useScrollEffect"; // Import the custom hook
 import CompanyDescription from "./CompanyDescription";
+import serviceCardData from "../services/ServiceCardData";
 import "./home.css";
 
 const Home: React.FC = () => {
@@ -41,26 +42,24 @@ const Home: React.FC = () => {
         <div className="marquee-container">
           <div className="marquee-content">
             <Link to="/services" className="marquee-link">
-            All Services |
+              All Services |
             </Link>
-            <Link to="/services/pipingServices" className="marquee-link">
-            Piping Services |
-            </Link>
-            <Link to="/services/plateWork" className="marquee-link">
-            Plate Work Service |
-            </Link>
-            <Link to="/services/HeaterOperation" className="marquee-link">
-              Heater Operation Services |
-            </Link>
-            <Link to="/services/drillingAndOMServices" className="marquee-link">
-            Drilling And OM Services |
-            </Link>
-            <Link to="/services/structuralSteelWork" className="marquee-link">
-            Structural Steel Work Services |
-            </Link>
-            <Link to="/services/railWagonLoadingServices" className="marquee-link">
-            Rail Wagon Loading Services |
-            </Link>
+            {serviceCardData.map((service) => (
+              <React.Fragment key={service.pathName}>
+                <Link to={`/services/${service.pathName}`} className="marquee-link">
+                  {service.title} |
+                </Link>
+                {/* {service.additionalServices?.map((subService) => (
+                  <Link
+                    key={subService.pathName}
+                    to={`/services/${subService.pathName}`}
+                    className="marquee-link"
+                  >
+                    {subService.title} |
+                  </Link>
+                ))} */}
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </div>
