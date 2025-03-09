@@ -25,6 +25,7 @@ import "../common/common.css";
 import procurment_services_1 from "../../assets/features/services/procurment_services.jpg";
 import PageTitle from "../common/PageTitleDiv";
 import { themeColor } from "../common/common";
+import AdditionalServices from "./components/AdditionalServices";
 
 const ProcurementServices: React.FC = () => {
   const theme = useTheme();
@@ -188,6 +189,7 @@ const ProcurementServices: React.FC = () => {
           ))}
         </Grid>
       <Divider sx={{ marginTop: 10}} />
+      <AdditionalServices servicePathName="procurementServices" />
       </Container>
     </>
   );

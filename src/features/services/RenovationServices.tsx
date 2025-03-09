@@ -24,6 +24,7 @@ import "../common/common.css";
 import engineering_service_1 from "../../assets/features/services/engineering_services/engineering_service (1).jpg";
 import PageTitle from "../common/PageTitleDiv";
 import { themeColor } from "../common/common";
+import AdditionalServices from "./components/AdditionalServices";
 
 const RenovationServices: React.FC = () => {
   const theme = useTheme();
@@ -156,6 +157,7 @@ const RenovationServices: React.FC = () => {
           ))}
         </Grid>
       <Divider sx={{ marginTop: 10}} />
+      <AdditionalServices servicePathName="renovationServices" />
       </Container>
     </>
   );
