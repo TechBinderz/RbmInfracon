@@ -29,6 +29,7 @@ import JobOpenings from "../../../features/careers/JobOpenings";
 import ConstructionServices from "../../../features/services/ConstructionServices";
 import RenovationServices from "../../../features/services/RenovationServices";
 import WorkshopServices from "../../../features/services/WorkshopServices";
+import OperationMaintenanceServices from "../../../features/services/OperationMaintenanceServices";
 
 const newsRoutes = {
   path: "news",
@@ -61,6 +62,10 @@ const servicesRoutes = {
     {
       path: "engineeringServices",
       element: <EngineeringServices />,
+    },
+    {
+      path: "operationMaintenanceServices",
+      element: <OperationMaintenanceServices />,
     },
     {
       path: "workshopServices",
