@@ -166,7 +166,6 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
-                    minHeight: { xs: "200px", md: "250px" },
                   }}
                 >
                   <Box component="header">
@@ -181,7 +180,7 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                         WebkitLineClamp: 2,
                         WebkitBoxOrient: "vertical",
                         overflow: "hidden",
-                        minHeight: { xs: "56px", md: "64px" },
+                        textOverflow: "ellipsis",
                         lineHeight: 1.3,
                         fontSize: { xs: "1.25rem", md: "1.5rem" },
                       }}
@@ -198,9 +197,9 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                           WebkitLineClamp: 3,
                           WebkitBoxOrient: "vertical",
                           overflow: "hidden",
-                          minHeight: { xs: "60px", md: "72px" },
+                          textOverflow: "ellipsis",
                           lineHeight: 1.6,
-                          fontSize: { xs: "1rem", md: "1.15rem" }
+                          fontSize: { xs: "1.1rem", md: "1.2rem" },
                         }}
                       >
                         {card.description}

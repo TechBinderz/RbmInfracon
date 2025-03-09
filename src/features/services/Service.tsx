@@ -65,8 +65,12 @@ const Services: React.FC = () => {
           }} />
           <Typography
             variant="subtitle1"
-            color="text.secondary"
-            sx={{ maxWidth: "800px", mx: "auto" }}
+            sx={{ 
+              maxWidth: "800px", 
+              mx: "auto",
+              color: "black",
+              fontSize: { xs: "1.1rem", md: "1.25rem" }
+            }}
           >
             Discover our comprehensive range of industrial solutions
           </Typography>
@@ -169,33 +173,35 @@ const Services: React.FC = () => {
                       justifyContent: "space-between"
                     }}>
                       <Box>
-                        <Typography
-                          variant="h5"
-                          sx={{
-                            fontWeight: 600,
-                            color: themeColorValue,
-                            mb: 2,
-                            display: "-webkit-box",
-                            WebkitLineClamp: 2,
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
-                            height: "64px",
-                            lineHeight: 1.3,
-                          }}
-                        >
-                          {card.title}
-                        </Typography>
+                        <Box sx={{ mb: 2 }}>
+                          <Typography
+                            variant="h5"
+                            sx={{
+                              fontWeight: 600,
+                              color: themeColorValue,
+                              mb: 2,
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                              display: "-webkit-box",
+                              WebkitBoxOrient: "vertical",
+                              WebkitLineClamp: 2,
+                              lineHeight: 1.3,
+                            }}
+                          >
+                            {card.title}
+                          </Typography>
+                        </Box>
                         <Typography
                           variant="body1"
-                          color="text.secondary"
                           sx={{
-                            display: "-webkit-box",
-                            WebkitLineClamp: 3,
-                            WebkitBoxOrient: "vertical",
                             overflow: "hidden",
-                            height: "72px",
+                            textOverflow: "ellipsis",
+                            display: "-webkit-box",
+                            WebkitBoxOrient: "vertical",
+                            WebkitLineClamp: 3,
                             lineHeight: 1.6,
-                            fontSize: "1rem",
+                            fontSize: { xs: "1.1rem", md: "1.2rem" },
+                            color: "black",
                           }}
                         >
                           {card.description}

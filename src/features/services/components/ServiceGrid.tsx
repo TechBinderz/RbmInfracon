@@ -86,6 +86,12 @@ const ServiceGrid: React.FC<ServiceGridProps> = ({ services, title }) => {
                     sx={{
                       fontWeight: 600,
                       color: themeColor,
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 2,
+                      lineHeight: 1.3,
                     }}
                   >
                     {service.title}
@@ -96,7 +102,13 @@ const ServiceGrid: React.FC<ServiceGridProps> = ({ services, title }) => {
                   color="black"
                   sx={{ 
                     my: 3,
-                    fontSize: { xs: "1rem", md: "1.15rem" }
+                    fontSize: { xs: "1rem", md: "1.15rem" },
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 3,
+                    lineHeight: 1.6,
                   }}
                 >
                   {service.description}
@@ -110,7 +122,12 @@ const ServiceGrid: React.FC<ServiceGridProps> = ({ services, title }) => {
                       <ListItemText 
                         primary={benefit}
                         primaryTypographyProps={{
-                          sx: { fontSize: { xs: "0.95rem", md: "1.1rem" } }
+                          sx: { 
+                            fontSize: { xs: "0.95rem", md: "1.1rem" },
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap"
+                          }
                         }}
                       />
                     </ListItem>
