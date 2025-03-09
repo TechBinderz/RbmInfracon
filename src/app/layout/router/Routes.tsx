@@ -26,6 +26,8 @@ import News from "../../../features/news/News";
 import ONGC_WorkOrderSigned from "../../../features/news/newsPages/ongc_work_order_signed";
 import CareerPage from "../../../features/careers/CareerPage";
 import JobOpenings from "../../../features/careers/JobOpenings";
+import ConstructionServices from "../../../features/services/ConstructionServices";
+import RenovationServices from "../../../features/services/RenovationServices";
 
 const newsRoutes = {
   path: "news",
@@ -58,6 +60,14 @@ const servicesRoutes = {
     {
       path: "engineeringServices",
       element: <EngineeringServices />,
+    },
+    {
+      path: "renovationServices",
+      element: <RenovationServices />,
+    },
+    {
+      path: "constructionServices",
+      element: <ConstructionServices />,
     },
     {
       path: "pipingServices",
