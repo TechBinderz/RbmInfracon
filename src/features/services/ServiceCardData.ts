@@ -8,6 +8,7 @@ import performance_1 from "../../assets/features/services/performance/performanc
 import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (1).jpg";
 import hydrojetting_1 from "../../assets/features/services/hydrojetting/hydrojetting (1).jpg";
 import engineering_service_1 from "../../assets/features/services/engineering_services/engineering_service (1).jpg";
+import construction_service_1 from "../../assets/features/services/construction_services/construction_service (1).jpg";
 
 // Define the card data
 const serviceCardData = [
@@ -17,6 +18,55 @@ const serviceCardData = [
     title: "Engineering Services",
     description:
       "Comprehensive engineering solutions including feasibility studies, detailed design, and process optimization for efficient project execution.",
+  },
+  {
+    pathName: "constructionServices",
+    image: construction_service_1,
+    title: "Construction Services",
+    description:
+      "RBM provides world-class construction services, ensuring adherence to international codes and best practices. Our comprehensive range of services covers everything from piping fabrication to industrial civil work, delivering excellence in every project.",
+  },
+  {
+    pathName: "renovationServices",
+    image: engineering_service_1,
+    title: "Renovation Services",
+    description:
+      "RBM specializes in industrial revamp and operational performance enhancement.",
+  },
+  {
+    pathName: "workshopServices",
+    image: engineering_service_1,
+    title: "Workshop Services",
+    description:
+      "RBM ensures streamlined warehouse and material handling operations.",
+  },
+  {
+    pathName: "operationMaintenanceServices",
+    image: engineering_service_1,
+    title: "Operation & Maintenance Services",
+    description:
+      "RBM provides integrated O&M services to ensure asset longevity and operational efficiency.",
+  },
+  {
+    pathName: "turnaroundServices",
+    image: engineering_service_1,
+    title: "Turnaround Services",
+    description:
+      "RBM is a global leader in turnaround services for refineries, petrochemicals, and fertilizer plants. With over three decades of experience, RBM has successfully executed over 100 shutdowns lasting between 5 to 45 days.",
+  },
+  {
+    pathName: "heavyEquipmentServices",
+    image: engineering_service_1,
+    title: "Heavy Equipment Services",
+    description:
+      "RBM provides end-to-end heavy equipment transport and logistics solutions.",
+  },
+  {
+    pathName: "drillingAndOMServices",
+    image: drilling_service_1,
+    title: "Crude Oil Extraction & Drilling",
+    description:
+      "RBM specializes in oilfield exploration and drilling services.",
   },
   {
     pathName: "boilerErectionWork",
@@ -66,13 +116,6 @@ const serviceCardData = [
     title: "Heater Operation",
     description:
       "Top-notch Operation and Maintenance (O&M) services for heating systems, ensuring optimal performance and comfort in various settings.",
-  },
-  {
-    pathName: "drillingAndOMServices",
-    image: drilling_service_1,
-    title: "Drilling and O&M",
-    description:
-      "Specialized drilling and Operations and Maintenance (O&M) services for crewed wells, emphasizing reliability, safety, and efficiency.",
   },
   {
     pathName: "structuralSteelWork",

@@ -18,7 +18,7 @@ const DrillingAndOMServices: React.FC = () => {
     <>
       <PageTitle
         imageUrl={drilling_service_1}
-        tileContent="Drilling And O&M"
+        tileContent="Crude Oil Extraction & Drilling"
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
@@ -31,9 +31,7 @@ const DrillingAndOMServices: React.FC = () => {
                 lineHeight: 1.6,
               }}
             >
-              RBM Infracon offers specialized drilling and Operations &
-              Maintenance (O&M) services for crewed wells, ensuring reliable and
-              efficient operations.
+              RBM specializes in oilfield exploration and drilling services.
             </Typography>
             <Typography
               paragraph
@@ -74,12 +72,6 @@ const DrillingAndOMServices: React.FC = () => {
                 lineHeight: 1.6,
               }}>
                 Reservoir Management & Optimization.
-              </Typography>
-              <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
-                Experienced team for projects of all scales.
               </Typography>
             </ul>
           </Grid>
