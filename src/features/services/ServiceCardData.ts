@@ -24,7 +24,7 @@ const serviceCardData = [
     image: construction_service_1,
     title: "Construction Services",
     description:
-      "RBM provides world-class construction services, ensuring adherence to international codes and best practices. Our comprehensive range of services covers everything from piping fabrication to industrial civil work, delivering excellence in every project.",
+      "RBM provides world-class construction services, ensuring adherence to international codes and best practices.",
   },
   {
     pathName: "renovationServices",
@@ -52,7 +52,7 @@ const serviceCardData = [
     image: engineering_service_1,
     title: "Turnaround Services",
     description:
-      "RBM is a global leader in turnaround services for refineries, petrochemicals, and fertilizer plants. With over three decades of experience, RBM has successfully executed over 100 shutdowns lasting between 5 to 45 days.",
+      "RBM is a global leader in turnaround services for refineries, petrochemicals, and fertilizer plants. With over three decades of experience.",
   },
   {
     pathName: "heavyEquipmentServices",
