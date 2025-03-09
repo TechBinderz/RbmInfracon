@@ -9,6 +9,7 @@ import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlep
 import hydrojetting_1 from "../../assets/features/services/hydrojetting/hydrojetting (1).jpg";
 import engineering_service_1 from "../../assets/features/services/engineering_services/engineering_service (1).jpg";
 import construction_service_1 from "../../assets/features/services/construction_services/construction_service (1).jpg";
+import procurment_services_1 from "../../assets/features/services/procurment_services.jpg";
 
 // Define the card data
 const serviceCardData = [
@@ -22,7 +23,7 @@ const serviceCardData = [
   },
   {
     pathName: "procurementServices",
-    image: construction_service_1,
+    image: procurment_services_1,
     title: "Procurement Services",
     description:
       "RBM focuses on sourcing premium materials and equipment from both domestic and international suppliers/manufacturers to support construction and operational activities.",

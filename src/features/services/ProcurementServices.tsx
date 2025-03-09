@@ -22,7 +22,7 @@ import {
   CheckCircle,
 } from "@mui/icons-material";
 import "../common/common.css";
-import engineering_service_1 from "../../assets/features/services/engineering_services/engineering_service (1).jpg";
+import procurment_services_1 from "../../assets/features/services/procurment_services.jpg";
 import PageTitle from "../common/PageTitleDiv";
 import { themeColor } from "../common/common";
 
@@ -83,7 +83,7 @@ const ProcurementServices: React.FC = () => {
 
   return (
     <>
-      <PageTitle imageUrl={engineering_service_1} tileContent="Procurement Services" />
+      <PageTitle imageUrl={procurment_services_1} tileContent="Procurement Services" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}
         <Grid container spacing={3} sx={{ mb: 3 }}>
