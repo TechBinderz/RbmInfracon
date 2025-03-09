@@ -351,6 +351,7 @@ const Awards: React.FC = () => {
             style={{ 
               padding: "20px 50px 60px",
             }}
+            className="awards-swiper"
           >
             {allAwards.map((item, index) => (
               <SwiperSlide key={index}>
@@ -384,6 +385,62 @@ const Awards: React.FC = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+          <style>
+            {`
+              .awards-swiper .swiper-button-next,
+              .awards-swiper .swiper-button-prev {
+                width: 40px;
+                height: 40px;
+                background-color: white;
+                border-radius: 50%;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                transition: all 0.3s ease;
+              }
+
+              .awards-swiper .swiper-button-next:hover,
+              .awards-swiper .swiper-button-prev:hover {
+                background-color: ${themeColor};
+              }
+
+              .awards-swiper .swiper-button-next::after,
+              .awards-swiper .swiper-button-prev::after {
+                font-size: 20px;
+                color: ${themeColor};
+                transition: color 0.3s ease;
+              }
+
+              .awards-swiper .swiper-button-next:hover::after,
+              .awards-swiper .swiper-button-prev:hover::after {
+                color: white;
+              }
+
+              .awards-swiper .swiper-button-next {
+                right: 10px;
+              }
+
+              .awards-swiper .swiper-button-prev {
+                left: 10px;
+              }
+
+              .awards-swiper .swiper-button-disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+              }
+
+              .swiper-pagination-bullet {
+                width: 12px;
+                height: 12px;
+                background: #e0e0e0;
+                opacity: 1;
+                transition: all 0.3s ease;
+              }
+
+              .swiper-pagination-bullet-active {
+                background: ${themeColor};
+                transform: scale(1.2);
+              }
+            `}
+          </style>
         </Box>
       </Container>
     </>

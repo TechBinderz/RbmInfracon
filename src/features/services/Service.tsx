@@ -106,6 +106,7 @@ const Services: React.FC = () => {
             style={{ 
               padding: "20px 50px 60px",
             }}
+            className="services-swiper"
           >
             {filteredCardData.map((card, index) => (
               <SwiperSlide key={index}>
@@ -240,6 +241,46 @@ const Services: React.FC = () => {
         </Box>
         <style>
           {`
+            .services-swiper .swiper-button-next,
+            .services-swiper .swiper-button-prev {
+              width: 40px;
+              height: 40px;
+              background-color: white;
+              border-radius: 50%;
+              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+              transition: all 0.3s ease;
+            }
+
+            .services-swiper .swiper-button-next:hover,
+            .services-swiper .swiper-button-prev:hover {
+              background-color: ${themeColorValue};
+            }
+
+            .services-swiper .swiper-button-next::after,
+            .services-swiper .swiper-button-prev::after {
+              font-size: 20px;
+              color: ${themeColorValue};
+              transition: color 0.3s ease;
+            }
+
+            .services-swiper .swiper-button-next:hover::after,
+            .services-swiper .swiper-button-prev:hover::after {
+              color: white;
+            }
+
+            .services-swiper .swiper-button-next {
+              right: 10px;
+            }
+
+            .services-swiper .swiper-button-prev {
+              left: 10px;
+            }
+
+            .services-swiper .swiper-button-disabled {
+              opacity: 0.5;
+              cursor: not-allowed;
+            }
+
             .swiper-pagination-bullet {
               width: 12px;
               height: 12px;
@@ -247,40 +288,10 @@ const Services: React.FC = () => {
               opacity: 1;
               transition: all 0.3s ease;
             }
+
             .swiper-pagination-bullet-active {
               background: ${themeColorValue};
               transform: scale(1.2);
-            }
-            .swiper-button-next,
-            .swiper-button-prev {
-              color: ${themeColorValue};
-              background: white;
-              width: 48px;
-              height: 48px;
-              border-radius: 50%;
-              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-              transition: all 0.3s ease;
-            }
-            .swiper-button-next:after,
-            .swiper-button-prev:after {
-              font-size: 24px;
-              font-weight: bold;
-            }
-            .swiper-button-next {
-              right: 10px;
-            }
-            .swiper-button-prev {
-              left: 10px;
-            }
-            .swiper-button-next:hover,
-            .swiper-button-prev:hover {
-              background: ${themeColorValue};
-              color: white;
-              transform: scale(1.1);
-            }
-            .swiper-button-disabled {
-              opacity: 0.5;
-              cursor: not-allowed;
             }
           `}
         </style>
