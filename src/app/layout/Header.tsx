@@ -24,6 +24,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import RBMLOGOFULL from "../../assets/header/Rmb_logo_big.png";
 import RBMLOGOSMALL from "../../assets/header/Rmb_logo_small.png";
 import { checkAndUpdateStockData, StockData } from "../api/StockData";
@@ -171,7 +172,7 @@ const Header: React.FC = () => {
             <Box key={index} className={hasAdditionalServices ? 'dropdown-item has-submenu' : 'dropdown-item'}>
               <Link to={link.to} style={{ textDecoration: 'none' }}>
                 {link.text}
-                {hasAdditionalServices && <ArrowDropDownIcon className="submenu-arrow" />}
+                {hasAdditionalServices && <ArrowRightIcon className="submenu-arrow" />}
               </Link>
               {hasAdditionalServices && link.additionalServices && (
                 <Box className="submenu">
