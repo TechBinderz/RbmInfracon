@@ -18,6 +18,7 @@ const serviceCardData = [
     title: "Engineering Services",
     description:
       "Comprehensive engineering solutions including feasibility studies, detailed design, and process optimization for efficient project execution.",
+    additionalServices: [],
   },
   {
     pathName: "procurementServices",
@@ -25,6 +26,7 @@ const serviceCardData = [
     title: "Procurement Services",
     description:
       "RBM focuses on sourcing premium materials and equipment from both domestic and international suppliers/manufacturers to support construction and operational activities.",
+    additionalServices: [],
   },
   {
     pathName: "constructionServices",
@@ -32,41 +34,98 @@ const serviceCardData = [
     title: "Construction Services",
     description:
       "RBM provides world-class construction services, ensuring adherence to international codes and best practices.",
+    additionalServices: [
+      {
+        pathName: "pipingServices",
+        title: "Piping",
+        image: piping_service_1,
+        description: "Comprehensive solutions for various piping systems, including installation, maintenance, and optimization to ensure functionality and safety.",
+      },
+      {
+        pathName: "structuralSteelWork",
+        title: "Structural Steel Work",
+        image: steel_work_1,
+        description: "Expertise in civil construction, maintenance, and erection of structural steel for various applications.",
+      },
+      {
+        pathName: "plateWork",
+        title: "Plate Work",
+        image: plate_work_1,
+        description: "Expert services for fabricating and erecting platework structures such as ducts, hoppers, and chutes.",
+      },
+    ],
   },
   {
     pathName: "renovationServices",
     image: engineering_service_1,
-    title: "Renovation Services",
+    title: "Renovation & Performance Enhancement Services",
     description:
       "RBM specializes in industrial revamp and operational performance enhancement.",
+    additionalServices: [
+      {
+        pathName: "workoverDrillingServices",
+        title: "Performance Enhancement",
+        image: performance_1,
+        description: "Our commitment to driving performance improvements and operational excellence within the oil and gas sector.",
+      },
+    ],
   },
   {
     pathName: "workshopServices",
     image: engineering_service_1,
-    title: "Workshop Services",
+    title: "Workshop & Warehouse Management",
     description:
       "RBM ensures streamlined warehouse and material handling operations.",
+    additionalServices: [],
   },
   {
     pathName: "operationMaintenanceServices",
     image: engineering_service_1,
-    title: "Operation & Maintenance Services",
+    title: "Operation, Maintenance & Inspection Services",
     description:
       "RBM provides integrated O&M services to ensure asset longevity and operational efficiency.",
+    additionalServices: [],
   },
   {
     pathName: "turnaroundServices",
     image: engineering_service_1,
-    title: "Turnaround Services",
+    title: "Turnaround of Plants",
     description:
       "RBM is a global leader in turnaround services for refineries, petrochemicals, and fertilizer plants. With over three decades of experience.",
+    additionalServices: [
+      {
+        pathName: "hydrojetting",
+        title: "Hydrojetting",
+        image: hydrojetting_1,
+        description: "High-pressure water jetting services with cutting-edge technology and state-of-the-art equipment.",
+      },
+      {
+        pathName: "boilerErectionWork",
+        title: "Boiler Erection",
+        image: boiler_erection_1,
+        description: "Expert handling of new boiler installations, including design coordination and commissioning.",
+      },
+      {
+        pathName: "bundlePuller",
+        title: "Bundle Puller",
+        image: bundle_puller_1,
+        description: "Efficient bundle pulling services focused on minimizing downtime and maximizing productivity.",
+      },
+      {
+        pathName: "heaterOperation",
+        title: "Heater Operation",
+        image: heater_operation_1,
+        description: "Top-notch Operation and Maintenance services for heating systems.",
+      },
+    ],
   },
   {
     pathName: "logisticsServices",
     image: engineering_service_1,
-    title: "Heavy Equipment Services",
+    title: "Heavy Equipment Logistics",
     description:
       "RBM provides end-to-end heavy equipment transport and logistics solutions.",
+    additionalServices: [],
   },
   {
     pathName: "drillingAndOMServices",
@@ -74,62 +133,7 @@ const serviceCardData = [
     title: "Crude Oil Extraction & Drilling",
     description:
       "RBM specializes in oilfield exploration and drilling services.",
-  },
-  {
-    pathName: "boilerErectionWork",
-    image: boiler_erection_1,
-    title: "Boiler Erection Work",
-    description:
-      "Expert handling of new boiler installations, including design coordination, equipment assembly, and commissioning.",
-  },
-  {
-    pathName: "workoverDrillingServices",
-    image: performance_1,
-    title: "Performance Enhancement",
-    description:
-      "Our commitment to driving performance improvements and operational excellence within the oil and gas sector.",
-  },
-  {
-    pathName: "hydrojetting",
-    image: hydrojetting_1,
-    title: "Hydrojetting",
-    description:
-      "With cutting-edge technology and state-of-the-art equipment at our disposal, our team provides high-pressure water jetting services.",
-  },
-  {
-    pathName: "bundlePuller",
-    image: bundle_puller_1,
-    title: "Bundle Puller",
-    description:
-      "Recognizing the importance of minimizing downtime and maximizing productivity, we prioritize delivering high-quality services in a timely manner.",
-  },
-  {
-    pathName: "pipingServices",
-    image: piping_service_1,
-    title: "Piping",
-    description:
-      "Comprehensive solutions for various piping systems, including installation, maintenance, and optimization to ensure functionality and safety.",
-  },
-  {
-    pathName: "plateWork",
-    image: plate_work_1,
-    title: "Plate Work",
-    description:
-      "Expert services for fabricating and erecting platework structures such as ducts, hoppers, and chutes, focusing on precision and quality.",
-  },
-  {
-    pathName: "heaterOperation",
-    image: heater_operation_1,
-    title: "Heater Operation",
-    description:
-      "Top-notch Operation and Maintenance (O&M) services for heating systems, ensuring optimal performance and comfort in various settings.",
-  },
-  {
-    pathName: "structuralSteelWork",
-    image: steel_work_1,
-    title: "Structural Steel Work",
-    description:
-      "Expertise in civil construction, maintenance, and erection of structural steel for various applications, including coke plant maintenance and industrial projects.",
+    additionalServices: [],
   },
 ];
 
