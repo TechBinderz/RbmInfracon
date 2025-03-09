@@ -10,6 +10,8 @@ import hydrojetting_1 from "../../assets/features/services/hydrojetting/hydrojet
 import engineering_service_1 from "../../assets/features/services/engineering_services/engineering_service (1).jpg";
 import construction_service_1 from "../../assets/features/services/construction_services/construction_service (1).jpg";
 import procurment_services_1 from "../../assets/features/services/procurment_services.jpg";
+import bundle_puller_2 from "../../assets/features/services/bundlepuller/bundlepuller (2).jpg";
+import heavy_lifting from "../../assets/features/services/heavy_lifting.jpg";
 
 // Define the card data
 const serviceCardData = [
@@ -89,7 +91,7 @@ const serviceCardData = [
   },
   {
     pathName: "turnaroundServices",
-    image: engineering_service_1,
+    image: bundle_puller_2,
     title: "Turnaround of Plants",
     description:
       "RBM is a global leader in turnaround services for refineries, petrochemicals, and fertilizer plants. With over three decades of experience.",
@@ -122,7 +124,7 @@ const serviceCardData = [
   },
   {
     pathName: "logisticsServices",
-    image: engineering_service_1,
+    image: heavy_lifting,
     title: "Heavy Equipment Logistics",
     description:
       "RBM provides end-to-end heavy equipment transport and logistics solutions.",
