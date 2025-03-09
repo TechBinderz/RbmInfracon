@@ -42,6 +42,21 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
 }) => {
   return (
     <Container maxWidth="xl" sx={{ py: { xs: 4, md: 8 } }}>
+      <Typography
+        variant="body1"
+        sx={{
+          mb: 6,
+          textAlign: "center",
+          maxWidth: "1200px",
+          mx: "auto",
+          px: 2,
+          color: "black",
+          lineHeight: 1.8,
+          fontSize: { xs: "1.1rem", md: "1.25rem" }
+        }}
+      >
+        RBM is a premier provider of integrated industrial services in engineering, procurement, construction, operation, and maintenance solutions across multiple industries. We deliver excellence through innovative technologies, skilled manpower, and adherence to the highest industry standards. Our core services include
+      </Typography>
 
       <Box
         component="ul"
@@ -177,7 +192,7 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                       <Typography
                         variant="body1"
                         component="p"
-                        color="text.secondary"
+                        color="black"
                         sx={{
                           display: "-webkit-box",
                           WebkitLineClamp: 3,
@@ -185,7 +200,7 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                           overflow: "hidden",
                           minHeight: { xs: "60px", md: "72px" },
                           lineHeight: 1.6,
-                          fontSize: { xs: "0.9rem", md: "1rem" },
+                          fontSize: { xs: "1rem", md: "1.15rem" }
                         }}
                       >
                         {card.description}
