@@ -39,7 +39,6 @@ const theme = createTheme({
     text: { primary: "#212121", secondary: "#757575" },
   },
   typography: {
-    fontFamily: "Roboto, Arial, sans-serif",
     h4: { fontWeight: 700, color: "#004d40" },
     body1: { fontWeight: 400, color: "#212121" },
   },

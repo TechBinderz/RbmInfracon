@@ -75,7 +75,7 @@ const AdditionalServices: React.FC<AdditionalServicesProps> = ({ servicePathName
                     >
                       {subService.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2">
                       {subService.description}
                     </Typography>
                   </Box>

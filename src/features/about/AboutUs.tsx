@@ -182,7 +182,6 @@ Driven by a philosophy of integrity, innovation, and excellence, RBM Infracon re
                   variant="body1"
                   sx={{
                     whiteSpace: "pre-line",
-                    fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
                     lineHeight: 1.8,
                     color: "#333",
                     textAlign: "justify",
@@ -223,7 +222,6 @@ Thank you for your continued trust and support.`}
                 variant="body1"
                 sx={{
                   whiteSpace: "pre-line",
-                  fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
                   lineHeight: 1.8,
                   color: "#333",
                   textAlign: "justify",

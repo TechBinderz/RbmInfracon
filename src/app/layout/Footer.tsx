@@ -38,7 +38,7 @@ const Footer = () => {
                 />
               </Box>
             </HashLink>
-            <Typography variant="body2" style={{ fontWeight: 200 }}>
+            <Typography variant="body2">
               RBM Infracon LTD is a premier integrated industrial service
               provider, delivering innovative solutions in infrastructure
               development and project management with a focus on quality and
@@ -125,7 +125,7 @@ const Footer = () => {
                 <Typography variant="body1">Dubai</Typography>
               </li>
             </ul>
-            <HashLink 
+            <HashLink
               smooth
               to="/contact#top"
               scroll={(el) => scrollWithOffset(el)}
@@ -138,7 +138,7 @@ const Footer = () => {
                   backgroundColor: themeColor,
                   color: "#fff",
                   marginBottom: "10px",
-                  fontSize: "14px",
+                  fontSize: "0.9em",
                   textAlign: "center",
                   textDecoration: "none",
                   padding: "10px 16px",
@@ -162,7 +162,7 @@ const Footer = () => {
                 backgroundColor: themeColor,
                 color: "#fff",
                 marginBottom: "10px",
-                fontSize: "14px",
+                fontSize: "0.9em",
                 width: "100%",
                 textAlign: "center",
                 textDecoration: "none",
@@ -183,7 +183,7 @@ const Footer = () => {
                 color: "#fff",
                 marginBottom: "10px",
                 width: "100%",
-                fontSize: "14px",
+                fontSize: "0.9em",
                 textAlign: "center",
                 textDecoration: "none",
                 padding: "10px 16px", // Adjust padding for button appearance
@@ -230,7 +230,7 @@ const Footer = () => {
           <Typography
             variant="body2"
             style={{
-              fontSize: "14px",
+              fontSize: "0.9em",
               fontWeight: "bold",
               textAlign: "center",
             }}

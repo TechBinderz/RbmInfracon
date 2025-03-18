@@ -38,30 +38,34 @@ const NewsCard: React.FC<NewsCardProps> = ({
         component="img"
         image={image}
         alt={title}
-        sx={{ height: 200 }} // Set a fixed height for the image
+        sx={{ height: 200 }}
       />
       <CardContent sx={{ flex: 1 }}>
         <Typography
           variant="body1"
           color="text.secondary"
-          sx={{ fontSize: "20px" }}
         >
           {date}
         </Typography>
-        <Typography gutterBottom sx={{ height: 120, fontSize: "30px" }}>
+        <Typography 
+          variant="h4" 
+          gutterBottom 
+          sx={{ 
+            height: 100,
+            fontWeight: 400
+          }}
+        >
           {title}
         </Typography>
-        <Divider sx={{ my: 2, bgcolor: "black" }} />{" "}
-        {/* Horizontal line after the title */}
+        <Divider sx={{ my: 2, bgcolor: "black" }} />
         <Typography
           variant="body1"
           sx={{
             overflow: "hidden",
             textOverflow: "ellipsis",
             display: "-webkit-box",
-            WebkitLineClamp: 3, // Limit to 3 lines
+            WebkitLineClamp: 3,
             WebkitBoxOrient: "vertical",
-            fontSize: "18px",
           }}
         >
           {description}

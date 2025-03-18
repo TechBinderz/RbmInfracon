@@ -67,6 +67,11 @@ const CompanySection = () => {
                   sx={{
                     padding: 3,
                     textAlign: "center",
+                    height: 180,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
                     "&:hover": {
                       boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
                     },
@@ -84,6 +89,11 @@ const CompanySection = () => {
                 sx={{
                   padding: 3,
                   textAlign: "center",
+                  height: 180,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
                   "&:hover": {
                     boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
                   },

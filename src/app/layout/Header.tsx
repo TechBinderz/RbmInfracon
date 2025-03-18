@@ -128,7 +128,6 @@ const Header: React.FC = () => {
           <span
             style={{
               fontSize: headerFontSize,
-              fontFamily: "Arial, sans-serif",
             }}
           >
             ({Math.abs(priceChange).toFixed(2)}%)
@@ -167,7 +166,7 @@ const Header: React.FC = () => {
       <Box className="dropdown-content">
         {links.map((link, index) => {
           const hasAdditionalServices = link.additionalServices && link.additionalServices.length > 0;
-          
+
           return (
             <Box key={index} className={hasAdditionalServices ? 'dropdown-item has-submenu' : 'dropdown-item'}>
               <Link to={link.to} style={{ textDecoration: 'none' }}>
@@ -176,16 +175,16 @@ const Header: React.FC = () => {
               </Link>
               {hasAdditionalServices && link.additionalServices && (
                 <Box className="submenu">
-                  <Link 
+                  <Link
                     to={link.to}
                     style={{ textDecoration: 'none' }}
                   >
                     {link.text}
                   </Link>
                   {link.additionalServices.map((subService, subIndex) => (
-                    <Link 
-                      key={subIndex} 
-                      to={`services/${subService.pathName}`} 
+                    <Link
+                      key={subIndex}
+                      to={`services/${subService.pathName}`}
                       style={{ textDecoration: 'none' }}
                     >
                       {subService.title}
@@ -587,7 +586,6 @@ const Header: React.FC = () => {
     <ThemeProvider
       theme={createTheme({
         typography: {
-          fontFamily: ["Arial", "sans-serif"].join(","),
         },
       })}
     >
