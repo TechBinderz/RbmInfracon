@@ -156,11 +156,11 @@ const BusinessRoadmap: React.FC = () => {
   const rocketAnimation = isStraightLine
     ? {
         x: rocketPath.map((point) => point.x + 10),
-        y: rocketPath.map((point) => point.y - 770),
+        y: rocketPath.map((point) => point.y - 760),
       }
     : {
         x: rocketPath.map((point) => point.x),
-        y: rocketPath.map((point) => point.y),
+        y: rocketPath.map((point) => point.y - 15),
       };
 
   const renderPoints = pathPoints.map((point, index) => (
