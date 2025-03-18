@@ -237,7 +237,7 @@ const Header: React.FC = () => {
           <img src={RBMLOGOFULL} alt="Logo" style={{ width: "130px" }} />
         </Box>
         <Divider />
-        <List sx={{ flexGrow: 1, overflowY: "auto" }}>
+        <List sx={{ marginBottom: '80px', flexGrow: 1, overflowY: "auto" }}>
           <ListItem
             component={Link}
             to="/"
@@ -567,14 +567,20 @@ const Header: React.FC = () => {
           </ListItem>
         </List>
 
-        <Box>
-          <Divider />
-          <Box
-            sx={{
-              marginTop: "10px",
-              textAlign: "center",
-            }}
-          >
+        <Box
+          sx={{
+            position: 'fixed',
+            width: '80%',
+            bottom: 0,
+            // left: 0,
+            right: 0,
+            backgroundColor: 'white',
+            borderTop: '1px solid #ccc',
+            padding: '10px',
+            zIndex: 1300,
+          }}
+        >
+          <Box sx={{ textAlign: "center", paddingBottom: "env(safe-area-inset-bottom, 10px)" }}>
             <StockPriceDisplay stockData={stockData} />
           </Box>
         </Box>
@@ -630,7 +636,6 @@ const Header: React.FC = () => {
                 {!isScrolled && (
                   <Toolbar sx={{ alignItems: "center" }}>
                     <Box sx={{ flexGrow: 1, textAlign: "center" }}>
-                      <StockPriceDisplay stockData={stockData} />
                       <Box
                         sx={{ borderBottom: "1px solid lightgray", my: 1 }}
                       />
