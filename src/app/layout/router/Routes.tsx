@@ -34,6 +34,9 @@ import TurnaroundServices from "../../../features/services/TurnaroundServices";
 import LogisticsServices from "../../../features/services/LogisticsServices";
 import ProcurementServices from "../../../features/services/ProcurementServices";
 
+// Dynamically set the basename using Vite's base configuration
+const basename = import.meta.env.BASE_URL;
+
 const newsRoutes = {
   path: "news",
   element: <News />,
@@ -138,58 +141,61 @@ const servicesRoutes = {
 };
 
 // Define the main router configuration
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          path: "*",
+          element: <ErrorPage />,
+        },
+        {
+          path: "",
+          element: <Home />,
+        },
+        {
+          path: "/contact",
+          element: <ContactUs />,
+        },
+        {
+          path: "/aboutus",
+          element: <OurCompany />,
+        },
+        {
+          path: "/aboutus/boardofdirector",
+          element: <BoardOfDirectors />,
+        },
+        // {
+        //   path: "/aboutus/hseperformance",
+        //   element: <HSEPerformance />,
+        // },
+        {
+          path: "/aboutus/current-projects",
+          element: <CurrentProjects />,
+        },
+        {
+          path: "/aboutus/executed-projects",
+          element: <ExecutedProjects />,
+        },
+        {
+          path: "/aboutus/awards",
+          element: <Awards />,
+        },
+        {
+          path: "/investors",
+          element: <Investors />,
+        },
+        servicesRoutes, // Add services routes here
+        newsRoutes, // Add news routes here
+        careerRoutes,
+        { path: "careers/CareerOpening", element: <CareerPage /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "*",
-        element: <ErrorPage />,
-      },
-      {
-        path: "",
-        element: <Home />,
-      },
-      {
-        path: "/contact",
-        element: <ContactUs />,
-      },
-      {
-        path: "/aboutus",
-        element: <OurCompany />,
-      },
-      {
-        path: "/aboutus/boardofdirector",
-        element: <BoardOfDirectors />,
-      },
-      // {
-      //   path: "/aboutus/hseperformance",
-      //   element: <HSEPerformance />,
-      // },
-      {
-        path: "/aboutus/current-projects",
-        element: <CurrentProjects />,
-      },
-      {
-        path: "/aboutus/executed-projects",
-        element: <ExecutedProjects />,
-      },
-      {
-        path: "/aboutus/awards",
-        element: <Awards />,
-      },
-      {
-        path: "/investors",
-        element: <Investors />,
-      },
-      servicesRoutes, // Add services routes here
-      newsRoutes, // Add news routes here
-      careerRoutes,
-      { path: "careers/CareerOpening", element: <CareerPage /> },
-    ],
+    basename, // Set the base path
   }
-],{
-  basename: '/RbmInfracon/', // Set the base path
-});
+);
