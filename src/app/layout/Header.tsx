@@ -165,27 +165,34 @@ const Header: React.FC = () => {
       </Button>
       <Box className="dropdown-content">
         {links.map((link, index) => {
-          const hasAdditionalServices = link.additionalServices && link.additionalServices.length > 0;
+          const hasAdditionalServices =
+            link.additionalServices && link.additionalServices.length > 0;
 
           return (
-            <Box key={index} className={hasAdditionalServices ? 'dropdown-item has-submenu' : 'dropdown-item'}>
-              <Link to={link.to} style={{ textDecoration: 'none' }}>
+            <Box
+              key={index}
+              className={
+                hasAdditionalServices
+                  ? "dropdown-item has-submenu"
+                  : "dropdown-item"
+              }
+            >
+              <Link to={link.to} style={{ textDecoration: "none" }}>
                 {link.text}
-                {hasAdditionalServices && <ArrowRightIcon className="submenu-arrow" />}
+                {hasAdditionalServices && (
+                  <ArrowRightIcon className="submenu-arrow" />
+                )}
               </Link>
               {hasAdditionalServices && link.additionalServices && (
                 <Box className="submenu">
-                  <Link
-                    to={link.to}
-                    style={{ textDecoration: 'none' }}
-                  >
+                  <Link to={link.to} style={{ textDecoration: "none" }}>
                     {link.text}
                   </Link>
                   {link.additionalServices.map((subService, subIndex) => (
                     <Link
                       key={subIndex}
                       to={`services/${subService.pathName}`}
-                      style={{ textDecoration: 'none' }}
+                      style={{ textDecoration: "none" }}
                     >
                       {subService.title}
                     </Link>
@@ -237,7 +244,7 @@ const Header: React.FC = () => {
           <img src={RBMLOGOFULL} alt="Logo" style={{ width: "130px" }} />
         </Box>
         <Divider />
-        <List sx={{ marginBottom: '80px', flexGrow: 1, overflowY: "auto" }}>
+        <List sx={{ marginBottom: "80px", flexGrow: 1, overflowY: "auto" }}>
           <ListItem
             component={Link}
             to="/"
@@ -419,39 +426,29 @@ const Header: React.FC = () => {
                     }}
                   >
                     <ListItemText primary={service.title} />
-                    {service.additionalServices && service.additionalServices.length > 0 && (
-                      openMenus[`service_${service.pathName}`] ? (
+                    {service.additionalServices &&
+                      service.additionalServices.length > 0 &&
+                      (openMenus[`service_${service.pathName}`] ? (
                         <Remove sx={{ fontSize: "2rem", color: "#39ac4b" }} />
                       ) : (
                         <Add sx={{ fontSize: "2rem", color: "#39ac4b" }} />
-                      )
-                    )}
+                      ))}
                   </ListItem>
-                  {service.additionalServices && service.additionalServices.length > 0 && (
-                    <Collapse in={openMenus[`service_${service.pathName}`]} timeout="auto" unmountOnExit>
-                      <List component="div" disablePadding sx={{ paddingLeft: 2 }}>
-                        <ListItem
-                          component={Link}
-                          to={`/services/${service.pathName}`}
-                          onClick={() => setDrawerOpen(false)}
-                          sx={{
-                            "&:hover": {
-                              backgroundColor: "transparent",
-                              color: "#39ac4b",
-                            },
-                            textDecoration: "none",
-                            color: "#333",
-                            backgroundColor: "#f8f8f8",
-                            fontWeight: 600,
-                          }}
+                  {service.additionalServices &&
+                    service.additionalServices.length > 0 && (
+                      <Collapse
+                        in={openMenus[`service_${service.pathName}`]}
+                        timeout="auto"
+                        unmountOnExit
+                      >
+                        <List
+                          component="div"
+                          disablePadding
+                          sx={{ paddingLeft: 2 }}
                         >
-                          <ListItemText primary={service.title} />
-                        </ListItem>
-                        {service.additionalServices.map((subService) => (
                           <ListItem
-                            key={subService.pathName}
                             component={Link}
-                            to={`services/${subService.pathName}`}
+                            to={`/services/${service.pathName}`}
                             onClick={() => setDrawerOpen(false)}
                             sx={{
                               "&:hover": {
@@ -460,14 +457,33 @@ const Header: React.FC = () => {
                               },
                               textDecoration: "none",
                               color: "#333",
+                              backgroundColor: "#f8f8f8",
+                              fontWeight: 600,
                             }}
                           >
-                            <ListItemText primary={subService.title} />
+                            <ListItemText primary={service.title} />
                           </ListItem>
-                        ))}
-                      </List>
-                    </Collapse>
-                  )}
+                          {service.additionalServices.map((subService) => (
+                            <ListItem
+                              key={subService.pathName}
+                              component={Link}
+                              to={`services/${subService.pathName}`}
+                              onClick={() => setDrawerOpen(false)}
+                              sx={{
+                                "&:hover": {
+                                  backgroundColor: "transparent",
+                                  color: "#39ac4b",
+                                },
+                                textDecoration: "none",
+                                color: "#333",
+                              }}
+                            >
+                              <ListItemText primary={subService.title} />
+                            </ListItem>
+                          ))}
+                        </List>
+                      </Collapse>
+                    )}
                 </React.Fragment>
               ))}
             </List>
@@ -569,18 +585,23 @@ const Header: React.FC = () => {
 
         <Box
           sx={{
-            position: 'fixed',
-            width: '80%',
+            position: "fixed",
+            width: "80%",
             bottom: 0,
             // left: 0,
             right: 0,
-            backgroundColor: 'white',
-            borderTop: '1px solid #ccc',
-            padding: '10px',
+            backgroundColor: "white",
+            borderTop: "1px solid #ccc",
+            padding: "10px",
             zIndex: 1300,
           }}
         >
-          <Box sx={{ textAlign: "center", paddingBottom: "env(safe-area-inset-bottom, 10px)" }}>
+          <Box
+            sx={{
+              textAlign: "center",
+              paddingBottom: "env(safe-area-inset-bottom, 10px)",
+            }}
+          >
             <StockPriceDisplay stockData={stockData} />
           </Box>
         </Box>
@@ -591,8 +612,7 @@ const Header: React.FC = () => {
   return (
     <ThemeProvider
       theme={createTheme({
-        typography: {
-        },
+        typography: {},
       })}
     >
       <AppBar
@@ -636,6 +656,7 @@ const Header: React.FC = () => {
                 {!isScrolled && (
                   <Toolbar sx={{ alignItems: "center" }}>
                     <Box sx={{ flexGrow: 1, textAlign: "center" }}>
+                      <StockPriceDisplay stockData={stockData} />
                       <Box
                         sx={{ borderBottom: "1px solid lightgray", my: 1 }}
                       />
@@ -691,10 +712,12 @@ const Header: React.FC = () => {
                       ...serviceCardData.map((service) => ({
                         text: service.title,
                         to: `/services/${service.pathName}`,
-                        additionalServices: service.additionalServices?.map(subService => ({
-                          pathName: subService.pathName,
-                          title: subService.title
-                        }))
+                        additionalServices: service.additionalServices?.map(
+                          (subService) => ({
+                            pathName: subService.pathName,
+                            title: subService.title,
+                          })
+                        ),
                       })),
                     ]}
                   />

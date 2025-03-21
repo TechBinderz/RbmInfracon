@@ -106,7 +106,7 @@ const serviceCardData = [
       },
       {
         pathName: "boilerErectionWork",
-        title: "Boiler Erection",
+        title: "Boiler tube replacement and erection work",
         image: boiler_erection_1,
         description: "Expert handling of new boiler installations, including design coordination and commissioning.",
       },

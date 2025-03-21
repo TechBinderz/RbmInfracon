@@ -18,7 +18,7 @@ const BoilerErectionWork: React.FC = () => {
     <>
       <PageTitle
         imageUrl={boiler_erection_1}
-        tileContent="Boiler Erection Work"
+        tileContent="Boiler tube replacement and erection work"
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
@@ -40,7 +40,7 @@ const BoilerErectionWork: React.FC = () => {
               of safety and compliance.
             </Typography>
             <Typography variant="h4" gutterBottom>
-              <strong>Boiler Erection:</strong>
+              <strong>Boiler tube replacement and erection work:</strong>
             </Typography>
             <ul style={{ paddingLeft: "20px", margin: 0 }}>
               <Typography

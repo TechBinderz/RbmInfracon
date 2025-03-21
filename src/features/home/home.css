@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  min-height: 600px;
 }
 
 .image-overlay {
@@ -156,6 +157,7 @@
 @media (max-width: 480px) {
   .hero-section {
     height: 70vh;
+    min-height: 400px;
   }
 
   .text-overlay {
