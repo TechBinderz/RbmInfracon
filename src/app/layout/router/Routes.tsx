@@ -189,5 +189,7 @@ export const router = createBrowserRouter([
       careerRoutes,
       { path: "careers/CareerOpening", element: <CareerPage /> },
     ],
-  },
-]);
+  }
+],{
+  basename: '/RbmInfracon/', // Set the base path
+});
