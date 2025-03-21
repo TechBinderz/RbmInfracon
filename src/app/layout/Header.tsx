@@ -733,7 +733,7 @@ const Header: React.FC = () => {
                       </>
                     }
                     links={[
-                      { to: "/careers", text: "Job Openings" },
+                      // { to: "/careers", text: "Job Openings" },
                       {
                         to: "/careers/CareerOpening",
                         text: "Apply Online",
