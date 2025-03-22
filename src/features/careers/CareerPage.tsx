@@ -107,25 +107,112 @@ const CareerPage: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
-      if (!formData.name || !formData.email || !formData.phone || !formData.role) {
+      // Validation checks
+      if (!formData.name.trim()) {
         setSnackbar({
           open: true,
-          message: "Please fill in all required fields",
-          severity: "error"
+          message: "Name is required.",
+          severity: "error",
         });
         return;
       }
-
+  
+      if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+        setSnackbar({
+          open: true,
+          message: "Please enter a valid email address.",
+          severity: "error",
+        });
+        return;
+      }
+  
+      if (!formData.phone.trim() || !/^\d{10}$/.test(formData.phone)) {
+        setSnackbar({
+          open: true,
+          message: "Please enter a valid 10-digit phone number.",
+          severity: "error",
+        });
+        return;
+      }
+  
+      if (!formData.role.trim()) {
+        setSnackbar({
+          open: true,
+          message: "Role applied for is required.",
+          severity: "error",
+        });
+        return;
+      }
+  
+      if (!formData.totalExperience.trim() || isNaN(Number(formData.totalExperience))) {
+        setSnackbar({
+          open: true,
+          message: "Please enter a valid total experience (in years).",
+          severity: "error",
+        });
+        return;
+      }
+  
+      if (!formData.currentCTC.trim() || isNaN(Number(formData.currentCTC))) {
+        setSnackbar({
+          open: true,
+          message: "Please enter a valid current CTC (in LPA).",
+          severity: "error",
+        });
+        return;
+      }
+  
+      if (!formData.expectedCTC.trim() || isNaN(Number(formData.expectedCTC))) {
+        setSnackbar({
+          open: true,
+          message: "Please enter a valid expected CTC (in LPA).",
+          severity: "error",
+        });
+        return;
+      }
+  
+      if (!formData.noticePeriod.trim()) {
+        setSnackbar({
+          open: true,
+          message: "Notice period is required.",
+          severity: "error",
+        });
+        return;
+      }
+  
+      if (!formData.highestQualification.trim()) {
+        setSnackbar({
+          open: true,
+          message: "Highest qualification is required.",
+          severity: "error",
+        });
+        return;
+      }
+  
+      if (!resume) {
+        setSnackbar({
+          open: true,
+          message: "Please upload your resume.",
+          severity: "error",
+        });
+        return;
+      }
+  
       setLoading(true);
-
-      const response = await axios.post('https://rbmmail1.techbinderz.workers.dev/api/send-mail', formData);
-
+  
+      // Submit form data
+      const response = await axios.post(
+        "https://rbmmail1.techbinderz.workers.dev/api/send-mail",
+        formData
+      );
+  
       setSnackbar({
         open: true,
         message: response.data.message,
-        severity: "success"
+        severity: "success",
       });
-
+  
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -140,12 +227,11 @@ const CareerPage: React.FC = () => {
         highestQualification: "",
       });
       setResume(null);
-
     } catch (error) {
       setSnackbar({
         open: true,
         message: "Failed to submit application. Please try again.",
-        severity: "error"
+        severity: "error",
       });
       console.error("Error submitting application:", error);
     } finally {
