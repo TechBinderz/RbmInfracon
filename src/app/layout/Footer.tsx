@@ -172,7 +172,7 @@ const Footer = () => {
             >
               Corporate Brochure
             </Button>
-            <Button
+            {/* <Button
               href={corporateBrochurePdf} // Replace with your actual link
               target="_blank"
               variant="contained"
@@ -191,7 +191,7 @@ const Footer = () => {
               }}
             >
               ESSG Report 2024
-            </Button>
+            </Button> */}
             <Box display="flex" gap={1}>
               <a
                 href="https://www.facebook.com/profile.php?id=61555355951153"
