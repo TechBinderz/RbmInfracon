@@ -200,10 +200,30 @@ const CareerPage: React.FC = () => {
   
       setLoading(true);
   
+      // Create FormData object
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("role", formData.role);
+      formDataToSend.append("totalExperience", formData.totalExperience);
+      formDataToSend.append("currentOrganization", formData.currentOrganization);
+      formDataToSend.append("noticePeriod", formData.noticePeriod);
+      formDataToSend.append("currentLocation", formData.currentLocation);
+      formDataToSend.append("currentCTC", formData.currentCTC);
+      formDataToSend.append("expectedCTC", formData.expectedCTC);
+      formDataToSend.append("highestQualification", formData.highestQualification);
+      formDataToSend.append("resume", resume); // Add the resume file
+  
       // Submit form data
       const response = await axios.post(
         "https://rbmmail1.techbinderz.workers.dev/api/send-mail",
-        formData
+        formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data", // Set the correct content type
+          },
+        }
       );
   
       setSnackbar({
