@@ -16,19 +16,19 @@ import creditRatings from "../../assets/features/investors/Credit Rating Letter.
 import themeColor from '../common/common';
 
 const investorItems = [
-  { title: 'Board Of Directors', content: <DirectorTable />, type: 'table' },
-  { title: 'Committee Of Board', content: <CommitteeOfBoard />, type: 'table' },
+  { title: 'Board of Directors', content: <DirectorTable />, type: 'table' },
+  { title: 'Committee of Board', content: <CommitteeOfBoard />, type: 'table' },
   { title: 'RBM Investors Presentation', content: rbmInvestorsPresentation, type: 'pdf' },
   { title: 'Annual Reports', content: <TextPdf type='annual' />, type: 'text/pdf' },
-  { title: 'Quaterly Reports(2024)', content: <TextPdf type='quarterly24' />, type: 'text/pdf' },
+  { title: 'Quarterly Reports (2024)', content: <TextPdf type='quarterly24' />, type: 'text/pdf' },
   { title: 'Shareholding Pattern Certificate', content: shareholdingPattern, type: 'pdf' },
   { title: 'Investor Grievance', content: <InvestorGrievance />, type: 'text' },
   { title: 'Group Companies/Entities', content: groupCompanies, type: 'pdf' },
-  { title: 'Comapny Announcements', content: corporateAnnouncements, type: 'pdf' },
+  { title: 'Company Announcements', content: corporateAnnouncements, type: 'pdf' },
   { title: 'Credit Ratings', content: creditRatings, type: 'pdf' },
   { title: 'Notices', content: <TextPdf type='notices' />, type: 'text/pdf' },
   { title: 'Preferential Issues', content: <TextPdf type='preferencial_issue' />, type: 'text/pdf' },
-  { title: 'Registrar And Transfer Agents', content: <RegistrarAndTransferAgents />, type: 'text' },
+  { title: 'Registrar and Transfer Agents', content: <RegistrarAndTransferAgents />, type: 'text' },
 ];
 
 const Investor: React.FC = () => {
