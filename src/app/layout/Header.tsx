@@ -521,7 +521,7 @@ const Header: React.FC = () => {
 
           <Collapse in={openMenus.careers} timeout="auto" unmountOnExit>
             <List component="div" disablePadding sx={{ paddingLeft: 2 }}>
-              <ListItem
+              {/* <ListItem
                 component={Link}
                 to="/careers"
                 onClick={() => setDrawerOpen(false)}
@@ -535,7 +535,7 @@ const Header: React.FC = () => {
                 }}
               >
                 <ListItemText primary="Job Openings" />
-              </ListItem>
+              </ListItem> */}
               <ListItem
                 component={Link}
                 to="/careers/CareerOpening"
