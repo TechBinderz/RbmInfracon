@@ -99,9 +99,18 @@ const CareerPage: React.FC = () => {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]; 
+    const file = e.target.files?.[0];
     if (file) {
-      setResume(file); 
+      const allowedMimeTypes = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+      if (!allowedMimeTypes.includes(file.type)) {
+        setSnackbar({
+          open: true,
+          message: "Only PDF, DOC, and DOCX files are allowed.",
+          severity: "error",
+        });
+        return;
+      }
+      setResume(file);
     }
   };
 
