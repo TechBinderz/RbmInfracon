@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import { Email as EmailIcon, Phone as PhoneIcon } from "@mui/icons-material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import axios from "axios";
 import "../common/common.css";
 import PageTitle from "../common/PageTitleDiv";
@@ -91,6 +92,28 @@ const locations = [
     // state: "UP",
   },
 ];
+
+const theme = createTheme({
+  palette: {
+    primary: { main: themeColor },
+    secondary: { main: "#ff9800" },
+    background: { default: "#f5f5f5", paper: "#ffffff" },
+    text: { primary: "#212121", secondary: "#757575" },
+  },
+  typography: {
+    h4: { fontWeight: 700, color: "#004d40" },
+    body1: { fontWeight: 400, color: "#212121" },
+  },
+  components: {
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: "grey",
+        },
+      },
+    },
+  },
+});
 
 const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -211,13 +234,16 @@ const ContactUs: React.FC = () => {
   return (
     <>
       <PageTitle imageUrl={contact_us_image} tileContent="Contact Us" />
+      
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
+      
         <Grid container spacing={4}>
           {/* Contact Form Section */}
           <Grid item xs={12} md={6}>
             <Typography variant="h3" gutterBottom>
               Get in Touch
             </Typography>
+            <ThemeProvider theme={theme}>
             <Grid container spacing={2}>
               {[
                 { label: "Your name", name: "name", type: "text" },
@@ -282,7 +308,7 @@ const ContactUs: React.FC = () => {
               <Grid item xs={12}>
                 <Button
                   variant="contained"
-                  sx={{ backgroundColor: themeColor }}
+                  sx={{ backgroundColor: themeColor, color: "#fff" }}
                   onClick={handleSubmit}
                   disabled={loading}
                 >
@@ -290,7 +316,9 @@ const ContactUs: React.FC = () => {
                 </Button>
               </Grid>
             </Grid>
+            </ThemeProvider>
           </Grid>
+          
 
           {/* Contact Info & Map Section */}
           <Grid item xs={12} md={6}>
