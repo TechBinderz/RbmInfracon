@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom"; // Import useLocation
+import { useLocation } from "react-router-dom"; 
+import axios from 'axios';
 import {
   Container,
   Grid,
@@ -10,6 +11,8 @@ import {
   Paper,
   MenuItem,
   CssBaseline,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import PageTitle from "../common/PageTitleDiv";
@@ -54,28 +57,33 @@ const theme = createTheme({
 });
 
 const CareerPage: React.FC = () => {
-  const location = useLocation(); // Get the state passed through the router
-  const { jobDetails } = location.state || {}; // Destructure the jobDetails from the state
+  const location = useLocation(); 
+  const { jobDetails } = location.state || {};
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    role: jobDetails ? jobDetails.title : "", // Set default role from jobDetails
+    role: jobDetails ? jobDetails.title : "",
     totalExperience: "",
     currentOrganization: "",
     noticePeriod: "",
-    currentLocation: jobDetails ? jobDetails.location : "", // Set default location from jobDetails
+    currentLocation: jobDetails ? jobDetails.location : "",
     currentCTC: "",
     expectedCTC: "",
-    highestQualification: jobDetails ? jobDetails.qualifications : "", // Set default qualification from jobDetails
+    highestQualification: jobDetails ? jobDetails.qualifications : "",
   });
 
-  const [resume, setResume] = useState<File | null>(null); // Declare resume state
+  const [resume, setResume] = useState<File | null>(null); 
+  const [loading, setLoading] = useState(false);
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "success" as "success" | "error"
+  });
 
   useEffect(() => {
     if (jobDetails) {
-      // Pre-fill any additional form fields with jobDetails if available
       setFormData((prevData) => ({
         ...prevData,
         role: jobDetails.title,
@@ -91,15 +99,62 @@ const CareerPage: React.FC = () => {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]; // Get the selected file
+    const file = e.target.files?.[0]; 
     if (file) {
-      setResume(file); // Set the selected file in the state
+      setResume(file); 
     }
   };
 
-  const handleSubmit = () => {
-    // Validation logic and form submission handling here
-    alert("Application submitted successfully!");
+  const handleSubmit = async () => {
+    try {
+      if (!formData.name || !formData.email || !formData.phone || !formData.role) {
+        setSnackbar({
+          open: true,
+          message: "Please fill in all required fields",
+          severity: "error"
+        });
+        return;
+      }
+
+      setLoading(true);
+
+      const response = await axios.post('https://rbmmail1.techbinderz.workers.dev/api/send-mail', formData);
+
+      setSnackbar({
+        open: true,
+        message: response.data.message,
+        severity: "success"
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        role: "",
+        totalExperience: "",
+        currentOrganization: "",
+        noticePeriod: "",
+        currentLocation: "",
+        currentCTC: "",
+        expectedCTC: "",
+        highestQualification: "",
+      });
+      setResume(null);
+
+    } catch (error) {
+      setSnackbar({
+        open: true,
+        message: "Failed to submit application. Please try again.",
+        severity: "error"
+      });
+      console.error("Error submitting application:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackbar({ ...snackbar, open: false });
   };
 
   return (
@@ -117,7 +172,6 @@ const CareerPage: React.FC = () => {
             </Typography>
             <Box component="form" noValidate sx={{ marginTop: "40px" }}>
               <Grid container spacing={3}>
-                {/* Personal Information */}
                 {[{ label: "Name", name: "name", type: "text" },
                   { label: "Email", name: "email", type: "email" },
                   { label: "Phone Number", name: "phone", type: "tel" },
@@ -137,7 +191,6 @@ const CareerPage: React.FC = () => {
                     </Grid>
                 ))}
 
-                {/* Job Details */}
                 {[{ label: "Total Experience (in years)", name: "totalExperience" },
                   { label: "Current Organization", name: "currentOrganization" },
                   { label: "Current Location", name: "currentLocation" },
@@ -157,7 +210,6 @@ const CareerPage: React.FC = () => {
                     </Grid>
                 ))}
 
-                {/* Dropdowns */}
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
@@ -195,7 +247,6 @@ const CareerPage: React.FC = () => {
                   </TextField>
                 </Grid>
 
-                {/* Resume Upload */}
                 <Grid item xs={12} sm={6}>
                   <Box sx={{ position: "relative", width: "100%" }}>
                     <TextField
@@ -219,7 +270,6 @@ const CareerPage: React.FC = () => {
                   </Box>
                 </Grid>
 
-                {/* Submit Button */}
                 <Grid item xs={12}>
                   <Box display="flex" justifyContent="center" width="100%">
                     <Button
@@ -233,8 +283,9 @@ const CareerPage: React.FC = () => {
                         marginTop: "30px",
                       }}
                       onClick={handleSubmit}
+                      disabled={loading}
                     >
-                      Submit Application
+                      {loading ? "Submitting..." : "Submit Application"}
                     </Button>
                   </Box>
                 </Grid>
@@ -242,6 +293,20 @@ const CareerPage: React.FC = () => {
             </Box>
           </Paper>
         </Container>
+        <Snackbar
+          open={snackbar.open}
+          autoHideDuration={6000}
+          onClose={handleCloseSnackbar}
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        >
+          <Alert 
+            onClose={handleCloseSnackbar} 
+            severity={snackbar.severity}
+            sx={{ width: '100%' }}
+          >
+            {snackbar.message}
+          </Alert>
+        </Snackbar>
       </ThemeProvider>
     </>
   );
