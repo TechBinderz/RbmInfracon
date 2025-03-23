@@ -225,14 +225,7 @@ const ContactUs: React.FC = () => {
         return;
       }
 
-      if (!formData.agree) {
-        setSnackbar({
-          open: true,
-          message: "You must agree to the terms and conditions.",
-          severity: "error",
-        });
-        return;
-      }
+      
 
       setLoading(true);
 
@@ -322,7 +315,7 @@ const ContactUs: React.FC = () => {
                     rows={4}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                {/* <Grid item xs={12}>
                   <FormControlLabel
                     control={
                       <Checkbox
@@ -337,18 +330,12 @@ const ContactUs: React.FC = () => {
                       <Typography variant="body2">
                         I agree to the terms and conditions of RBM Infracon
                         Limited{" "}
-                        {/* <Link
-                          href="#"
-                          underline="always"
-                          sx={{ color: themeColor }}
-                        > */}
-                          privacy policy
-                        {/* </Link> */}
+                         privacy policy
                         .
                       </Typography>
                     }
                   />
-                </Grid>
+                </Grid> */}
                 <Grid item xs={12}>
                   <Button
                     variant="contained"
@@ -484,7 +471,7 @@ const ContactUs: React.FC = () => {
           </Alert>
         </Snackbar>
       </Container>
-    </>
+    </> 
   );
 };
 

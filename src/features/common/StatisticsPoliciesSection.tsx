@@ -86,7 +86,7 @@ const StatisticsPoliciesSection = () => {
                   />
                 
               </Typography>
-              <Typography>{stat.label}</Typography>
+              <Typography sx={{textAlign: 'center'}}>{stat.label}</Typography>
             </Box>
           </Grid>
         ))}
