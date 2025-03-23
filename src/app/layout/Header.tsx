@@ -239,6 +239,7 @@ const Header: React.FC = () => {
             display: "flex",
             flexDirection: "column",
             height: "100vh", // Ensures full height
+            paddingBottom: "70px",
           },
         }}
       >
