@@ -43,18 +43,15 @@ const RenovationServices: React.FC = () => {
       <PageTitle imageUrl={performance_1} tileContent="Renovation & Performance Enhancement" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}
-        <Grid container spacing={3} sx={{ mb: 3 }}>
+        <Grid container spacing={3} item xs={12} md={6}>
           <Grid item>
-            <Typography variant="h4" align="center" gutterBottom>
+            <Typography variant="body1" sx={{ mx: "auto", mb: 6 }}>
               RBM specializes in industrial revamp and operational performance enhancement, delivering innovative solutions for plant modernization, process efficiency improvement, and sustainable operations. Our comprehensive approach ensures optimal facility performance while maintaining industry standards and environmental responsibility.
             </Typography>
           </Grid>
         </Grid>
 
-        {/* Services Grid */}
-        <Typography variant="h5" align="center" gutterBottom sx={{ mb: 3 }}>
-          Our Renovation & Enhancement Services
-        </Typography>
+         
         <ServiceGrid services={services} title="Our Renovation & Enhancement Services" />
         
         <Divider sx={{ marginTop: 10}} />
