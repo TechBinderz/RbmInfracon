@@ -1,5 +1,5 @@
 // src/components/CustomDialog.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Dialog, DialogTitle, DialogContent, IconButton, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -18,13 +18,21 @@ const CustomDialog: React.FC<CustomDialogProps> = ({ open, onClose, title, conte
   const isText = type === 'text';
   const isTextPdf = type === 'text/pdf';
 
+  useEffect(() => {
+    if (isPdf && open && typeof content === 'string') {
+      // Open the PDF in a new tab
+      window.open(content, '_blank');
+      onClose(); // Close the dialog immediately
+    }
+  }, [isPdf, open, content, onClose]);
+
   return (
     <Dialog
-      open={open}
+      open={open && !isPdf} // Prevent dialog from opening for PDFs
       onClose={onClose}
-      maxWidth={isPdf ? 'xl' : isTextPdf ? 'lg' : 'md'}
-      fullWidth={isPdf || isTextPdf} // Make dialog full width for PDFs
-      PaperProps={{ style: { height: isPdf ? '100vh' : 'auto' } }} // Set height to full viewport height for PDFs
+      maxWidth={isTextPdf ? 'lg' : 'md'}
+      fullWidth={isTextPdf} // Make dialog full width for text/pdf
+      PaperProps={{ style: { height: 'auto' } }} // Default height for non-PDF types
     >
       <DialogTitle>
         {title}
@@ -39,13 +47,7 @@ const CustomDialog: React.FC<CustomDialogProps> = ({ open, onClose, title, conte
         </IconButton>
       </DialogTitle>
       <DialogContent dividers>
-        {isPdf ? (
-          <iframe
-            src={content as string} // content will be a URL for PDFs
-            style={{ width: '100%', height: '100%' }}
-            frameBorder="0"
-          />
-        ) : isImage ? (
+        {isImage ? (
           <img
             src={content as string} // content will be a URL for images
             alt={title}
