@@ -128,9 +128,9 @@ const Header: React.FC = () => {
           )}
           ₹{currentPrice.toFixed(2)}&nbsp;
           <span
-            style={{
-              fontSize: headerFontSize,
-            }}
+            // style={{
+            //   fontSize: headerFontSize,
+            // }}
           >
             ({Math.abs(priceChange).toFixed(2)}%)
           </span>
