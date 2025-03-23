@@ -26,7 +26,8 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import RBMLOGOFULL from "../../assets/header/Rmb_logo_big.png";
-import RBMLOGOSMALL from "../../assets/header/Rmb_logo_small.png";
+import RBMLOGOSMALL from "../../assets/header/Rmb_logo_icon.png";
+import RBMLOGOBIG from "../../assets/header/Rmb_logo_small.png";
 import { checkAndUpdateStockData, StockData } from "../api/StockData";
 import { headerFontSize } from "../../features/common/common";
 import serviceCardData from "../../features/services/ServiceCardData";
@@ -622,9 +623,9 @@ const Header: React.FC = () => {
           backgroundColor: isScrolled ? "white" : "transparent",
           transition:
             "background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease",
-          height: isScrolled ? "90px" : "130px",
+          height: isScrolled ? "80px" : "130px",
           boxShadow: isScrolled ? "0px 8px 5px 0px rgba(0, 0, 0, 0.2)" : "none",
-          paddingTop: isScrolled ? "7px" : "15px",
+          paddingTop: isScrolled ? "9px" : "15px",
           opacity: isMounted ? 1 : 0,
           transform: isMounted ? "translateY(0)" : "translateY(-20px)",
         }}
@@ -640,10 +641,12 @@ const Header: React.FC = () => {
             }}
           >
             <img
-              src={isScrolled ? RBMLOGOSMALL : RBMLOGOFULL}
+              src = {isSmallScreen ? (isScrolled ? RBMLOGOSMALL : RBMLOGOFULL) : (isScrolled ? RBMLOGOBIG : RBMLOGOFULL)}
               alt="Logo"
               style={{
-                height: isScrolled ? "85px" : "125px",
+                height: isSmallScreen 
+                  ? (isScrolled ? "60px" : "95px")
+                  : (isScrolled ? "85px" : "125px"),
                 width: "auto",
                 transition: "height 0.6s ease",
               }}
