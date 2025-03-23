@@ -23,14 +23,7 @@ const BoilerErectionWork: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={6}>
-            <Typography
-              paragraph
-              variant="body1"
-              sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}
-            >
+            <Typography variant="body1" paragraph>
               At RBM Infracon Limited, we specialize in delivering comprehensive
               boiler erection and maintenance services, meticulously tailored to
               meet the demanding requirements of industrial operations. With
@@ -39,44 +32,23 @@ const BoilerErectionWork: React.FC = () => {
               our team ensures precision, efficiency, and the highest standards
               of safety and compliance.
             </Typography>
-            <Typography variant="h4" gutterBottom>
-              <strong>Boiler tube replacement and erection work:</strong>
+            <Typography variant="h5" gutterBottom>
+              Our Services:
             </Typography>
-            <ul style={{ paddingLeft: "20px", margin: 0 }}>
-              <Typography
-                variant="body1"
-                component="li"
-                sx={{
-                  fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                  lineHeight: 1.6,
-                }}
-              >
+            <Typography variant="body1" component="ul" sx={{ pl: 2 }}>
+              <li>
                 Expert handling of new boiler installations, including design
                 coordination, equipment assembly, and commissioning.
-              </Typography>
-              <Typography
-                variant="body1"
-                component="li"
-                sx={{
-                  fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                  lineHeight: 1.6,
-                }}
-              >
+              </li>
+              <li>
                 Seamless integration with existing industrial infrastructure,
                 minimizing downtime and maximizing efficiency.
-              </Typography>
-              <Typography
-                variant="body1"
-                component="li"
-                sx={{
-                  fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                  lineHeight: 1.6,
-                }}
-              >
+              </li>
+              <li>
                 Strict adherence to ASME, IBR, and other internationally
                 recognized standards.
-              </Typography>
-            </ul>
+              </li>
+            </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
             <Card className="card-shadow">
@@ -99,7 +71,7 @@ const BoilerErectionWork: React.FC = () => {
                 alt="Routine Maintenance"
               />
               <CardContent>
-                <Typography variant="h6" component="div">
+                <Typography variant="h5" component="div">
                   Routine Maintenance
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -118,13 +90,12 @@ const BoilerErectionWork: React.FC = () => {
                 alt="Repair and Overhaul"
               />
               <CardContent>
-                <Typography variant="h6" component="div">
+                <Typography variant="h5" component="div">
                   Repair and Overhaul
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Emergency repair services to minimize operational disruptions
-                  & Refurbishment and replacement of worn-out parts to restore
-                  peak performance.
+                  & refurbishment of worn-out parts to restore peak performance.
                 </Typography>
               </CardContent>
             </Card>

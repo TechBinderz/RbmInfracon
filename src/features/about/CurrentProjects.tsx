@@ -22,6 +22,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import PageTitle from "../../features/common/PageTitleDiv";
 import BANNER_IMAGE from "../../assets/features/home/pexels-tomfisk-10407691.jpg";
+import { themeColor } from "../common/common";
+import { styled } from "@mui/material/styles";
 
 interface Project {
   id: number;
@@ -33,6 +35,39 @@ interface Project {
   description: string;
   contractAmount: string;
 }
+
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    ...theme.typography.body2,
+  },
+  [theme.breakpoints.up("sm")]: {
+    ...theme.typography.body1,
+  },
+}));
+
+const StyledTypographyH4 = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    ...theme.typography.h6,
+  },
+  [theme.breakpoints.up("sm")]: {
+    ...theme.typography.h5,
+  },
+  [theme.breakpoints.up("md")]: {
+    ...theme.typography.h4,
+  },
+}));
+
+const StyledTypographyH6 = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    ...theme.typography.h6,
+  },
+  [theme.breakpoints.up("sm")]: {
+    ...theme.typography.h5,
+  },
+  [theme.breakpoints.up("md")]: {
+    ...theme.typography.h4,
+  },
+}));
 
 const CurrentProjects: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -276,48 +311,20 @@ const CurrentProjects: React.FC = () => {
           <CardContent>
             <Grid container spacing={2} alignItems="center">
               <Grid item xs={12} md={8}>
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  sx={{
-                    color: "#333",
-                    fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.5rem" },
-                  }}
-                >
+                <StyledTypographyH6 variant="h6" gutterBottom>
                   Total Portfolio Value
-                </Typography>
-                <Typography
-                  variant="h4"
-                  sx={{
-                    color: "#39ac4b",
-                    fontWeight: "bold",
-                    fontSize: { xs: "1.8rem", sm: "2rem", md: "2.5rem" },
-                  }}
-                >
+                </StyledTypographyH6>
+                <StyledTypographyH4 variant="h4" sx={{ color: themeColor, fontWeight: "bold" }}>
                   ₹{(totalValue / 10000000).toFixed(2)} Crores
-                </Typography>
+                </StyledTypographyH4>
               </Grid>
               <Grid item xs={12} md={4}>
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  sx={{
-                    color: "#333",
-                    fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.5rem" },
-                  }}
-                >
+                <StyledTypographyH6 variant="h6" gutterBottom>
                   Active Projects
-                </Typography>
-                <Typography
-                  variant="h4"
-                  sx={{
-                    color: "#39ac4b",
-                    fontWeight: "bold",
-                    fontSize: { xs: "1.8rem", sm: "2rem", md: "2.5rem" },
-                  }}
-                >
+                </StyledTypographyH6>
+                <StyledTypographyH4 variant="h4" sx={{ color: themeColor, fontWeight: "bold" }}>
                   {projects.length}
-                </Typography>
+                </StyledTypographyH4>
               </Grid>
             </Grid>
           </CardContent>
@@ -333,10 +340,10 @@ const CurrentProjects: React.FC = () => {
             sx={{
               "& .MuiOutlinedInput-root": {
                 "&:hover fieldset": {
-                  borderColor: "#39ac4b",
+                  borderColor: themeColor,
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: "#39ac4b",
+                  borderColor: themeColor,
                 },
               },
             }}
@@ -361,68 +368,25 @@ const CurrentProjects: React.FC = () => {
           <Table>
             <TableHead>
               <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
-                <TableCell
-                  sx={{
-                    fontWeight: "bold",
-                    color: "#333",
-                    fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-                  }}
-                >
+                <TableCell sx={{ fontWeight: "bold", color: "#333" }}>
                   S. No.
                 </TableCell>
-                <TableCell
-                  sx={{
-                    fontWeight: "bold",
-                    color: "#333",
-                    fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-                  }}
-                >
+                <TableCell sx={{ fontWeight: "bold", color: "#333" }}>
                   Company
                 </TableCell>
-                <TableCell
-                  sx={{
-                    fontWeight: "bold",
-                    color: "#333",
-                    fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-                  }}
-                >
+                <TableCell sx={{ fontWeight: "bold", color: "#333" }}>
                   Location
                 </TableCell>
-                <TableCell
-                  sx={{
-                    fontWeight: "bold",
-                    color: "#333",
-                    fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-                  }}
-                >
+                <TableCell sx={{ fontWeight: "bold", color: "#333" }}>
                   Work Order
                 </TableCell>
-                <TableCell
-                  sx={{
-                    fontWeight: "bold",
-                    color: "#333",
-                    fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-                  }}
-                >
+                <TableCell sx={{ fontWeight: "bold", color: "#333" }}>
                   Issue Date
                 </TableCell>
-                <TableCell
-                  sx={{
-                    fontWeight: "bold",
-                    color: "#333",
-                    fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-                  }}
-                >
+                <TableCell sx={{ fontWeight: "bold", color: "#333" }}>
                   Description
                 </TableCell>
-                <TableCell
-                  sx={{
-                    fontWeight: "bold",
-                    color: "#333",
-                    fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-                  }}
-                  align="right"
-                >
+                <TableCell sx={{ fontWeight: "bold", color: "#333", textAlign: "right" }}>
                   Contract Value (₹)
                 </TableCell>
               </TableRow>
@@ -430,85 +394,40 @@ const CurrentProjects: React.FC = () => {
             <TableBody>
               {filteredProjects.map((project) => (
                 <TableRow key={project.id} hover>
-                  <TableCell>{project.id}</TableCell>
-                  <TableCell>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        fontWeight: "medium",
-                        color: "#333",
-                        fontSize: {
-                          xs: "0.95rem",
-                          sm: "1.05rem",
-                          md: "1.15rem",
-                        },
-                      }}
-                    >
+                  <TableCell sx={{ typography: 'body2' }}>{project.id}</TableCell>
+                  <TableCell sx={{ typography: 'body2' }}>
+                    <StyledTypography variant="body1" sx={{ fontWeight: "medium", color: "#333" }}>
                       {project.companyName}
-                    </Typography>
+                    </StyledTypography>
                     {project.vendorCode && (
-                      <Typography
-                        variant="caption"
-                        sx={{
-                          color: "text.secondary",
-                          fontSize: {
-                            xs: "0.85rem",
-                            sm: "0.95rem",
-                            md: "1rem",
-                          },
-                        }}
-                      >
+                      <StyledTypography variant="body2" sx={{ color: "text.secondary" }}>
                         Vendor Code: {project.vendorCode}
-                      </Typography>
+                      </StyledTypography>
                     )}
                   </TableCell>
-                  <TableCell>
+                  <TableCell sx={{ typography: 'body2' }}>
                     <Chip
                       label={project.location}
                       size="medium"
                       sx={{
                         backgroundColor: "#e8f5e9",
-                        color: "#39ac4b",
+                        color: themeColor,
                         "&:hover": {
                           backgroundColor: "#c8e6c9",
-                        },
-                        fontSize: {
-                          xs: "0.95rem",
-                          sm: "1.05rem",
-                          md: "1.15rem",
                         },
                       }}
                     />
                   </TableCell>
-                  <TableCell
-                    sx={{
-                      fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.15rem" },
-                    }}
-                  >
+                  <TableCell sx={{ typography: 'body2' }}>
                     {project.workOrderNumber}
                   </TableCell>
-                  <TableCell
-                    sx={{
-                      fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.15rem" },
-                    }}
-                  >
+                  <TableCell sx={{ typography: 'body2' }}>
                     {project.issueDate}
                   </TableCell>
-                  <TableCell
-                    sx={{
-                      fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.15rem" },
-                    }}
-                  >
+                  <TableCell sx={{ typography: 'body2' }}>
                     {project.description}
                   </TableCell>
-                  <TableCell
-                    sx={{
-                      fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.15rem" },
-                      fontWeight: "medium",
-                      color: "#39ac4b",
-                      textAlign: "right",
-                    }}
-                  >
+                  <TableCell sx={{ typography: 'body2', fontWeight: "medium", color: themeColor, textAlign: "right" }}>
                     ₹{project.contractAmount}
                   </TableCell>
                 </TableRow>

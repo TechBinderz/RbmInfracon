@@ -1,54 +1,78 @@
 import { Grid, Typography, Paper, Box } from "@mui/material";
 import { HashLink } from "react-router-hash-link";
-import CaseStudyIcon from "@mui/icons-material/Book";
+import BusinessIcon from "@mui/icons-material/Business";
 import BuildIcon from "@mui/icons-material/Build";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
-import ServiceIcon from "@mui/icons-material/DesignServices";
-import NewsIcon from "@mui/icons-material/Newspaper";
+import NewspaperIcon from "@mui/icons-material/Newspaper";
+import { themeColor } from "../../features/common/common";
+import { styled } from "@mui/material/styles";
+
+const StyledIcon = styled('span')(({ theme }) => ({
+  color: themeColor,
+  marginBottom: theme.spacing(2),
+  display: "flex",
+  justifyContent: "center",
+  "& .MuiSvgIcon-root": {
+    fontSize: "3rem",
+    color: themeColor,
+  }
+}));
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(3),
+  textAlign: "center",
+  height: 180,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  "&:hover": {
+    boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+  },
+}));
 
 const companyItems = [
   {
     title: "Board of Directors",
-    icon: <CaseStudyIcon style={{ fontSize: 50, color: "#39ac4b" }} />,
+    icon: <BusinessIcon />,
     link: "/aboutus/boardofdirector",
   },
   {
     title: "Current Projects",
-    icon: <BuildIcon style={{ fontSize: 50, color: "#39ac4b" }} />, // Updated icon
+    icon: <BuildIcon />,
     link: "/aboutus/current-projects",
   },
   {
     title: "Executed Projects",
-    icon: <AssignmentTurnedInIcon style={{ fontSize: 50, color: "#39ac4b" }} />, // Updated icon
+    icon: <AssignmentTurnedInIcon />,
     link: "/aboutus/executed-projects",
   },
   {
     title: "Services",
-    icon: <ServiceIcon style={{ fontSize: 50, color: "#39ac4b" }} />,
+    icon: <BusinessIcon />,
     link: "/services",
   },
   {
     title: "News",
-    icon: <NewsIcon style={{ fontSize: 50, color: "#39ac4b" }} />,
+    icon: <NewspaperIcon />,
     link: "/news",
   },
 ];
 
-// Custom scroll function to add offset for the fixed navbar
-const scrollWithOffset = (el: HTMLElement) => {
-  const yOffset = -80; // Adjust this value to the height of your navbar
-  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-  window.scrollTo({ top: y, behavior: "smooth" });
-};
-
 const CompanySection = () => {
+  const scrollWithOffset = (el: HTMLElement) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -80;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+  };
+
   return (
-    <Box>
+    <Box sx={{ flexGrow: 1, py: 4 }}>
       <Typography
-        variant="h3"
-        align="center"
+        sx={{ paddingBottom: 4 }}
+        variant="h2"
         fontWeight="bold"
-        sx={{ marginBottom: 4 }}
+        align="center"
       >
         Our Company
       </Typography>
@@ -62,48 +86,20 @@ const CompanySection = () => {
                 scroll={(el) => scrollWithOffset(el)}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                <Paper
-                  elevation={3}
-                  sx={{
-                    padding: 3,
-                    textAlign: "center",
-                    height: 180,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    "&:hover": {
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-                    },
-                  }}
-                >
-                  <Box sx={{ marginBottom: 2 }}>{item.icon}</Box>
-                  <Typography variant="body1" fontWeight="bold">
+                <StyledPaper elevation={3}>
+                  <StyledIcon>{item.icon}</StyledIcon>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
                     {item.title}
                   </Typography>
-                </Paper>
+                </StyledPaper>
               </HashLink>
             ) : (
-              <Paper
-                elevation={3}
-                sx={{
-                  padding: 3,
-                  textAlign: "center",
-                  height: 180,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  "&:hover": {
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-                  },
-                }}
-              >
-                <Box sx={{ marginBottom: 2 }}>{item.icon}</Box>
-                <Typography variant="body1" fontWeight="bold">
+              <StyledPaper elevation={3}>
+                <StyledIcon>{item.icon}</StyledIcon>
+                <Typography variant="h5" gutterBottom>
                   {item.title}
                 </Typography>
-              </Paper>
+              </StyledPaper>
             )}
           </Grid>
         ))}

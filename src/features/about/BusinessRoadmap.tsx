@@ -234,24 +234,24 @@ const BusinessRoadmap: React.FC = () => {
                   sx={{
                     color: themeColor,
                     fontWeight: "bold",
-                    fontSize: isXsScreen
-                      ? "1rem"
-                      : isSmScreen
-                      ? "1.15rem"
-                      : "1.25rem",
+                    // fontSize: isXsScreen
+                    //   ? "1rem"
+                    //   : isSmScreen
+                    //   ? "1.15rem"
+                    //   : "1.25rem",
                   }}
                 >
                   {item.year}
                 </Typography>
                 <Typography
-                  variant="body1"
+                  variant="body2"
                   sx={{
                     color: "white",
-                    fontSize: isXsScreen
-                      ? "0.875rem"
-                      : isSmScreen
-                      ? "0.925rem"
-                      : "1rem",
+                    // fontSize: isXsScreen
+                    //   ? "0.875rem"
+                    //   : isSmScreen
+                    //   ? "0.925rem"
+                    //   : "1rem",
                     lineHeight: 1.5,
                   }}
                 >
@@ -322,10 +322,10 @@ const BusinessRoadmap: React.FC = () => {
             }}
           >
             <Typography
-              variant="body1"
+              variant="body2"
               sx={{
                 color: "#fff",
-                fontSize: increaseHeight ? "1.0rem" : "1.1rem",
+                // fontSize: increaseHeight ? "1.0rem" : "1.1rem",
               }}
             >
               {roadmapText}

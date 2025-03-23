@@ -114,12 +114,10 @@ const Investor: React.FC = () => {
                     gap: 2 
                   }}>
                     <Typography
-                      variant="h6"
+                      variant="subtitle1"
                       sx={{
-                        fontWeight: 600,
-                        fontSize: '1.1rem',
+                        fontWeight: 'bold',
                         color: 'text.primary',
-                        lineHeight: 1.3,
                       }}
                     >
                       {item.title}

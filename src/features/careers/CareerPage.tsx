@@ -15,6 +15,7 @@ import {
   Alert,
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import PageTitle from "../common/PageTitleDiv";
 import about_us_image from "../../assets/features/about-us/about_us1.jpeg";
 import themeColor from "../common/common";
@@ -55,6 +56,27 @@ const theme = createTheme({
     },
   },
 });
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(4),
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  transition: "transform 0.3s ease-in-out",
+  "&:hover": {
+    transform: "translateY(-8px)",
+    boxShadow: theme.shadows[8],
+  },
+}));
+
+const StyledButton = styled(Button)(({ theme }) => ({
+  marginTop: "auto",
+  backgroundColor: themeColor,
+  color: theme.palette.common.white,
+  "&:hover": {
+    backgroundColor: theme.palette.primary.dark,
+  },
+}));
 
 const CareerPage: React.FC = () => {
   const location = useLocation(); 
@@ -278,11 +300,11 @@ const CareerPage: React.FC = () => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Container maxWidth="md" sx={{ marginTop: 4, marginBottom: 4 }}>
-          <Paper elevation={3} sx={{ padding: 4, borderRadius: 2 }}>
-            <Typography variant="h4" align="center" gutterBottom>
+          <StyledPaper elevation={3}>
+            <Typography variant="h4" align="center" gutterBottom color={themeColor}>
               Career Opportunities
             </Typography>
-            <Typography variant="body1" align="center" gutterBottom>
+            <Typography variant="body1" align="center" paragraph>
               Join us! Fill in your details and upload your resume.
             </Typography>
             <Box component="form" noValidate sx={{ marginTop: "40px" }}>
@@ -387,26 +409,14 @@ const CareerPage: React.FC = () => {
 
                 <Grid item xs={12}>
                   <Box display="flex" justifyContent="center" width="100%">
-                    <Button
-                      variant="contained"
-                      sx={{
-                        color: "white",
-                        backgroundColor: themeColor,
-                        padding: 1.5,
-                        fontSize: "1rem",
-                        width: "50%",
-                        marginTop: "30px",
-                      }}
-                      onClick={handleSubmit}
-                      disabled={loading}
-                    >
+                    <StyledButton variant="contained" onClick={handleSubmit} disabled={loading}>
                       {loading ? "Submitting..." : "Submit Application"}
-                    </Button>
+                    </StyledButton>
                   </Box>
                 </Grid>
               </Grid>
             </Box>
-          </Paper>
+          </StyledPaper>
         </Container>
         <Snackbar
           open={snackbar.open}

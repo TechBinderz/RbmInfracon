@@ -138,10 +138,10 @@ const Footer = () => {
                   backgroundColor: themeColor,
                   color: "#fff",
                   marginBottom: "10px",
-                  fontSize: "0.9em",
+                  fontSize: "20px",
                   textAlign: "center",
                   textDecoration: "none",
-                  padding: "10px 16px",
+                  padding: "8px 16px",
                   borderRadius: "4px",
                 }}
               >
@@ -162,11 +162,11 @@ const Footer = () => {
                 backgroundColor: themeColor,
                 color: "#fff",
                 marginBottom: "10px",
-                fontSize: "0.9em",
+                fontSize: "20px",
                 width: "100%",
                 textAlign: "center",
                 textDecoration: "none",
-                padding: "10px 16px", // Adjust padding for button appearance
+                padding: "8px 16px", // Adjust padding for button appearance
                 borderRadius: "4px", // Optional: to round the corners
               }}
             >
@@ -230,13 +230,13 @@ const Footer = () => {
           <Typography
             variant="body2"
             style={{
-              fontSize: "0.9em",
+              // fontSize: "0.9em",
               fontWeight: "bold",
               textAlign: "center",
             }}
           >
-            &copy; Copyright 2024 All Rights Reserved | Privacy Policy | SEO &
-            Website Design by TechBinderz
+            &copy; Copyright 2024 All Rights Reserved | Privacy Policy | Website
+            Designed and Developed by TechBinderz
           </Typography>
         </Box>
       </Container>

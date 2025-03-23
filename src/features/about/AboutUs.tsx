@@ -54,7 +54,7 @@ Driven by a philosophy of integrity, innovation, and excellence, RBM Infracon re
   }) => (
     <Box sx={{ marginTop: "50px", marginBottom: "30px" }}>
       <Typography
-        variant="h4"
+        variant="h3"
         sx={{
           color: themeColor,
           fontWeight: "bold",
@@ -182,9 +182,9 @@ Driven by a philosophy of integrity, innovation, and excellence, RBM Infracon re
                   variant="body1"
                   sx={{
                     whiteSpace: "pre-line",
-                    lineHeight: 1.8,
+                    // lineHeight: 1.8,
                     color: "#333",
-                    textAlign: "justify",
+                    // textAlign: "justify",
                   }}
                 >
                   {`As we stand on the threshold of a new era in infrastructure development, I am filled with immense pride in the journey we've undertaken and the milestones we've achieved. Since our inception, RBM Infracon has been committed to delivering excellence, innovation, and sustainability in every project we undertake. We have built a reputation for quality and reliability, and it is this unwavering dedication that continues to drive our success.
@@ -222,9 +222,9 @@ Thank you for your continued trust and support.`}
                 variant="body1"
                 sx={{
                   whiteSpace: "pre-line",
-                  lineHeight: 1.8,
+                  // lineHeight: 1.8,
                   color: "#333",
-                  textAlign: "justify",
+                  // textAlign: "justify",
                   "& strong": {
                     color: themeColor,
                     fontWeight: "bold",

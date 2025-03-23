@@ -30,6 +30,7 @@ import RBMLOGOSMALL from "../../assets/header/Rmb_logo_small.png";
 import { checkAndUpdateStockData, StockData } from "../api/StockData";
 import { headerFontSize } from "../../features/common/common";
 import serviceCardData from "../../features/services/ServiceCardData";
+import theme from "../../theme/theme";
 
 interface DropdownMenuProps {
   buttonText: React.ReactNode;
@@ -207,7 +208,7 @@ const Header: React.FC = () => {
   );
 
   const HamburgerMenu = () => (
-    <>
+    <ThemeProvider theme={createTheme(theme)}>
       <IconButton
         edge="start"
         aria-label="menu"
@@ -606,13 +607,13 @@ const Header: React.FC = () => {
           </Box>
         </Box>
       </Drawer>
-    </>
+    </ThemeProvider>
   );
 
   return (
     <ThemeProvider
       theme={createTheme({
-        typography: {},
+        typography: {fontFamily: "Calibri"},
       })}
     >
       <AppBar

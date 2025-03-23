@@ -108,12 +108,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
                   }}
                 >
                   <Typography
-                    variant="h4"
-                    component="h2"
+                    variant="h3"
+                    // component="h2"
                     gutterBottom
                     sx={{
-                      fontWeight: "bold",
-                      fontSize: { xs: "28px", md: "38px" },
+                      // fontWeight: "bold",
+                      // fontSize: { xs: "28px", md: "38px" },
                       mb: 2,
                       color: themeColor,
                     }}
@@ -121,10 +121,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
                     {card.title}
                   </Typography>
                   <Typography
-                    variant="body1"
+                    variant="subtitle1"
                     sx={{
-                      fontSize: { xs: "18px", md: "22px" },
-                      lineHeight: 1.6,
+                      // fontSize: { xs: "18px", md: "22px" },
+                      // lineHeight: 1.6,
                       color: "#000000",
                       mb: 3,
                     }}
@@ -132,14 +132,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
                     {card.description}
                   </Typography>
                   <Typography
-                    variant="button"
+                    variant="h5"
                     sx={{
                       display: "flex",
                       alignItems: "center",
                       color: "#000000",
                       cursor: "pointer",
-                      fontSize: { xs: "16px", md: "18px" },
-                      fontWeight: 500,
+                      // fontSize: { xs: "16px", md: "18px" },
+                      // fontWeight: 500,
                       "&:hover": {
                         textDecoration: "underline",
                       },
@@ -177,7 +177,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
             display: "flex",
             alignItems: "center",
             cursor: "pointer",
-            opacity: 0.8,
+            opacity: 1,
             transition: "all 0.3s ease",
             flex: 1,
             minWidth: 0, // Allow box to shrink below its content size
@@ -203,11 +203,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
           </IconButton>
           <Box sx={{ ml: { xs: 1, sm: 2 }, minWidth: 0 }}>
             <Typography
-              variant="caption"
+              variant="body2"
               sx={{
                 color: themeColor,
-                fontWeight: 500,
-                fontSize: { xs: "12px", sm: "14px", md: "16px" },
+                // fontWeight: 500,
+                // fontSize: { xs: "12px", sm: "14px", md: "16px" },
                 display: "block",
               }}
             >
@@ -216,9 +216,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
             <Typography
               variant="subtitle1"
               sx={{
-                fontWeight: "bold",
-                lineHeight: 1.2,
-                fontSize: { xs: "14px", sm: "18px", md: "24px" },
+                // fontWeight: "bold",
+                // lineHeight: 1.2,
+                // fontSize: { xs: "14px", sm: "18px", md: "24px" },
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
@@ -236,7 +236,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
             display: "flex",
             alignItems: "center",
             cursor: "pointer",
-            opacity: 0.8,
+            opacity: 1,
             transition: "all 0.3s ease",
             flex: 1,
             minWidth: 0, // Allow box to shrink below its content size
@@ -253,11 +253,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
         >
           <Box sx={{ mr: { xs: 1, sm: 2 }, textAlign: "right", minWidth: 0 }}>
             <Typography
-              variant="caption"
+              variant="body2"
               sx={{
+                textAlign: "right",
                 color: themeColor,
-                fontWeight: 500,
-                fontSize: { xs: "12px", sm: "14px", md: "16px" },
+                // fontWeight: 500,
+                // fontSize: { xs: "12px", sm: "14px", md: "16px" },
                 display: "block",
               }}
             >
@@ -266,9 +267,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
             <Typography
               variant="subtitle1"
               sx={{
-                fontWeight: "bold",
-                lineHeight: 1.2,
-                fontSize: { xs: "14px", sm: "18px", md: "24px" },
+                // fontWeight: "bold",
+                // lineHeight: 1.2,
+                // fontSize: { xs: "14px", sm: "18px", md: "24px" },
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",

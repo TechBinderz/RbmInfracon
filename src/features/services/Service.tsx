@@ -2,20 +2,21 @@ import React from "react";
 import { useLocation, Outlet, Link } from "react-router-dom";
 import PageTitle from "../common/PageTitleDiv";
 import CustomSwiper from "../common/CustomSwiper";
-import { 
-  Typography, 
-  CardMedia, 
-  CardContent, 
-  Card, 
-  Box, 
-  Divider, 
+import {
+  Typography,
+  CardMedia,
+  CardContent,
+  Card,
+  Box,
+  Divider,
   Stack,
-  Container
+  Container,
 } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import services_image from "../../assets/features/services/services.jpg";
 import serviceCardData from "./ServiceCardData";
 import AllServiceCards from "./AllServiceCards";
+import { themeColor } from "../common/common";
 
 const Services: React.FC = () => {
   const { pathname } = useLocation();
@@ -28,7 +29,7 @@ const Services: React.FC = () => {
     (card) => card.pathName !== currentServicePath
   );
 
-  const themeColorValue = "#39ac4b";
+  const themeColorValue = themeColor;
 
   const ServicesPage: React.FC = () => (
     <>
@@ -40,38 +41,39 @@ const Services: React.FC = () => {
   const MoreServices: React.FC = () => (
     <>
       <Outlet />
-      <Container maxWidth="xl" sx={{ paddingBottom: { xs: 4, md: 8   } }}>
+      <Container maxWidth="xl" sx={{ paddingBottom: { xs: 4, md: 8 }, overflow: 'hidden' }}>
         <Box sx={{ mb: 6, textAlign: "center" }}>
           <Typography
             variant="h3"
             sx={{
               fontWeight: "bold",
               color: themeColorValue,
-              mb: 2
+              mb: 2,
             }}
           >
             More Services
           </Typography>
-          <Divider sx={{ 
-            width: "80px", 
-            margin: "0 auto", 
-            borderColor: themeColorValue,
-            borderWidth: 2,
-            mb: 2 
-          }} />
+          <Divider
+            sx={{
+              width: "80px",
+              margin: "0 auto",
+              borderColor: themeColorValue,
+              borderWidth: 2,
+              mb: 2,
+            }}
+          />
           <Typography
             variant="subtitle1"
-            sx={{ 
-              maxWidth: "800px", 
+            sx={{
+              maxWidth: "800px",
               mx: "auto",
-              color: "black",
-              fontSize: { xs: "1.1rem", md: "1.25rem" }
+              mb: 6,
             }}
           >
             Discover our comprehensive range of industrial solutions
           </Typography>
         </Box>
-        <Box sx={{ position: "relative", mx: { xs: -2, md: -4 } }}>
+        <Box sx={{ position: "relative", width: "100%" }}>
           <CustomSwiper
             items={filteredCardData.map((card) => ({
               id: card.pathName,
@@ -114,7 +116,8 @@ const Services: React.FC = () => {
                         image={card.image}
                         alt={`${card.title} service illustration`}
                         sx={{
-                          transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                          transition:
+                            "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                           objectFit: "cover",
                           width: "100%",
                           height: "100%",
@@ -128,9 +131,11 @@ const Services: React.FC = () => {
                           bottom: 0,
                           left: 0,
                           right: 0,
-                          background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+                          background:
+                            "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
                           height: "50%",
-                          transition: "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                          transition:
+                            "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                           opacity: 0.6,
                         }}
                       />
@@ -138,26 +143,24 @@ const Services: React.FC = () => {
                     <CardContent
                       sx={{
                         p: { xs: 3, md: 4 },
-                        flexGrow: 1,
-                        display: "flex",
+                        height: { xs: "220px", md: "250px" },
                         flexDirection: "column",
-                        justifyContent: "space-between",
+                        gap: 2,
                       }}
                     >
                       <Typography
                         variant="h5"
                         component="h3"
                         sx={{
+                          height: { xs: "64px", md: "74px" },
                           fontWeight: 600,
                           color: themeColorValue,
-                          mb: 2,
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
                           display: "-webkit-box",
                           WebkitLineClamp: 2,
                           WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          lineHeight: 1.3,
-                          fontSize: { xs: "1.25rem", md: "1.5rem" },
+                          lineHeight: 1.2,
                         }}
                       >
                         {card.title}
@@ -166,38 +169,35 @@ const Services: React.FC = () => {
                         variant="body1"
                         color="black"
                         sx={{
-                          display: "-webkit-box",
-                          WebkitLineClamp: 3,
-                          WebkitBoxOrient: "vertical",
+                          height: { xs: "110px", md: "128px" },
                           overflow: "hidden",
                           textOverflow: "ellipsis",
-                          lineHeight: 1.6,
-                          fontSize: { xs: "1.1rem", md: "1.2rem" },
-                          mb: 3,
+                          display: "-webkit-box",
+                          WebkitLineClamp: 4,
+                          WebkitBoxOrient: "vertical",
+                          lineHeight: 1.5,
                         }}
                       >
                         {card.description}
                       </Typography>
-                      <Stack 
-                        direction="row" 
-                        alignItems="center" 
+                      <Stack
+                        direction="row"
+                        alignItems="center"
                         spacing={1}
                         sx={{
                           color: themeColorValue,
                           "& .arrow-icon": {
                             transition: "transform 0.2s",
-                            fontSize: "1.4rem",
                           },
                           "&:hover .arrow-icon": {
                             transform: "translateX(4px)",
                           },
                         }}
                       >
-                        <Typography 
-                          variant="button" 
-                          sx={{ 
+                        <Typography
+                          variant="button"
+                          sx={{
                             fontWeight: 600,
-                            fontSize: "1rem",
                           }}
                         >
                           Learn More

@@ -7,11 +7,12 @@ import {
   Typography,
   Stack,
   keyframes,
+  Link as MUILink,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 import React from "react";
 import { ArrowForward } from "@mui/icons-material";
 import { themeColor } from "../common/common";
+import { Link as RouterLink } from "react-router-dom";
 
 interface CardData {
   pathName: string;
@@ -36,6 +37,12 @@ const fadeInUp = keyframes`
   }
 `;
 
+const StyledCardMedia = {
+  height: { xs: "300px", md: "350px" },
+  objectFit: "cover",
+  width: "100%",
+};
+
 const AllServiceCards: React.FC<ServiceCardProps> = ({
   cardData,
   showDetails = true,
@@ -43,16 +50,13 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
   return (
     <Container maxWidth="xl" sx={{ py: { xs: 4, md: 8 } }}>
       <Typography
-        variant="body1"
+        variant="subtitle1"
         sx={{
           mb: 6,
           textAlign: "center",
           maxWidth: "1200px",
           mx: "auto",
           px: 2,
-          color: "black",
-          lineHeight: 1.8,
-          fontSize: { xs: "1.1rem", md: "1.25rem" }
         }}
       >
         RBM is a premier provider of integrated industrial services in engineering, procurement, construction, operation, and maintenance solutions across multiple industries. We deliver excellence through innovative technologies, skilled manpower, and adherence to the highest industry standards. Our core services include
@@ -84,7 +88,7 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
               animation: `${fadeInUp} 0.6s ease-out ${index * 0.1}s`,
             }}
           >
-            <Link
+            <RouterLink
               to={`/services/${card.pathName}`}
               style={{
                 textDecoration: "none",
@@ -128,7 +132,7 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                     position: "relative",
                     overflow: "hidden",
                     bgcolor: "grey.100",
-                    height: { xs: "300px", md: "350px" },
+                    ...StyledCardMedia,
                     flexShrink: 0,
                   }}
                 >
@@ -170,19 +174,10 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                 >
                   <Box component="header">
                     <Typography
-                      variant="h5"
-                      component="h3"
+                      variant="h4"
                       sx={{
-                        fontWeight: 600,
                         color: themeColor,
                         mb: 2,
-                        display: "-webkit-box",
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        lineHeight: 1.3,
-                        fontSize: { xs: "1.25rem", md: "1.5rem" },
                       }}
                     >
                       {card.title}
@@ -192,15 +187,6 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                         variant="body1"
                         component="p"
                         color="black"
-                        sx={{
-                          display: "-webkit-box",
-                          WebkitLineClamp: 3,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          lineHeight: 1.6,
-                          fontSize: { xs: "1.1rem", md: "1.2rem" },
-                        }}
                       >
                         {card.description}
                       </Typography>
@@ -217,25 +203,27 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                       pt: 2,
                       "& .arrow-icon": {
                         transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                        fontSize: "1.4rem",
                       },
                     }}
                   >
-                    <Typography
-                      variant="button"
-                      component="span"
-                      sx={{
-                        fontWeight: 600,
-                        fontSize: "1rem",
-                      }}
-                    >
-                      Learn More
-                    </Typography>
-                    <ArrowForward className="arrow-icon" aria-hidden="true" />
+                    <RouterLink to={`/services/${card.pathName}`} style={{ textDecoration: "none" }}>
+                      <Typography
+                        variant="h6"
+                        component="span"
+                        sx={{
+                          color: themeColor,
+                        }}
+                      >
+                        Learn More
+                      </Typography>
+                    </RouterLink>
+                    <MUILink component={RouterLink} to={`/services/${card.pathName}`} underline="none" sx={{ color: themeColor }}>
+                      <ArrowForward className="arrow-icon" aria-hidden="true" />
+                    </MUILink>
                   </Stack>
                 </CardContent>
               </Card>
-            </Link>
+            </RouterLink>
           </Box>
         ))}
       </Box>

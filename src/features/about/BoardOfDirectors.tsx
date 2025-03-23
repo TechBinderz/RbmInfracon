@@ -90,18 +90,18 @@ const BoardOfDirectors: React.FC = () => {
           />
           <Box sx={{ padding: 2, maxWidth: 600 }}>
             <Typography
-              variant="h3"
-              sx={{ fontWeight: "bold", color: themeColor, textAlign: "center" }}
+              variant="h2"
+              sx={{ color: themeColor, textAlign: "center" }}
             >
               {directors[0].name}
             </Typography>
             <Typography
-              variant="h5"
+              variant="h4"
               sx={{ color: themeColor, marginBottom: 2, textAlign: "center" }}
             >
               {directors[0].title}
             </Typography>
-            <Typography variant="body1" sx={{ marginBottom: 4 }}>
+            <Typography variant="subtitle1" sx={{ marginBottom: 4, textAlign: "center" }}>
               {directors[0].description}
             </Typography>
           </Box>
@@ -159,9 +159,8 @@ const BoardOfDirectors: React.FC = () => {
                 )}
                 <CardContent sx={{ flex: 1 }}>
                   <Typography
-                    variant="h6"
+                    variant="h4"
                     sx={{
-                      fontWeight: "bold",
                       color: themeColor,
                       mb: 1,
                       textAlign: "center",
@@ -170,13 +169,13 @@ const BoardOfDirectors: React.FC = () => {
                     {director.name}
                   </Typography>
                   <Typography
-                    variant="subtitle1"
+                    variant="h6"
                     sx={{ color: themeColor, mb: 2, textAlign: "center" }}
                   >
                     {director.title}
                   </Typography>
                   <Typography
-                    variant="body2"
+                    variant="subtitle2"
                     sx={{ color: "#333", lineHeight: 1.6, textAlign: "center" }}
                   >
                     {director.description}

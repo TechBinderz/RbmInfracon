@@ -20,24 +20,19 @@ const Hydrojetting: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={6}>
-            <Typography
-              paragraph
-              variant="body1"
-              sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}
-            >
+            <Typography variant="body1" paragraph>
               Our Hydrojetting Machine services are crafted to offer
               comprehensive and efficient cleaning solutions for a range of
-              industrial applications. With cutting-edge technology and
-              state-of-the-art equipment at our disposal, our team provides
-              high-pressure water jetting services. This specialized service is
-              designed to eliminate stubborn deposits, scale, and contaminants
-              from various surfaces, pipes, and equipment. We place a strong
-              emphasis on safety, environmental sustainability, and achieving
-              exceptional results, all geared towards assisting our clients in
-              optimizing their operations.
+              industrial applications.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              With cutting-edge technology and state-of-the-art equipment at our
+              disposal, our team provides high-pressure water jetting services.
+              This specialized service is designed to eliminate stubborn
+              deposits, scale, and contaminants from various surfaces, pipes,
+              and equipment. We place a strong emphasis on safety, environmental
+              sustainability, and achieving exceptional results, all geared
+              towards assisting our clients in optimizing their operations.
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
@@ -61,7 +56,7 @@ const Hydrojetting: React.FC = () => {
                 alt="Surface Cleaning"
               />
               <CardContent>
-                <Typography variant="h6" component="div">
+                <Typography variant="h5" gutterBottom>
                   Surface Cleaning
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -80,7 +75,7 @@ const Hydrojetting: React.FC = () => {
                 alt="Pipe and Equipment Cleaning"
               />
               <CardContent>
-                <Typography variant="h6" component="div">
+                <Typography variant="h5" gutterBottom>
                   Pipe and Equipment Cleaning
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

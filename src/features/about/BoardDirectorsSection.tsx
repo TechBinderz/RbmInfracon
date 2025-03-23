@@ -115,7 +115,6 @@ const BoardDirectorsSection: React.FC = () => {
                   variant="body2"
                   sx={{ 
                     color: '#333',
-                    lineHeight: 1.6
                   }}
                 >
                   {director.description}

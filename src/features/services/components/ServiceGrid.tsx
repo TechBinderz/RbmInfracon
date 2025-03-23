@@ -33,11 +33,10 @@ const ServiceGrid: React.FC<ServiceGridProps> = ({ services, title }) => {
   return (
     <>
       <Typography
-        variant="h4"
+        variant="h3"
         align="center"
         sx={{
           mb: 4,
-          fontWeight: "bold",
           color: themeColor,
         }}
       >
@@ -46,7 +45,7 @@ const ServiceGrid: React.FC<ServiceGridProps> = ({ services, title }) => {
       <Grid container spacing={4}>
         {services.map((service, index) => (
           <Grid item xs={12} md={6} lg={4} key={index}>
-            <Card 
+            <Card
               sx={{
                 height: "100%",
                 display: "flex",
@@ -83,51 +82,33 @@ const ServiceGrid: React.FC<ServiceGridProps> = ({ services, title }) => {
                   </IconButton>
                   <Typography
                     variant="h6"
-                    sx={{
-                      fontWeight: 600,
-                      color: themeColor,
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      display: "-webkit-box",
-                      WebkitBoxOrient: "vertical",
-                      WebkitLineClamp: 2,
-                      lineHeight: 1.3,
-                    }}
+                    gutterBottom
+                    align="left"
+                    color={themeColor}
                   >
                     {service.title}
                   </Typography>
                 </Box>
-                <Typography
-                  variant="body2"
-                  color="black"
-                  sx={{ 
-                    my: 3,
-                    fontSize: { xs: "1rem", md: "1.15rem" },
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    display: "-webkit-box",
-                    WebkitBoxOrient: "vertical",
-                    WebkitLineClamp: 3,
-                    lineHeight: 1.6,
-                  }}
-                >
+                <Typography variant="body2" paragraph align="left">
                   {service.description}
                 </Typography>
                 <List dense>
                   {service.benefits.map((benefit, idx) => (
                     <ListItem key={idx} sx={{ py: 0.5 }}>
                       <ListItemIcon sx={{ minWidth: 36 }}>
-                        <CheckCircle sx={{ color: themeColor, fontSize: 16 }} />
+                        <CheckCircle
+                          sx={{
+                            color: themeColor,
+                            width: theme.typography.body2.fontSize,
+                            height: theme.typography.body2.fontSize,
+                            marginRight: theme.spacing(1),
+                          }}
+                        />
                       </ListItemIcon>
-                      <ListItemText 
+                      <ListItemText
                         primary={benefit}
                         primaryTypographyProps={{
-                          sx: { 
-                            fontSize: { xs: "0.95rem", md: "1.1rem" },
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                            whiteSpace: "nowrap"
-                          }
+                          variant: "body2",
                         }}
                       />
                     </ListItem>
