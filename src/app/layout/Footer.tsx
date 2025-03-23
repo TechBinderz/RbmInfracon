@@ -235,7 +235,7 @@ const Footer = () => {
               textAlign: "center",
             }}
           >
-            &copy; Copyright 2024 All Rights Reserved | Privacy Policy | Website
+            &copy; Copyright 2025 All Rights Reserved | Privacy Policy | Website
             Designed and Developed by TechBinderz
           </Typography>
         </Box>
