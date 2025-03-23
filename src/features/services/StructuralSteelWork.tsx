@@ -18,29 +18,15 @@ const StructuralSteelWork: React.FC = () => {
     <>
       <PageTitle imageUrl={steel_work_1} tileContent="Structural Steel Work" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
-        <Grid container spacing={10}>
+        <Grid container spacing={10} sx={{ marginBottom: 3 }}>
           <Grid item xs={12} md={6}>
-            <Typography
-              paragraph
-              variant="body1"
-              sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}
-            >
+            <Typography variant="body1" paragraph>
               RBM Infracon's Structural Steel Work services provide expertise in
               civil construction, coke plant maintenance, and the erection of
               plants and equipment. Our team excels in delivering high-quality
               solutions tailored to the needs of industrial clients.
             </Typography>
-            <Typography
-              paragraph
-              variant="body1"
-              sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}
-            >
+            <Typography variant="body1" paragraph>
               From blasting cleaning to painting, insulation, and refractory
               work, we handle every aspect of structural steel projects with
               precision and adherence to industry standards. Whether it’s a
@@ -50,42 +36,13 @@ const StructuralSteelWork: React.FC = () => {
             <Typography variant="h6" gutterBottom>
               Key Services:
             </Typography>
-            <ul style={{ paddingLeft: "20px", margin: 0 }}>
-            <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
-                Expertise in civil construction and plant erection.
-              </Typography>
-              <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
-                Maintenance and upkeep of coke plants and heavy industrial
-                equipment.
-              </Typography>
-              <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
-                Blasting cleaning and professional painting services for
-                industrial structures.
-              </Typography>
-              <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
-                Comprehensive insulation and refractory work for structural
-                projects.
-              </Typography>
-              <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
-                Highly skilled workforce ensuring timely and safe project
-                execution.
-              </Typography>
-            </ul>
+            <Typography variant="body1" component="ul" sx={{ pl: 2 }}>
+              <li>Expertise in civil construction and plant erection.</li>
+              <li>Maintenance and upkeep of coke plants and heavy industrial equipment.</li>
+              <li>Blasting cleaning and professional painting services for industrial structures.</li>
+              <li>Comprehensive insulation and refractory work for structural projects.</li>
+              <li>Highly skilled workforce ensuring timely and safe project execution.</li>
+            </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
             <Card className="card-shadow">
@@ -99,7 +56,7 @@ const StructuralSteelWork: React.FC = () => {
           </Grid>
         </Grid>
 
-        <Grid container spacing={5} sx={{ marginTop: 3 }}>
+        <Grid container spacing={5} sx={{ marginBottom: 3 }}>
           <Grid item xs={12} md={6}>
             <Card className="card-shadow">
               <CardMedia

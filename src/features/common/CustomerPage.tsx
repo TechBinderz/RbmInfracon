@@ -86,12 +86,11 @@ const CustomerPage: React.FC = () => {
   return (
     <Container sx={{ padding: 4 }} id="customer-page">
       {/* Centered Heading with additional spacing */}
-      <Typography 
-        variant="h3" 
-        align="center" 
-        fontWeight="bold" 
-        gutterBottom
-        sx={{ mb: 3 }} // Adds margin-bottom to create space after the heading
+      <Typography
+        sx={{ paddingBottom: 4 }}
+        variant="h2"
+        fontWeight="bold"
+        align="center"
       >
         Business Partners
       </Typography>

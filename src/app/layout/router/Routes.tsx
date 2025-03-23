@@ -9,7 +9,6 @@ import Services from "../../../features/services/Service";
 import DrillingAndOMServices from "../../../features/services/DrillingAndOMServices";
 import HeaterOperation from "../../../features/services/HeaterOperation";
 import PipingServices from "../../../features/services/PipingServices";
-import RailWagonLoadingServices from "../../../features/services/RailWagonLoadingServices";
 import StructuralSteelWork from "../../../features/services/StructuralSteelWork";
 import PlateWork from "../../../features/services/PlateWork";
 import BoilerErectionWork from "../../../features/services/BoilerErectionWork";
@@ -116,10 +115,6 @@ const servicesRoutes = {
     {
       path: "structuralSteelWork",
       element: <StructuralSteelWork />,
-    },
-    {
-      path: "railWagonLoadingServices",
-      element: <RailWagonLoadingServices />,
     },
     {
       path: "boilerErectionWork",

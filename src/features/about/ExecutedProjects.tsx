@@ -4,16 +4,14 @@ import {
   Container,
   Typography,
   Grid,
-  Card,
-  CardContent,
-  Chip,
+  Paper,
   Table,
-  TableBody,
-  TableCell,
-  TableContainer,
   TableHead,
   TableRow,
-  Paper,
+  TableCell,
+  TableBody,
+  TableContainer,
+  Chip,
   Tabs,
   Tab,
   Accordion,
@@ -25,12 +23,51 @@ import EngineeringIcon from "@mui/icons-material/Engineering";
 import BusinessIcon from "@mui/icons-material/Business";
 import PageTitle from "../../features/common/PageTitleDiv";
 import BANNER_IMAGE from "../../assets/features/home/pexels-tomfisk-10407692.jpg";
+import { themeColor } from "../common/common";
+import { styled } from "@mui/material/styles";
+import theme from "../../theme/theme";
 
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
   value: number;
 }
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(4),
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  transition: "transform 0.3s ease-in-out",
+  "&:hover": {
+    transform: "translateY(-8px)",
+    boxShadow: theme.shadows[8],
+  },
+}));
+
+const ProjectTitle = styled(Typography)(({ theme }) => ({
+  color: themeColor,
+  marginBottom: theme.spacing(2),
+  [theme.breakpoints.down("sm")]: {
+    ...theme.typography.h6,
+  },
+  [theme.breakpoints.up("sm")]: {
+    ...theme.typography.h5,
+  },
+  [theme.breakpoints.up("md")]: {
+    ...theme.typography.h4,
+  },
+}));
+
+const ProjectDetails = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(2),
+  [theme.breakpoints.down("sm")]: {
+    ...theme.typography.body2,
+  },
+  [theme.breakpoints.up("sm")]: {
+    ...theme.typography.body1,
+  },
+}));
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -230,11 +267,11 @@ const ExecutedProjects: React.FC = () => {
                 "& .MuiTab-root": {
                   color: "#666",
                   "&.Mui-selected": {
-                    color: "#39ac4b",
+                    color: themeColor,
                   },
                 },
                 "& .MuiTabs-indicator": {
-                  backgroundColor: "#39ac4b",
+                  backgroundColor: themeColor,
                 },
               }}
             >
@@ -242,7 +279,6 @@ const ExecutedProjects: React.FC = () => {
                 icon={<BusinessIcon />}
                 label="Client-wise Projects"
                 sx={{
-                  fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                   textTransform: "none",
                 }}
               />
@@ -250,7 +286,6 @@ const ExecutedProjects: React.FC = () => {
                 icon={<EngineeringIcon />}
                 label="Turnaround Projects"
                 sx={{
-                  fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
                   textTransform: "none",
                 }}
               />
@@ -275,7 +310,7 @@ const ExecutedProjects: React.FC = () => {
                 }}
               >
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon sx={{ color: "#39ac4b" }} />}
+                  expandIcon={<ExpandMoreIcon sx={{ color: themeColor }} />}
                   sx={{
                     backgroundColor: "#f8f9fa",
                     "&:hover": {
@@ -289,7 +324,6 @@ const ExecutedProjects: React.FC = () => {
                     sx={{
                       color: "#333",
                       fontWeight: "bold",
-                      fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.6rem" },
                     }}
                   >
                     {client.client}
@@ -299,98 +333,49 @@ const ExecutedProjects: React.FC = () => {
                   <Grid container spacing={3}>
                     {client.projects.map((project, pIndex) => (
                       <Grid item xs={12} key={pIndex}>
-                        <Card
-                          sx={{
-                            boxShadow: 2,
-                            "&:hover": {
-                              boxShadow: 4,
-                              transform: "translateY(-2px)",
-                            },
-                            transition: "all 0.3s ease-in-out",
-                          }}
-                        >
-                          <CardContent>
-                            <Typography
-                              variant="h6"
+                        <StyledPaper elevation={3}>
+                          <ProjectTitle variant="h5">
+                            {project.name}
+                          </ProjectTitle>
+                          <Box sx={{ mb: 2 }}>
+                            <Chip
+                              variant="filled"
+                              label={`Value: ${project.value}`}
                               sx={{
-                                color: "#39ac4b",
-                                fontWeight: "bold",
-                                mb: 2,
-                                fontSize: {
-                                  xs: "1.1rem",
-                                  sm: "1.3rem",
-                                  md: "1.5rem",
-                                },
-                              }}
-                            >
-                              {project.name}
-                            </Typography>
-                            <Box sx={{ mb: 2 }}>
-                              <Chip
-                                label={`Value: ${project.value}`}
-                                sx={{
-                                  mr: 1,
-                                  mb: 1,
-                                  backgroundColor: "#e8f5e9",
-                                  color: "#39ac4b",
-                                  fontWeight: "bold",
-                                  fontSize: {
-                                    xs: "0.9rem",
-                                    sm: "1rem",
-                                    md: "1.1rem",
-                                  },
-                                }}
-                              />
-                              <Chip
-                                label={`Completed: ${project.completionDate}`}
-                                sx={{
-                                  mb: 1,
-                                  backgroundColor: "#f1f8e9",
-                                  color: "#689f38",
-                                  fontSize: {
-                                    xs: "0.9rem",
-                                    sm: "1rem",
-                                    md: "1.1rem",
-                                  },
-                                }}
-                              />
-                            </Box>
-                            <Typography
-                              variant="subtitle1"
-                              sx={{
-                                color: "#666",
+                                fontSize: theme.typography.body1.fontSize,
+                                mr: 1,
                                 mb: 1,
-                                fontSize: {
-                                  xs: "1rem",
-                                  sm: "1.1rem",
-                                  md: "1.2rem",
-                                },
+                                backgroundColor: "#e8f5e9",
+                                color: themeColor,
                                 fontWeight: "bold",
                               }}
-                            >
-                              Scope of Work:
-                            </Typography>
-                            <ul style={{ color: "#333" }}>
-                              {project.details.map((detail, dIndex) => (
-                                <li key={dIndex}>
-                                  <Typography
-                                    variant="body1"
-                                    sx={{
-                                      fontSize: {
-                                        xs: "0.95rem",
-                                        sm: "1.05rem",
-                                        md: "1.15rem",
-                                      },
-                                      lineHeight: 1.6,
-                                    }}
-                                  >
-                                    {detail}
-                                  </Typography>
-                                </li>
-                              ))}
-                            </ul>
-                          </CardContent>
-                        </Card>
+                            />
+                            <Chip
+                              label={`Completed: ${project.completionDate}`}
+                              sx={{
+                                fontSize: theme.typography.body1.fontSize,
+                                mb: 1,
+                                backgroundColor: "#f1f8e9",
+                                color: themeColor,
+                              }}
+                            />
+                          </Box>
+                          <ProjectDetails variant="body1">
+                            Scope of Work:
+                          </ProjectDetails>
+                          <Box component="ul" sx={{ pl: 2, mt: 2 }}>
+                            {project.details.map((detail, idx) => (
+                              <Typography
+                                key={idx}
+                                variant="body2"
+                                component="li"
+                                sx={{ mb: 1 }}
+                              >
+                                {detail}
+                              </Typography>
+                            ))}
+                          </Box>
+                        </StyledPaper>
                       </Grid>
                     ))}
                   </Grid>
@@ -417,7 +402,7 @@ const ExecutedProjects: React.FC = () => {
                 }}
               >
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon sx={{ color: "#39ac4b" }} />}
+                  expandIcon={<ExpandMoreIcon sx={{ color: themeColor }} />}
                   sx={{
                     backgroundColor: "#f8f9fa",
                     "&:hover": {
@@ -431,7 +416,6 @@ const ExecutedProjects: React.FC = () => {
                     sx={{
                       color: "#333",
                       fontWeight: "bold",
-                      fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.6rem" },
                     }}
                   >
                     Turnaround {yearGroup.year}
@@ -442,41 +426,16 @@ const ExecutedProjects: React.FC = () => {
                     <Table>
                       <TableHead>
                         <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
-                          <TableCell
-                            sx={{
-                              fontWeight: "bold",
-                              color: "#333",
-                              fontSize: {
-                                xs: "1rem",
-                                sm: "1.1rem",
-                                md: "1.25rem",
-                              },
-                            }}
-                          >
+                          <TableCell sx={{ fontWeight: "bold", color: "#333" }}>
                             Sr. No.
                           </TableCell>
-                          <TableCell
-                            sx={{
-                              fontWeight: "bold",
-                              color: "#333",
-                              fontSize: {
-                                xs: "1rem",
-                                sm: "1.1rem",
-                                md: "1.25rem",
-                              },
-                            }}
-                          >
+                          <TableCell sx={{ fontWeight: "bold", color: "#333" }}>
                             Description
                           </TableCell>
                           <TableCell
                             sx={{
                               fontWeight: "bold",
                               color: "#333",
-                              fontSize: {
-                                xs: "1rem",
-                                sm: "1.1rem",
-                                md: "1.25rem",
-                              },
                               textAlign: "right",
                             }}
                           >
@@ -495,38 +454,13 @@ const ExecutedProjects: React.FC = () => {
                               },
                             }}
                           >
+                            <TableCell>{pIndex + 1}</TableCell>
+                            <TableCell>{project.description}</TableCell>
                             <TableCell
                               sx={{
-                                fontSize: {
-                                  xs: "0.95rem",
-                                  sm: "1.05rem",
-                                  md: "1.15rem",
-                                },
-                              }}
-                            >
-                              {pIndex + 1}
-                            </TableCell>
-                            <TableCell
-                              sx={{
-                                fontSize: {
-                                  xs: "0.95rem",
-                                  sm: "1.05rem",
-                                  md: "1.15rem",
-                                },
-                              }}
-                            >
-                              {project.description}
-                            </TableCell>
-                            <TableCell
-                              sx={{
-                                color: "#39ac4b",
+                                color: themeColor,
                                 fontWeight: "bold",
                                 textAlign: "right",
-                                fontSize: {
-                                  xs: "0.95rem",
-                                  sm: "1.05rem",
-                                  md: "1.15rem",
-                                },
                               }}
                             >
                               {project.value}

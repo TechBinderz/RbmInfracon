@@ -53,7 +53,7 @@ const statsData = [
 
 const StatisticsPoliciesSection = () => {
   return (
-    <Box sx={{ p: 4 }}>
+    <Box sx={{ p: 4, paddingBottom: 0 }}>
       {/* Statistics Section */}
       <Box
       sx={{

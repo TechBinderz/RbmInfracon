@@ -21,86 +21,35 @@ const PlateWork: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10} sx={{ marginBottom: 3 }}>
           <Grid item xs={12} md={6}>
-            <Typography
-              paragraph
-              variant="body1"
-              sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}
-            >
+            <Typography variant="body1" paragraph>
               RBM Infracon's Plate Work services deliver precise fabrication and
               erection of structures like ducts, hoppers, and chutes.
             </Typography>
-            <Typography
-              paragraph
-              variant="body1"
-              sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}
-            >
+            <Typography variant="body1" paragraph>
               Our skilled team ensures each structure meets client requirements
               with a focus on quality, performance, and durability.
             </Typography>
-            <Typography
-              paragraph
-              variant="body1"
-              sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}
-            >
+            <Typography variant="body1" paragraph>
               Using advanced techniques and premium materials, we handle complex
               designs, maintain tight tolerances, and meet timelines,
               positioning us as a trusted industrial partner.
             </Typography>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h5" gutterBottom>
               Key Services:
             </Typography>
-            <Typography
-              component="ul"
-              sx={{ pl: 2, listStyleType: "disc" }}
-              style={{ paddingLeft: "20px", margin: 0 }}
-            >
-              <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
+            <Typography variant="body1" component="ul" sx={{ pl: 2 }}>
+              <li>
                 Fabrication and erection of platework structures (ducts,
                 hoppers, chutes)
-              </Typography>
-              <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
-                Precision construction to client standards
-              </Typography>
-              <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
-                Top-quality performance and durability
-              </Typography>
-              <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
-                Advanced techniques for intricate designs
-              </Typography>
-              <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
-                Safety-focused project execution
-              </Typography>
-              <Typography variant="body1" component="li"    sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}>
+              </li>
+              <li>Precision construction to client standards</li>
+              <li>Top-quality performance and durability</li>
+              <li>Advanced techniques for intricate designs</li>
+              <li>Safety-focused project execution</li>
+              <li>
                 Established partnerships in oil, gas, petrochemical, and power
                 sectors
-              </Typography>
+              </li>
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
@@ -124,7 +73,7 @@ const PlateWork: React.FC = () => {
                 alt="Plate Fabrication"
               />
               <CardContent>
-                <Typography variant="h6" component="div">
+                <Typography variant="h5" component="div">
                   Plate Fabrication
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -144,7 +93,7 @@ const PlateWork: React.FC = () => {
                 alt="Plate Maintenance"
               />
               <CardContent>
-                <Typography variant="h6" component="div">
+                <Typography variant="h5" component="div">
                   Plate Maintenance
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

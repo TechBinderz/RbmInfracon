@@ -11,7 +11,7 @@ const SolutionSection = ({ showDetails = true }: SolutionSectionProps) => {
     <>
       <Typography
         sx={{ paddingTop: 4 }}
-        variant="h3"
+        variant="h2"
         fontWeight="bold"
         align="center"
       >

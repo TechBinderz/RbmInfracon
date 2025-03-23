@@ -23,14 +23,10 @@ const BundlePuller: React.FC = () => {
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>
           <Grid item xs={12} md={6}>
-            <Typography
-              paragraph
-              variant="body1"
-              sx={{
-                fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-              }}
-            >
+            <Typography variant="h4" gutterBottom>
+              Bundle Puller Solutions
+            </Typography>
+            <Typography variant="body1" paragraph>
               We provide a variety of services related to Bundle Puller equipment. Our skilled technicians are well-versed in the installation, operation, and maintenance of Bundle Puller systems. Their expertise ensures the safe and efficient extraction and replacement of heat exchanger bundles. Recognizing the importance of minimizing downtime and maximizing productivity, we prioritize delivering high-quality services in a timely manner.
             </Typography>
           </Grid>
@@ -38,7 +34,7 @@ const BundlePuller: React.FC = () => {
             <Card className="card-shadow">
               <CardMedia
                 component="img"
-                height={300}
+                className="large"
                 image={bundle_puller_2}
                 alt="Bundle Puller Service"
               />
@@ -50,15 +46,15 @@ const BundlePuller: React.FC = () => {
             <Card className="card-shadow">
               <CardMedia
                 component="img"
-                height="140"
+                className="small"
                 image={bundle_puller_3}
                 alt="Safe Extraction"
               />
               <CardContent>
-                <Typography variant="h6" component="div">
+                <Typography variant="h5" gutterBottom>
                   Safe Extraction
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body1" paragraph>
                   Expert handling to ensure the safe and efficient removal of heat exchanger bundles.
                 </Typography>
               </CardContent>
@@ -68,15 +64,15 @@ const BundlePuller: React.FC = () => {
             <Card className="card-shadow">
               <CardMedia
                 component="img"
-                height="140"
+                className="small"
                 image={bundle_puller_4}
                 alt="Timely Maintenance"
               />
               <CardContent>
-                <Typography variant="h6" component="div">
+                <Typography variant="h5" gutterBottom>
                   Timely Maintenance
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body1" paragraph>
                   Regular maintenance services to ensure reliable performance and reduce downtime.
                 </Typography>
               </CardContent>

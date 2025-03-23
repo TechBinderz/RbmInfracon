@@ -33,12 +33,7 @@ const ONGC_WorkOrderSigned: React.FC = () => {
         <Typography variant="h4" fontWeight="bold" gutterBottom>
           RBM Infracon Ltd. Officially Signs ONGC Contract
         </Typography>
-        <Typography
-          variant="body1"
-          color="textSecondary"
-          sx={{ fontSize: "20px" }}
-          gutterBottom
-        >
+        <Typography variant="body1" gutterBottom>
           Mumbai, 26th November 2024 – RBM Infracon Limited, an Industrial
           integrated services provider specializing in EPC contracts and
           comprehensive services for mechanical and rotary equipment.
@@ -47,30 +42,30 @@ const ONGC_WorkOrderSigned: React.FC = () => {
         <Divider sx={{ my: 5 }} />
 
         {/* Project Details Section */}
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
+        <Typography variant="h5" fontWeight="bold" gutterBottom>
           Project Details
         </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <Card variant="outlined">
               <CardContent>
-                <Typography variant="body1" sx={{ fontSize: "20px" }}>
+                <Typography variant="body1">
                   <strong>Total Contract Value:</strong> ₹3,498 crore
                 </Typography>
-                <Typography variant="body1" sx={{ fontSize: "20px" }}>
+                <Typography variant="body1">
                   <strong>Contract Breakdown:</strong> ₹3,371 crore for Crude
                   oil, ₹127 crore for Gas
                 </Typography>
-                <Typography variant="body1" sx={{ fontSize: "20px" }}>
+                <Typography variant="body1">
                   <strong>Contract Duration:</strong> 15 years (180 months)
                 </Typography>
-                <Typography variant="body1" sx={{ fontSize: "20px" }}>
+                <Typography variant="body1">
                   <strong>Extendable:</strong> Up to 5 years
                 </Typography>
-                <Typography variant="body1" sx={{ fontSize: "20px" }}>
+                <Typography variant="body1">
                   <strong>LOI Date:</strong> 06-09-2024
                 </Typography>
-                <Typography variant="body1" sx={{ fontSize: "20px" }}>
+                <Typography variant="body1">
                   <strong>Contract Signing Date:</strong> 25-11-2024
                 </Typography>
               </CardContent>
@@ -79,14 +74,10 @@ const ONGC_WorkOrderSigned: React.FC = () => {
           <Grid item xs={12} md={6}>
             <Card variant="outlined">
               <CardContent>
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h5" gutterBottom>
                   About RBM Infracon Limited
                 </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: "20px" }}
-                  color="textSecondary"
-                >
+                <Typography variant="body1" color="textSecondary">
                   RBM Infracon boasts expertise in EPC contracts within
                   mechanical and civil engineering. With over three decades of
                   experience, the company provides comprehensive solutions
@@ -102,15 +93,10 @@ const ONGC_WorkOrderSigned: React.FC = () => {
         <Divider sx={{ my: 5 }} />
 
         {/* CEO Statement Section */}
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
+        <Typography variant="h5" fontWeight="bold" gutterBottom>
           Statement from the Chairman
         </Typography>
-        <Typography
-          variant="body1"
-          sx={{ fontSize: "20px" }}
-          fontStyle="italic"
-          color="textSecondary"
-        >
+        <Typography variant="body1" fontStyle="italic" color="textSecondary">
           “This landmark project with ONGC is more than a contractual milestone
           – it represents our vision to be at the forefront of India's energy
           transformation. By leveraging our expertise in oil, gas, and emerging
@@ -118,11 +104,7 @@ const ONGC_WorkOrderSigned: React.FC = () => {
           actively contributing to the nation's energy security and
           technological innovation.”
         </Typography>
-        <Typography
-          variant="body1"
-          sx={{ fontSize: "20px", color: themeColor }}
-          gutterBottom
-        >
+        <Typography variant="body1" color={themeColor} gutterBottom>
           Mr. Jay Bajrang Mani, Chairman & Managing Director of RBM Infracon
         </Typography>
       </Container>

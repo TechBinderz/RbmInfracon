@@ -21,19 +21,19 @@ const RenovationServices: React.FC = () => {
     {
       title: "Plant Renovation & Upgradation",
       description: "Comprehensive modernization solutions for existing industrial setups, enhancing operational efficiency and productivity.",
-      icon: <Engineering sx={{ fontSize: 40 }} />,
+      icon: <Engineering />,
       benefits: ["Facility Modernization", "Equipment Upgrades", "Infrastructure Enhancement", "Performance Optimization"],
     },
     {
       title: "Process Efficiency Improvement",
       description: "Implementation of cutting-edge technologies and methodologies to enhance production efficiency and streamline operations.",
-      icon: <Speed sx={{ fontSize: 40 }} />,
+      icon: <Speed />,
       benefits: ["Advanced Technology Integration", "Production Optimization", "Workflow Enhancement", "Quality Improvement"],
     },
     {
       title: "Energy Optimization & Sustainability",
       description: "Innovative solutions for energy efficiency and sustainable industrial operations.",
-      icon: <EnergySavingsLeaf sx={{ fontSize: 40 }} />,
+      icon: <EnergySavingsLeaf />,
       benefits: ["Energy Efficiency", "Resource Optimization", "Sustainable Practices", "Cost Reduction"],
     },
   ];
@@ -45,19 +45,16 @@ const RenovationServices: React.FC = () => {
         {/* Overview Section */}
         <Grid container spacing={3} sx={{ mb: 3 }}>
           <Grid item>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: { xs: "1rem", md: "1.1rem" },
-                lineHeight: 1.8,
-              }}
-            >
+            <Typography variant="h4" align="center" gutterBottom>
               RBM specializes in industrial revamp and operational performance enhancement, delivering innovative solutions for plant modernization, process efficiency improvement, and sustainable operations. Our comprehensive approach ensures optimal facility performance while maintaining industry standards and environmental responsibility.
             </Typography>
           </Grid>
         </Grid>
 
         {/* Services Grid */}
+        <Typography variant="h5" align="center" gutterBottom sx={{ mb: 3 }}>
+          Our Renovation & Enhancement Services
+        </Typography>
         <ServiceGrid services={services} title="Our Renovation & Enhancement Services" />
         
         <Divider sx={{ marginTop: 10}} />

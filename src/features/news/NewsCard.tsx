@@ -6,6 +6,7 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
+import { themeColor } from "../../features/common/common";
 
 interface NewsCardProps {
   image: string;
@@ -48,18 +49,18 @@ const NewsCard: React.FC<NewsCardProps> = ({
           {date}
         </Typography>
         <Typography 
-          variant="h4" 
+          variant="h3" 
           gutterBottom 
           sx={{ 
             height: 100,
-            fontWeight: 400
+            color: themeColor,
           }}
         >
           {title}
         </Typography>
         <Divider sx={{ my: 2, bgcolor: "black" }} />
         <Typography
-          variant="body1"
+          variant="subtitle1"
           sx={{
             overflow: "hidden",
             textOverflow: "ellipsis",

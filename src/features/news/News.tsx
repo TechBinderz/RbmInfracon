@@ -61,7 +61,7 @@ const News: React.FC = () => {
       />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Box
-          display="flex"
+          display="none" // hiding it from flex
           justifyContent="space-between"
           alignItems="center"
           marginBottom="20px"
