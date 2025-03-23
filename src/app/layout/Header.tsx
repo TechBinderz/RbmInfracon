@@ -625,7 +625,7 @@ const Header: React.FC = () => {
             "background-color 0.6s ease, height 0.6s ease, opacity 0.6s ease, transform 0.6s ease",
           height: isScrolled ? "80px" : "130px",
           boxShadow: isScrolled ? "0px 8px 5px 0px rgba(0, 0, 0, 0.2)" : "none",
-          paddingTop: isScrolled ? "9px" : "15px",
+          paddingTop: isScrolled ? "5px" : "15px",
           opacity: isMounted ? 1 : 0,
           transform: isMounted ? "translateY(0)" : "translateY(-20px)",
         }}
@@ -645,8 +645,8 @@ const Header: React.FC = () => {
               alt="Logo"
               style={{
                 height: isSmallScreen 
-                  ? (isScrolled ? "60px" : "95px")
-                  : (isScrolled ? "85px" : "125px"),
+                  ? (isScrolled ? "70px" : "95px")
+                  : (isScrolled ? "80px" : "125px"),
                 width: "auto",
                 transition: "height 0.6s ease",
               }}
