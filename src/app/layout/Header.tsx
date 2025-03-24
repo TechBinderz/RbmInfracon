@@ -109,13 +109,20 @@ const Header: React.FC = () => {
   }) => {
     const { currentPrice, priceChange } = stockData;
 
-    if (currentPrice === 0) return null;
+    // Convert currentPrice and priceChange to numbers
+    const numericCurrentPrice = Number(currentPrice);
+    const numericPriceChange = Number(priceChange);
+
+    // Ensure numericCurrentPrice and numericPriceChange are valid numbers
+    if (isNaN(numericCurrentPrice) || numericCurrentPrice === 0) {
+      return null;
+    }
 
     return (
       <Box textAlign="left">
         <Typography sx={{ fontSize: headerFontSize }}>
           NSE&nbsp;
-          {priceChange >= 0 ? (
+          {numericPriceChange >= 0 ? (
             <ArrowUpwardIcon
               fontSize="small"
               sx={{ color: "green", verticalAlign: "middle" }}
@@ -126,14 +133,8 @@ const Header: React.FC = () => {
               sx={{ color: "red", verticalAlign: "middle" }}
             />
           )}
-          ₹{currentPrice.toFixed(2)}&nbsp;
-          <span
-            // style={{
-            //   fontSize: headerFontSize,
-            // }}
-          >
-            ({Math.abs(priceChange).toFixed(2)}%)
-          </span>
+          ₹{numericCurrentPrice.toFixed(2)}&nbsp;
+          <span>({Math.abs(numericPriceChange).toFixed(2)}%)</span>
         </Typography>
       </Box>
     );
@@ -615,7 +616,7 @@ const Header: React.FC = () => {
   return (
     <ThemeProvider
       theme={createTheme({
-        typography: {fontFamily: "Calibri"},
+        typography: { fontFamily: "Calibri" },
       })}
     >
       <AppBar
@@ -642,12 +643,24 @@ const Header: React.FC = () => {
             }}
           >
             <img
-              src = {isSmallScreen ? (isScrolled ? RBMLOGOSMALL : RBMLOGOFULL) : (isScrolled ? RBMLOGOBIG : RBMLOGOFULL)}
+              src={
+                isSmallScreen
+                  ? isScrolled
+                    ? RBMLOGOSMALL
+                    : RBMLOGOFULL
+                  : isScrolled
+                  ? RBMLOGOBIG
+                  : RBMLOGOFULL
+              }
               alt="Logo"
               style={{
-                height: isSmallScreen 
-                  ? (isScrolled ? "70px" : "95px")
-                  : (isScrolled ? "80px" : "125px"),
+                height: isSmallScreen
+                  ? isScrolled
+                    ? "70px"
+                    : "95px"
+                  : isScrolled
+                  ? "80px"
+                  : "125px",
                 width: "auto",
                 transition: "height 0.6s ease",
               }}
