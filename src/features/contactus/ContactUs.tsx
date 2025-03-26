@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Grid,
   TextField,
@@ -7,12 +7,15 @@ import {
   Button,
   // Checkbox,
   // FormControlLabel,
-  // Link,
+  Link,
   Box,
   Snackbar,
   Alert,
   Paper,
   IconButton,
+  FormControlLabel,
+  Checkbox,
+  Tooltip,
 } from "@mui/material";
 import { Email as EmailIcon, Phone as PhoneIcon } from "@mui/icons-material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -157,16 +160,25 @@ const StyledTitle = styled(Typography)(({ theme }) => ({
 }));
 
 const ContactUs: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    phone: "",
-    country: "",
-    subject: "",
-    message: "",
-    agree: false,
+  const [formData, setFormData] = useState(() => {
+    // Try to load saved form data from localStorage
+    const savedData = localStorage.getItem('contactFormData');
+    return savedData ? JSON.parse(savedData) : {
+      name: "",
+      email: "",
+      company: "",
+      phone: "",
+      country: "",
+      subject: "",
+      message: "",
+      agree: false,
+    };
   });
+
+  // Save form data to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('contactFormData', JSON.stringify(formData));
+  }, [formData]);
 
   const [loading, setLoading] = useState(false);
   const [snackbar, setSnackbar] = useState({
@@ -225,7 +237,14 @@ const ContactUs: React.FC = () => {
         return;
       }
 
-      
+      if (!formData.agree) {
+        setSnackbar({
+          open: true,
+          message: "Please accept the privacy policy to proceed.",
+          severity: "error",
+        });
+        return;
+      }
 
       setLoading(true);
 
@@ -241,7 +260,7 @@ const ContactUs: React.FC = () => {
         severity: "success",
       });
 
-      // Reset form
+      // Reset form and clear localStorage
       setFormData({
         name: "",
         email: "",
@@ -252,6 +271,7 @@ const ContactUs: React.FC = () => {
         message: "",
         agree: false,
       });
+      localStorage.removeItem('contactFormData');
     } catch (error) {
       setSnackbar({
         open: true,
@@ -315,7 +335,7 @@ const ContactUs: React.FC = () => {
                     rows={4}
                   />
                 </Grid>
-                {/* <Grid item xs={12}>
+                <Grid item xs={12}>
                   <FormControlLabel
                     control={
                       <Checkbox
@@ -330,21 +350,41 @@ const ContactUs: React.FC = () => {
                       <Typography variant="body2">
                         I agree to the terms and conditions of RBM Infracon
                         Limited{" "}
-                         privacy policy
+                        <Link
+                          href="/privacy-policy"
+                          rel="noopener noreferrer"
+                          sx={{ color: themeColor }}
+                        >
+                          privacy policy
+                        </Link>
                         .
                       </Typography>
                     }
                   />
-                </Grid> */}
+                </Grid>
                 <Grid item xs={12}>
-                  <Button
-                    variant="contained"
-                    sx={{ backgroundColor: themeColor, color: "#fff" }}
-                    onClick={handleSubmit}
-                    disabled={loading}
+                  <Tooltip
+                    title={!formData.agree ? "Please accept the privacy policy to proceed" : ""}
+                    arrow
                   >
-                    {loading ? "Submitting..." : "Submit"}
-                  </Button>
+                    <span>
+                      <Button
+                        variant="contained"
+                        sx={{
+                          backgroundColor: themeColor,
+                          color: "#fff",
+                          "&.Mui-disabled": {
+                            backgroundColor: "#ccc",
+                            color: "#666",
+                          },
+                        }}
+                        onClick={handleSubmit}
+                        disabled={loading || !formData.agree}
+                      >
+                        {loading ? "Submitting..." : "Submit"}
+                      </Button>
+                    </span>
+                  </Tooltip>
                 </Grid>
               </Grid>
             </ThemeProvider>

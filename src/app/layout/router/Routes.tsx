@@ -32,6 +32,7 @@ import OperationMaintenanceServices from "../../../features/services/OperationMa
 import TurnaroundServices from "../../../features/services/TurnaroundServices";
 import LogisticsServices from "../../../features/services/LogisticsServices";
 import ProcurementServices from "../../../features/services/ProcurementServices";
+import PrivacyPolicy from "../../common/PrivacyPolicy";
 
 // Dynamically set the basename using Vite's base configuration
 const basename = import.meta.env.BASE_URL;
@@ -182,6 +183,10 @@ export const router = createBrowserRouter(
         {
           path: "/investors",
           element: <Investors />,
+        },
+        {
+          path: "/privacy-policy",
+          element: <PrivacyPolicy />,
         },
         servicesRoutes, // Add services routes here
         newsRoutes, // Add news routes here

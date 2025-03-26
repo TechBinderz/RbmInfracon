@@ -1,6 +1,6 @@
 // import React from 'react';
 import RBMLOGOFULL from "../../assets/header/Rmb_logo_big.png"; // Default logo
-import { Grid, Typography, Container, Box, Button } from "@mui/material";
+import { Grid, Typography, Container, Box, Button, Link } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook"; // Example social icons
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { HashLink } from "react-router-hash-link";
@@ -100,6 +100,16 @@ const Footer = () => {
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Typography variant="body1">Investors</Typography>
+                </HashLink>
+              </li>
+              <li>
+                <HashLink
+                  smooth
+                  to="/privacy-policy#top"
+                  scroll={(el) => scrollWithOffset(el)}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <Typography variant="body1">Privacy Policy</Typography>
                 </HashLink>
               </li>
             </ul>
@@ -230,13 +240,24 @@ const Footer = () => {
           <Typography
             variant="body2"
             style={{
-              // fontSize: "0.9em",
               fontWeight: "bold",
               textAlign: "center",
             }}
           >
-            &copy; Copyright 2025 All Rights Reserved | Website
-            Designed and Developed by TechBinderz
+            &copy; Copyright 2025 All Rights Reserved |{" "}
+            <Link
+              href="/privacy-policy"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": {
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              Privacy Policy
+            </Link>{" "}
+            | Website Designed and Developed by TechBinderz
           </Typography>
         </Box>
       </Container>

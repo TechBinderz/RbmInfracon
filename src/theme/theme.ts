@@ -1,4 +1,5 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import themeColor from '../features/common/common';
 
 // Define breakpoints
 const breakpoints = {
@@ -14,6 +15,11 @@ const breakpoints = {
 let theme = createTheme({
   breakpoints: {
     values: breakpoints.values,
+  },
+  palette: {
+    primary: {
+      main: themeColor,
+    },
   },
   typography: {
     fontFamily: 'Calibri',
