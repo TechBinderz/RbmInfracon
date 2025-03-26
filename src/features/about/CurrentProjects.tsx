@@ -69,6 +69,11 @@ const StyledTypographyH6 = styled(Typography)(({ theme }) => ({
   },
 }));
 
+const formatDate = (dateStr: string): string => {
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${month}/${year}`;
+};
+
 const CurrentProjects: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -79,7 +84,7 @@ const CurrentProjects: React.FC = () => {
       location: "Jamnagar",
       vendorCode: "204893",
       workOrderNumber: "5300005209",
-      issueDate: "29-Jun-23",
+      issueDate: "2023-06-29",
       description: "On Call basis ARC for Pigging support services for DCU heater pigging jobs (3 Yrs.)",
       contractAmount: "3,42,00,000.00",
     },
@@ -89,7 +94,7 @@ const CurrentProjects: React.FC = () => {
       location: "Jamnagar",
       vendorCode: "204893",
       workOrderNumber: "5300005220",
-      issueDate: "03-Jul-23",
+      issueDate: "2023-07-03",
       description: "ARC for Static, Rotary & Heat Exchanger Maintenance jobs at Refinery site (for 3 Yrs.) - Area-2",
       contractAmount: "33,05,00,000.00",
     },
@@ -99,7 +104,7 @@ const CurrentProjects: React.FC = () => {
       location: "Jamnagar",
       vendorCode: "204893",
       workOrderNumber: "5300005221",
-      issueDate: "03-Jul-23",
+      issueDate: "2023-07-03",
       description: "ARC for Static, Rotary & Heat Exchanger Maintenance jobs at Refinery site (for 3 Yrs.) - Area-3",
       contractAmount: "16,10,00,000.00",
     },
@@ -109,7 +114,7 @@ const CurrentProjects: React.FC = () => {
       location: "Babrala",
       vendorCode: "R02568C01",
       workOrderNumber: "YFI/BABRALA/PROJ/2023/LOI/01",
-      issueDate: "02.01.2023",
+      issueDate: "2023-01-02",
       description: "Service for Mechanical maintenance and Painting work in all Plant",
       contractAmount: "1,00,00,000.00",
     },
@@ -119,7 +124,7 @@ const CurrentProjects: React.FC = () => {
       location: "Bhachau",
       vendorCode: "735075",
       workOrderNumber: "3100006477",
-      issueDate: "29.09.2022",
+      issueDate: "2022-09-29",
       description: "OPERATION AND MAINTENANCE OF Metcoke Manufacturing Plant",
       contractAmount: "2,00,00,000.00",
     },
@@ -129,7 +134,7 @@ const CurrentProjects: React.FC = () => {
       location: "Anjaar",
       vendorCode: "",
       workOrderNumber: "BNAL/LOI/23-24/001",
-      issueDate: "29.09.2023",
+      issueDate: "2023-09-29",
       description: "EPC CONTRACT FOR EDIBLE OIL INDUSTRIES",
       contractAmount: "85,00,00,000.00",
     },
@@ -139,7 +144,7 @@ const CurrentProjects: React.FC = () => {
       location: "Anjaar",
       vendorCode: "",
       workOrderNumber: "GJGJ322880411152653722675V",
-      issueDate: "16.09.2023",
+      issueDate: "2023-09-16",
       description: "EPC CONTRACT FOR EDIBLE OIL INDUSTRIES",
       contractAmount: "9,57,61,00,000.00",
     },
@@ -149,7 +154,7 @@ const CurrentProjects: React.FC = () => {
       location: "Nagothane",
       vendorCode: "3106854",
       workOrderNumber: "260043660",
-      issueDate: "15.03.2024",
+      issueDate: "2024-03-15",
       description: "Mechanical Contract For Fabrication /Static/ Rotary /scaffolding services",
       contractAmount: "6,61,00,000.00",
     },
@@ -159,7 +164,7 @@ const CurrentProjects: React.FC = () => {
       location: "Nagothane",
       vendorCode: "3106854",
       workOrderNumber: "260048718",
-      issueDate: "6.10.2023",
+      issueDate: "2023-10-06",
       description: "Tanker connection and disconnection loading and unloading of Tankers in Tank farm At RIL,Nagothane",
       contractAmount: "33,39,000.00",
     },
@@ -169,7 +174,7 @@ const CurrentProjects: React.FC = () => {
       location: "Mundra",
       vendorCode: "",
       workOrderNumber: "5700342298",
-      issueDate: "18.04.2024",
+      issueDate: "2024-04-18",
       description: "Structural Fabrication Job at Fabrication Shop of Green PVC Project for Mundra Petrochemical Ltd",
       contractAmount: "9,50,25,100.00",
     },
@@ -179,7 +184,7 @@ const CurrentProjects: React.FC = () => {
       location: "Vadodra",
       vendorCode: "",
       workOrderNumber: "38033009/BVA",
-      issueDate: "12.07.2024",
+      issueDate: "2024-07-12",
       description: "Village Tunda, Taluka Mundra, Dist. Kutch, Gujarat",
       contractAmount: "5,93,71,610.00",
     },
@@ -189,7 +194,7 @@ const CurrentProjects: React.FC = () => {
       location: "Jamnagar",
       vendorCode: "",
       workOrderNumber: "5300005060",
-      issueDate: "16.05.2024",
+      issueDate: "2024-05-16",
       description: "ARC for Crude Tank (2 Nos.) M&J jobs at COT area (for ~1.75 Yrs.)",
       contractAmount: "22,15,70,015.00",
     },
@@ -199,7 +204,7 @@ const CurrentProjects: React.FC = () => {
       location: "Kandla",
       vendorCode: "",
       workOrderNumber: "ROC/Piping/25-25/01 & ROC/STN/25-25/01",
-      issueDate: "17.06.2024",
+      issueDate: "2024-06-17",
       description: "Piping Works",
       contractAmount: "5,00,00,000.00",
     },
@@ -209,7 +214,7 @@ const CurrentProjects: React.FC = () => {
       location: "Kota, Rajasthan",
       vendorCode: "",
       workOrderNumber: "CFCL/PUR/220/450/2630",
-      issueDate: "29.05.2024",
+      issueDate: "2024-05-29",
       description: "ARC for Routine Maintenance Job for One Year",
       contractAmount: "7,00,00,000.00",
     },
@@ -219,7 +224,7 @@ const CurrentProjects: React.FC = () => {
       location: "Jamnagar",
       vendorCode: "3106854",
       workOrderNumber: "4M4/230181041",
-      issueDate: "16.05.2024",
+      issueDate: "2024-05-16",
       description: "Mechanical works For PV utility interconnection line jobs",
       contractAmount: "4,25,51,320.50",
     },
@@ -229,7 +234,7 @@ const CurrentProjects: React.FC = () => {
       location: "Gujarat",
       vendorCode: "204893",
       workOrderNumber: "4300029303",
-      issueDate: "11.09.2024",
+      issueDate: "2024-09-11",
       description: "",
       contractAmount: "1,49,95,769.00",
     },
@@ -239,7 +244,7 @@ const CurrentProjects: React.FC = () => {
       location: "Gujarat",
       vendorCode: "3106854",
       workOrderNumber: "260056423",
-      issueDate: "13.09.2024",
+      issueDate: "2024-09-13",
       description: "UG piping fabrication & laying including associated civil work for Train-1 (3 GW) PV Manufacturing Plant at RIL Complex, Jamnagar",
       contractAmount: "1,31,05,850.00",
     },
@@ -249,7 +254,7 @@ const CurrentProjects: React.FC = () => {
       location: "Gujarat",
       vendorCode: "204893",
       workOrderNumber: "5300008",
-      issueDate: "16.08.2024",
+      issueDate: "2024-08-16",
       description: "ARC for LPG Spheres & Hydrogen spheres (3 nos. M&J) jobs for 3yrs",
       contractAmount: "1,11,00,00,000.00",
     },
@@ -259,7 +264,7 @@ const CurrentProjects: React.FC = () => {
       location: "Gujarat",
       vendorCode: "",
       workOrderNumber: "DLI/ONS/CORP-936550/MM/2023/PECIII/1239633/CA-2/NANDEJ",
-      issueDate: "06-09-2024",
+      issueDate: "2024-09-06",
       description: "Production Enhancement Operations In Mature Fields",
       contractAmount: "34,98,00,00,000.00",
     },
@@ -269,7 +274,7 @@ const CurrentProjects: React.FC = () => {
       location: "Gujarat",
       vendorCode: "3106854",
       workOrderNumber: "4M3/230201798",
-      issueDate: "20-01-2025",
+      issueDate: "2025-01-20",
       description: "OSBL Area (PV interconnection project) at Reliance Industries Ltd, Jamnagar",
       contractAmount: "34,65,58,123.95",
     },
@@ -279,14 +284,14 @@ const CurrentProjects: React.FC = () => {
       location: "Mundra",
       vendorCode: "",
       workOrderNumber: "5700362812",
-      issueDate: "22.03.2025",
+      issueDate: "2025-03-22",
       description: "Piping Spool Fabrication Job at Open Yard for Green PVC project of Mundra Petrochemical Ltd for Mundra location at Village Tunda, Ta luka Mundra,Dist.Kutch, Gujarat.",
       contractAmount: "7,06,30,538.00",
     }
   ];
 
   const sortProjectsByDateDesc = (projects: Project[]): Project[] => 
-    projects.sort((a, b) => new Date(b.issueDate.replace(/-/g, " ")).getTime() - new Date(a.issueDate.replace(/-/g, " ")).getTime());
+    projects.sort((a, b) => new Date(b.issueDate).getTime() - new Date(a.issueDate).getTime());
 
   const filterProjects = (projects: Project[], searchTerm: string): Project[] => {
       const lowerSearchTerm = searchTerm.toLowerCase();
@@ -352,14 +357,7 @@ const CurrentProjects: React.FC = () => {
                 <InputAdornment position="start">
                   <SearchIcon />
                 </InputAdornment>
-              ),
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton>
-                    <FilterListIcon />
-                  </IconButton>
-                </InputAdornment>
-              ),
+              )
             }}
           />
         </Box>
@@ -392,9 +390,9 @@ const CurrentProjects: React.FC = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, index) => (
                 <TableRow key={project.id} hover>
-                  <TableCell sx={{ typography: 'body2' }}>{project.id}</TableCell>
+                  <TableCell sx={{ typography: 'body2' }}>{index + 1}</TableCell>
                   <TableCell sx={{ typography: 'body2' }}>
                     <StyledTypography variant="body1" sx={{ fontWeight: "medium", color: "#333" }}>
                       {project.companyName}
@@ -422,7 +420,7 @@ const CurrentProjects: React.FC = () => {
                     {project.workOrderNumber}
                   </TableCell>
                   <TableCell sx={{ typography: 'body2' }}>
-                    {project.issueDate}
+                    {formatDate(project.issueDate)}
                   </TableCell>
                   <TableCell sx={{ typography: 'body2' }}>
                     {project.description}
