@@ -29,6 +29,7 @@ import Work_Order_Nayra_Sign from "../../assets/features/investors/notices/RBMIN
 import Work_Order_Sign from "../../assets/features/investors/notices/RBMINFRACON_18022025193522_work_order_sign.pdf";
 import NSE_Letter_Signed_2 from "../../assets/features/investors/notices/RBMINFRACON_23012025184415_NSE_LETTER_SIGNED.pdf";
 import Transcript_Signed from "../../assets/features/investors/notices/RBMINFRACON_24022025171347_Transcript_SIGNED.pdf";
+import Rating_Letter from "../../assets/features/investors/notices/Rating Letter - RBM Infracon Limited.pdf";
 import psc_certificate_warrant from "../../assets/features/investors/preferencial_issue/PCS Certificate_Warrant_signed.pdf";
 import signed_valuation_report from "../../assets/features/investors/preferencial_issue/Signed Valuation Report (1).pdf";
 interface Column {
@@ -384,6 +385,7 @@ const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
     { name: "Work Order Signed (18-02-2025)", url: Work_Order_Sign },
     { name: "NSE LETTER SIGNED (23-01-2025)", url: NSE_Letter_Signed_2 },
     { name: "Transcript SIGNED (24-02-2025)", url: Transcript_Signed },
+    { name: "Rating Letter (13-05-2025)", url: Rating_Letter },
   ];
 
   const preferencialIssue = [
