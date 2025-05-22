@@ -6,7 +6,7 @@ import narendra_sharma_photo from "../../assets/features/rbm_management/Mr. Nare
 import pankaj_kumar_photo from "../../assets/features/rbm_management/Mr. Pankaj Kumar.png";
 import ranjan_kumar_photo from "../../assets/features/rbm_management/Mr. Ranjan Kumar.png";
 // import ravi_pratap_photo from "../../assets/features/rbm_management/Mr. Ravi Pratap Singh.png";
-import sanjay_singh_photo from "../../assets/features/rbm_management/Mr. Sanjay Singh.png";
+// import sanjay_singh_photo from "../../assets/features/rbm_management/Mr. Sanjay Singh.png";
 import sreejith_pillai_photo from "../../assets/features/rbm_management/Mr. Sreejith Pillai.png";
 // import sunil_srivastava_photo from "../../assets/features/rbm_management/Mr. Sunil Srivastava.png";
 // import sunil_kumar_photo from "../../assets/features/rbm_management/Sunil Kumar Singh.png";
@@ -54,11 +54,11 @@ const managementTeamList = [
   //   title: "ONGC Project Head",
   //   name: "Sunil Kumar Singh",
   // },
-  {
-    image: sanjay_singh_photo,
-    title: "President - Oil & Gas Division",
-    name: "Mr. Sanjay Singh",
-  },
+  // {
+  //   image: sanjay_singh_photo,
+  //   title: "President - Oil & Gas Division",
+  //   name: "Mr. Sanjay Singh",
+  // },
 ];
 
 const Management = () => {

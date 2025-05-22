@@ -11,7 +11,7 @@ import {
 import PageTitle from "../common/PageTitleDiv";
 import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
 import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Jay Bajrang Mani.jpg";
-import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
+// import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
 import kriya_shah_photo from "../../assets/features/rbm_management/Ms. Kriya Shah.jpg";
 import board_of_directors_image from "../../assets/features/about-us/board_of_directors.jpg";
 import themeColor from "../common/common";
@@ -40,13 +40,13 @@ const directors: Director[] = [
     description:
       "A Mechanical Engineer from Jamnagar, Gujarat, with 6+ years of experience driving growth and operational excellence. He leads Mechanical and Civil operations and excels in strategic planning, team leadership, and fostering strong stakeholder relationships. Passionate about the Oil & Gas industry, he is committed to delivering innovative solutions and impactful results.",
   },
-  {
-    name: "Mr. Deepak Saxena",
-    title: "Non-Executive Director",
-    image: deepak_saxena_photo,
-    description:
-      "A vast experience of 33 years in the Procurement of Materials and Services with experience in Project, Engineering, O&M, Contract Management for Capex and O&M, SCM, Purchase, Inbound and outbound logistics, imports, custom clearance and freight forwarding, Import and export licensing. He has been working in O&G, Polyester, Petrochemical refinery, Energy, Pipeline.",
-  },
+  // {
+  //   name: "Mr. Deepak Saxena",
+  //   title: "Non-Executive Director",
+  //   image: deepak_saxena_photo,
+  //   description:
+  //     "A vast experience of 33 years in the Procurement of Materials and Services with experience in Project, Engineering, O&M, Contract Management for Capex and O&M, SCM, Purchase, Inbound and outbound logistics, imports, custom clearance and freight forwarding, Import and export licensing. He has been working in O&G, Polyester, Petrochemical refinery, Energy, Pipeline.",
+  // },
   {
     name: "Ms. Kriya Shah",
     title: "Independent Director",

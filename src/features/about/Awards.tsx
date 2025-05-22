@@ -262,6 +262,7 @@ const Awards: React.FC = () => {
                     variant="h5"
                     component="h2"
                     gutterBottom
+                    align="center" // Center align
                     sx={{
                       fontWeight: "bold",
                       fontSize: { xs: "18px", md: "22px" },
@@ -275,6 +276,7 @@ const Awards: React.FC = () => {
                     variant="subtitle1"
                     color="text.secondary"
                     gutterBottom
+                    align="center" // Center align
                     sx={{
                       fontSize: { xs: "16px", md: "18px" },
                       mb: 1

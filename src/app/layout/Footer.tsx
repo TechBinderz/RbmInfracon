@@ -211,7 +211,7 @@ const Footer = () => {
                 <FacebookIcon style={{ color: "#3b5998" }} />
               </a>
               <a
-                href="https://www.linkedin.com/company/rbm-infracon-limited/"
+                href="https://www.linkedin.com/company/m-s-rbm-infracon-ltd/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

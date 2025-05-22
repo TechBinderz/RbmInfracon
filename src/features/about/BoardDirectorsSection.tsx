@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
 import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Jay Bajrang Mani.jpg";
-import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
+// import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
 import kriya_shah_photo from "../../assets/features/rbm_management/Ms. Kriya Shah.jpg";
 import themeColor from "../common/common";
 
@@ -33,12 +33,12 @@ const directors: Director[] = [
     image: aditya_jay_photo,
     description: "A Mechanical Engineer with 6+ years of experience driving growth and operational excellence in Mechanical and Civil operations."
   },
-  {
-    name: "Mr. Deepak Saxena",
-    title: "Non-Executive Director",
-    image: deepak_saxena_photo,
-    description: "33 years of experience in Procurement, Project Management, and Supply Chain Management across diverse industrial sectors."
-  },
+  // {
+  //   name: "Mr. Deepak Saxena",
+  //   title: "Non-Executive Director",
+  //   image: deepak_saxena_photo,
+  //   description: "33 years of experience in Procurement, Project Management, and Supply Chain Management across diverse industrial sectors."
+  // },
   {
     name: "Ms. Kriya Shah",
     title: "Independent Director",
