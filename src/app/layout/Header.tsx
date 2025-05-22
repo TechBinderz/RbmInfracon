@@ -659,8 +659,8 @@ const Header: React.FC = () => {
                     ? "70px"
                     : "95px"
                   : isScrolled
-                  ? "80px"
-                  : "125px",
+                  ? "75px"
+                  : "105px",
                 width: "auto",
                 transition: "height 0.6s ease",
               }}

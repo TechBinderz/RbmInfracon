@@ -9,7 +9,7 @@ import {
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import { motion } from "framer-motion";
 import themeColor from "../common/common";
-import Logo from "../../assets/header/Rmb_logo_big.png";
+import Logo from "../../assets/header/Rmb_logo_big_1.png";
 import Background from "../../assets/features/about-us/business_roadmap_background.jpg";
 
 const timelineData = [
@@ -341,12 +341,16 @@ const BusinessRoadmap: React.FC = () => {
               sx={{
                 position: "absolute",
                 right: "15%",
-                bottom: "-30px",
-                width: "150px",
+                bottom: "-60px",
+                width: "85px",
                 height: "auto",
               }}
             >
-              <img src={Logo} alt="RBM Infracon Logo" />
+              <img
+                src={Logo}
+                alt="RBM Infracon Logo"
+                style={{ width: "auto", height: "120px" }} // Decreased image size here
+              />{" "}
             </Box>
           )}
         </Box>

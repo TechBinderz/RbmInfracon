@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container } from "@mui/material";
-import backgroundImage from "../../assets/features/home/pexels-tomfisk-10407692.jpg"; // Adjust the path as necessary
+import backgroundImage from "../../assets/features/home/home_background.jpg"; // Adjust the path as necessary
 // import TextImageCarousel from "./TextImageCarousal";
 import CustomerPage from "../common/CustomerPage";
 import SolutionSection from "./SolutionSection";
@@ -46,7 +46,10 @@ const Home: React.FC = () => {
             </Link>
             {serviceCardData.map((service) => (
               <React.Fragment key={service.pathName}>
-                <Link to={`/services/${service.pathName}`} className="marquee-link">
+                <Link
+                  to={`/services/${service.pathName}`}
+                  className="marquee-link"
+                >
                   {service.title} |
                 </Link>
                 {/* {service.additionalServices?.map((subService) => (
@@ -66,7 +69,7 @@ const Home: React.FC = () => {
 
       <Container>
         {/* Add "hidden" class to animate sections on scroll */}
-        <br/>
+        <br />
         <div className="hidden">
           <CompanyDescription />
         </div>
@@ -79,11 +82,11 @@ const Home: React.FC = () => {
         {/* <div className="hidden">
           <TextImageCarousel />
         </div> */}
-        <br/>
+        <br />
         <div className="hidden">
           <NewsSection />
         </div>
-        <br/>
+        <br />
         <div className="hidden">
           <StatisticsPoliciesSection />
         </div>
