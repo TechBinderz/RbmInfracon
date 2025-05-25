@@ -616,7 +616,7 @@ const Header: React.FC = () => {
   return (
     <ThemeProvider
       theme={createTheme({
-        typography: { fontFamily: "Calibri" },
+        typography: { fontFamily: "Montserrat" },
       })}
     >
       <AppBar

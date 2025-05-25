@@ -22,120 +22,120 @@ let theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Calibri',
+    fontFamily: "Montserrat ",
     h1: {
-      fontSize: '3.5rem', // 56px
+      fontSize: "3.5rem", // 56px
       fontWeight: 600,
       lineHeight: 1.2,
-      '@media (max-width:900px)': {
-        fontSize: '2.75rem', // 44px
+      "@media (max-width:900px)": {
+        fontSize: "2.75rem", // 44px
       },
     },
     h2: {
-      fontSize: '2.75rem', // 44px
+      fontSize: "2.75rem", // 44px
       fontWeight: 600,
       lineHeight: 1.3,
-      '@media (max-width:900px)': {
-        fontSize: '2.25rem', // 36px
+      "@media (max-width:900px)": {
+        fontSize: "2.25rem", // 36px
       },
     },
     h3: {
-      fontSize: '2.25rem', // 36px
+      fontSize: "2.25rem", // 36px
       fontWeight: 600,
       lineHeight: 1.3,
-      '@media (max-width:900px)': {
-        fontSize: '2rem', // 32px
+      "@media (max-width:900px)": {
+        fontSize: "2rem", // 32px
       },
     },
     h4: {
-      fontSize: '2rem', // 32px
+      fontSize: "2rem", // 32px
       fontWeight: 600,
       lineHeight: 1.3,
-      '@media (max-width:900px)': {
-        fontSize: '1.75rem', // 28px
+      "@media (max-width:900px)": {
+        fontSize: "1.75rem", // 28px
       },
     },
     h5: {
-      fontSize: '1.75rem', // 28px
+      fontSize: "1.75rem", // 28px
       fontWeight: 600,
       lineHeight: 1.3,
-      '@media (max-width:900px)': {
-        fontSize: '1.5rem', // 24px
+      "@media (max-width:900px)": {
+        fontSize: "1.5rem", // 24px
       },
     },
     h6: {
-      fontSize: '1.5rem', // 24px
+      fontSize: "1.5rem", // 24px
       fontWeight: 600,
       lineHeight: 1.3,
-      '@media (max-width:900px)': {
-        fontSize: '1.25rem', // 20px
+      "@media (max-width:900px)": {
+        fontSize: "1.25rem", // 20px
       },
     },
     body1: {
-      fontSize: '1.25rem', // 20px
+      fontSize: "1.25rem", // 20px
       fontWeight: 400,
       lineHeight: 1.6,
-      textAlign: 'left',
-      '@media (max-width:900px)': {
-        fontSize: '1.125rem', // 18px
+      textAlign: "left",
+      "@media (max-width:900px)": {
+        fontSize: "1.125rem", // 18px
       },
     },
     body2: {
-      fontSize: '1.125rem', // 18px
+      fontSize: "1.125rem", // 18px
       fontWeight: 400,
       lineHeight: 1.6,
-      textAlign: 'left',
-      '@media (max-width:900px)': {
-        fontSize: '1rem', // 16px
+      textAlign: "left",
+      "@media (max-width:900px)": {
+        fontSize: "1rem", // 16px
       },
     },
     subtitle1: {
-      fontSize: '1.375rem', // 22px
+      fontSize: "1.375rem", // 22px
       fontWeight: 500,
       lineHeight: 1.6,
     },
     subtitle2: {
-      fontSize: '1.125rem', // 18px
+      fontSize: "1.125rem", // 18px
       fontWeight: 500,
       lineHeight: 1.6,
     },
     button: {
-      fontSize: '1.125rem', // 18px
+      fontSize: "1.125rem", // 18px
       fontWeight: 600,
-      textTransform: 'none',
+      textTransform: "none",
     },
   },
   components: {
     MuiTypography: {
       defaultProps: {
         variantMapping: {
-          h1: 'h1',
-          h2: 'h2',
-          h3: 'h3',
-          h4: 'h4',
-          h5: 'h5',
-          h6: 'h6',
-          subtitle1: 'h6',
-          subtitle2: 'h6',
-          body1: 'p',
-          body2: 'p',
+          h1: "h1",
+          h2: "h2",
+          h3: "h3",
+          h4: "h4",
+          h5: "h5",
+          h6: "h6",
+          subtitle1: "h6",
+          subtitle2: "h6",
+          body1: "p",
+          body2: "p",
         },
       },
     },
     MuiSvgIcon: {
       styleOverrides: {
         root: {
-          '&.small': {
-            fontSize: '1.25rem', // 20px
+          "&.small": {
+            fontSize: "1.25rem", // 20px
           },
-          '&.medium': {
-            fontSize: '1.75rem', // 28px
+          "&.medium": {
+            fontSize: "1.75rem", // 28px
           },
-          '&.large': {
-            fontSize: '2.5rem', // 40px
+          "&.large": {
+            fontSize: "2.5rem", // 40px
           },
-          '&.xlarge': {
-            fontSize: '3.125rem', // 50px
+          "&.xlarge": {
+            fontSize: "3.125rem", // 50px
           },
         },
       },
@@ -143,13 +143,13 @@ let theme = createTheme({
     MuiCardMedia: {
       styleOverrides: {
         root: {
-          '&.large': {
+          "&.large": {
             height: 300,
           },
-          '&.medium': {
+          "&.medium": {
             height: 200,
           },
-          '&.small': {
+          "&.small": {
             height: 140,
           },
         },
@@ -158,13 +158,13 @@ let theme = createTheme({
     MuiTableCell: {
       styleOverrides: {
         root: {
-          fontSize: '0.95rem', // 15px
-          '@media (max-width: 600px)': {
-            fontSize: '0.9rem', // 14px
+          fontSize: "0.95rem", // 15px
+          "@media (max-width: 600px)": {
+            fontSize: "0.9rem", // 14px
           },
         },
         head: {
-          fontSize: '1.1rem', // 17.6px
+          fontSize: "1.1rem", // 17.6px
           lineHeight: 1.3,
         },
       },
