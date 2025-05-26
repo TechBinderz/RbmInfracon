@@ -29,6 +29,7 @@ const investorItems = [
   { title: 'Notices', content: <TextPdf type='notices' />, type: 'text/pdf' },
   { title: 'Preferential Issues', content: <TextPdf type='preferencial_issue' />, type: 'text/pdf' },
   { title: 'Registrar and Transfer Agents', content: <RegistrarAndTransferAgents />, type: 'text' },
+  { title: 'Press Releases', content: <TextPdf type='press_release' />, type: 'text/pdf' },
 ];
 
 const Investor: React.FC = () => {
@@ -111,7 +112,7 @@ const Investor: React.FC = () => {
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'space-between',
-                    gap: 2 
+                    gap: 2
                   }}>
                     <Typography
                       variant="subtitle1"

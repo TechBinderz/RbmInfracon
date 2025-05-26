@@ -32,6 +32,7 @@ import Transcript_Signed from "../../assets/features/investors/notices/RBMINFRAC
 import Rating_Letter from "../../assets/features/investors/notices/Rating Letter - RBM Infracon Limited.pdf";
 import psc_certificate_warrant from "../../assets/features/investors/preferencial_issue/PCS Certificate_Warrant_signed.pdf";
 import signed_valuation_report from "../../assets/features/investors/preferencial_issue/Signed Valuation Report (1).pdf";
+import earning_press_release_q4_FY25 from "../../assets/features/investors/press_release/RBM Infracon Limited Earning Press Release - Q4 FY25.pdf";
 interface Column {
   id: string;
   label: string;
@@ -357,7 +358,7 @@ const RegistrarAndTransferAgents: React.FC = () => {
 };
 
 interface TextPdfProps {
-  type: "annual" | "quarterly24" | "notices" | "preferencial_issue";
+  type: "annual" | "quarterly24" | "notices" | "preferencial_issue" | "press_release";
 }
 
 const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
@@ -393,6 +394,10 @@ const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
     { name: "PSC certificate warrant", url: psc_certificate_warrant },
   ];
 
+  const pressRelease = [
+    { name: "Earning Press Release Q4 FY25", url: earning_press_release_q4_FY25 },
+  ];
+
   const getReportData = () => {
     switch (type) {
       case "annual":
@@ -403,6 +408,8 @@ const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
         return noticesList2025;
       case "preferencial_issue":
         return preferencialIssue;
+      case "press_release":
+        return pressRelease;
       default:
         return [];
     }
