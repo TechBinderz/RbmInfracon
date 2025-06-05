@@ -55,10 +55,7 @@ const News: React.FC = () => {
 
   const AllNews: React.FC = () => (
     <>
-      <PageTitle
-        imageUrl={news_Image}
-        tileContent="News & Media"
-      />
+      <PageTitle imageUrl={news_Image} tileContent="News & Media" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Box
           display="none" // hiding it from flex
@@ -124,7 +121,7 @@ const News: React.FC = () => {
     </>
   );
 
-  return (<>{pathname === "/news" ? <AllNews /> : <Outlet />}</>)
+  return <>{pathname === "/news" ? <AllNews /> : <Outlet />}</>;
 };
 
 export default News;

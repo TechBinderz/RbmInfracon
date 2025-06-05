@@ -67,7 +67,7 @@ const Header: React.FC = () => {
     services: false,
     careers: false,
   });
-  const isSmallScreen = useMediaQuery("(max-width:1100px)");
+  const isSmallScreen = useMediaQuery("(max-width:1265px)");
 
   useEffect(() => {
     const updateStockData = async () => {
@@ -145,6 +145,10 @@ const Header: React.FC = () => {
     fontSize: headerFontSize,
     margin: "0px 10px",
     textTransform: "capitalize",
+    display: "flex",           // Ensure flex layout
+    alignItems: "center",      // Vertically center text and icon
+    whiteSpace: "nowrap",      // Prevent wrapping
+    minWidth: 0,               // Prevent MUI default min width
     "&:hover": {
       color: "#39ac4b",
     },
@@ -163,7 +167,13 @@ const Header: React.FC = () => {
 
   const DropdownMenu: React.FC<DropdownMenuProps> = ({ buttonText, links }) => (
     <Box className="dropdown">
-      <Button className="dropbtn" sx={headerButtonStyle}>
+      <Button
+        className="dropbtn"
+        sx={{
+          ...headerButtonStyle,
+          gap: "4px", // Optional: space between text and icon
+        }}
+      >
         {buttonText}
       </Button>
       <Box className="dropdown-content">

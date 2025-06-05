@@ -25,7 +25,6 @@ const NewsCard: React.FC<NewsCardProps> = ({
     <Card
       className="card-shadow-1"
       sx={{
-        height: "100%",
         display: "flex",
         flexDirection: "column",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -42,18 +41,17 @@ const NewsCard: React.FC<NewsCardProps> = ({
         sx={{ height: 200 }}
       />
       <CardContent sx={{ flex: 1 }}>
-        <Typography
-          variant="body1"
-          color="text.secondary"
-        >
+        <Typography variant="body1" color="text.secondary">
           {date}
         </Typography>
-        <Typography 
-          variant="h3" 
-          gutterBottom 
-          sx={{ 
-            height: 100,
+        <Typography
+          variant="h3"
+          gutterBottom
+          sx={{
+            minHeight: 100, // Reserve space, but allow to grow
             color: themeColor,
+            display: "flex",
+            alignItems: "flex-end", // Align text to the bottom if short
           }}
         >
           {title}
