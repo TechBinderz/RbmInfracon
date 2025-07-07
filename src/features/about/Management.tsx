@@ -87,7 +87,7 @@ const Management = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                height: "200px",
+                height: "220px",
                 textAlign: "center",
                 padding: "16px",
               }}
@@ -114,7 +114,7 @@ const Management = () => {
                 <Typography variant="h6" gutterBottom>
                   {member.name}
                 </Typography>
-                <Typography variant="body1" color="textSecondary">
+                <Typography variant="body1" color="textSecondary" sx={{ textAlign: "center" }}>
                   {member.title}
                 </Typography>
               </CardContent>
