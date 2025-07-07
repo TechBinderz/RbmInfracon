@@ -19,11 +19,11 @@ const managementTeamList = [
     title: "Chief Financial Officer",
     name: "Mr. Narendra Sharma",
   },
-  {
-    image: sreejith_pillai_photo,
-    title: "Chief Commercial Officer",
-    name: "Mr. Sreejith Pillai",
-  },
+  //{
+  //  image: sreejith_pillai_photo,
+  //  title: "Chief Commercial Officer",
+  //  name: "Mr. Sreejith Pillai",
+  //},
   {
     image: jina_kuttath_photo,
     title: "Chief Human Resources Officer",
