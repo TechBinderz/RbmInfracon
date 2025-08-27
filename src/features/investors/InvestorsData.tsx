@@ -20,6 +20,7 @@ import themeColor from "../common/common";
 import anualReport21_22 from "../../assets/features/investors/Annual Report FY 21-22.pdf";
 import anualReport22_23 from "../../assets/features/investors/Annual Report FY 22-23.pdf";
 import anualReport23_24 from "../../assets/features/investors/Annual Report FY 23-24.pdf";
+import anualReport24_25 from "../../assets/features/investors/Annual Report FY 24-25.pdf";
 import quaterlyReport24_Q1 from "../../assets/features/investors/Quaterly Report 2024 (1).pdf";
 import quaterlyReport24_Q2 from "../../assets/features/investors/Quaterly Report 2024 (2).pdf";
 import quaterlyReport24_Q3 from "../../assets/features/investors/Quaterly Report 2024 (3).pdf";
@@ -30,6 +31,7 @@ import Work_Order_Sign from "../../assets/features/investors/notices/RBMINFRACON
 import NSE_Letter_Signed_2 from "../../assets/features/investors/notices/RBMINFRACON_23012025184415_NSE_LETTER_SIGNED.pdf";
 import Transcript_Signed from "../../assets/features/investors/notices/RBMINFRACON_24022025171347_Transcript_SIGNED.pdf";
 import Rating_Letter from "../../assets/features/investors/notices/Rating Letter - RBM Infracon Limited.pdf";
+import Notice_FY_2024_25 from "../../assets/features/investors/notices/Notice 2024-25.pdf";
 import psc_certificate_warrant from "../../assets/features/investors/preferencial_issue/PCS Certificate_Warrant_signed.pdf";
 import signed_valuation_report from "../../assets/features/investors/preferencial_issue/Signed Valuation Report (1).pdf";
 import earning_press_release_q4_FY25 from "../../assets/features/investors/press_release/RBM Infracon Limited Earning Press Release - Q4 FY25.pdf";
@@ -368,6 +370,7 @@ const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
     { name: "Financial Year 2021-22", url: anualReport21_22 },
     { name: "Financial Year 2022-23", url: anualReport22_23 },
     { name: "Financial Year 2023-24", url: anualReport23_24 },
+    { name: "Financial Year 2024-25", url: anualReport24_25 },
   ];
 
   const quarterlyReports2024 = [
@@ -387,6 +390,7 @@ const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
     { name: "NSE LETTER SIGNED (23-01-2025)", url: NSE_Letter_Signed_2 },
     { name: "Transcript SIGNED (24-02-2025)", url: Transcript_Signed },
     { name: "Rating Letter (13-05-2025)", url: Rating_Letter },
+    { name: "Notice FY 2024-25 (17-09-2025)", url: Notice_FY_2024_25 },
   ];
 
   const preferencialIssue = [
