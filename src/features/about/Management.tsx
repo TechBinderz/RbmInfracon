@@ -7,7 +7,7 @@ import pankaj_kumar_photo from "../../assets/features/rbm_management/Mr. Pankaj 
 import ranjan_kumar_photo from "../../assets/features/rbm_management/Mr. Ranjan Kumar.png";
 // import ravi_pratap_photo from "../../assets/features/rbm_management/Mr. Ravi Pratap Singh.png";
 // import sanjay_singh_photo from "../../assets/features/rbm_management/Mr. Sanjay Singh.png";
-import sreejith_pillai_photo from "../../assets/features/rbm_management/Mr. Sreejith Pillai.png";
+// import sreejith_pillai_photo from "../../assets/features/rbm_management/Mr. Sreejith Pillai.png";
 // import sunil_srivastava_photo from "../../assets/features/rbm_management/Mr. Sunil Srivastava.png";
 // import sunil_kumar_photo from "../../assets/features/rbm_management/Sunil Kumar Singh.png";
 import jina_kuttath_photo from "../../assets/features/rbm_management/Ms. Jina Kuttath.png";
@@ -19,11 +19,11 @@ const managementTeamList = [
     title: "Chief Financial Officer",
     name: "Mr. Narendra Sharma",
   },
-  {
-    image: sreejith_pillai_photo,
-    title: "Chief Commercial Officer",
-    name: "Mr. Sreejith Pillai",
-  },
+  //{
+  //  image: sreejith_pillai_photo,
+  //  title: "Chief Commercial Officer",
+  //  name: "Mr. Sreejith Pillai",
+  //},
   {
     image: jina_kuttath_photo,
     title: "Chief Human Resources Officer",
@@ -87,7 +87,7 @@ const Management = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                height: "200px",
+                height: "220px",
                 textAlign: "center",
                 padding: "16px",
               }}
@@ -114,7 +114,7 @@ const Management = () => {
                 <Typography variant="h6" gutterBottom>
                   {member.name}
                 </Typography>
-                <Typography variant="body1" color="textSecondary">
+                <Typography variant="body1" color="textSecondary" sx={{ textAlign: "center" }}>
                   {member.title}
                 </Typography>
               </CardContent>
