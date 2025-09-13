@@ -32,6 +32,7 @@ import NSE_Letter_Signed_2 from "../../assets/features/investors/notices/RBMINFR
 import Transcript_Signed from "../../assets/features/investors/notices/RBMINFRACON_24022025171347_Transcript_SIGNED.pdf";
 import Rating_Letter from "../../assets/features/investors/notices/Rating Letter - RBM Infracon Limited.pdf";
 import Notice_FY_2024_25 from "../../assets/features/investors/notices/Notice 2024-25.pdf";
+import CORRIGENDUM_FY_2024_25 from "../../assets/features/investors/notices/CORRIGENDUM_FY_2024_25.pdf";
 import psc_certificate_warrant from "../../assets/features/investors/preferencial_issue/PCS Certificate_Warrant_signed.pdf";
 import signed_valuation_report from "../../assets/features/investors/preferencial_issue/Signed Valuation Report (1).pdf";
 import earning_press_release_q4_FY25 from "../../assets/features/investors/press_release/RBM Infracon Limited Earning Press Release - Q4 FY25.pdf";
@@ -360,7 +361,12 @@ const RegistrarAndTransferAgents: React.FC = () => {
 };
 
 interface TextPdfProps {
-  type: "annual" | "quarterly24" | "notices" | "preferencial_issue" | "press_release";
+  type:
+    | "annual"
+    | "quarterly24"
+    | "notices"
+    | "preferencial_issue"
+    | "press_release";
 }
 
 const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
@@ -391,6 +397,7 @@ const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
     { name: "Transcript SIGNED (24-02-2025)", url: Transcript_Signed },
     { name: "Rating Letter (13-05-2025)", url: Rating_Letter },
     { name: "Notice FY 2024-25 (17-09-2025)", url: Notice_FY_2024_25 },
+    { name: "Corrigendum FY 2024-25 (12-09-2025)", url: CORRIGENDUM_FY_2024_25 },
   ];
 
   const preferencialIssue = [
@@ -399,7 +406,10 @@ const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
   ];
 
   const pressRelease = [
-    { name: "Earning Press Release Q4 FY25", url: earning_press_release_q4_FY25 },
+    {
+      name: "Earning Press Release Q4 FY25",
+      url: earning_press_release_q4_FY25,
+    },
   ];
 
   const getReportData = () => {
