@@ -1,19 +1,32 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Outlet } from 'react-router-dom'
+import { Suspense, useEffect } from "react";
+import { useLocation, Outlet } from "react-router-dom";
+import { Box, CircularProgress } from "@mui/material";
 
-// Controls router page div
+const PageLoader = () => (
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "60vh",
+    }}
+  >
+    <CircularProgress />
+  </Box>
+);
+
 const Feature: React.FC = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth', // Adds smooth scrolling effect
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
 
-  return <Outlet/>;
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <Outlet />
+    </Suspense>
+  );
 };
 
 export default Feature;

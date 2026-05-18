@@ -1,40 +1,39 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./404ErrorPage";
 import App from "../App";
-import Home from "../../../features/home/Home";
-import OurCompany from "../../../features/about/AboutUs";
-import ContactUs from "../../../features/contactus/ContactUs";
-import Investors from "../../../features/investors/Investors";
-import Services from "../../../features/services/Service";
-import DrillingAndOMServices from "../../../features/services/DrillingAndOMServices";
-import HeaterOperation from "../../../features/services/HeaterOperation";
-import PipingServices from "../../../features/services/PipingServices";
-import StructuralSteelWork from "../../../features/services/StructuralSteelWork";
-import PlateWork from "../../../features/services/PlateWork";
-import BoilerErectionWork from "../../../features/services/BoilerErectionWork";
-import WorkoverDrillingServices from "../../../features/services/WorkoverDrillingServices";
-import Hydrojetting from "../../../features/services/Hydrojetting";
-// import BundlePuller from "../../../features/services/BundlePuller";
-import EngineeringServices from "../../../features/services/EngineeringServices";
-import BoardOfDirectors from "../../../features/about/BoardOfDirectors";
-// import HSEPerformance from "../../../features/about/HSEPerformance";
-import CurrentProjects from "../../../features/about/CurrentProjects";
-import ExecutedProjects from "../../../features/about/ExecutedProjects";
-import Awards from "../../../features/about/Awards";
-import News from "../../../features/news/News";
-import ONGC_WorkOrderSigned from "../../../features/news/newsPages/ongc_work_order_signed";
-import CareerPage from "../../../features/careers/CareerPage";
-import JobOpenings from "../../../features/careers/JobOpenings";
-import ConstructionServices from "../../../features/services/ConstructionServices";
-import RenovationServices from "../../../features/services/RenovationServices";
-import WorkshopServices from "../../../features/services/WorkshopServices";
-import OperationMaintenanceServices from "../../../features/services/OperationMaintenanceServices";
-import TurnaroundServices from "../../../features/services/TurnaroundServices";
-import LogisticsServices from "../../../features/services/LogisticsServices";
-import ProcurementServices from "../../../features/services/ProcurementServices";
-import PrivacyPolicy from "../../common/PrivacyPolicy";
 
-// Dynamically set the basename using Vite's base configuration
+const Home = lazy(() => import("../../../features/home/Home"));
+const OurCompany = lazy(() => import("../../../features/about/AboutUs"));
+const ContactUs = lazy(() => import("../../../features/contactus/ContactUs"));
+const Investors = lazy(() => import("../../../features/investors/Investors"));
+const Services = lazy(() => import("../../../features/services/Service"));
+const DrillingAndOMServices = lazy(() => import("../../../features/services/DrillingAndOMServices"));
+const HeaterOperation = lazy(() => import("../../../features/services/HeaterOperation"));
+const PipingServices = lazy(() => import("../../../features/services/PipingServices"));
+const StructuralSteelWork = lazy(() => import("../../../features/services/StructuralSteelWork"));
+const PlateWork = lazy(() => import("../../../features/services/PlateWork"));
+const BoilerErectionWork = lazy(() => import("../../../features/services/BoilerErectionWork"));
+const WorkoverDrillingServices = lazy(() => import("../../../features/services/WorkoverDrillingServices"));
+const Hydrojetting = lazy(() => import("../../../features/services/Hydrojetting"));
+const EngineeringServices = lazy(() => import("../../../features/services/EngineeringServices"));
+const BoardOfDirectors = lazy(() => import("../../../features/about/BoardOfDirectors"));
+const CurrentProjects = lazy(() => import("../../../features/about/CurrentProjects"));
+const ExecutedProjects = lazy(() => import("../../../features/about/ExecutedProjects"));
+const Awards = lazy(() => import("../../../features/about/Awards"));
+const News = lazy(() => import("../../../features/news/News"));
+const ONGC_WorkOrderSigned = lazy(() => import("../../../features/news/newsPages/ongc_work_order_signed"));
+const CareerPage = lazy(() => import("../../../features/careers/CareerPage"));
+const JobOpenings = lazy(() => import("../../../features/careers/JobOpenings"));
+const ConstructionServices = lazy(() => import("../../../features/services/ConstructionServices"));
+const RenovationServices = lazy(() => import("../../../features/services/RenovationServices"));
+const WorkshopServices = lazy(() => import("../../../features/services/WorkshopServices"));
+const OperationMaintenanceServices = lazy(() => import("../../../features/services/OperationMaintenanceServices"));
+const TurnaroundServices = lazy(() => import("../../../features/services/TurnaroundServices"));
+const LogisticsServices = lazy(() => import("../../../features/services/LogisticsServices"));
+const ProcurementServices = lazy(() => import("../../../features/services/ProcurementServices"));
+const PrivacyPolicy = lazy(() => import("../../common/PrivacyPolicy"));
+
 const basename = import.meta.env.BASE_URL;
 
 const newsRoutes = {
@@ -129,14 +128,9 @@ const servicesRoutes = {
       path: "hydrojetting",
       element: <Hydrojetting />,
     },
-    // {
-    //   path: "bundlePuller",
-    //   element: <BundlePuller />,
-    // },
   ],
 };
 
-// Define the main router configuration
 export const router = createBrowserRouter(
   [
     {
@@ -164,10 +158,6 @@ export const router = createBrowserRouter(
           path: "/aboutus/boardofdirector",
           element: <BoardOfDirectors />,
         },
-        // {
-        //   path: "/aboutus/hseperformance",
-        //   element: <HSEPerformance />,
-        // },
         {
           path: "/aboutus/current-projects",
           element: <CurrentProjects />,
@@ -188,14 +178,14 @@ export const router = createBrowserRouter(
           path: "/privacy-policy",
           element: <PrivacyPolicy />,
         },
-        servicesRoutes, // Add services routes here
-        newsRoutes, // Add news routes here
+        servicesRoutes,
+        newsRoutes,
         careerRoutes,
         { path: "careers/CareerOpening", element: <CareerPage /> },
       ],
     },
   ],
   {
-    basename, // Set the base path
+    basename,
   }
 );

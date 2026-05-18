@@ -1,7 +1,10 @@
 import { Box, Container, Typography, IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import React, { useRef } from "react";
-import Slider from "react-slick";
+import _Slider from "react-slick";
+// Vite 8 / rolldown wraps CJS __esModule exports as { default: X }; unwrap defensively
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Slider = ((_Slider as any).default ?? _Slider) as typeof _Slider;
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -22,7 +25,7 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ cardData }) => {
-  const sliderRef = useRef<Slider>(null);
+  const sliderRef = useRef<InstanceType<typeof _Slider>>(null);
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
   const settings = {

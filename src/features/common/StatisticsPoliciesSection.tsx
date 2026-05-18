@@ -1,13 +1,11 @@
-import {
-  Box,
-  Typography,
-  Grid,
-} from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import PeopleIcon from "@mui/icons-material/People";
-import CountUp from "react-countup";
+import _CountUp from "react-countup";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const CountUp = ((_CountUp as any).default ?? _CountUp) as typeof _CountUp;
 
 const statsData = [
   {
@@ -56,27 +54,26 @@ const StatisticsPoliciesSection = () => {
     <Box sx={{ p: 4, paddingBottom: 0 }}>
       {/* Statistics Section */}
       <Box
-      sx={{
-        backgroundColor: "#4caf50",
-        color: "white",
-        py: 3,
-        mb: 4,
-        textAlign: "center",
-      }}
-    >
-      <Grid container spacing={2} justifyContent="center">
-        {statsData.map((stat, index) => (
-          <Grid item xs={6} sm={3} key={index}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              {stat.icon}
-              <Typography variant="h4" fontWeight="bold">
-                
+        sx={{
+          backgroundColor: "#4caf50",
+          color: "white",
+          py: 3,
+          mb: 4,
+          textAlign: "center",
+        }}
+      >
+        <Grid container spacing={2} justifyContent="center">
+          {statsData.map((stat, index) => (
+            <Grid item xs={6} sm={3} key={index}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                {stat.icon}
+                <Typography variant="h4" fontWeight="bold">
                   <CountUp
                     start={0}
                     end={parseInt(stat.count)} // Numeric part
@@ -84,14 +81,15 @@ const StatisticsPoliciesSection = () => {
                     separator=","
                     suffix="+"
                   />
-                
-              </Typography>
-              <Typography sx={{textAlign: 'center'}}>{stat.label}</Typography>
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+                </Typography>
+                <Typography sx={{ textAlign: "center" }}>
+                  {stat.label}
+                </Typography>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
       {/* Policies Section */}
       {/* <Box textAlign="center" mb={4}>
         <Typography variant="h3" fontWeight="bold" gutterBottom>
