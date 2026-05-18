@@ -13,6 +13,7 @@ import {
 import "../common/common.css";
 import operation_maintenance_services from "../../assets/features/services/operation_maintenance_services.jpg";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import AdditionalServices from "./components/AdditionalServices";
 import ServiceGrid from "./components/ServiceGrid";
 
@@ -56,6 +57,11 @@ const services = [
 const OperationMaintenanceServices: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Operation & Maintenance Services"
+        description="Integrated operation and maintenance services by RBM Infracon for refineries, petrochemical plants, and industrial facilities – ensuring maximum uptime and reliability."
+        path="/services/operationMaintenanceServices"
+      />
       <PageTitle imageUrl={operation_maintenance_services} tileContent="Operation, Maintenance & Inspection" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}

@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import PageTitle from "../../features/common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import BANNER_IMAGE from "../../assets/features/home/pexels-tomfisk-10407691.jpg";
 import { themeColor } from "../common/common";
 import { styled } from "@mui/material/styles";
@@ -308,6 +309,11 @@ const CurrentProjects: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="Current Projects"
+        description="Explore RBM Infracon Limited's ongoing projects across Oil & Gas, Petrochemicals, Power, and Infrastructure sectors in India and the Middle East."
+        path="/aboutus/current-projects"
+      />
       <PageTitle imageUrl={BANNER_IMAGE} tileContent="Current Projects" />
       <Container maxWidth="xl" sx={{ py: 4 }}>
         <Card sx={{ mb: 4, backgroundColor: "#f8f9fa", boxShadow: 3 }}>

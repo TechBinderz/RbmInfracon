@@ -23,6 +23,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import axios from "axios";
 import "../common/common.css";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import themeColor from "../common/common";
 import contact_us_image from "../../assets/features/contact_us/contact_us.jpg";
 import { styled } from "@mui/material/styles";
@@ -290,6 +291,11 @@ const ContactUs: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="Contact Us"
+        description="Contact RBM Infracon Limited – offices in India and Dubai. Reach out for EPC project inquiries, service quotes, and business partnerships."
+        path="/contact"
+      />
       <PageTitle imageUrl={contact_us_image} tileContent="Contact Us" />
 
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>

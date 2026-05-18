@@ -3,6 +3,7 @@ import { Container, Grid, Typography, Divider } from "@mui/material";
 import { LocalShipping, Engineering, DirectionsCar } from "@mui/icons-material";
 import heavy_lifting from "../../assets/features/services/heavy_lifting.jpg";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import ServiceGrid from "./components/ServiceGrid";
 import AdditionalServices from "./components/AdditionalServices";
 
@@ -48,6 +49,11 @@ const services = [
 const LogisticsServices: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Logistics Services"
+        description="Comprehensive logistics and heavy equipment transport services by RBM Infracon – specialized solutions for industrial equipment movement and installation."
+        path="/services/logisticsServices"
+      />
       <PageTitle
         imageUrl={heavy_lifting}
         tileContent="Heavy Equipment Logistics"

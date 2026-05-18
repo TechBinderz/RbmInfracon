@@ -15,6 +15,7 @@ import {
 import "../common/common.css";
 import construction_service_1 from "../../assets/features/services/construction_services/construction_service (1).jpg";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import AdditionalServices from "./components/AdditionalServices";
 import ServiceGrid from "./components/ServiceGrid";
 
@@ -54,6 +55,11 @@ const services = [
 const ConstructionServices: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Construction Services"
+        description="Expert construction services by RBM Infracon – civil, structural, and mechanical construction for refineries, petrochemical plants, and industrial facilities."
+        path="/services/constructionServices"
+      />
       <PageTitle imageUrl={construction_service_1} tileContent="Construction" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}

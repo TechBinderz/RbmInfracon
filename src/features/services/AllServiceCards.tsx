@@ -58,11 +58,7 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
           px: 2,
         }}
       >
-        RBM is a premier provider of integrated industrial services in
-        engineering, procurement, construction, operation, and maintenance
-        solutions across multiple industries. We deliver excellence through
-        innovative technologies, skilled manpower, and adherence to the highest
-        industry standards. Our core services include
+        RBM is a premier provider of integrated industrial services in engineering, procurement, construction, operation, and maintenance solutions across multiple industries. We deliver excellence through innovative technologies, skilled manpower, and adherence to the highest industry standards. Our core services include
       </Typography>
 
       <Box
@@ -158,8 +154,7 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                       bottom: 0,
                       left: 0,
                       right: 0,
-                      background:
-                        "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+                      background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
                       height: "50%",
                       transition: "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                       opacity: 0.6,
@@ -187,7 +182,11 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                       {card.title}
                     </Typography>
                     {showDetails && (
-                      <Typography variant="body1" component="p" color="black">
+                      <Typography
+                        variant="body1"
+                        component="p"
+                        color="black"
+                      >
                         {card.description}
                       </Typography>
                     )}
@@ -202,8 +201,7 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                       mt: "auto",
                       pt: 2,
                       "& .arrow-icon": {
-                        transition:
-                          "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                        transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                       },
                     }}
                   >
@@ -214,11 +212,7 @@ const AllServiceCards: React.FC<ServiceCardProps> = ({
                     >
                       Learn More
                     </Typography>
-                    <ArrowForward
-                      className="arrow-icon"
-                      aria-hidden="true"
-                      sx={{ color: themeColor }}
-                    />
+                    <ArrowForward className="arrow-icon" aria-hidden="true" sx={{ color: themeColor }} />
                   </Stack>
                 </CardContent>
               </Card>

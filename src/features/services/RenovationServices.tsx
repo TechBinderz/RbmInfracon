@@ -13,6 +13,7 @@ import {
 import "../common/common.css";
 import performance_1 from "../../assets/features/services/performance/performance (1).jpg";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import AdditionalServices from "./components/AdditionalServices";
 import ServiceGrid from "./components/ServiceGrid";
 
@@ -40,6 +41,11 @@ const RenovationServices: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="Renovation & Performance Enhancement Services"
+        description="Plant performance enhancement and renovation services by RBM Infracon – revamping and modernizing industrial facilities for improved efficiency and productivity."
+        path="/services/renovationServices"
+      />
       <PageTitle imageUrl={performance_1} tileContent="Renovation & Performance Enhancement" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}

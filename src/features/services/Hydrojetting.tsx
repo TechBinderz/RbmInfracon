@@ -1,5 +1,6 @@
 import React from "react";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import {
   Typography,
   Grid,
@@ -16,6 +17,11 @@ import hydrojetting_4 from "../../assets/features/services/hydrojetting/hydrojet
 const Hydrojetting: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Hydrojetting Services"
+        description="Industrial hydrojetting and high-pressure water jetting services by RBM Infracon for cleaning, descaling, and maintenance of plant equipment and piping."
+        path="/services/hydrojetting"
+      />
       <PageTitle imageUrl={hydrojetting_1} tileContent="Hydrojetting" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>

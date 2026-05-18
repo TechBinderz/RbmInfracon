@@ -9,12 +9,18 @@ import {
   createTheme,
 } from "@mui/material";
 import PageTitle from "../../features/common/PageTitleDiv";
+import SEOHead from "./SEOHead";
 import privacyPolicy from "../../assets/privacy/privacy-policy.jpg";
 import theme from "../../theme/theme";
 
 const PrivacyPolicy: React.FC = () => {
   return (
     <ThemeProvider theme={createTheme(theme)}>
+      <SEOHead
+        title="Privacy Policy"
+        description="Read the privacy policy of RBM Infracon Limited – how we collect, use, and protect your personal information."
+        path="/privacy-policy"
+      />
       <PageTitle imageUrl={privacyPolicy} tileContent="Privacy Statement/Policy" />
       <Container maxWidth="lg">
         <Paper

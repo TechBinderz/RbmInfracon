@@ -15,6 +15,7 @@ import {
 import "../common/common.css";
 import hydrojetting_2 from "../../assets/features/services/hydrojetting/hydrojetting (2).jpg";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import AdditionalServices from "./components/AdditionalServices";
 import ServiceGrid from "./components/ServiceGrid";
 
@@ -80,6 +81,11 @@ const services = [
 const TurnaroundServices: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Turnaround Services"
+        description="Expert plant turnaround services by RBM Infracon – comprehensive shutdown maintenance, inspection, and revamp solutions for refineries and petrochemical plants."
+        path="/services/turnaroundServices"
+      />
       <PageTitle imageUrl={hydrojetting_2} tileContent="Turnaround of Plants" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}

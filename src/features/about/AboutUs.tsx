@@ -10,6 +10,7 @@ import {
   // useMediaQuery,
 } from "@mui/material";
 import PageTitle from "../../features/common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import BANNER_IMAGE from "../../assets/features/home/pexels-tomfisk-10407691.jpg";
 import BusinessIcon from "@mui/icons-material/Business";
 import PersonIcon from "@mui/icons-material/Person";
@@ -80,6 +81,11 @@ Driven by a philosophy of integrity, innovation, and excellence, RBM Infracon re
 
   return (
     <>
+      <SEOHead
+        title="About Us"
+        description="Learn about RBM Infracon Limited – a distinguished EPC leader since 1993, ISO 9001:2015 certified, with expertise in Oil & Gas, Petrochemicals, Fertilizers, Power, and Cement industries."
+        path="/aboutus"
+      />
       <PageTitle imageUrl={BANNER_IMAGE} tileContent="About Us" />
       <Container sx={{ marginTop: "40px", marginBottom: "40px" }}>
         {/* Business Roadmap Section */}

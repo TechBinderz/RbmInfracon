@@ -1,5 +1,6 @@
 import React from "react";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import {
   Typography,
   Grid,
@@ -16,6 +17,11 @@ import heater_operation_4 from "../../assets/features/services/heater/heater_ope
 const HeaterOperation: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Heater Operation Services"
+        description="Specialized heater operation and maintenance services by RBM Infracon – expert management of industrial heaters and furnaces for refineries and petrochemical plants."
+        path="/services/heaterOperation"
+      />
       <PageTitle imageUrl={heater_operation_1} tileContent="Heater Operation" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10}>

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://techbinderz.github.io/RbmInfracon/",
+  "homepage": "https://www.rbminfracon.com",
   "scripts": {
     "start": "vite --host",
     "dev": "vite",
@@ -24,6 +24,7 @@
     "react": "^19.2.6",
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.6",
+    "react-helmet-async": "^3.0.0",
     "react-router-dom": "^7.15.1",
     "react-router-hash-link": "^2.4.3",
     "recharts": "^3.8.1",

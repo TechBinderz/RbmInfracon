@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SEOHead from "../../app/common/SEOHead";
 import { Container } from "@mui/material";
 import backgroundImage from "../../assets/features/home/home_background.jpg"; // Adjust the path as necessary
 // import TextImageCarousel from "./TextImageCarousal";
@@ -19,6 +20,11 @@ const Home: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="EPC Services – Engineering, Procurement & Construction"
+        description="RBM Infracon Limited – 30+ years of trusted EPC services in Engineering, Procurement, Construction, Operations & Maintenance across India and the Middle East. ISO 9001:2015 certified."
+        path="/"
+      />
       <div className="hero-section">
         {/* Background Image */}
         <div className="image-overlay">

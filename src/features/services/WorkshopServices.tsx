@@ -4,6 +4,7 @@ import { Inventory, LocalShipping, Build } from "@mui/icons-material";
 import "../common/common.css";
 import bundle_puller_1 from "../../assets/features/services/bundlepuller/bundlepuller (2).jpg";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import AdditionalServices from "./components/AdditionalServices";
 import ServiceGrid from "./components/ServiceGrid";
 
@@ -49,6 +50,11 @@ const WorkshopServices: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="Workshop Services"
+        description="Specialized workshop services by RBM Infracon – precision mechanical repair, heat exchanger bundle pulling, and equipment maintenance services."
+        path="/services/workshopServices"
+      />
       <PageTitle
         imageUrl={bundle_puller_1}
         tileContent="Workshop & Warehouse Management"

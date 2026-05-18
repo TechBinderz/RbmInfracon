@@ -5,6 +5,7 @@ import TableChartIcon from '@mui/icons-material/TableChart';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import '../common/common.css';
 import PageTitle from '../common/PageTitleDiv';
+import SEOHead from '../../app/common/SEOHead';
 import { DirectorTable, CommitteeOfBoard, InvestorGrievance, RegistrarAndTransferAgents, TextPdf } from './InvestorsData';
 import rbmInvestorsPresentation from '../../assets/features/investors/RBM INVESTOR PPT 2023-24_PDF.pdf';
 import CustomDialog from '../common/CustomDailog';
@@ -63,6 +64,11 @@ const Investor: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="Investors"
+        description="RBM Infracon Limited investor relations – annual reports, quarterly results, shareholding pattern, board of directors, and NSE filings."
+        path="/investors"
+      />
       <PageTitle imageUrl={investors_Image} tileContent='Investors' />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={4}>

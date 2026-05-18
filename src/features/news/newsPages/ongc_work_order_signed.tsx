@@ -8,6 +8,7 @@ import {
   Divider,
 } from "@mui/material";
 import PageTitle from "../../common/PageTitleDiv";
+import SEOHead from "../../../app/common/SEOHead";
 import ongc_work_order_signed from "../../../assets/features/news/news_pages/ongc_work_order_signed.png";
 import news_background from "../../../assets/features/news/news_pages/news_background.avif";
 import themeColor from "../../common/common";
@@ -15,6 +16,11 @@ import themeColor from "../../common/common";
 const ONGC_WorkOrderSigned: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="ONGC Work Order Signed"
+        description="RBM Infracon Limited signs a major work order with ONGC for production enhancement operations in mature oil fields – a milestone in our upstream O&G expansion."
+        path="/news/ongc_work_order_signed"
+      />
       <PageTitle
         imageUrl={news_background}
         tileContent="ONGC Work Order Signed"

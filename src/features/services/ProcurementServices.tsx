@@ -14,6 +14,7 @@ import {
 import "../common/common.css";
 import procurment_services_1 from "../../assets/features/services/procurment_services.jpg";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import AdditionalServices from "./components/AdditionalServices";
 import ServiceGrid from "./components/ServiceGrid";
 
@@ -72,6 +73,11 @@ const services = [
 const ProcurementServices: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Procurement Services"
+        description="RBM Infracon provides end-to-end procurement services – sourcing, supply chain management, and vendor coordination for industrial equipment and materials."
+        path="/services/procurementServices"
+      />
       <PageTitle imageUrl={procurment_services_1} tileContent="Procurement Services" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}

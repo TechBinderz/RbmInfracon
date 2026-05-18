@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation, Outlet, Link } from "react-router-dom";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import CustomSwiper from "../common/CustomSwiper";
 import {
   Typography,
@@ -33,6 +34,11 @@ const Services: React.FC = () => {
 
   const ServicesPage: React.FC = () => (
     <>
+      <SEOHead
+        title="Our Services"
+        description="RBM Infracon offers comprehensive industrial EPC services – Engineering, Procurement, Construction, Piping, Structural Steel, Boiler Erection, Hydrojetting, Heater Operations and more."
+        path="/services"
+      />
       <PageTitle imageUrl={services_image} tileContent="Services" />
       <AllServiceCards cardData={filteredCardData} showDetails={true} />
     </>

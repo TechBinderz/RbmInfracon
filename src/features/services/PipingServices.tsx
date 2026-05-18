@@ -1,5 +1,6 @@
 import React from "react";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import {
   Typography,
   Grid,
@@ -17,6 +18,11 @@ import piping_service_4 from "../../assets/features/services/piping/piping_servi
 const PipingServices: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Piping Services"
+        description="Professional piping fabrication and erection services by RBM Infracon – IBR and non-IBR piping for refineries, power plants, and industrial projects."
+        path="/services/pipingServices"
+      />
       <PageTitle imageUrl={piping_service_1} tileContent="Piping" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10} sx={{ marginBottom: 3 }}>

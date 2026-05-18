@@ -1,5 +1,6 @@
 import React from "react";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import {
   Typography,
   Grid,
@@ -16,6 +17,11 @@ import boiler_erection_4 from "../../assets/features/services/boiler/boiler_erec
 const BoilerErectionWork: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Boiler Erection Work"
+        description="Expert boiler erection and installation services by RBM Infracon – IBR-compliant boiler work for power plants, refineries, and industrial facilities."
+        path="/services/boilerErectionWork"
+      />
       <PageTitle
         imageUrl={boiler_erection_1}
         tileContent="Boiler tube replacement and erection work"

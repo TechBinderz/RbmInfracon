@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import { themeColor } from "../common/common";
 import drilling_service_1 from "../../assets/features/services/drilling/drilling_service (1).jpg";
 import drilling_service_2 from "../../assets/features/services/drilling/drilling_service (7).jpg";
@@ -38,6 +39,11 @@ const StyledCard = styled(Card)({
 const DrillingAndOMServices = () => {
   return (
     <>
+      <SEOHead
+        title="Crude Oil Extraction & Drilling Services"
+        description="RBM Infracon provides comprehensive crude oil extraction and drilling services including well operations, production optimization, and O&M for oil fields."
+        path="/services/drillingAndOMServices"
+      />
       <PageTitle
         imageUrl={drilling_service_1}
         tileContent="Crude Oil Extraction & Drilling"

@@ -12,6 +12,7 @@ import NewsCard from "./NewsCard";
 import PageTitle from "../common/PageTitleDiv";
 import { SelectChangeEvent } from "@mui/material";
 import themeColor from "../common/common";
+import SEOHead from "../../app/common/SEOHead";
 import { newsItems, NewsItem } from "./newsPages/NewsData";
 import { useLocation, Outlet, Link } from "react-router-dom";
 import news_Image from "../../assets/features/news/news.jpg";
@@ -55,6 +56,11 @@ const News: React.FC = () => {
 
   const AllNews: React.FC = () => (
     <>
+      <SEOHead
+        title="News & Media"
+        description="Latest news, press releases, and announcements from RBM Infracon Limited. Stay updated on project wins, achievements, and company developments."
+        path="/news"
+      />
       <PageTitle imageUrl={news_Image} tileContent="News & Media" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Box

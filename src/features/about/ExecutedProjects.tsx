@@ -22,6 +22,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import BusinessIcon from "@mui/icons-material/Business";
 import PageTitle from "../../features/common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import BANNER_IMAGE from "../../assets/features/home/pexels-tomfisk-10407692.jpg";
 import { themeColor } from "../common/common";
 import { styled } from "@mui/material/styles";
@@ -255,6 +256,11 @@ const ExecutedProjects: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="Executed Projects"
+        description="View the portfolio of successfully executed projects by RBM Infracon Limited – delivering EPC excellence for Reliance, ONGC, Nayara Energy, TATA, and more."
+        path="/aboutus/executed-projects"
+      />
       <PageTitle imageUrl={BANNER_IMAGE} tileContent="Executed Projects" />
       <Container maxWidth="xl" sx={{ py: 4 }}>
         <Box sx={{ pt: 12, pb: 6 }}>

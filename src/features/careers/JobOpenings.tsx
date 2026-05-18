@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, CardContent, Typography, Grid, Button, Container } from "@mui/material";
 import { jobOpenings } from "./JobData"; // Assuming you have the jobOpenings data imported
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import about_us_image from "../../assets/features/about-us/about_us1.jpeg";
 import themeColor from "../common/common";
 
@@ -15,6 +16,11 @@ const JobOpenings = () => {
 
   return (
     <>
+      <SEOHead
+        title="Careers – Job Openings"
+        description="Explore career opportunities at RBM Infracon Limited. Join a leading EPC contractor with 30+ years of excellence in Engineering, Construction, and Operations."
+        path="/careers"
+      />
       <PageTitle imageUrl={about_us_image} tileContent="Job Openings" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid

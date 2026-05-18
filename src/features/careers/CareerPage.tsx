@@ -21,6 +21,7 @@ import {
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { styled } from "@mui/material/styles";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import about_us_image from "../../assets/features/about-us/about_us1.jpeg";
 import themeColor from "../common/common";
 
@@ -348,6 +349,11 @@ const CareerPage: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="Apply Online"
+        description="Apply for a career at RBM Infracon Limited – submit your application for open positions in EPC, mechanical, civil, and industrial services."
+        path="/careers/CareerOpening"
+      />
       <PageTitle imageUrl={about_us_image} tileContent="Apply Online" />
       <ThemeProvider theme={theme}>
         <CssBaseline />

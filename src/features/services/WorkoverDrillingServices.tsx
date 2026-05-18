@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import { themeColor } from "../common/common";
 import workover_drilling_1 from "../../assets/features/services/performance/performance (1).jpg";
 import workover_drilling_2 from "../../assets/features/services/performance/performance (2).jpg";
@@ -37,6 +38,11 @@ const StyledCard = styled(Card)(({ }) => ({
 const WorkoverDrillingServices: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Workover & Drilling Services"
+        description="Workover drilling and performance enhancement services by RBM Infracon – well intervention, completion, and production optimization for oil and gas fields."
+        path="/services/workoverDrillingServices"
+      />
       <PageTitle
         imageUrl={workover_drilling_1}
         tileContent="Performance Enhancement"

@@ -1,5 +1,6 @@
 import React from "react";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import {
   Typography,
   Grid,
@@ -16,6 +17,11 @@ import steel_work_4 from "../../assets/features/services/structural/steel_work (
 const StructuralSteelWork: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Structural Steel Work"
+        description="Precision structural steel fabrication and erection services by RBM Infracon for industrial plants, refineries, and infrastructure projects."
+        path="/services/structuralSteelWork"
+      />
       <PageTitle imageUrl={steel_work_1} tileContent="Structural Steel Work" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={10} sx={{ marginBottom: 3 }}>

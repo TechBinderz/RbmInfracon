@@ -10,6 +10,7 @@ import {
 import "../common/common.css";
 import engineering_service_1 from "../../assets/features/services/engineering_service.jpg";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import AdditionalServices from "./components/AdditionalServices";
 import ServiceGrid from "./components/ServiceGrid";
 
@@ -56,6 +57,11 @@ const services = [
 const EngineeringServices: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Engineering Services"
+        description="RBM Infracon offers comprehensive engineering services including conceptual studies, design, project management, and technical consulting for industrial and EPC projects."
+        path="/services/engineeringServices"
+      />
       <PageTitle imageUrl={engineering_service_1} tileContent="Engineering" />
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
         {/* Overview Section */}

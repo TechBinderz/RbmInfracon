@@ -12,6 +12,7 @@ import {
   CardMedia,
 } from '@mui/material';
 import PageTitle from '../../features/common/PageTitleDiv';
+import SEOHead from '../../app/common/SEOHead';
 import BANNER_IMAGE from "../../assets/features/Awards/awards_background.jpg";
 import CustomSwiper from "../common/CustomSwiper";
 import "swiper/css";
@@ -195,6 +196,11 @@ const Awards: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="Awards & Recognition"
+        description="RBM Infracon Limited's awards and industry recognitions – celebrating 30+ years of excellence in EPC services, safety, and quality across industrial projects."
+        path="/aboutus/awards"
+      />
       <PageTitle
         imageUrl={BANNER_IMAGE}
         tileContent="Awards & Recognition"

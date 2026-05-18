@@ -9,6 +9,7 @@ import {
   Container,
 } from "@mui/material";
 import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
 import jaybajrang_ramaishish_photo from "../../assets/features/rbm_management/Mr. Jaybajrang Ramaishish Mani.jpg";
 import aditya_jay_photo from "../../assets/features/rbm_management/Mr. Aditya Jay Bajrang Mani.jpg";
 // import deepak_saxena_photo from "../../assets/features/rbm_management/Mr. Deepak Saxena.png";
@@ -59,6 +60,11 @@ const directors: Director[] = [
 const BoardOfDirectors: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Board of Directors"
+        description="Meet the Board of Directors of RBM Infracon Limited – experienced leaders driving growth and governance across our EPC and industrial services operations."
+        path="/aboutus/boardofdirector"
+      />
       <PageTitle
         imageUrl={board_of_directors_image}
         tileContent="Board of Directors"
