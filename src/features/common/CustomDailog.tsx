@@ -1,27 +1,65 @@
 // src/components/CustomDialog.tsx
-import React, { useEffect } from 'react';
-import { Dialog, DialogTitle, DialogContent, IconButton, Typography } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
+import React, { useEffect, useState } from "react";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  IconButton,
+  Typography,
+  Box,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface CustomDialogProps {
   open: boolean;
   onClose: () => void;
   title: string;
   content: React.ReactNode;
-  type: 'pdf' | 'image' | 'table' | 'text' | 'text/pdf';
+  type: "pdf" | "image" | "table" | "text" | "text/pdf" | "audio";
 }
 
-const CustomDialog: React.FC<CustomDialogProps> = ({ open, onClose, title, content, type }) => {
-  const isPdf = type === 'pdf';
-  const isImage = type === 'image';
-  const isTable = type === 'table';
-  const isText = type === 'text';
-  const isTextPdf = type === 'text/pdf';
+const CustomDialog: React.FC<CustomDialogProps> = ({
+  open,
+  onClose,
+  title,
+  content,
+  type,
+}) => {
+  const isPdf = type === "pdf";
+  const isImage = type === "image";
+  const isTable = type === "table";
+  const isText = type === "text";
+  const isTextPdf = type === "text/pdf";
+  const isAudio = type === "audio";
+
+  // Create a Blob URL for audio to obscure the original file path
+  const [audioBlobUrl, setAudioBlobUrl] = useState<string | null>(null);
 
   useEffect(() => {
-    if (isPdf && open && typeof content === 'string') {
+    if (isAudio && open && typeof content === "string") {
+      let revoked = false;
+      fetch(content)
+        .then((res) => res.blob())
+        .then((blob) => {
+          if (!revoked) {
+            const url = URL.createObjectURL(blob);
+            setAudioBlobUrl(url);
+          }
+        });
+      return () => {
+        revoked = true;
+        setAudioBlobUrl((prev) => {
+          if (prev) URL.revokeObjectURL(prev);
+          return null;
+        });
+      };
+    }
+  }, [isAudio, open, content]);
+
+  useEffect(() => {
+    if (isPdf && open && typeof content === "string") {
       // Open the PDF in a new tab
-      window.open(content, '_blank');
+      window.open(content, "_blank");
       onClose(); // Close the dialog immediately
     }
   }, [isPdf, open, content, onClose]);
@@ -29,19 +67,20 @@ const CustomDialog: React.FC<CustomDialogProps> = ({ open, onClose, title, conte
   return (
     <Dialog
       open={open && !isPdf} // Prevent dialog from opening for PDFs
-      onClose={onClose}
-      maxWidth={isTextPdf ? 'lg' : 'md'}
-      fullWidth={isTextPdf} // Make dialog full width for text/pdf
-      PaperProps={{ style: { height: 'auto' } }} // Default height for non-PDF types
+      onClose={isAudio ? undefined : onClose}
+      maxWidth={isTextPdf ? "lg" : "md"}
+      fullWidth={isTextPdf || isAudio}
+      disableEscapeKeyDown={isAudio}
+      PaperProps={{ style: { height: "auto" } }} // Default height for non-PDF types
     >
-      <DialogTitle>
+      <DialogTitle sx={{ pr: 6 }}>
         {title}
         <IconButton
           edge="end"
           color="inherit"
           onClick={onClose}
           aria-label="close"
-          style={{ position: 'absolute', right: 15, top: 8 }}
+          style={{ position: "absolute", right: 15, top: 8 }}
         >
           <CloseIcon />
         </IconButton>
@@ -51,10 +90,39 @@ const CustomDialog: React.FC<CustomDialogProps> = ({ open, onClose, title, conte
           <img
             src={content as string} // content will be a URL for images
             alt={title}
-            style={{ width: '100%', height: 'auto' }}
+            style={{ width: "100%", height: "auto" }}
           />
         ) : isTable ? (
           content // content will be a React component for tables
+        ) : isAudio ? (
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              py: { xs: 2, sm: 3 },
+              px: { xs: 0, sm: 1 },
+              width: "100%",
+              maxWidth: { xs: "100%", sm: 600 },
+              mx: "auto",
+            }}
+          >
+            {audioBlobUrl ? (
+              <audio
+                controls
+                controlsList="nodownload"
+                src={audioBlobUrl}
+                onContextMenu={(e) => e.preventDefault()}
+                style={{ width: "100%" }}
+              >
+                Your browser does not support the audio element.
+              </audio>
+            ) : (
+              <Typography variant="body2" color="text.secondary">
+                Loading audio...
+              </Typography>
+            )}
+          </Box>
         ) : isText || isTextPdf ? (
           <Typography variant="body1">{content}</Typography>
         ) : null}

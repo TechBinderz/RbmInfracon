@@ -1,36 +1,88 @@
-import React, { useState } from 'react';
-import { Container, Grid, Card, CardContent, Typography, Box } from '@mui/material';
-import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
-import TableChartIcon from '@mui/icons-material/TableChart';
-import TextSnippetIcon from '@mui/icons-material/TextSnippet';
-import '../common/common.css';
-import PageTitle from '../common/PageTitleDiv';
-import SEOHead from '../../app/common/SEOHead';
-import { DirectorTable, CommitteeOfBoard, InvestorGrievance, RegistrarAndTransferAgents, TextPdf } from './InvestorsData';
-import rbmInvestorsPresentation from '../../assets/features/investors/RBM INVESTOR PPT 2023-24_PDF.pdf';
-import CustomDialog from '../common/CustomDailog';
+import React, { useState } from "react";
+import {
+  Container,
+  Grid,
+  Card,
+  CardContent,
+  Typography,
+  Box,
+} from "@mui/material";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import TableChartIcon from "@mui/icons-material/TableChart";
+import TextSnippetIcon from "@mui/icons-material/TextSnippet";
+import HeadphonesIcon from "@mui/icons-material/Headphones";
+import "../common/common.css";
+import PageTitle from "../common/PageTitleDiv";
+import SEOHead from "../../app/common/SEOHead";
+import {
+  DirectorTable,
+  CommitteeOfBoard,
+  InvestorGrievance,
+  RegistrarAndTransferAgents,
+  TextPdf,
+} from "./InvestorsData";
+import rbmInvestorsPresentation from "../../assets/features/investors/RBM INVESTOR PPT 2023-24_PDF.pdf";
+import earningsConferenceCall from "../../assets/features/investors/RBM_Infracon_FY26_EarningsConferenceCall-June2026-upload.mp3";
+import CustomDialog from "../common/CustomDailog";
 import investors_Image from "../../assets/features/investors/investors.jpg";
 import shareholdingPattern from "../../assets/features/investors/CA CERTIFICATE - SHAREHOLDING PATTERN.pdf";
 import groupCompanies from "../../assets/features/investors/3A.SECTION XI - Group Companies.pdf";
 import corporateAnnouncements from "../../assets/features/investors/PROSPECTUS_RBM.pdf";
 import creditRatings from "../../assets/features/investors/Credit Rating Letter.pdf";
-import themeColor from '../common/common';
+import themeColor from "../common/common";
 
 const investorItems = [
-  { title: 'Board of Directors', content: <DirectorTable />, type: 'table' },
-  { title: 'Committee of Board', content: <CommitteeOfBoard />, type: 'table' },
-  { title: 'RBM Investors Presentation', content: rbmInvestorsPresentation, type: 'pdf' },
-  { title: 'Annual Reports', content: <TextPdf type='annual' />, type: 'text/pdf' },
-  { title: 'Quarterly Reports (2024)', content: <TextPdf type='quarterly24' />, type: 'text/pdf' },
-  { title: 'Shareholding Pattern Certificate', content: shareholdingPattern, type: 'pdf' },
-  { title: 'Investor Grievance', content: <InvestorGrievance />, type: 'text' },
-  { title: 'Group Companies/Entities', content: groupCompanies, type: 'pdf' },
-  { title: 'Company Announcements', content: corporateAnnouncements, type: 'pdf' },
-  { title: 'Credit Ratings', content: creditRatings, type: 'pdf' },
-  { title: 'Notices', content: <TextPdf type='notices' />, type: 'text/pdf' },
-  { title: 'Preferential Issues', content: <TextPdf type='preferencial_issue' />, type: 'text/pdf' },
-  { title: 'Registrar and Transfer Agents', content: <RegistrarAndTransferAgents />, type: 'text' },
-  { title: 'Press Releases', content: <TextPdf type='press_release' />, type: 'text/pdf' },
+  { title: "Board of Directors", content: <DirectorTable />, type: "table" },
+  { title: "Committee of Board", content: <CommitteeOfBoard />, type: "table" },
+  {
+    title: "RBM Investors Presentation",
+    content: rbmInvestorsPresentation,
+    type: "pdf",
+  },
+  {
+    title: "Earnings Conference Call (June 2026)",
+    content: earningsConferenceCall,
+    type: "audio",
+  },
+  {
+    title: "Annual Reports",
+    content: <TextPdf type="annual" />,
+    type: "text/pdf",
+  },
+  {
+    title: "Quarterly Reports (2024)",
+    content: <TextPdf type="quarterly24" />,
+    type: "text/pdf",
+  },
+  {
+    title: "Shareholding Pattern Certificate",
+    content: shareholdingPattern,
+    type: "pdf",
+  },
+  { title: "Investor Grievance", content: <InvestorGrievance />, type: "text" },
+  { title: "Group Companies/Entities", content: groupCompanies, type: "pdf" },
+  {
+    title: "Company Announcements",
+    content: corporateAnnouncements,
+    type: "pdf",
+  },
+  { title: "Credit Ratings", content: creditRatings, type: "pdf" },
+  { title: "Notices", content: <TextPdf type="notices" />, type: "text/pdf" },
+  {
+    title: "Preferential Issues",
+    content: <TextPdf type="preferencial_issue" />,
+    type: "text/pdf",
+  },
+  {
+    title: "Registrar and Transfer Agents",
+    content: <RegistrarAndTransferAgents />,
+    type: "text",
+  },
+  {
+    title: "Press Releases",
+    content: <TextPdf type="press_release" />,
+    type: "text/pdf",
+  },
 ];
 
 const Investor: React.FC = () => {
@@ -50,13 +102,15 @@ const Investor: React.FC = () => {
 
   const getIcon = (type: string) => {
     switch (type) {
-      case 'pdf':
-        return <PictureAsPdfIcon sx={{ color: '#D32F2F', fontSize: 28 }} />;
-      case 'table':
-        return <TableChartIcon sx={{ color: '#1976D2', fontSize: 28 }} />;
-      case 'text':
-      case 'text/pdf':
-        return <TextSnippetIcon sx={{ color: '#388E3C', fontSize: 28 }} />;
+      case "pdf":
+        return <PictureAsPdfIcon sx={{ color: "#D32F2F", fontSize: 28 }} />;
+      case "table":
+        return <TableChartIcon sx={{ color: "#1976D2", fontSize: 28 }} />;
+      case "text":
+      case "text/pdf":
+        return <TextSnippetIcon sx={{ color: "#388E3C", fontSize: 28 }} />;
+      case "audio":
+        return <HeadphonesIcon sx={{ color: "#7B1FA2", fontSize: 28 }} />;
       default:
         return null;
     }
@@ -69,62 +123,68 @@ const Investor: React.FC = () => {
         description="RBM Infracon Limited investor relations – annual reports, quarterly results, shareholding pattern, board of directors, and NSE filings."
         path="/investors"
       />
-      <PageTitle imageUrl={investors_Image} tileContent='Investors' />
+      <PageTitle imageUrl={investors_Image} tileContent="Investors" />
       <Container maxWidth="lg" sx={{ padding: { xs: "20px", sm: "40px" } }}>
         <Grid container spacing={4}>
           {investorItems.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card
                 sx={{
-                  height: '100%',
-                  transition: 'all 0.3s ease',
-                  transform: hoveredIndex === index ? 'translateY(-8px)' : 'none',
-                  boxShadow: hoveredIndex === index 
-                    ? `0 12px 24px ${themeColor}40`
-                    : '0 4px 12px rgba(0, 0, 0, 0.08)',
-                  '&:hover': {
+                  height: "100%",
+                  transition: "all 0.3s ease",
+                  transform:
+                    hoveredIndex === index ? "translateY(-8px)" : "none",
+                  boxShadow:
+                    hoveredIndex === index
+                      ? `0 12px 24px ${themeColor}40`
+                      : "0 4px 12px rgba(0, 0, 0, 0.08)",
+                  "&:hover": {
                     borderColor: themeColor,
                   },
-                  display: 'flex',
-                  flexDirection: 'column',
-                  cursor: 'pointer',
+                  display: "flex",
+                  flexDirection: "column",
+                  cursor: "pointer",
                   borderRadius: 2,
-                  position: 'relative',
-                  overflow: 'hidden',
-                  '&::before': {
+                  position: "relative",
+                  overflow: "hidden",
+                  "&::before": {
                     content: '""',
-                    position: 'absolute',
+                    position: "absolute",
                     top: 0,
                     left: 0,
-                    width: '100%',
-                    height: '4px',
+                    width: "100%",
+                    height: "4px",
                     backgroundColor: themeColor,
                     opacity: hoveredIndex === index ? 1 : 0,
-                    transition: 'opacity 0.3s ease',
-                  }
+                    transition: "opacity 0.3s ease",
+                  },
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => handleClickOpen(item)}
               >
-                <CardContent sx={{ 
-                  p: 3,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 1.5,
-                  height: '100%'
-                }}>
-                  <Box sx={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'space-between',
-                    gap: 2
-                  }}>
+                <CardContent
+                  sx={{
+                    p: 3,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 1.5,
+                    height: "100%",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: 2,
+                    }}
+                  >
                     <Typography
                       variant="subtitle1"
                       sx={{
-                        fontWeight: 'bold',
-                        color: 'text.primary',
+                        fontWeight: "bold",
+                        color: "text.primary",
                       }}
                     >
                       {item.title}
