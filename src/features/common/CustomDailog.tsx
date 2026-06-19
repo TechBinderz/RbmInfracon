@@ -1,5 +1,5 @@
 // src/components/CustomDialog.tsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Dialog,
   DialogTitle,
@@ -32,30 +32,6 @@ const CustomDialog: React.FC<CustomDialogProps> = ({
   const isTextPdf = type === "text/pdf";
   const isAudio = type === "audio";
 
-  // Create a Blob URL for audio to obscure the original file path
-  const [audioBlobUrl, setAudioBlobUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (isAudio && open && typeof content === "string") {
-      let revoked = false;
-      fetch(content)
-        .then((res) => res.blob())
-        .then((blob) => {
-          if (!revoked) {
-            const url = URL.createObjectURL(blob);
-            setAudioBlobUrl(url);
-          }
-        });
-      return () => {
-        revoked = true;
-        setAudioBlobUrl((prev) => {
-          if (prev) URL.revokeObjectURL(prev);
-          return null;
-        });
-      };
-    }
-  }, [isAudio, open, content]);
-
   useEffect(() => {
     if (isPdf && open && typeof content === "string") {
       // Open the PDF in a new tab
@@ -63,6 +39,15 @@ const CustomDialog: React.FC<CustomDialogProps> = ({
       onClose(); // Close the dialog immediately
     }
   }, [isPdf, open, content, onClose]);
+
+  // Pause and reset audio when dialog closes
+  const audioRef = useRef<HTMLAudioElement>(null);
+  useEffect(() => {
+    if (!open && audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  }, [open]);
 
   return (
     <Dialog
@@ -107,21 +92,17 @@ const CustomDialog: React.FC<CustomDialogProps> = ({
               mx: "auto",
             }}
           >
-            {audioBlobUrl ? (
-              <audio
-                controls
-                controlsList="nodownload"
-                src={audioBlobUrl}
-                onContextMenu={(e) => e.preventDefault()}
-                style={{ width: "100%" }}
-              >
-                Your browser does not support the audio element.
-              </audio>
-            ) : (
-              <Typography variant="body2" color="text.secondary">
-                Loading audio...
-              </Typography>
-            )}
+            <audio
+              ref={audioRef}
+              controls
+              controlsList="nodownload"
+              preload="none"
+              src={content as string}
+              onContextMenu={(e) => e.preventDefault()}
+              style={{ width: "100%" }}
+            >
+              Your browser does not support the audio element.
+            </audio>
           </Box>
         ) : isText || isTextPdf ? (
           <Typography variant="body1">{content}</Typography>
@@ -132,3 +113,4 @@ const CustomDialog: React.FC<CustomDialogProps> = ({
 };
 
 export default CustomDialog;
+
