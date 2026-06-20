@@ -23,6 +23,7 @@ import {
 } from "./InvestorsData";
 import rbmInvestorsPresentation from "../../assets/features/investors/RBM INVESTOR PPT 2023-24_PDF.pdf";
 import earningsConferenceCall from "../../assets/features/investors/RBM_Infracon_FY26_EarningsConferenceCall-June2026-upload.mp3";
+import earningsTranscript from "../../assets/features/investors/Transcript-RBM_Infracon_FY26-v1.pdf";
 import CustomDialog from "../common/CustomDailog";
 import investors_Image from "../../assets/features/investors/investors.jpg";
 import shareholdingPattern from "../../assets/features/investors/CA CERTIFICATE - SHAREHOLDING PATTERN.pdf";
@@ -43,6 +44,11 @@ const investorItems = [
     title: "Earnings Conference Call (June 2026)",
     content: earningsConferenceCall,
     type: "audio",
+  },
+  {
+    title: "Earnings Conference Call Transcript (June 2026)",
+    content: earningsTranscript,
+    type: "pdf",
   },
   {
     title: "Annual Reports",
