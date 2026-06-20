@@ -34,11 +34,12 @@ const CustomDialog: React.FC<CustomDialogProps> = ({
 
   useEffect(() => {
     if (isPdf && open && typeof content === "string") {
-      // Open the PDF in a new tab
-      window.open(content, "_blank");
+      // Open the PDF in a named tab so re-clicking reuses the same tab
+      const windowName = title.replace(/[^a-zA-Z0-9]/g, "_");
+      window.open(content, windowName);
       onClose(); // Close the dialog immediately
     }
-  }, [isPdf, open, content, onClose]);
+  }, [isPdf, open, content, title, onClose]);
 
   // Pause and reset audio when dialog closes
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -113,4 +114,3 @@ const CustomDialog: React.FC<CustomDialogProps> = ({
 };
 
 export default CustomDialog;
-
