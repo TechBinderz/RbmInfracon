@@ -36,6 +36,7 @@ import CORRIGENDUM_FY_2024_25 from "../../assets/features/investors/notices/CORR
 import psc_certificate_warrant from "../../assets/features/investors/preferencial_issue/PCS Certificate_Warrant_signed.pdf";
 import signed_valuation_report from "../../assets/features/investors/preferencial_issue/Signed Valuation Report (1).pdf";
 import earning_press_release_q4_FY25 from "../../assets/features/investors/press_release/RBM Infracon Limited Earning Press Release - Q4 FY25.pdf";
+import rating_letter_FY26 from "../../assets/features/investors/press_release/Rating letter - RBM Infracon.pdf";
 interface Column {
   id: string;
   label: string;
@@ -409,6 +410,10 @@ const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
     {
       name: "Earning Press Release Q4 FY25",
       url: earning_press_release_q4_FY25,
+    },
+    {
+      name: "Rating Letter FY26",
+      url: rating_letter_FY26,
     },
   ];
 
