@@ -21,6 +21,7 @@ import anualReport21_22 from "../../assets/features/investors/Annual Report FY 2
 import anualReport22_23 from "../../assets/features/investors/Annual Report FY 22-23.pdf";
 import anualReport23_24 from "../../assets/features/investors/Annual Report FY 23-24.pdf";
 import anualReport24_25 from "../../assets/features/investors/Annual Report FY 24-25.pdf";
+import anualReport25_26 from "../../assets/features/investors/Annual Report FY 25-26.pdf";
 import quaterlyReport24_Q1 from "../../assets/features/investors/Quaterly Report 2024 (1).pdf";
 import quaterlyReport24_Q2 from "../../assets/features/investors/Quaterly Report 2024 (2).pdf";
 import quaterlyReport24_Q3 from "../../assets/features/investors/Quaterly Report 2024 (3).pdf";
@@ -378,6 +379,7 @@ const TextPdf: React.FC<TextPdfProps> = ({ type }) => {
     { name: "Financial Year 2022-23", url: anualReport22_23 },
     { name: "Financial Year 2023-24", url: anualReport23_24 },
     { name: "Financial Year 2024-25", url: anualReport24_25 },
+    { name: "Financial Year 2025-26", url: anualReport25_26 },
   ];
 
   const quarterlyReports2024 = [
