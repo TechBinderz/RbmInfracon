@@ -1,16 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent, Typography, Grid, Button, Container } from "@mui/material";
-import { jobOpenings } from "./JobData"; // Assuming you have the jobOpenings data imported
+import { jobOpenings } from "./JobData";
 import PageTitle from "../common/PageTitleDiv";
 import SEOHead from "../../app/common/SEOHead";
 import about_us_image from "../../assets/features/about-us/about_us1.jpeg";
 import themeColor from "../common/common";
 
+interface JobItem {
+  id: number;
+  title: string;
+  location: string;
+  description: string;
+  qualifications: string;
+}
+
 const JobOpenings = () => {
   const navigate = useNavigate();
 
-  const handleApplyNow = (job: any) => {
-    // Navigate to CareerPage and pass job details in the state
+  const handleApplyNow = (job: JobItem) => {
     navigate("/careers/CareerOpening", { state: { jobDetails: job } });
   };
 
@@ -29,7 +36,6 @@ const JobOpenings = () => {
           padding={3}
           justifyContent={jobOpenings.length < 3 ? "center" : "flex-start"}
         >
-          {/* Check if jobOpenings is an array and contains items */}
           {Array.isArray(jobOpenings) && jobOpenings.length > 0 ? (
             jobOpenings.map((job) => (
               <Grid item xs={12} sm={6} md={4} key={job.id}>
@@ -71,7 +77,7 @@ const JobOpenings = () => {
                       marginRight: "16px",
                       marginBottom: "16px",
                     }}
-                    onClick={() => handleApplyNow(job)} // Handle Apply Now button click
+                    onClick={() => handleApplyNow(job)}
                   >
                     Apply Now
                   </Button>

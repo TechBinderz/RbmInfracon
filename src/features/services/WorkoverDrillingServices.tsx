@@ -29,7 +29,7 @@ const StyledListItem = styled("li")(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-const StyledCard = styled(Card)(({ }) => ({
+const StyledCard = styled(Card)(() => ({
   height: "100%",
   display: "flex",
   flexDirection: "column",

@@ -127,16 +127,6 @@ const CareerPage: React.FC = () => {
     severity: "success" as "success" | "error",
   });
 
-  useEffect(() => {
-    if (jobDetails) {
-      setFormData((prevData: FormData) => ({
-        ...prevData,
-        role: jobDetails.title,
-        currentLocation: jobDetails.location,
-        highestQualification: jobDetails.qualifications,
-      }));
-    }
-  }, [jobDetails]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -383,7 +373,7 @@ const CareerPage: React.FC = () => {
                       fullWidth
                       label={field.label}
                       name={field.name}
-                      value={(formData as any)[field.name]}
+                      value={String(formData[field.name as keyof FormData] ?? "")}
                       onChange={handleInputChange}
                       variant="outlined"
                       required
@@ -410,7 +400,7 @@ const CareerPage: React.FC = () => {
                       fullWidth
                       label={field.label}
                       name={field.name}
-                      value={(formData as any)[field.name]}
+                      value={String(formData[field.name as keyof FormData] ?? "")}
                       onChange={handleInputChange}
                       variant="outlined"
                       required

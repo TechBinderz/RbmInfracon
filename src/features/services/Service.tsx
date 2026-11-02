@@ -32,19 +32,21 @@ const Services: React.FC = () => {
 
   const themeColorValue = themeColor;
 
-  const ServicesPage: React.FC = () => (
-    <>
-      <SEOHead
-        title="Our Services"
-        description="RBM Infracon offers comprehensive industrial EPC services – Engineering, Procurement, Construction, Piping, Structural Steel, Boiler Erection, Hydrojetting, Heater Operations and more."
-        path="/services"
-      />
-      <PageTitle imageUrl={services_image} tileContent="Services" />
-      <AllServiceCards cardData={filteredCardData} showDetails={true} />
-    </>
-  );
+  if (pathname === "/services") {
+    return (
+      <>
+        <SEOHead
+          title="Our Services"
+          description="RBM Infracon offers comprehensive industrial EPC services – Engineering, Procurement, Construction, Piping, Structural Steel, Boiler Erection, Hydrojetting, Heater Operations and more."
+          path="/services"
+        />
+        <PageTitle imageUrl={services_image} tileContent="Services" />
+        <AllServiceCards cardData={filteredCardData} showDetails={true} />
+      </>
+    );
+  }
 
-  const MoreServices: React.FC = () => (
+  return (
     <>
       <Outlet />
       <Container maxWidth="xl" sx={{ paddingBottom: { xs: 4, md: 8 }, overflow: 'hidden' }}>
@@ -226,8 +228,6 @@ const Services: React.FC = () => {
       </Container>
     </>
   );
-
-  return <>{pathname === "/services" ? <ServicesPage /> : <MoreServices />}</>;
 };
 
 export default Services;

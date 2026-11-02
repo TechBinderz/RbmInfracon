@@ -44,7 +44,7 @@ interface Column {
 }
 
 interface DataTableProps {
-  data: any[];
+  data: Record<string, React.ReactNode>[];
   columns: Column[];
 }
 

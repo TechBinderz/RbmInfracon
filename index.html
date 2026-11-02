@@ -2,32 +2,75 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/rmb_logo_icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#39ac4b" />
 
-    <!-- Default SEO (overridden per-page by react-helmet-async) -->
+    <!-- Favicons & App Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/svg+xml" href="/rmb_logo_icon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="#39ac4b" />
+
+    <!-- Google Fonts: Montserrat (Preconnect & Load) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Search Engine Verifications (Google & Bing) -->
+    <meta name="google-site-verification" content="google-site-verification-token" />
+    <meta name="msvalidate.01" content="msvalidate-token" />
+
+    <!-- Default SEO Metadata (Overridden per-page by SEOHead / react-helmet-async) -->
     <title>RBM Infracon Limited | EPC Services – Engineering, Procurement & Construction</title>
-    <meta name="description" content="RBM Infracon Limited – 30+ years of trusted EPC services in Engineering, Procurement, Construction, Operations & Maintenance across India and the Middle East. ISO 9001:2015 certified." />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="RBM Infracon Limited (NSE: RBMINFRA) – 30+ years of trusted EPC services in Engineering, Procurement, Construction, Operations & Maintenance across India and the Middle East. ISO 9001:2015 certified."
+    />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="author" content="RBM Infracon Limited" />
     <link rel="canonical" href="https://www.rbminfracon.com/" />
 
-    <!-- Open Graph fallback -->
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, Bing) -->
     <meta property="og:site_name" content="RBM Infracon Limited" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_IN" />
     <meta property="og:url" content="https://www.rbminfracon.com/" />
-    <meta property="og:title" content="RBM Infracon Limited | EPC Services" />
-    <meta property="og:description" content="30+ years of trusted EPC services – Engineering, Procurement, Construction, O&M across India and the Middle East." />
-    <meta property="og:image" content="https://www.rbminfracon.com/rmb_logo_icon.svg" />
+    <meta property="og:title" content="RBM Infracon Limited | EPC Services – Engineering, Procurement & Construction" />
+    <meta
+      property="og:description"
+      content="30+ years of trusted EPC services – Engineering, Procurement, Construction, O&M across India and the Middle East."
+    />
+    <meta property="og:image" content="https://www.rbminfracon.com/og-image.png" />
+    <meta property="og:image:secure_url" content="https://www.rbminfracon.com/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="RBM Infracon Limited Logo" />
 
-    <!-- Twitter Card fallback -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="RBM Infracon Limited | EPC Services" />
-    <meta name="twitter:description" content="30+ years of trusted EPC services – Engineering, Procurement, Construction, O&M across India and the Middle East." />
-    <meta name="twitter:image" content="https://www.rbminfracon.com/rmb_logo_icon.svg" />
+    <meta
+      name="twitter:description"
+      content="30+ years of trusted EPC services – Engineering, Procurement, Construction, O&M across India and the Middle East."
+    />
+    <meta name="twitter:image" content="https://www.rbminfracon.com/og-image.png" />
+    <meta name="twitter:image:alt" content="RBM Infracon Limited Logo" />
   </head>
   <body>
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: sans-serif;">
+        <h1>RBM Infracon Limited</h1>
+        <p>Leading Indian EPC Contractor for Engineering, Procurement, Construction & Maintenance Services.</p>
+        <p>Please enable JavaScript in your browser to view the complete interactive experience.</p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

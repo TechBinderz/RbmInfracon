@@ -1,4 +1,23 @@
+# robots.txt for RBM Infracon Limited (www.rbminfracon.com)
 User-agent: *
 Allow: /
+Disallow: /dist/
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+Host: https://www.rbminfracon.com
 Sitemap: https://www.rbminfracon.com/sitemap.xml

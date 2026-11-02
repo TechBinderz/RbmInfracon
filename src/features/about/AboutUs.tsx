@@ -26,6 +26,37 @@ import VisionMissionValues from "./VisionMissionValues";
 import "../home/home.css";
 import useScrollEffect from "../hooks/useScrollEffect";
 
+interface SectionTitleProps {
+  icon: React.ElementType;
+  title: string;
+}
+
+const SectionTitle: React.FC<SectionTitleProps> = ({ icon: Icon, title }) => (
+  <Box sx={{ marginTop: "50px", marginBottom: "30px" }}>
+    <Typography
+      variant="h3"
+      sx={{
+        color: themeColor,
+        fontWeight: "bold",
+        display: "flex",
+        alignItems: "center",
+        gap: 2,
+      }}
+    >
+      <Icon sx={{ color: themeColor, fontSize: 40 }} />
+      {title}
+    </Typography>
+    <Divider
+      sx={{
+        mt: 2,
+        backgroundColor: themeColor,
+        height: 3,
+        width: "30%",
+      }}
+    />
+  </Box>
+);
+
 const AboutUs: React.FC = () => {
   // const theme = useTheme();
   // const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -46,37 +77,6 @@ Driven by a philosophy of integrity, innovation, and excellence, RBM Infracon re
     },
   };
 
-  const SectionTitle = ({
-    icon: Icon,
-    title,
-  }: {
-    icon: any;
-    title: string;
-  }) => (
-    <Box sx={{ marginTop: "50px", marginBottom: "30px" }}>
-      <Typography
-        variant="h3"
-        sx={{
-          color: themeColor,
-          fontWeight: "bold",
-          display: "flex",
-          alignItems: "center",
-          gap: 2,
-        }}
-      >
-        <Icon sx={{ color: themeColor, fontSize: 40 }} />
-        {title}
-      </Typography>
-      <Divider
-        sx={{
-          mt: 2,
-          backgroundColor: themeColor,
-          height: 3,
-          width: "30%",
-        }}
-      />
-    </Box>
-  );
   useScrollEffect("hidden");
 
   return (

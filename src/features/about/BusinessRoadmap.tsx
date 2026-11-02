@@ -109,7 +109,17 @@ const BusinessRoadmap: React.FC = () => {
   const currentPathDetails = getPathDetails();
 
   // Calculate points along the curve
-  const calculatePointsAlongPath = (path: any) => {
+  type PathDetails = {
+    startX: number;
+    startY: number;
+    controlX1: number;
+    controlY1: number;
+    controlX2: number;
+    controlY2: number;
+    endX: number;
+    endY: number;
+  };
+  const calculatePointsAlongPath = (path: PathDetails) => {
     const startX = path.startX;
     const startY = path.startY;
     const controlX1 = path.controlX1;
@@ -167,9 +177,56 @@ const BusinessRoadmap: React.FC = () => {
     <circle key={index} cx={point.x} cy={point.y} r="10" fill={themeColor} />
   ));
 
-  const TimelineView = () => {
-    return (
-      <>
+
+  return (
+    <Box
+      sx={{
+        background: `url(${Background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        py: 8,
+        color: "white",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <Container maxWidth="lg">
+        <Typography
+          variant="h3"
+          component="h2"
+          sx={{
+            textAlign: "center",
+            mb: 6,
+            fontWeight: "bold",
+            color: themeColor,
+          }}
+        >
+          BUSINESS ROADMAP
+        </Typography>
+
+        <Box sx={{ position: "relative", minHeight: "600px" }}>
+          {/* History Text */}
+          <Box
+            sx={{
+              maxWidth: "600px",
+              mb: 4,
+              pl: 2,
+              height: increaseHeight ? "1000px" : "auto",
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                color: "#fff",
+                // fontSize: increaseHeight ? "1.0rem" : "1.1rem",
+              }}
+            >
+              {roadmapText}
+            </Typography>
+          </Box>
+
+          {/* Timeline Points */}
+          <>
         {/* Timeline Path */}
         <svg
           width="100%"
@@ -281,59 +338,7 @@ const BusinessRoadmap: React.FC = () => {
             }}
           />
         </motion.div>
-      </>
-    );
-  };
-
-  return (
-    <Box
-      sx={{
-        background: `url(${Background})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        py: 8,
-        color: "white",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <Container maxWidth="lg">
-        <Typography
-          variant="h3"
-          component="h2"
-          sx={{
-            textAlign: "center",
-            mb: 6,
-            fontWeight: "bold",
-            color: themeColor,
-          }}
-        >
-          BUSINESS ROADMAP
-        </Typography>
-
-        <Box sx={{ position: "relative", minHeight: "600px" }}>
-          {/* History Text */}
-          <Box
-            sx={{
-              maxWidth: "600px",
-              mb: 4,
-              pl: 2,
-              height: increaseHeight ? "1000px" : "auto",
-            }}
-          >
-            <Typography
-              variant="body2"
-              sx={{
-                color: "#fff",
-                // fontSize: increaseHeight ? "1.0rem" : "1.1rem",
-              }}
-            >
-              {roadmapText}
-            </Typography>
-          </Box>
-
-          {/* Timeline Points */}
-          <TimelineView />
+</>
 
           {/* Company Logo */}
           {!increaseHeight && (

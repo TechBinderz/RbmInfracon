@@ -32,7 +32,16 @@ import corporateAnnouncements from "../../assets/features/investors/PROSPECTUS_R
 import creditRatings from "../../assets/features/investors/Credit Rating Letter.pdf";
 import themeColor from "../common/common";
 
-const investorItems = [
+type InvestorType = "audio" | "table" | "image" | "text" | "pdf" | "text/pdf";
+
+interface InvestorItem {
+  title: string;
+  content: React.ReactNode;
+  type: InvestorType;
+  pdfUrl?: string;
+}
+
+const investorItems: InvestorItem[] = [
   { title: "Board of Directors", content: <DirectorTable />, type: "table" },
   { title: "Committee of Board", content: <CommitteeOfBoard />, type: "table" },
   {
@@ -93,10 +102,10 @@ const investorItems = [
 
 const Investor: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<any>(null);
-  const [hoveredIndex, setHoveredIndex] = useState<any>(null);
+  const [selectedItem, setSelectedItem] = useState<InvestorItem | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const handleClickOpen = (item: any) => {
+  const handleClickOpen = (item: InvestorItem) => {
     setSelectedItem(item);
     setOpen(true);
   };

@@ -13,6 +13,29 @@ import ongc_work_order_signed from "../../../assets/features/news/news_pages/ong
 import news_background from "../../../assets/features/news/news_pages/news_background.avif";
 import themeColor from "../../common/common";
 
+const newsArticleSchema = {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  headline: "RBM Infracon Ltd. Officially Signs ONGC Contract",
+  image: ["https://www.rbminfracon.com/og-image.png"],
+  datePublished: "2024-11-26T09:00:00+05:30",
+  dateModified: "2024-11-26T09:00:00+05:30",
+  author: {
+    "@type": "Organization",
+    name: "RBM Infracon Limited",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "RBM Infracon Limited",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.rbminfracon.com/og-image.png",
+    },
+  },
+  description:
+    "RBM Infracon Limited signs a major work order with ONGC for production enhancement operations in mature oil fields.",
+};
+
 const ONGC_WorkOrderSigned: React.FC = () => {
   return (
     <>
@@ -20,6 +43,7 @@ const ONGC_WorkOrderSigned: React.FC = () => {
         title="ONGC Work Order Signed"
         description="RBM Infracon Limited signs a major work order with ONGC for production enhancement operations in mature oil fields – a milestone in our upstream O&G expansion."
         path="/news/ongc_work_order_signed"
+        structuredData={newsArticleSchema}
       />
       <PageTitle
         imageUrl={news_background}

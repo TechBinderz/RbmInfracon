@@ -54,7 +54,11 @@ const News: React.FC = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
 
-  const AllNews: React.FC = () => (
+  if (pathname !== "/news") {
+    return <Outlet />;
+  }
+
+  return (
     <>
       <SEOHead
         title="News & Media"
@@ -126,8 +130,6 @@ const News: React.FC = () => {
       </Container>
     </>
   );
-
-  return <>{pathname === "/news" ? <AllNews /> : <Outlet />}</>;
 };
 
 export default News;

@@ -160,6 +160,34 @@ const StyledTitle = styled(Typography)(({ theme }) => ({
   },
 }));
 
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "RBM Infracon Limited - Head Office",
+  image: "https://www.rbminfracon.com/og-image.png",
+  url: "https://www.rbminfracon.com/contact",
+  telephone: "+91-288-2560370",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "RBM House, Patel Park, Opp. Indo-German Tool Room",
+    addressLocality: "Jamnagar",
+    addressRegion: "Gujarat",
+    postalCode: "361002",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 22.4707,
+    longitude: 70.0577,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+};
+
 const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState(() => {
     // Try to load saved form data from localStorage
@@ -295,6 +323,7 @@ const ContactUs: React.FC = () => {
         title="Contact Us"
         description="Contact RBM Infracon Limited – offices in India and Dubai. Reach out for EPC project inquiries, service quotes, and business partnerships."
         path="/contact"
+        structuredData={contactSchema}
       />
       <PageTitle imageUrl={contact_us_image} tileContent="Contact Us" />
 
@@ -321,7 +350,7 @@ const ContactUs: React.FC = () => {
                       required
                       label={field.label}
                       name={field.name}
-                      value={(formData as any)[field.name]}
+                      value={String(formData[field.name as keyof typeof formData] ?? "")}
                       onChange={handleInputChange}
                       variant="outlined"
                       type={field.type}
